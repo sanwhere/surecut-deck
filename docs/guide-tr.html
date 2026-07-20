@@ -1,4 +1,4 @@
-<title>Surecut Deck — Kullanım Rehberi</title>
+<title>Surecut Deck: Kullanım Rehberi</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">Kendi sunucusu · Uygulama mağazası yok · Ağının dışına çıkmaz</p>
       <h1>Kenarda duran tableti bilgisayarının kontrol paneline çevir</h1>
-      <p class="lead">Surecut Deck, Windows bilgisayarında küçük bir sunucu çalıştırır ve kendi arayüzünü kendisi yayınlar. Tablet sadece bir web adresi açar — kurulacak uygulama, açılacak hesap ve aradaki bulut yoktur.</p>
+      <p class="lead">Surecut Deck, Windows bilgisayarında küçük bir sunucu çalıştırır ve kendi arayüzünü kendisi yayınlar. Tablet sadece bir web adresi açar; kurulacak uygulama, açılacak hesap ve aradaki bulut yoktur.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Nasıl çalışır</p>
-        <ul><li><a href="#buttons"><b>01</b>Temel</a></li><li><a href="#icons"><b>02</b>Simgeler</a></li><li><a href="#dragdrop"><b>03</b>Masaüstü</a></li><li><a href="#mouse"><b>04</b>İmleç</a></li><li><a href="#pages"><b>05</b>Alan</a></li><li><a href="#themes"><b>06</b>Görünüm</a></li><li><a href="#screen"><b>07</b>Ekran</a></li><li><a href="#languages"><b>08</b>Dil</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Temel</a></li><li><a href="#icons"><b>02</b>Simgeler</a></li><li><a href="#dragdrop"><b>03</b>Masaüstü</a></li><li><a href="#sync"><b>04</b>Eşitleme</a></li><li><a href="#mouse"><b>05</b>İmleç</a></li><li><a href="#pages"><b>06</b>Alan</a></li><li><a href="#managepages"><b>07</b>Alan</a></li><li><a href="#themes"><b>08</b>Görünüm</a></li><li><a href="#screen"><b>09</b>Ekran</a></li><li><a href="#languages"><b>10</b>Dil</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">Temel</p>
   <h2>Butonlar sadece tuş göndermez</h2>
-  <p class="lead">Kalem simgesiyle düzenleme moduna gir, sonra herhangi bir butona dokunarak düzenle — ya da basılı tutup başka yere sürükle. Her butonun bir etiketi, simgesi, rengi ve tek bir eylemi vardır.</p>
-  
+  <p class="lead">Kalem simgesiyle düzenleme moduna gir, sonra herhangi bir butona dokunarak düzenle ya da basılı tutup başka yere sürükle. Her butonun bir etiketi, simgesi, rengi ve tek bir eylemi vardır.</p>
+  <aside class="note">Sıralı adımlarda her satır bir adımdır: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Düzenleyicideki <b>Test et</b> düğmesi eylemi kaydetmeden bir kez çalıştırır; böylece ince ayar isteyen bir kısayolu kesinleştirmeden önce oturtabilirsin.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Etiket, simge seçici ve renk." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Etiket, simge seçici ve renk.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Eylem tipi ve hazır kısayollar." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Eylem tipi ve hazır kısayollar.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Eylem</th><th>Ne yapar</th></tr></thead>
-  <tbody><tr><td class="k">Klavye kısayolu</td><td>Her kombinasyon — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, medya tuşları, ses</td></tr><tr><td class="k">Metin yaz</td><td>Hazır bir metni senin yerine yazar, satır sonları dahil</td></tr><tr><td class="k">Uygulama / dosya aç</td><td>Bir program, belge veya klasör</td></tr><tr><td class="k">Web adresi aç</td><td>Bağlantıyı varsayılan tarayıcında açar</td></tr><tr><td class="k">Komut çalıştır</td><td>PowerShell ya da CMD</td></tr><tr><td class="k">Fare</td><td>Tablet ekranını touchpad'e çevirir</td></tr><tr><td class="k">Sıralı adımlar</td><td>Birden çok adımı sırayla, aralarında beklemeyle</td></tr></tbody>
+  <tbody><tr><td class="k">Klavye kısayolu</td><td>Her kombinasyon: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, medya tuşları, ses</td></tr><tr><td class="k">Metin yaz</td><td>Hazır bir metni senin yerine yazar, satır sonları dahil</td></tr><tr><td class="k">Uygulama / dosya aç</td><td>Bir program, belge veya klasör</td></tr><tr><td class="k">Web adresi aç</td><td>Bağlantıyı varsayılan tarayıcında açar</td></tr><tr><td class="k">Komut çalıştır</td><td>PowerShell ya da CMD</td></tr><tr><td class="k">Fare</td><td>Tablet ekranını touchpad'e çevirir</td></tr><tr><td class="k">Sıralı adımlar</td><td>Birden çok adımı sırayla, aralarında beklemeyle</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -294,9 +298,17 @@ footer {
 <section id="dragdrop">
   <p class="eyebrow">Masaüstü</p>
   <h2>Kısayolu masaüstünden sürükleyip bırak</h2>
-  <p class="lead">Düzenleyiciyi tepsi simgesinden aç: aynı arayüzü içinde barındıran gerçek bir masaüstü penceresi gelir. Üstteki şeride bir kısayol, program, klasör veya dosya bırak — hedefi çözülür, uygulama simgesi çıkarılır ve buton tablette anında belirir.</p>
-  <aside class="note">Düzenleyicinin tarayıcı sekmesi değil de native bir pencere olmasının belirli bir sebebi var. Tarayıcılar bırakılan dosyanın <em>yolunu</em> web sayfasına asla vermez, üstelik Chromium bırakılan kısayolu hedefine çözer — yani tarayıcı, programın nerede olduğunu öğrenmek yerine programın tamamını okumaya çalışırdı.</aside>
+  <p class="lead">Düzenleyiciyi tepsi simgesinden aç: aynı arayüzü içinde barındıran gerçek bir masaüstü penceresi gelir. Üstteki şeride bir kısayol, program, klasör veya dosya bırak: hedefi çözülür, uygulama simgesi çıkarılır ve buton tablette anında belirir.</p>
+  <aside class="note">Düzenleyicinin tarayıcı sekmesi değil de native bir pencere olmasının belirli bir sebebi var. Tarayıcılar bırakılan dosyanın <em>yolunu</em> web sayfasına asla vermez, üstelik Chromium bırakılan kısayolu hedefine çözer, yani tarayıcı programın nerede olduğunu öğrenmek yerine programın tamamını okumaya çalışırdı.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="Masaüstü düzenleyicisi. Soldan sayfayı seç, kısayolları şeride bırak." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Hedef sayfa</span><span class="callout" style="left:62%;top:13%"><i></i>Kısayolları buraya bırak</span></div></div><figcaption>Masaüstü düzenleyicisi. Soldan sayfayı seç, kısayolları şeride bırak.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">Eşitleme</p>
+  <h2>İki taraftan da anında düzenle</h2>
+  <p class="lead">Tablet ile masaüstü düzenleyicisi aynı deck'in iki görünümüdür. Bilgisayarda buton eklersin, tablette sayfa yenilemeden belirir; tablette sayfayı yeniden adlandırırsın, düzenleyicinin sayfa listesi de peşinden gelir. Her değişiklik anında diske yazılır ve son otuz sürüm saklanır; bu yüzden aynı anda iki cihazdan yapılan bir düzenleme, diğerini sessizce ezmek yerine reddedilir.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Touchpad kipi; altta, tahmin etmek istemediğin tıklamalar için açık düğmeler." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Touchpad kipi; altta, tahmin etmek istemediğin tıklamalar için açık düğmeler.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Jest</th><th>Sonuç</th></tr></thead>
-  <tbody><tr><td class="k">Sürükle</td><td>İmleci hareket ettirir</td></tr><tr><td class="k">Dokun</td><td>Sol tık</td></tr><tr><td class="k">Çift dokun</td><td>Çift tık</td></tr><tr><td class="k">Çift dokun, sonra sürükle</td><td>Sol tuşu basılı tutar — metin seç, pencere taşı</td></tr><tr><td class="k">Uzun bas</td><td>Sağ tık</td></tr><tr><td class="k">İki parmak</td><td>Dikey ve yatay kaydırma</td></tr><tr><td class="k">İki parmakla dokun</td><td>Sağ tık</td></tr><tr><td class="k">Kıstır</td><td>Yakınlaştır</td></tr><tr><td class="k">Üç parmak ↑ / ↓</td><td>Görev görünümü / masaüstünü göster</td></tr><tr><td class="k">Üç parmak ← / →</td><td>Sanal masaüstleri arasında geçiş</td></tr></tbody>
+  <tbody><tr><td class="k">Sürükle</td><td>İmleci hareket ettirir</td></tr><tr><td class="k">Dokun</td><td>Sol tık</td></tr><tr><td class="k">Çift dokun</td><td>Çift tık</td></tr><tr><td class="k">Çift dokun, sonra sürükle</td><td>Sol tuşu basılı tutar: metin seç, pencere taşı</td></tr><tr><td class="k">Uzun bas</td><td>Sağ tık</td></tr><tr><td class="k"><b>Tut</b> düğmesi</td><td>Sol tuşu basılı kilitler; parmağını basılı tutmadan birkaç hamlede sürükleyebilirsin</td></tr><tr><td class="k"><b>Orta</b> düğmesi</td><td>Orta tık: sekme kapatır, bağlantıyı yeni sekmede açar</td></tr><tr><td class="k">İki parmak</td><td>Dikey ve yatay kaydırma</td></tr><tr><td class="k">İki parmakla dokun</td><td>Sağ tık</td></tr><tr><td class="k">Kıstır</td><td>Yakınlaştır</td></tr><tr><td class="k">Üç parmak ↑ / ↓</td><td>Görev görünümü / masaüstünü göster</td></tr><tr><td class="k">Üç parmak ← / →</td><td>Sanal masaüstleri arasında geçiş</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">Alan</p>
-  <h2>İhtiyacın kadar sayfa</h2>
-  <p class="lead">Butonları sayfalara ayır — biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Deck üzerinde sağa sola kaydırarak sayfalar arasında geçersin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; istediğin yere de sürükleyebilirsin.</p>
+  <h2>Sayfalar arasında kaydır</h2>
+  <p class="lead">Butonları sayfalara ayır: biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Aralarında geçmek için <b>deck üzerinde herhangi bir yerde sağa ya da sola kaydır</b>; sayfanın adı kısaca görünür, böylece nereye geldiğini bilirsin. Düzenleme modunda aynı hareket bunun yerine butonları sıralar, yani ikisi hiç çakışmaz.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Tek kaydırma bir sonraki sayfaya geçirir." loading="lazy"></div><figcaption>Tek kaydırma bir sonraki sayfaya geçirir.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">Alan</p>
+  <h2>Sayfalar, sütunlar ve yüzen buton</h2>
+  <p class="lead">Düzenleme modunda alt çubuk sayfa ekleyip siler ve ızgaranın kaç sütun kullanacağını belirler. Sayfa sekmesine tekrar dokunursan adını değiştirebilirsin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; ekranda her zaman duran tek şey o olduğu için istediğin yere de sürükleyebilirsin.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Düzenleme modu; altta sayfa ve sütun denetimleri." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Düzenleme modu; altta sayfa ve sütun denetimleri.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Görünüm</p>
   <h2>On bir tema, butonlar da ona uyar</h2>
-  <p class="lead">Temaların çoğu bilinen geliştirici renk şemalarından geliyor — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — artı bilinçli olarak iki renkli iki terminal görünümü ve nötr açık ile koyu. Tema değiştirdiğinde buton renkleri tonları korunarak yeni palete çevrilir; mavi buton yeni temanın mavisi olur ve kurduğun düzen aynı okunur.</p>
-  
+  <p class="lead">Temaların çoğu bilinen geliştirici renk şemalarından geliyor (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), artı bilinçli olarak iki renkli iki terminal görünümü ve nötr açık ile koyu. Tema değiştirdiğinde buton renkleri tonları korunarak yeni palete çevrilir; mavi buton yeni temanın mavisi olur ve kurduğun düzen aynı okunur.</p>
+  <aside class="note">Deck tek renge dönüştüyse <b>Tema paletine dağıt</b> temanın renklerini butonlara dağıtır; <b>Hepsini vurgu rengine boya</b> ise hepsini tek renge döndürür. Her buton seçiciden kendi rengini de alabilir, çubukların ve yüzen butonun kullandığı vurgu rengini de sen seçersin. Buton yazısı hangi renge denk gelirse gelsin siyah ile beyaz arasında kendiliğinden geçer.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Her kart kendi zeminini ve paletini önizler." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Her kart kendi zeminini ve paletini önizler.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Aynı deck, açık temada." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Aynı deck, açık temada.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">Ekran</p>
   <h2>Ekranın tamamını kullan</h2>
-  <p class="lead"><b>Ekrana yay</b> seçeneği satırların yüksekliği paylaşmasını sağlar; iki satır buton altta boşluk bırakmak yerine ekranı doldurur. <b>Çubukları otomatik gizle</b> ise üst ve alt çubukları tamamen kaldırır, geriye yalnızca butonlar kalır — yüzen buton onları geri getirir, ya da boş bir alana üç saniye basılı tut.</p>
+  <p class="lead"><b>Butonları ekrana yay</b> seçeneği satırların yüksekliği paylaşmasını sağlar; iki satır buton altta boşluk bırakmak yerine ekranı doldurur. <b>Üst ve alt çubukları otomatik gizle</b> ise onları tamamen kaldırır, geriye yalnızca butonlar kalır; yüzen buton onları geri getirir, ya da boş bir alana üç saniye basılı tut.</p>
   <aside class="note">Tablet uyanık kalacak şekilde de ayarlanmıştır: deck açıkken ekran sönmez.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — Windows için kendi sunucusuyla çalışan bir kısayol paneli.</footer>
+        <footer>Surecut Deck: Windows için kendi sunucusuyla çalışan bir kısayol paneli.</footer>
       </div>
     </div>
   </div>

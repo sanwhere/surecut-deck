@@ -1146,7 +1146,9 @@ I18N.ja = {
   showBars: 'バーを表示', dragTip: 'ボタンをドラッグすると移動できます',
   mouse: 'マウス', cursor: 'カーソル', scrollSpeed: 'スクロール', direction: '方向',
   normal: '標準', reverse: '反転', leftClick: '左クリック', middle: '中央',
-  rightClick: '右クリック', hold: '長押し', holdTitle: 'ドラッグロック',
+  // hold: 'ホールド' - dokunmatik yuzeydeki uzun basma jesti sag tiklama oldugu icin
+  // bu butona da '長押し' demek iki farkli islevi ayni adla anmak olurdu.
+  rightClick: '右クリック', hold: 'ホールド', holdTitle: 'ドラッグロック',
   tpHint1: 'ドラッグ：カーソル · タップ：左クリック · 長押し：右クリック',
   tpHint2: 'ダブルタップ：ダブルクリック · ダブルタップ＋ドラッグ：押したまま移動',
   tpHint3: '2本指：スクロール · 2本指タップ：右クリック · ピンチ：ズーム',

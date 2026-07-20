@@ -1,7 +1,7 @@
 {
   "lang": "fr",
   "dir": "ltr",
-  "title": "Surecut Deck — Guide d'utilisation",
+  "title": "Surecut Deck : Guide d'utilisation",
   "eyebrow": "Auto-hébergé · Sans magasin d'applications · Rien ne quitte votre réseau",
   "heroTitle": "Transformez une tablette inutilisée en pupitre de commande pour votre PC",
   "heroLead": "Surecut Deck fait tourner un petit serveur sur votre machine Windows et sert lui-même son interface. La tablette ouvre simplement une adresse web : aucune application à installer, aucun compte à créer, aucun nuage entre les deux.",
@@ -44,7 +44,7 @@
       "id": "buttons",
       "eyebrow": "Les bases",
       "title": "Les boutons ne font pas qu'envoyer des touches",
-      "body": "Touchez le crayon pour passer en mode édition, puis touchez un bouton pour le modifier — ou maintenez-le pour le faire glisser ailleurs. Chaque bouton a un libellé, une icône, une couleur et une action.",
+      "body": "Touchez le crayon pour passer en mode édition, puis touchez un bouton pour le modifier, ou maintenez-le pour le faire glisser ailleurs. Chaque bouton a un libellé, une icône, une couleur et une action.",
       "figures": [
         { "src": "04-editor.png", "frame": "tablet", "caption": "Libellé, sélecteur d'icônes et couleur." },
         { "src": "05-action.png", "frame": "tablet", "caption": "Type d'action, avec des raccourcis tout prêts." }
@@ -60,7 +60,8 @@
           ["Souris", "Transforme l'écran de la tablette en pavé tactile"],
           ["Suite d'étapes", "Plusieurs étapes dans l'ordre, avec des pauses entre elles"]
         ]
-      }
+      },
+      "note": "Une suite d'étapes, c'est une étape par ligne : <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Le bouton <b>Tester</b> de l'éditeur exécute l'action une fois sans l'enregistrer : de quoi mettre au point un raccourci capricieux avant de le valider."
     },
     {
       "id": "icons",
@@ -76,7 +77,7 @@
       "eyebrow": "Bureau",
       "title": "Faites glisser un raccourci depuis le bureau",
       "body": "Ouvrez l'éditeur depuis l'icône de la zone de notification : une véritable fenêtre de bureau s'affiche, avec la même interface à l'intérieur. Déposez un raccourci, un programme, un dossier ou un fichier sur la bande du haut : la cible est résolue, l'icône de l'application est extraite, et le bouton apparaît immédiatement sur la tablette.",
-      "note": "L'éditeur est une fenêtre native plutôt qu'un onglet de navigateur, pour une raison précise. Les navigateurs ne transmettent jamais à une page le <em>chemin</em> d'un fichier déposé, et Chromium résout en plus un raccourci vers sa cible — un navigateur essaierait donc de lire tout le programme au lieu d'apprendre où il se trouve.",
+      "note": "L'éditeur est une fenêtre native plutôt qu'un onglet de navigateur, pour une raison précise. Les navigateurs ne transmettent jamais à une page le <em>chemin</em> d'un fichier déposé, et Chromium résout en plus un raccourci vers sa cible, si bien qu'un navigateur essaierait de lire tout le programme au lieu d'apprendre où il se trouve.",
       "figures": [
         {
           "src": "10-editor-win.png",
@@ -88,6 +89,12 @@
           ]
         }
       ]
+    },
+    {
+      "id": "sync",
+      "eyebrow": "Synchronisation",
+      "title": "Modifiez d'un côté comme de l'autre, en direct",
+      "body": "La tablette et l'éditeur de bureau sont le même pupitre vu deux fois. Ajoutez un bouton sur le PC et il apparaît sur la tablette sans recharger ; renommez une page sur la tablette et la liste des pages de l'éditeur suit. Chaque changement est écrit sur le disque immédiatement, et les trente dernières versions sont conservées : une modification faite sur deux appareils en même temps est donc refusée plutôt que d'écraser l'autre en silence."
     },
     {
       "id": "mouse",
@@ -105,6 +112,8 @@
           ["Double toucher", "Double clic"],
           ["Double toucher puis glisser", "Maintenir le bouton gauche et déplacer : sélectionner du texte, déplacer une fenêtre"],
           ["Appui long", "Clic droit"],
+          ["Bouton <b>Maintenir</b>", "Verrouille le bouton gauche enfoncé, pour glisser en plusieurs passes sans garder le doigt appuyé"],
+          ["Bouton <b>Milieu</b>", "Clic du milieu : fermer un onglet, ouvrir un lien dans un nouveau"],
           ["Deux doigts", "Défilement vertical et horizontal"],
           ["Toucher à deux doigts", "Clic droit"],
           ["Pincer", "Zoom"],
@@ -116,17 +125,28 @@
     {
       "id": "pages",
       "eyebrow": "Espace",
-      "title": "Autant de pages qu'il vous en faut",
-      "body": "Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. Balayez vers la gauche ou la droite sur le pupitre pour passer de l'une à l'autre. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble.",
+      "title": "Balayez d'une page à l'autre",
+      "body": "Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. <b>Balayez vers la gauche ou la droite n'importe où sur le pupitre</b> pour passer de l'une à l'autre ; le nom de la page s'affiche brièvement pour que vous sachiez où vous avez atterri. En mode édition, le même geste réorganise les boutons : les deux ne se marchent jamais dessus.",
       "figures": [
-        { "src": "07-menu.png", "frame": "tablet", "caption": "Le menu flottant : pages, barres, mode édition, thème et plein écran." }
+        { "src": "12-swipe.png", "frame": "none", "caption": "Un balayage fait passer d'une page à la suivante." }
+      ]
+    },
+    {
+      "id": "managepages",
+      "eyebrow": "Espace",
+      "title": "Pages, colonnes et bouton flottant",
+      "body": "En mode édition, la barre du bas ajoute et supprime des pages et fixe le nombre de colonnes de la grille. Touchez de nouveau l'onglet d'une page pour la renommer. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble, puisqu'il est la seule chose toujours à l'écran.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Le menu flottant : pages, barres, mode édition, thème et plein écran." },
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Le mode édition, avec les commandes de pages et de colonnes en bas." }
       ]
     },
     {
       "id": "themes",
       "eyebrow": "Apparence",
       "title": "Onze thèmes, et les boutons suivent",
-      "body": "La plupart des thèmes proviennent de palettes bien connues des développeurs — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — auxquelles s'ajoutent deux allures de terminal volontairement bicolores et un clair et un sombre neutres. Changer de thème convertit la couleur de vos boutons vers la nouvelle palette en conservant leurs teintes : un bouton bleu devient le bleu du nouveau thème et votre disposition se lit toujours pareil.",
+      "body": "La plupart des thèmes proviennent de palettes bien connues des développeurs (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), auxquelles s'ajoutent deux allures de terminal volontairement bicolores et un clair et un sombre neutres. Changer de thème convertit la couleur de vos boutons vers la nouvelle palette en conservant leurs teintes : un bouton bleu devient le bleu du nouveau thème et votre disposition se lit toujours pareil.",
+      "note": "Si un pupitre finit tout d'une seule couleur, <b>Répartir la palette du thème</b> distribue les couleurs du thème sur les boutons ; <b>Tout peindre en couleur d'accent</b> les ramène à une seule. Chaque bouton peut aussi prendre une couleur de votre choix dans le sélecteur, et la couleur d'accent utilisée par les barres et le bouton flottant vous revient. Le texte des boutons bascule tout seul entre noir et blanc, quelle que soit la couleur retenue.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Chaque carte montre son propre fond et sa palette." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Le même pupitre sur un thème clair." }
@@ -136,7 +156,7 @@
       "id": "screen",
       "eyebrow": "Écran",
       "title": "Occupez tout l'écran",
-      "body": "<b>Étirer pour remplir</b> fait partager toute la hauteur aux rangées : deux rangées de boutons remplissent l'écran au lieu de laisser un vide en bas. <b>Masquer les barres automatiquement</b> supprime entièrement les barres haute et basse et ne laisse que les boutons — le bouton flottant les rappelle, ou appuyez trois secondes sur une zone vide.",
+      "body": "<b>Étirer les boutons sur tout l'écran</b> fait partager toute la hauteur aux rangées : deux rangées de boutons le remplissent au lieu de laisser un vide en bas. <b>Masquer automatiquement les barres</b> supprime entièrement celles du haut et du bas et ne laisse que les boutons ; le bouton flottant les rappelle, ou appuyez trois secondes sur une zone vide.",
       "note": "La tablette est également réglée pour rester éveillée : l'écran ne s'éteindra pas tant que le pupitre est ouvert."
     },
     {
@@ -157,5 +177,5 @@
     ]
   },
 
-  "footer": "Surecut Deck — un pupitre de raccourcis auto-hébergé pour Windows."
+  "footer": "Surecut Deck : un pupitre de raccourcis auto-hébergé pour Windows."
 }

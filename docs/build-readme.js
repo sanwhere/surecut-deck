@@ -57,8 +57,9 @@ const out = [];
 
 // --- baslik ---
 // Proje adi basligin kendisi olsun: GitHub depo adini gosterse de README
-// kendini tanitmali. Ad, "Surecut Deck — Kullanim Rehberi" kalibindan alinir.
-const projectName = String(content.title).split('—')[0].trim();
+// kendini tanitmali. Ad, "Surecut Deck: Kullanim Rehberi" kalibindan alinir.
+// Ayirac dile gore degisiyor (iki nokta, tam genislikli iki nokta, tire).
+const projectName = String(content.title).split(/[:：—–|]/)[0].trim();
 
 out.push(`# ${projectName}`, '');
 out.push(`**${md(content.heroTitle)}**`, '');
@@ -101,7 +102,7 @@ content.sections.forEach((s) => {
 
 // --- uyarilar ---
 out.push(`## ${md(content.notes.title)}`, '');
-content.notes.items.forEach((i) => out.push(`**${md(i.k)}** — ${md(i.v)}`, ''));
+content.notes.items.forEach((i) => out.push(`**${md(i.k)}.** ${md(i.v)}`, ''));
 
 // --- teknik ek ---
 if (extra) out.push('---', '', extra.trim(), '');

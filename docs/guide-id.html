@@ -1,4 +1,4 @@
-<title>Surecut Deck — Panduan Penggunaan</title>
+<title>Surecut Deck: Panduan Penggunaan</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">Server sendiri · Tanpa toko aplikasi · Tidak ada yang keluar dari jaringanmu</p>
       <h1>Ubah tablet nganggur menjadi panel kendali PC-mu</h1>
-      <p class="lead">Surecut Deck menjalankan server kecil di komputer Windows-mu dan menyajikan antarmukanya sendiri. Tablet hanya membuka sebuah alamat web — tidak ada aplikasi yang perlu dipasang, akun yang perlu dibuat, atau awan di tengahnya.</p>
+      <p class="lead">Surecut Deck menjalankan server kecil di komputer Windows-mu dan menyajikan antarmukanya sendiri. Tablet hanya membuka sebuah alamat web: tidak ada aplikasi yang perlu dipasang, akun yang perlu dibuat, atau awan di tengahnya.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Cara kerjanya</p>
-        <ul><li><a href="#buttons"><b>01</b>Dasar</a></li><li><a href="#icons"><b>02</b>Ikon</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#mouse"><b>04</b>Penunjuk</a></li><li><a href="#pages"><b>05</b>Ruang</a></li><li><a href="#themes"><b>06</b>Tampilan</a></li><li><a href="#screen"><b>07</b>Layar</a></li><li><a href="#languages"><b>08</b>Bahasa</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Dasar</a></li><li><a href="#icons"><b>02</b>Ikon</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Sinkron</a></li><li><a href="#mouse"><b>05</b>Penunjuk</a></li><li><a href="#pages"><b>06</b>Ruang</a></li><li><a href="#managepages"><b>07</b>Ruang</a></li><li><a href="#themes"><b>08</b>Tampilan</a></li><li><a href="#screen"><b>09</b>Layar</a></li><li><a href="#languages"><b>10</b>Bahasa</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">Dasar</p>
   <h2>Tombol melakukan lebih dari sekadar menekan tuts</h2>
-  <p class="lead">Ketuk pensil untuk masuk ke mode ubah, lalu ketuk tombol mana pun untuk menyuntingnya — atau tekan agak lama untuk menyeretnya ke tempat lain. Setiap tombol punya label, ikon, warna, dan satu tindakan.</p>
-  
+  <p class="lead">Ketuk pensil untuk masuk ke mode ubah, lalu ketuk tombol mana pun untuk menyuntingnya, atau tekan agak lama untuk menyeretnya ke tempat lain. Setiap tombol punya label, ikon, warna, dan satu tindakan.</p>
+  <aside class="note">Rangkaian ditulis satu langkah per baris: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Tombol <b>Uji</b> di penyunting menjalankan tindakannya sekali tanpa menyimpannya, jadi pintasan yang rewel bisa kamu bereskan dulu sebelum benar-benar dipakai.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Label, pemilih ikon, dan warna." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Label, pemilih ikon, dan warna.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Jenis tindakan, dengan pintasan siap pakai untuk dipilih." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Jenis tindakan, dengan pintasan siap pakai untuk dipilih.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Tindakan</th><th>Yang dilakukan</th></tr></thead>
-  <tbody><tr><td class="k">Pintasan papan ketik</td><td>Kombinasi apa pun — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, tombol media, volume</td></tr><tr><td class="k">Tulis teks</td><td>Menuliskan sepotong teks untukmu, termasuk ganti baris</td></tr><tr><td class="k">Buka aplikasi / berkas</td><td>Sebuah program, dokumen, atau folder</td></tr><tr><td class="k">Buka alamat web</td><td>Membuka tautan di peramban bawaanmu</td></tr><tr><td class="k">Jalankan perintah</td><td>PowerShell atau CMD</td></tr><tr><td class="k">Tetikus</td><td>Mengubah layar tablet menjadi panel sentuh</td></tr><tr><td class="k">Rangkaian langkah</td><td>Beberapa langkah berurutan, dengan jeda di antaranya</td></tr></tbody>
+  <tbody><tr><td class="k">Pintasan papan ketik</td><td>Kombinasi apa pun: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, tombol media, volume</td></tr><tr><td class="k">Tulis teks</td><td>Menuliskan sepotong teks untukmu, termasuk ganti baris</td></tr><tr><td class="k">Buka aplikasi / berkas</td><td>Sebuah program, dokumen, atau folder</td></tr><tr><td class="k">Buka alamat web</td><td>Membuka tautan di peramban bawaanmu</td></tr><tr><td class="k">Jalankan perintah</td><td>PowerShell atau CMD</td></tr><tr><td class="k">Tetikus</td><td>Mengubah layar tablet menjadi panel sentuh</td></tr><tr><td class="k">Rangkaian langkah</td><td>Beberapa langkah berurutan, dengan jeda di antaranya</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -294,9 +298,17 @@ footer {
 <section id="dragdrop">
   <p class="eyebrow">Desktop</p>
   <h2>Seret pintasan dari desktop</h2>
-  <p class="lead">Buka penyunting dari ikon baki sistem: muncul jendela desktop sungguhan dengan antarmuka yang sama di dalamnya. Jatuhkan pintasan, program, folder, atau berkas ke bilah di bagian atas — sasarannya diuraikan, ikon aplikasinya diambil, dan tombolnya langsung muncul di tablet.</p>
-  <aside class="note">Penyunting berupa jendela asli, bukan tab peramban, karena satu alasan tertentu. Peramban tidak pernah memberikan <em>lokasi</em> berkas yang dijatuhkan kepada halaman web, dan Chromium bahkan menguraikan pintasan yang dijatuhkan menjadi sasarannya — jadi peramban akan mencoba membaca seluruh program alih-alih mengetahui di mana letaknya.</aside>
+  <p class="lead">Buka penyunting dari ikon baki sistem: muncul jendela desktop sungguhan dengan antarmuka yang sama di dalamnya. Jatuhkan pintasan, program, folder, atau berkas ke bilah di bagian atas: sasarannya diuraikan, ikon aplikasinya diambil, dan tombolnya langsung muncul di tablet.</p>
+  <aside class="note">Penyunting berupa jendela asli, bukan tab peramban, karena satu alasan tertentu. Peramban tidak pernah memberikan <em>lokasi</em> berkas yang dijatuhkan kepada halaman web, dan Chromium bahkan menguraikan pintasan yang dijatuhkan menjadi sasarannya, jadi peramban akan mencoba membaca seluruh program alih-alih mengetahui di mana letaknya.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="Penyunting desktop. Pilih halaman di sebelah kiri, lalu jatuhkan pintasan ke bilah." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Halaman tujuan</span><span class="callout" style="left:62%;top:13%"><i></i>Jatuhkan di sini</span></div></div><figcaption>Penyunting desktop. Pilih halaman di sebelah kiri, lalu jatuhkan pintasan ke bilah.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">Sinkron</p>
+  <h2>Sunting dari sisi mana pun, langsung terlihat</h2>
+  <p class="lead">Tablet dan penyunting desktop adalah dek yang sama, hanya dilihat dari dua sisi. Tambahkan tombol di PC dan ia muncul di tablet tanpa perlu memuat ulang; ganti nama halaman di tablet dan daftar halaman di penyunting ikut menyesuaikan. Setiap perubahan langsung ditulis ke disk, dan tiga puluh versi terakhir disimpan, jadi suntingan yang dilakukan di dua perangkat sekaligus akan ditolak, bukan diam-diam menimpa yang lain.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Mode panel sentuh, dengan tombol jelas di bawah untuk klik yang tidak ingin kamu tebak." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Mode panel sentuh, dengan tombol jelas di bawah untuk klik yang tidak ingin kamu tebak.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Gerakan</th><th>Hasil</th></tr></thead>
-  <tbody><tr><td class="k">Seret</td><td>Menggerakkan penunjuk</td></tr><tr><td class="k">Ketuk</td><td>Klik kiri</td></tr><tr><td class="k">Ketuk dua kali</td><td>Klik ganda</td></tr><tr><td class="k">Ketuk dua kali lalu seret</td><td>Menahan tombol kiri sambil bergerak — memilih teks, menggeser jendela</td></tr><tr><td class="k">Tekan lama</td><td>Klik kanan</td></tr><tr><td class="k">Dua jari</td><td>Gulir tegak dan mendatar</td></tr><tr><td class="k">Ketuk dua jari</td><td>Klik kanan</td></tr><tr><td class="k">Cubit</td><td>Perbesar/perkecil</td></tr><tr><td class="k">Tiga jari ↑ / ↓</td><td>Tampilan tugas / tampilkan desktop</td></tr><tr><td class="k">Tiga jari ← / →</td><td>Ganti desktop virtual</td></tr></tbody>
+  <tbody><tr><td class="k">Seret</td><td>Menggerakkan penunjuk</td></tr><tr><td class="k">Ketuk</td><td>Klik kiri</td></tr><tr><td class="k">Ketuk dua kali</td><td>Klik ganda</td></tr><tr><td class="k">Ketuk dua kali lalu seret</td><td>Menahan tombol kiri sambil bergerak: memilih teks, menggeser jendela</td></tr><tr><td class="k">Tekan lama</td><td>Klik kanan</td></tr><tr><td class="k">Tombol <b>Tahan</b></td><td>Mengunci tombol kiri tetap tertekan, jadi kamu bisa menyeret dalam beberapa usapan tanpa menahan jari</td></tr><tr><td class="k">Tombol <b>Tengah</b></td><td>Klik tengah: menutup tab, membuka tautan di tab baru</td></tr><tr><td class="k">Dua jari</td><td>Gulir tegak dan mendatar</td></tr><tr><td class="k">Ketuk dua jari</td><td>Klik kanan</td></tr><tr><td class="k">Cubit</td><td>Perbesar/perkecil</td></tr><tr><td class="k">Tiga jari ↑ / ↓</td><td>Tampilan tugas / tampilkan desktop</td></tr><tr><td class="k">Tiga jari ← / →</td><td>Ganti desktop virtual</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">Ruang</p>
-  <h2>Sebanyak halaman yang kamu perlukan</h2>
-  <p class="lead">Kelompokkan tombol ke dalam halaman — satu untuk menyunting, satu untuk bermain, satu untuk rapat yang tak pernah kamu tinggalkan. Geser ke kiri atau ke kanan pada dek untuk berpindah. Tombol mengambang membawamu ke halaman, penyunting, dan tema bahkan ketika bilah tersembunyi, dan bisa kamu seret ke tempat yang nyaman.</p>
+  <h2>Geser untuk berpindah halaman</h2>
+  <p class="lead">Kelompokkan tombol ke dalam halaman: satu untuk menyunting, satu untuk bermain, satu untuk rapat yang tak pernah kamu tinggalkan. <b>Geser ke kiri atau ke kanan di mana pun pada dek</b> untuk berpindah di antaranya; nama halamannya muncul sekilas supaya kamu tahu sedang mendarat di mana. Dalam mode ubah, gerakan yang sama justru menata ulang tombol, jadi keduanya tidak pernah bentrok.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Menu mengambang: halaman, bilah, mode ubah, tema, dan layar penuh." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Menu mengambang: halaman, bilah, mode ubah, tema, dan layar penuh.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Sekali geser berpindah dari satu halaman ke halaman berikutnya." loading="lazy"></div><figcaption>Sekali geser berpindah dari satu halaman ke halaman berikutnya.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">Ruang</p>
+  <h2>Halaman, kolom, dan tombol mengambang</h2>
+  <p class="lead">Dalam mode ubah, bilah bawah menambah dan menghapus halaman serta mengatur berapa kolom yang dipakai kisi. Ketuk lagi tab sebuah halaman untuk mengganti namanya. Tombol mengambang menjangkau halaman, penyunting, dan tema bahkan ketika bilah tersembunyi, dan bisa kamu seret ke mana pun yang terasa nyaman, karena ia satu-satunya yang selalu ada di layar.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Menu mengambang: halaman, bilah, mode ubah, tema, dan layar penuh." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Menu mengambang: halaman, bilah, mode ubah, tema, dan layar penuh.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Mode ubah, dengan kendali halaman dan kolom di sepanjang bagian bawah." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Mode ubah, dengan kendali halaman dan kolom di sepanjang bagian bawah.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Tampilan</p>
   <h2>Sebelas tema, dan tombolnya ikut menyesuaikan</h2>
-  <p class="lead">Sebagian besar tema berasal dari skema warna yang dikenal para pengembang — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — ditambah dua tampilan terminal yang sengaja hanya dua warna serta satu terang dan satu gelap yang netral. Saat tema diganti, warna tombolmu dikonversi ke palet baru dengan mempertahankan ronanya: tombol biru menjadi biru tema yang baru, dan tata letakmu tetap terbaca sama.</p>
-  
+  <p class="lead">Sebagian besar tema berasal dari skema warna yang dikenal para pengembang (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), ditambah dua tampilan terminal yang sengaja hanya dua warna serta satu terang dan satu gelap yang netral. Saat tema diganti, warna tombolmu dikonversi ke palet baru dengan mempertahankan ronanya: tombol biru menjadi biru tema yang baru, dan tata letakmu tetap terbaca sama.</p>
+  <aside class="note">Kalau sebuah dek berakhir serba satu warna, <b>Sebar palet tema</b> membagikan warna-warna tema itu ke seluruh tombol; <b>Warnai semua dengan warna aksen</b> mengembalikannya menjadi satu warna. Tombol mana pun juga bisa memakai warna pilihanmu sendiri dari pemilih warna, dan warna aksen yang dipakai bilah serta tombol mengambang terserah kamu. Teks tombol berganti sendiri antara hitam dan putih, apa pun warna yang kamu pilih.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Tiap kartu menampilkan latar dan paletnya sendiri." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Tiap kartu menampilkan latar dan paletnya sendiri.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Dek yang sama dengan tema terang." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Dek yang sama dengan tema terang.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">Layar</p>
   <h2>Manfaatkan seluruh layar</h2>
-  <p class="lead"><b>Regangkan memenuhi layar</b> membuat baris berbagi seluruh tinggi: dua baris tombol memenuhi layar alih-alih menyisakan ruang kosong di bawah. <b>Sembunyikan bilah otomatis</b> menghilangkan bilah atas dan bawah sepenuhnya dan menyisakan tombol saja — tombol mengambang mengembalikannya, atau tekan area kosong selama tiga detik.</p>
+  <p class="lead"><b>Regangkan tombol memenuhi layar</b> membuat baris berbagi seluruh tinggi: dua baris tombol memenuhi layar alih-alih menyisakan ruang kosong di bawah. <b>Sembunyikan bilah atas dan bawah otomatis</b> menghilangkannya sepenuhnya dan menyisakan tombol saja. Tombol mengambang mengembalikannya, atau tekan area kosong selama tiga detik.</p>
   <aside class="note">Tablet juga diatur agar tetap terjaga: layar tidak akan mati selama dek terbuka.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — dek pintasan dengan server sendiri untuk Windows.</footer>
+        <footer>Surecut Deck: dek pintasan dengan server sendiri untuk Windows.</footer>
       </div>
     </div>
   </div>

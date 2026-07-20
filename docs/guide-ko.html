@@ -1,4 +1,4 @@
-<title>Surecut Deck — 사용 안내서</title>
+<title>Surecut Deck: 사용 안내서</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">직접 호스팅 · 앱스토어 불필요 · 네트워크 밖으로 나가지 않음</p>
       <h1>남는 태블릿을 PC 조작 패널로</h1>
-      <p class="lead">Surecut Deck은 Windows PC에서 작은 서버를 실행하고 자기 화면을 직접 제공합니다. 태블릿은 웹 주소를 열기만 하면 됩니다 — 설치할 앱도, 만들 계정도, 중간의 클라우드도 없습니다.</p>
+      <p class="lead">Surecut Deck은 Windows PC에서 작은 서버를 실행하고 자기 화면을 직접 제공합니다. 태블릿은 웹 주소를 열기만 하면 됩니다. 설치할 앱도, 만들 계정도, 중간의 클라우드도 없습니다.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>작동 방식</p>
-        <ul><li><a href="#buttons"><b>01</b>기본</a></li><li><a href="#icons"><b>02</b>아이콘</a></li><li><a href="#dragdrop"><b>03</b>바탕 화면</a></li><li><a href="#mouse"><b>04</b>포인터</a></li><li><a href="#pages"><b>05</b>공간</a></li><li><a href="#themes"><b>06</b>겉모습</a></li><li><a href="#screen"><b>07</b>화면</a></li><li><a href="#languages"><b>08</b>언어</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>기본</a></li><li><a href="#icons"><b>02</b>아이콘</a></li><li><a href="#dragdrop"><b>03</b>바탕 화면</a></li><li><a href="#sync"><b>04</b>동기화</a></li><li><a href="#mouse"><b>05</b>포인터</a></li><li><a href="#pages"><b>06</b>공간</a></li><li><a href="#managepages"><b>07</b>공간</a></li><li><a href="#themes"><b>08</b>겉모습</a></li><li><a href="#screen"><b>09</b>화면</a></li><li><a href="#languages"><b>10</b>언어</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">기본</p>
   <h2>버튼은 키를 누르는 것 이상을 합니다</h2>
-  <p class="lead">연필을 눌러 편집 모드로 들어간 다음, 버튼을 눌러 수정하세요 — 길게 누르면 다른 자리로 끌어 옮길 수 있습니다. 버튼마다 레이블, 아이콘, 색, 그리고 동작이 하나씩 있습니다.</p>
-  
+  <p class="lead">연필을 눌러 편집 모드로 들어간 다음, 버튼을 눌러 수정하세요. 길게 누르면 다른 자리로 끌어 옮길 수 있습니다. 버튼마다 레이블, 아이콘, 색, 그리고 동작이 하나씩 있습니다.</p>
+  <aside class="note">단계 순서는 한 줄에 한 단계입니다: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. 편집기의 <b>테스트</b> 버튼은 저장하지 않고 동작을 한 번만 실행합니다. 손이 많이 가는 단축키도 확정하기 전에 제대로 맞춰 볼 수 있습니다.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="레이블, 아이콘 선택, 색." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>레이블, 아이콘 선택, 색.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="동작 유형과 바로 고를 수 있는 단축키." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>동작 유형과 바로 고를 수 있는 단축키.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>동작</th><th>하는 일</th></tr></thead>
-  <tbody><tr><td class="k">키보드 단축키</td><td>어떤 조합이든 — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, 미디어 키, 음량</td></tr><tr><td class="k">텍스트 입력</td><td>줄바꿈까지 포함해 정해둔 문구를 대신 씁니다</td></tr><tr><td class="k">앱 / 파일 열기</td><td>프로그램, 문서 또는 폴더</td></tr><tr><td class="k">웹 주소 열기</td><td>기본 브라우저에서 링크를 엽니다</td></tr><tr><td class="k">명령 실행</td><td>PowerShell 또는 CMD</td></tr><tr><td class="k">마우스</td><td>태블릿 화면을 터치패드로 바꿉니다</td></tr><tr><td class="k">단계 순서</td><td>여러 단계를 차례로, 사이에 지연을 두고</td></tr></tbody>
+  <tbody><tr><td class="k">키보드 단축키</td><td>어떤 조합이든: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, 미디어 키, 음량</td></tr><tr><td class="k">텍스트 입력</td><td>줄바꿈까지 포함해 정해둔 문구를 대신 씁니다</td></tr><tr><td class="k">앱 / 파일 열기</td><td>프로그램, 문서 또는 폴더</td></tr><tr><td class="k">웹 주소 열기</td><td>기본 브라우저에서 링크를 엽니다</td></tr><tr><td class="k">명령 실행</td><td>PowerShell 또는 CMD</td></tr><tr><td class="k">마우스</td><td>태블릿 화면을 터치패드로 바꿉니다</td></tr><tr><td class="k">단계 순서</td><td>여러 단계를 차례로, 사이에 지연을 두고</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -295,8 +299,16 @@ footer {
   <p class="eyebrow">바탕 화면</p>
   <h2>바탕 화면에서 바로 가기를 끌어다 놓기</h2>
   <p class="lead">알림 영역 아이콘에서 편집기를 열면, 같은 화면을 안에 담은 진짜 데스크톱 창이 나타납니다. 위쪽 띠에 바로 가기, 프로그램, 폴더, 파일을 놓아 보세요. 대상이 해석되고 앱 아이콘이 추출되며, 버튼이 곧바로 태블릿에 나타납니다.</p>
-  <aside class="note">편집기가 브라우저 탭이 아니라 네이티브 창인 데에는 분명한 이유가 있습니다. 브라우저는 끌어다 놓은 파일의 <em>경로</em>를 웹 페이지에 절대 넘기지 않고, 게다가 Chromium은 놓인 바로 가기를 그 대상으로 해석해 버립니다 — 즉 브라우저는 위치를 아는 대신 프로그램 전체를 읽으려 들게 됩니다.</aside>
+  <aside class="note">편집기가 브라우저 탭이 아니라 네이티브 창인 데에는 분명한 이유가 있습니다. 브라우저는 끌어다 놓은 파일의 <em>경로</em>를 웹 페이지에 절대 넘기지 않고, 게다가 Chromium은 놓인 바로 가기를 그 대상으로 해석해 버립니다. 즉 브라우저는 위치를 아는 대신 프로그램 전체를 읽으려 들게 됩니다.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="데스크톱 편집기. 왼쪽에서 페이지를 고르고 띠에 바로 가기를 놓으세요." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>추가할 페이지</span><span class="callout" style="left:62%;top:13%"><i></i>여기에 놓기</span></div></div><figcaption>데스크톱 편집기. 왼쪽에서 페이지를 고르고 띠에 바로 가기를 놓으세요.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">동기화</p>
+  <h2>어느 쪽에서 고치든, 바로</h2>
+  <p class="lead">태블릿과 데스크톱 편집기는 같은 덱을 두 번 보는 것입니다. PC에서 버튼을 더하면 새로 고치지 않아도 태블릿에 나타나고, 태블릿에서 페이지 이름을 바꾸면 편집기의 페이지 목록도 따라옵니다. 모든 변경은 곧바로 디스크에 기록되고 최근 서른 개 판본이 남습니다. 그래서 두 기기에서 동시에 고친 경우, 한쪽이 조용히 덮어써지는 대신 거부됩니다.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="터치패드 모드. 아래에는 헷갈리고 싶지 않은 클릭을 위한 명확한 버튼이 있습니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>터치패드 모드. 아래에는 헷갈리고 싶지 않은 클릭을 위한 명확한 버튼이 있습니다.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>제스처</th><th>결과</th></tr></thead>
-  <tbody><tr><td class="k">끌기</td><td>포인터 이동</td></tr><tr><td class="k">탭</td><td>왼쪽 클릭</td></tr><tr><td class="k">두 번 탭</td><td>더블 클릭</td></tr><tr><td class="k">두 번 탭 후 끌기</td><td>왼쪽 버튼을 누른 채 이동 — 텍스트 선택, 창 옮기기</td></tr><tr><td class="k">길게 누르기</td><td>오른쪽 클릭</td></tr><tr><td class="k">두 손가락</td><td>세로·가로 스크롤</td></tr><tr><td class="k">두 손가락 탭</td><td>오른쪽 클릭</td></tr><tr><td class="k">오므리기</td><td>확대·축소</td></tr><tr><td class="k">세 손가락 ↑ / ↓</td><td>작업 보기 / 바탕 화면 표시</td></tr><tr><td class="k">세 손가락 ← / →</td><td>가상 데스크톱 전환</td></tr></tbody>
+  <tbody><tr><td class="k">끌기</td><td>포인터 이동</td></tr><tr><td class="k">탭</td><td>왼쪽 클릭</td></tr><tr><td class="k">두 번 탭</td><td>더블 클릭</td></tr><tr><td class="k">두 번 탭 후 끌기</td><td>왼쪽 버튼을 누른 채 이동: 텍스트 선택, 창 옮기기</td></tr><tr><td class="k">길게 누르기</td><td>오른쪽 클릭</td></tr><tr><td class="k"><b>누르기</b> 버튼</td><td>왼쪽 버튼을 누른 채로 잠가 두어, 손가락을 계속 대고 있지 않아도 여러 번에 나눠 끌 수 있습니다</td></tr><tr><td class="k"><b>가운데</b> 버튼</td><td>가운데 클릭: 탭 닫기, 링크를 새 탭에서 열기</td></tr><tr><td class="k">두 손가락</td><td>세로·가로 스크롤</td></tr><tr><td class="k">두 손가락 탭</td><td>오른쪽 클릭</td></tr><tr><td class="k">오므리기</td><td>확대·축소</td></tr><tr><td class="k">세 손가락 ↑ / ↓</td><td>작업 보기 / 바탕 화면 표시</td></tr><tr><td class="k">세 손가락 ← / →</td><td>가상 데스크톱 전환</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">공간</p>
-  <h2>필요한 만큼 페이지를</h2>
-  <p class="lead">버튼을 페이지로 묶으세요 — 편집용 한 장, 게임용 한 장, 늘 들어가 있는 그 회의용 한 장. 덱에서 좌우로 밀면 페이지가 바뀝니다. 막대가 숨겨져 있어도 떠 있는 버튼으로 페이지·편집기·테마에 갈 수 있고, 편한 자리로 끌어 옮길 수 있습니다.</p>
+  <h2>밀어서 페이지 넘기기</h2>
+  <p class="lead">버튼을 페이지로 묶으세요: 편집용 한 장, 게임용 한 장, 늘 들어가 있는 그 회의용 한 장. <b>덱의 아무 곳에서나 좌우로 밀면</b> 페이지 사이를 오갑니다. 페이지 이름이 잠깐 떠서 어디에 왔는지 알려 줍니다. 편집 모드에서는 같은 동작이 버튼 순서 바꾸기가 되므로, 둘이 부딪칠 일은 없습니다.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="떠 있는 메뉴: 페이지, 막대, 편집 모드, 테마, 전체 화면." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>떠 있는 메뉴: 페이지, 막대, 편집 모드, 테마, 전체 화면.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="한 번 밀면 다음 페이지로." loading="lazy"></div><figcaption>한 번 밀면 다음 페이지로.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">공간</p>
+  <h2>페이지, 열, 그리고 떠 있는 버튼</h2>
+  <p class="lead">편집 모드에서는 아래 막대로 페이지를 더하고 지우며, 격자가 몇 열을 쓸지 정합니다. 페이지 탭을 한 번 더 누르면 이름을 바꿉니다. 막대가 숨겨져 있어도 떠 있는 버튼으로 페이지·편집기·테마에 갈 수 있습니다. 화면에 늘 남아 있는 유일한 것인 만큼, 편한 자리 어디로든 끌어 옮길 수 있습니다.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="떠 있는 메뉴: 페이지, 막대, 편집 모드, 테마, 전체 화면." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>떠 있는 메뉴: 페이지, 막대, 편집 모드, 테마, 전체 화면.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="편집 모드. 아래쪽에 페이지와 열 조절이 놓여 있습니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>편집 모드. 아래쪽에 페이지와 열 조절이 놓여 있습니다.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">겉모습</p>
   <h2>열한 가지 테마, 버튼도 따라갑니다</h2>
-  <p class="lead">대부분의 테마는 개발자에게 익숙한 색 구성에서 가져왔습니다 — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — 여기에 일부러 두 가지 색만 쓴 터미널풍 두 가지와 중립적인 밝은·어두운 테마가 더해집니다. 테마를 바꾸면 버튼 색이 색상을 유지한 채 새 팔레트로 옮겨집니다. 파란 버튼은 새 테마의 파랑이 되고, 배치는 그대로 읽힙니다.</p>
-  
+  <p class="lead">대부분의 테마는 개발자에게 익숙한 색 구성에서 가져왔습니다: Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine. 여기에 일부러 두 가지 색만 쓴 터미널풍 두 가지와 중립적인 밝은·어두운 테마가 더해집니다. 테마를 바꾸면 버튼 색이 색상을 유지한 채 새 팔레트로 옮겨집니다. 파란 버튼은 새 테마의 파랑이 되고, 배치는 그대로 읽힙니다.</p>
+  <aside class="note">덱이 온통 한 가지 색이 되어 버렸다면, <b>테마 팔레트로 분배</b>가 테마의 색을 버튼들에 나눠 줍니다. <b>모두 강조 색으로 칠하기</b>는 다시 하나의 색으로 되돌립니다. 어떤 버튼이든 색 선택기에서 원하는 색을 따로 줄 수 있고, 막대와 떠 있는 버튼이 쓰는 강조 색도 직접 고릅니다. 어떤 색을 고르든 버튼 글자는 검정과 하양 사이에서 알아서 바뀝니다.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="각 카드가 자기 배경과 팔레트를 보여 줍니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>각 카드가 자기 배경과 팔레트를 보여 줍니다.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="같은 덱을 밝은 테마로." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>같은 덱을 밝은 테마로.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">화면</p>
   <h2>화면을 남김없이 쓰기</h2>
-  <p class="lead"><b>화면 가득 채우기</b>를 켜면 행이 전체 높이를 나눠 가져, 두 줄짜리 버튼도 아래를 비우지 않고 화면을 채웁니다. <b>막대 자동 숨기기</b>는 위아래 막대를 완전히 없애고 버튼만 남깁니다 — 떠 있는 버튼으로 되돌리거나, 빈 곳을 3초 길게 누르세요.</p>
+  <p class="lead"><b>버튼을 화면 가득 채우기</b>를 켜면 행이 전체 높이를 나눠 가져, 두 줄짜리 버튼도 아래를 비우지 않고 화면을 채웁니다. <b>위아래 막대 자동 숨기기</b>는 그것들을 완전히 없애고 버튼만 남깁니다. 떠 있는 버튼으로 되돌리거나, 빈 곳을 3초 길게 누르세요.</p>
   <aside class="note">태블릿은 잠들지 않도록도 설정되어 있습니다. 덱이 열려 있는 동안 화면은 꺼지지 않습니다.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — Windows용 직접 호스팅 단축키 덱.</footer>
+        <footer>Surecut Deck: Windows용 직접 호스팅 단축키 덱.</footer>
       </div>
     </div>
   </div>

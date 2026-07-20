@@ -1,4 +1,4 @@
-<title>Surecut Deck — Handbuch</title>
+<title>Surecut Deck: Handbuch</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">Selbst gehostet · Kein App-Store · Nichts verlässt dein Netzwerk</p>
       <h1>Mach aus einem übrigen Tablet ein Bedienpult für deinen PC</h1>
-      <p class="lead">Surecut Deck startet einen kleinen Server auf deinem Windows-Rechner und liefert seine Oberfläche selbst aus. Das Tablet öffnet nur eine Webadresse — keine App zum Installieren, kein Konto, keine Cloud dazwischen.</p>
+      <p class="lead">Surecut Deck startet einen kleinen Server auf deinem Windows-Rechner und liefert seine Oberfläche selbst aus. Das Tablet öffnet nur eine Webadresse: keine App zum Installieren, kein Konto, keine Cloud dazwischen.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>So funktioniert es</p>
-        <ul><li><a href="#buttons"><b>01</b>Grundlagen</a></li><li><a href="#icons"><b>02</b>Symbole</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#mouse"><b>04</b>Zeiger</a></li><li><a href="#pages"><b>05</b>Platz</a></li><li><a href="#themes"><b>06</b>Aussehen</a></li><li><a href="#screen"><b>07</b>Bildschirm</a></li><li><a href="#languages"><b>08</b>Sprache</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Grundlagen</a></li><li><a href="#icons"><b>02</b>Symbole</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Abgleich</a></li><li><a href="#mouse"><b>05</b>Zeiger</a></li><li><a href="#pages"><b>06</b>Platz</a></li><li><a href="#managepages"><b>07</b>Platz</a></li><li><a href="#themes"><b>08</b>Aussehen</a></li><li><a href="#screen"><b>09</b>Bildschirm</a></li><li><a href="#languages"><b>10</b>Sprache</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,17 +279,17 @@ footer {
 <section id="buttons">
   <p class="eyebrow">Grundlagen</p>
   <h2>Schaltflächen können mehr als Tasten senden</h2>
-  <p class="lead">Tippe auf den Stift für den Bearbeitungsmodus und dann auf eine Schaltfläche, um sie zu ändern — oder halte sie gedrückt, um sie an eine andere Stelle zu ziehen. Jede Schaltfläche hat eine Beschriftung, ein Symbol, eine Farbe und eine Aktion.</p>
-  
+  <p class="lead">Tippe auf den Stift für den Bearbeitungsmodus und dann auf eine Schaltfläche, um sie zu ändern, oder halte sie gedrückt, um sie an eine andere Stelle zu ziehen. Jede Schaltfläche hat eine Beschriftung, ein Symbol, eine Farbe und eine Aktion.</p>
+  <aside class="note">Eine Schrittfolge steht Zeile für Zeile da, ein Schritt pro Zeile: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Die Schaltfläche <b>Testen</b> im Editor führt die Aktion einmal aus, ohne sie zu speichern; so bekommst du ein kniffliges Kürzel hin, bevor du dich darauf festlegst.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Beschriftung, Symbolauswahl und Farbe." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Beschriftung, Symbolauswahl und Farbe.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Aktionstyp, mit fertigen Tastenkürzeln zur Auswahl." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Aktionstyp, mit fertigen Tastenkürzeln zur Auswahl.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Aktion</th><th>Wirkung</th></tr></thead>
-  <tbody><tr><td class="k">Tastenkürzel</td><td>Jede Kombination — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, Medientasten, Lautstärke</td></tr><tr><td class="k">Text schreiben</td><td>Schreibt einen Textblock für dich, Zeilenumbrüche inklusive</td></tr><tr><td class="k">App / Datei öffnen</td><td>Ein Programm, ein Dokument oder ein Ordner</td></tr><tr><td class="k">Webadresse öffnen</td><td>Öffnet den Link im Standardbrowser</td></tr><tr><td class="k">Befehl ausführen</td><td>PowerShell oder CMD</td></tr><tr><td class="k">Maus</td><td>Macht den Tablet-Bildschirm zum Touchpad</td></tr><tr><td class="k">Schrittfolge</td><td>Mehrere Schritte nacheinander, mit Pausen dazwischen</td></tr></tbody>
+  <tbody><tr><td class="k">Tastenkürzel</td><td>Jede Kombination: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, Medientasten, Lautstärke</td></tr><tr><td class="k">Text schreiben</td><td>Schreibt einen Textblock für dich, Zeilenumbrüche inklusive</td></tr><tr><td class="k">App / Datei öffnen</td><td>Ein Programm, ein Dokument oder ein Ordner</td></tr><tr><td class="k">Webadresse öffnen</td><td>Öffnet den Link im Standardbrowser</td></tr><tr><td class="k">Befehl ausführen</td><td>PowerShell oder CMD</td></tr><tr><td class="k">Maus</td><td>Macht den Tablet-Bildschirm zum Touchpad</td></tr><tr><td class="k">Schrittfolge</td><td>Mehrere Schritte nacheinander, mit Pausen dazwischen</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
   <p class="eyebrow">Symbole</p>
-  <h2>Emoji wählen — oder das echte App-Symbol nehmen</h2>
+  <h2>Emoji wählen, oder das echte App-Symbol nehmen</h2>
   <p class="lead">Der Editor hat ein Symbolraster, du musst also nie ein Emoji von Hand tippen. Für Programme gibt es etwas Besseres: Zieh die Verknüpfung vom Desktop herein, dann kommt das echte Programmsymbol gleich mit.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Bearbeitungsmodus. Jede Schaltfläche trägt einen Stift; halte sie gedrückt zum Umsortieren." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Bearbeitungsmodus. Jede Schaltfläche trägt einen Stift; halte sie gedrückt zum Umsortieren.</figcaption></figure>
@@ -294,9 +298,17 @@ footer {
 <section id="dragdrop">
   <p class="eyebrow">Desktop</p>
   <h2>Zieh eine Verknüpfung vom Desktop herein</h2>
-  <p class="lead">Öffne den Editor über das Symbol im Infobereich: Es erscheint ein richtiges Desktop-Fenster mit derselben Oberfläche darin. Lege eine Verknüpfung, ein Programm, einen Ordner oder eine Datei auf den Streifen oben — das Ziel wird aufgelöst, das Programmsymbol extrahiert, und die Schaltfläche erscheint sofort auf dem Tablet.</p>
-  <aside class="note">Der Editor ist aus einem bestimmten Grund ein natives Fenster und kein Browser-Tab. Browser geben einer Webseite niemals den <em>Pfad</em> einer abgelegten Datei, und Chromium löst eine abgelegte Verknüpfung zusätzlich zu ihrem Ziel auf — ein Browser würde also versuchen, das ganze Programm zu lesen, statt zu erfahren, wo es liegt.</aside>
+  <p class="lead">Öffne den Editor über das Symbol im Infobereich: Es erscheint ein richtiges Desktop-Fenster mit derselben Oberfläche darin. Lege eine Verknüpfung, ein Programm, einen Ordner oder eine Datei auf den Streifen oben: Das Ziel wird aufgelöst, das Programmsymbol extrahiert, und die Schaltfläche erscheint sofort auf dem Tablet.</p>
+  <aside class="note">Der Editor ist aus einem bestimmten Grund ein natives Fenster und kein Browser-Tab. Browser geben einer Webseite niemals den <em>Pfad</em> einer abgelegten Datei, und Chromium löst eine abgelegte Verknüpfung zusätzlich zu ihrem Ziel auf, ein Browser würde also versuchen, das ganze Programm zu lesen, statt zu erfahren, wo es liegt.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="Der Desktop-Editor. Links die Seite wählen, dann Verknüpfungen auf den Streifen ziehen." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Zielseite</span><span class="callout" style="left:62%;top:13%"><i></i>Hier ablegen</span></div></div><figcaption>Der Desktop-Editor. Links die Seite wählen, dann Verknüpfungen auf den Streifen ziehen.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">Abgleich</p>
+  <h2>Von beiden Seiten bearbeiten, sofort</h2>
+  <p class="lead">Tablet und Desktop-Editor sind dasselbe Pult, zweimal gesehen. Füge am PC eine Schaltfläche hinzu, und sie erscheint ohne Neuladen auf dem Tablet; benenne am Tablet eine Seite um, und die Seitenliste im Editor zieht mit. Jede Änderung wird sofort auf die Festplatte geschrieben, und die letzten dreißig Fassungen bleiben erhalten; eine Bearbeitung, die gleichzeitig auf zwei Geräten passiert, wird deshalb abgelehnt, statt die andere stillschweigend zu überschreiben.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Touchpad-Modus, mit eindeutigen Schaltflächen darunter für die Klicks, die man nicht erraten möchte." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Touchpad-Modus, mit eindeutigen Schaltflächen darunter für die Klicks, die man nicht erraten möchte.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Geste</th><th>Ergebnis</th></tr></thead>
-  <tbody><tr><td class="k">Ziehen</td><td>Zeiger bewegen</td></tr><tr><td class="k">Tippen</td><td>Linksklick</td></tr><tr><td class="k">Doppeltippen</td><td>Doppelklick</td></tr><tr><td class="k">Doppeltippen, dann ziehen</td><td>Linke Taste halten und bewegen — Text markieren, Fenster ziehen</td></tr><tr><td class="k">Langes Drücken</td><td>Rechtsklick</td></tr><tr><td class="k">Zwei Finger</td><td>Scrollen, senkrecht und waagerecht</td></tr><tr><td class="k">Zweifingertipp</td><td>Rechtsklick</td></tr><tr><td class="k">Zusammenziehen</td><td>Zoomen</td></tr><tr><td class="k">Drei Finger ↑ / ↓</td><td>Taskansicht / Desktop anzeigen</td></tr><tr><td class="k">Drei Finger ← / →</td><td>Virtuellen Desktop wechseln</td></tr></tbody>
+  <tbody><tr><td class="k">Ziehen</td><td>Zeiger bewegen</td></tr><tr><td class="k">Tippen</td><td>Linksklick</td></tr><tr><td class="k">Doppeltippen</td><td>Doppelklick</td></tr><tr><td class="k">Doppeltippen, dann ziehen</td><td>Linke Taste halten und bewegen: Text markieren, Fenster ziehen</td></tr><tr><td class="k">Langes Drücken</td><td>Rechtsklick</td></tr><tr><td class="k">Schaltfläche <b>Halten</b></td><td>Hält die linke Taste gedrückt, damit du über mehrere Züge ziehen kannst, ohne den Finger zu halten</td></tr><tr><td class="k">Schaltfläche <b>Mitte</b></td><td>Mittelklick: einen Tab schließen, einen Link in einem neuen öffnen</td></tr><tr><td class="k">Zwei Finger</td><td>Scrollen, senkrecht und waagerecht</td></tr><tr><td class="k">Zweifingertipp</td><td>Rechtsklick</td></tr><tr><td class="k">Zusammenziehen</td><td>Zoomen</td></tr><tr><td class="k">Drei Finger ↑ / ↓</td><td>Taskansicht / Desktop anzeigen</td></tr><tr><td class="k">Drei Finger ← / →</td><td>Virtuellen Desktop wechseln</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">Platz</p>
-  <h2>So viele Seiten, wie du brauchst</h2>
-  <p class="lead">Fasse Schaltflächen zu Seiten zusammen — eine zum Bearbeiten, eine für Spiele, eine für das Meeting, in dem du immer sitzt. Wische auf dem Pult nach links oder rechts, um zu wechseln. Die schwebende Schaltfläche führt dich auch bei ausgeblendeten Leisten zu den Seiten, zum Editor und zu den Designs, und du kannst sie hinziehen, wo sie dir passt.</p>
+  <h2>Wische zwischen den Seiten</h2>
+  <p class="lead">Fasse Schaltflächen zu Seiten zusammen: eine zum Bearbeiten, eine für Spiele, eine für das Meeting, in dem du immer sitzt. <b>Wische an beliebiger Stelle auf dem Pult nach links oder rechts</b>, um zu wechseln; der Seitenname erscheint kurz, damit du weißt, wo du gelandet bist. Im Bearbeitungsmodus sortiert dieselbe Geste stattdessen die Schaltflächen, die beiden kommen sich also nie in die Quere.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Ein Wisch führt von einer Seite zur nächsten." loading="lazy"></div><figcaption>Ein Wisch führt von einer Seite zur nächsten.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">Platz</p>
+  <h2>Seiten, Spalten und die schwebende Schaltfläche</h2>
+  <p class="lead">Im Bearbeitungsmodus legt die untere Leiste Seiten an und entfernt sie und bestimmt, wie viele Spalten das Raster nutzt. Tippe eine Seitenlasche erneut an, um sie umzubenennen. Die schwebende Schaltfläche führt dich auch bei ausgeblendeten Leisten zu den Seiten, zum Editor und zu den Designs, und du kannst sie hinziehen, wo sie dir passt, denn sie ist das Einzige, was immer auf dem Bildschirm bleibt.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Bearbeitungsmodus, mit den Seiten- und Spaltensteuerungen unten." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Bearbeitungsmodus, mit den Seiten- und Spaltensteuerungen unten.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Aussehen</p>
   <h2>Elf Designs, und die Schaltflächen ziehen mit</h2>
-  <p class="lead">Die meisten Designs stammen aus bekannten Farbschemata für Entwickler — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — dazu zwei bewusst zweifarbige Terminal-Looks sowie ein neutrales Hell und Dunkel. Beim Wechsel werden deine Schaltflächenfarben unter Beibehaltung ihrer Farbtöne in die neue Palette übertragen: Aus einer blauen Schaltfläche wird das Blau des neuen Designs, und dein Aufbau liest sich weiterhin gleich.</p>
-  
+  <p class="lead">Die meisten Designs stammen aus bekannten Farbschemata für Entwickler (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), dazu zwei bewusst zweifarbige Terminal-Looks sowie ein neutrales Hell und Dunkel. Beim Wechsel werden deine Schaltflächenfarben unter Beibehaltung ihrer Farbtöne in die neue Palette übertragen: Aus einer blauen Schaltfläche wird das Blau des neuen Designs, und dein Aufbau liest sich weiterhin gleich.</p>
+  <aside class="note">Wenn ein Pult am Ende einfarbig ist, verteilt <b>Design-Palette verteilen</b> die Farben des Designs auf die Schaltflächen; <b>Alle in Akzentfarbe färben</b> setzt sie wieder auf eine einzige zurück. Jede Schaltfläche kann außerdem aus der Farbauswahl eine eigene Farbe bekommen, und die Akzentfarbe für die Leisten und die schwebende Schaltfläche wählst du selbst. Die Schaltflächenbeschriftung wechselt von allein zwischen Schwarz und Weiß, welche Farbe du auch triffst.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Jede Karte zeigt ihren eigenen Hintergrund und ihre Palette." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Jede Karte zeigt ihren eigenen Hintergrund und ihre Palette.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Dasselbe Pult in einem hellen Design." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Dasselbe Pult in einem hellen Design.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">Bildschirm</p>
   <h2>Nutze den ganzen Bildschirm</h2>
-  <p class="lead"><b>Auf Bildschirm strecken</b> lässt die Zeilen die volle Höhe teilen: Zwei Reihen Schaltflächen füllen den Bildschirm, statt unten eine Lücke zu lassen. <b>Leisten automatisch ausblenden</b> entfernt die obere und untere Leiste ganz und lässt nur die Schaltflächen stehen — die schwebende Schaltfläche holt sie zurück, oder halte eine leere Fläche drei Sekunden gedrückt.</p>
+  <p class="lead"><b>Schaltflächen über den ganzen Bildschirm strecken</b> lässt die Zeilen die volle Höhe teilen: Zwei Reihen Schaltflächen füllen ihn dann aus, statt unten eine Lücke zu lassen. <b>Obere und untere Leiste automatisch ausblenden</b> entfernt sie ganz und lässt nur die Schaltflächen stehen; die schwebende Schaltfläche holt sie zurück, oder halte eine leere Fläche drei Sekunden gedrückt.</p>
   <aside class="note">Das Tablet ist außerdem so eingestellt, dass es wach bleibt: Der Bildschirm schaltet sich nicht ab, solange das Pult geöffnet ist.</aside>
   
   
@@ -346,11 +366,11 @@ footer {
         <div class="notes">
           <h2>Gut zu wissen</h2>
           <dl>
-            <div class="row"><dt>Firewall</dt><dd>Windows fragt beim ersten Mal eventuell, ob die Verbindung erlaubt werden soll. Erreicht das Tablet den Server nicht, erlaube sie für private Netzwerke.</dd></div><div class="row"><dt>VPN</dt><dd>Manche VPN-Clients blockieren den lokalen Netzwerkverkehr. Verbindet sich nichts, probiere es mit ausgeschaltetem VPN.</dd></div><div class="row"><dt>Administratorfenster</dt><dd>Ein als Administrator laufendes Programm nimmt keine Eingaben von einem normalen Programm an. Starte den Server als Administrator, wenn deine Kürzel solche Fenster erreichen sollen.</dd></div><div class="row"><dt>Kopplungscode</dt><dd>Wer in deinem Netzwerk den Code hat, kann den PC steuern — auch Befehle ausführen. Behalte ihn für dich und hoste nicht in Netzwerken, denen du nicht traust.</dd></div>
+            <div class="row"><dt>Firewall</dt><dd>Windows fragt beim ersten Mal eventuell, ob die Verbindung erlaubt werden soll. Erreicht das Tablet den Server nicht, erlaube sie für private Netzwerke.</dd></div><div class="row"><dt>VPN</dt><dd>Manche VPN-Clients blockieren den lokalen Netzwerkverkehr. Verbindet sich nichts, probiere es mit ausgeschaltetem VPN.</dd></div><div class="row"><dt>Administratorfenster</dt><dd>Ein als Administrator laufendes Programm nimmt keine Eingaben von einem normalen Programm an. Starte den Server als Administrator, wenn deine Kürzel solche Fenster erreichen sollen.</dd></div><div class="row"><dt>Kopplungscode</dt><dd>Wer in deinem Netzwerk den Code hat, kann den PC steuern, auch Befehle ausführen. Behalte ihn für dich und hoste nicht in Netzwerken, denen du nicht traust.</dd></div>
           </dl>
         </div>
 
-        <footer>Surecut Deck — ein selbst gehostetes Kürzel-Pult für Windows.</footer>
+        <footer>Surecut Deck: ein selbst gehostetes Kürzel-Pult für Windows.</footer>
       </div>
     </div>
   </div>

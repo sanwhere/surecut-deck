@@ -1,10 +1,10 @@
 {
   "lang": "tr",
   "dir": "ltr",
-  "title": "Surecut Deck — Kullanım Rehberi",
+  "title": "Surecut Deck: Kullanım Rehberi",
   "eyebrow": "Kendi sunucusu · Uygulama mağazası yok · Ağının dışına çıkmaz",
   "heroTitle": "Kenarda duran tableti bilgisayarının kontrol paneline çevir",
-  "heroLead": "Surecut Deck, Windows bilgisayarında küçük bir sunucu çalıştırır ve kendi arayüzünü kendisi yayınlar. Tablet sadece bir web adresi açar — kurulacak uygulama, açılacak hesap ve aradaki bulut yoktur.",
+  "heroLead": "Surecut Deck, Windows bilgisayarında küçük bir sunucu çalıştırır ve kendi arayüzünü kendisi yayınlar. Tablet sadece bir web adresi açar; kurulacak uygulama, açılacak hesap ve aradaki bulut yoktur.",
   "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "1024×600 bir Android tablette deck, Nord teması ve tam ekran." },
 
   "pillars": {
@@ -44,7 +44,7 @@
       "id": "buttons",
       "eyebrow": "Temel",
       "title": "Butonlar sadece tuş göndermez",
-      "body": "Kalem simgesiyle düzenleme moduna gir, sonra herhangi bir butona dokunarak düzenle — ya da basılı tutup başka yere sürükle. Her butonun bir etiketi, simgesi, rengi ve tek bir eylemi vardır.",
+      "body": "Kalem simgesiyle düzenleme moduna gir, sonra herhangi bir butona dokunarak düzenle ya da basılı tutup başka yere sürükle. Her butonun bir etiketi, simgesi, rengi ve tek bir eylemi vardır.",
       "figures": [
         { "src": "04-editor.png", "frame": "tablet", "caption": "Etiket, simge seçici ve renk." },
         { "src": "05-action.png", "frame": "tablet", "caption": "Eylem tipi ve hazır kısayollar." }
@@ -52,7 +52,7 @@
       "table": {
         "head": ["Eylem", "Ne yapar"],
         "rows": [
-          ["Klavye kısayolu", "Her kombinasyon — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, medya tuşları, ses"],
+          ["Klavye kısayolu", "Her kombinasyon: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, medya tuşları, ses"],
           ["Metin yaz", "Hazır bir metni senin yerine yazar, satır sonları dahil"],
           ["Uygulama / dosya aç", "Bir program, belge veya klasör"],
           ["Web adresi aç", "Bağlantıyı varsayılan tarayıcında açar"],
@@ -60,7 +60,8 @@
           ["Fare", "Tablet ekranını touchpad'e çevirir"],
           ["Sıralı adımlar", "Birden çok adımı sırayla, aralarında beklemeyle"]
         ]
-      }
+      },
+      "note": "Sıralı adımlarda her satır bir adımdır: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Düzenleyicideki <b>Test et</b> düğmesi eylemi kaydetmeden bir kez çalıştırır; böylece ince ayar isteyen bir kısayolu kesinleştirmeden önce oturtabilirsin."
     },
     {
       "id": "icons",
@@ -75,8 +76,8 @@
       "id": "dragdrop",
       "eyebrow": "Masaüstü",
       "title": "Kısayolu masaüstünden sürükleyip bırak",
-      "body": "Düzenleyiciyi tepsi simgesinden aç: aynı arayüzü içinde barındıran gerçek bir masaüstü penceresi gelir. Üstteki şeride bir kısayol, program, klasör veya dosya bırak — hedefi çözülür, uygulama simgesi çıkarılır ve buton tablette anında belirir.",
-      "note": "Düzenleyicinin tarayıcı sekmesi değil de native bir pencere olmasının belirli bir sebebi var. Tarayıcılar bırakılan dosyanın <em>yolunu</em> web sayfasına asla vermez, üstelik Chromium bırakılan kısayolu hedefine çözer — yani tarayıcı, programın nerede olduğunu öğrenmek yerine programın tamamını okumaya çalışırdı.",
+      "body": "Düzenleyiciyi tepsi simgesinden aç: aynı arayüzü içinde barındıran gerçek bir masaüstü penceresi gelir. Üstteki şeride bir kısayol, program, klasör veya dosya bırak: hedefi çözülür, uygulama simgesi çıkarılır ve buton tablette anında belirir.",
+      "note": "Düzenleyicinin tarayıcı sekmesi değil de native bir pencere olmasının belirli bir sebebi var. Tarayıcılar bırakılan dosyanın <em>yolunu</em> web sayfasına asla vermez, üstelik Chromium bırakılan kısayolu hedefine çözer, yani tarayıcı programın nerede olduğunu öğrenmek yerine programın tamamını okumaya çalışırdı.",
       "figures": [
         {
           "src": "10-editor-win.png",
@@ -88,6 +89,12 @@
           ]
         }
       ]
+    },
+    {
+      "id": "sync",
+      "eyebrow": "Eşitleme",
+      "title": "İki taraftan da anında düzenle",
+      "body": "Tablet ile masaüstü düzenleyicisi aynı deck'in iki görünümüdür. Bilgisayarda buton eklersin, tablette sayfa yenilemeden belirir; tablette sayfayı yeniden adlandırırsın, düzenleyicinin sayfa listesi de peşinden gelir. Her değişiklik anında diske yazılır ve son otuz sürüm saklanır; bu yüzden aynı anda iki cihazdan yapılan bir düzenleme, diğerini sessizce ezmek yerine reddedilir."
     },
     {
       "id": "mouse",
@@ -103,8 +110,10 @@
           ["Sürükle", "İmleci hareket ettirir"],
           ["Dokun", "Sol tık"],
           ["Çift dokun", "Çift tık"],
-          ["Çift dokun, sonra sürükle", "Sol tuşu basılı tutar — metin seç, pencere taşı"],
+          ["Çift dokun, sonra sürükle", "Sol tuşu basılı tutar: metin seç, pencere taşı"],
           ["Uzun bas", "Sağ tık"],
+          ["<b>Tut</b> düğmesi", "Sol tuşu basılı kilitler; parmağını basılı tutmadan birkaç hamlede sürükleyebilirsin"],
+          ["<b>Orta</b> düğmesi", "Orta tık: sekme kapatır, bağlantıyı yeni sekmede açar"],
           ["İki parmak", "Dikey ve yatay kaydırma"],
           ["İki parmakla dokun", "Sağ tık"],
           ["Kıstır", "Yakınlaştır"],
@@ -116,17 +125,28 @@
     {
       "id": "pages",
       "eyebrow": "Alan",
-      "title": "İhtiyacın kadar sayfa",
-      "body": "Butonları sayfalara ayır — biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Deck üzerinde sağa sola kaydırarak sayfalar arasında geçersin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; istediğin yere de sürükleyebilirsin.",
+      "title": "Sayfalar arasında kaydır",
+      "body": "Butonları sayfalara ayır: biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Aralarında geçmek için <b>deck üzerinde herhangi bir yerde sağa ya da sola kaydır</b>; sayfanın adı kısaca görünür, böylece nereye geldiğini bilirsin. Düzenleme modunda aynı hareket bunun yerine butonları sıralar, yani ikisi hiç çakışmaz.",
       "figures": [
-        { "src": "07-menu.png", "frame": "tablet", "caption": "Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran." }
+        { "src": "12-swipe.png", "frame": "none", "caption": "Tek kaydırma bir sonraki sayfaya geçirir." }
+      ]
+    },
+    {
+      "id": "managepages",
+      "eyebrow": "Alan",
+      "title": "Sayfalar, sütunlar ve yüzen buton",
+      "body": "Düzenleme modunda alt çubuk sayfa ekleyip siler ve ızgaranın kaç sütun kullanacağını belirler. Sayfa sekmesine tekrar dokunursan adını değiştirebilirsin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; ekranda her zaman duran tek şey o olduğu için istediğin yere de sürükleyebilirsin.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran." },
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Düzenleme modu; altta sayfa ve sütun denetimleri." }
       ]
     },
     {
       "id": "themes",
       "eyebrow": "Görünüm",
       "title": "On bir tema, butonlar da ona uyar",
-      "body": "Temaların çoğu bilinen geliştirici renk şemalarından geliyor — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — artı bilinçli olarak iki renkli iki terminal görünümü ve nötr açık ile koyu. Tema değiştirdiğinde buton renkleri tonları korunarak yeni palete çevrilir; mavi buton yeni temanın mavisi olur ve kurduğun düzen aynı okunur.",
+      "body": "Temaların çoğu bilinen geliştirici renk şemalarından geliyor (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), artı bilinçli olarak iki renkli iki terminal görünümü ve nötr açık ile koyu. Tema değiştirdiğinde buton renkleri tonları korunarak yeni palete çevrilir; mavi buton yeni temanın mavisi olur ve kurduğun düzen aynı okunur.",
+      "note": "Deck tek renge dönüştüyse <b>Tema paletine dağıt</b> temanın renklerini butonlara dağıtır; <b>Hepsini vurgu rengine boya</b> ise hepsini tek renge döndürür. Her buton seçiciden kendi rengini de alabilir, çubukların ve yüzen butonun kullandığı vurgu rengini de sen seçersin. Buton yazısı hangi renge denk gelirse gelsin siyah ile beyaz arasında kendiliğinden geçer.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Her kart kendi zeminini ve paletini önizler." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Aynı deck, açık temada." }
@@ -136,7 +156,7 @@
       "id": "screen",
       "eyebrow": "Ekran",
       "title": "Ekranın tamamını kullan",
-      "body": "<b>Ekrana yay</b> seçeneği satırların yüksekliği paylaşmasını sağlar; iki satır buton altta boşluk bırakmak yerine ekranı doldurur. <b>Çubukları otomatik gizle</b> ise üst ve alt çubukları tamamen kaldırır, geriye yalnızca butonlar kalır — yüzen buton onları geri getirir, ya da boş bir alana üç saniye basılı tut.",
+      "body": "<b>Butonları ekrana yay</b> seçeneği satırların yüksekliği paylaşmasını sağlar; iki satır buton altta boşluk bırakmak yerine ekranı doldurur. <b>Üst ve alt çubukları otomatik gizle</b> ise onları tamamen kaldırır, geriye yalnızca butonlar kalır; yüzen buton onları geri getirir, ya da boş bir alana üç saniye basılı tut.",
       "note": "Tablet uyanık kalacak şekilde de ayarlanmıştır: deck açıkken ekran sönmez."
     },
     {
@@ -157,5 +177,5 @@
     ]
   },
 
-  "footer": "Surecut Deck — Windows için kendi sunucusuyla çalışan bir kısayol paneli."
+  "footer": "Surecut Deck: Windows için kendi sunucusuyla çalışan bir kısayol paneli."
 }

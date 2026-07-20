@@ -1,4 +1,4 @@
-<title>Surecut Deck — 使い方ガイド</title>
+<title>Surecut Deck：使い方ガイド</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">自前ホスト · アプリストア不要 · データはネットワークの外に出ません</p>
       <h1>余っているタブレットをパソコンの操作卓にする</h1>
-      <p class="lead">Surecut Deck は Windows パソコン上で小さなサーバーを動かし、自分の画面を自分で配信します。タブレットはウェブアドレスを開くだけ——インストールするアプリも、作るアカウントも、あいだに入るクラウドもありません。</p>
+      <p class="lead">Surecut Deck は Windows パソコン上で小さなサーバーを動かし、自分の画面を自分で配信します。タブレットはウェブアドレスを開くだけです。インストールするアプリも、作るアカウントも、あいだに入るクラウドもありません。</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>しくみ</p>
-        <ul><li><a href="#buttons"><b>01</b>基本</a></li><li><a href="#icons"><b>02</b>アイコン</a></li><li><a href="#dragdrop"><b>03</b>デスクトップ</a></li><li><a href="#mouse"><b>04</b>ポインター</a></li><li><a href="#pages"><b>05</b>広さ</a></li><li><a href="#themes"><b>06</b>見た目</a></li><li><a href="#screen"><b>07</b>画面</a></li><li><a href="#languages"><b>08</b>言語</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>基本</a></li><li><a href="#icons"><b>02</b>アイコン</a></li><li><a href="#dragdrop"><b>03</b>デスクトップ</a></li><li><a href="#sync"><b>04</b>同期</a></li><li><a href="#mouse"><b>05</b>ポインター</a></li><li><a href="#pages"><b>06</b>広さ</a></li><li><a href="#managepages"><b>07</b>広さ</a></li><li><a href="#themes"><b>08</b>見た目</a></li><li><a href="#screen"><b>09</b>画面</a></li><li><a href="#languages"><b>10</b>言語</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">基本</p>
   <h2>ボタンはキーを送るだけではありません</h2>
-  <p class="lead">鉛筆を押して編集モードに入り、ボタンをタップして編集します——長押しすれば別の場所へドラッグできます。ボタンにはラベル、アイコン、色、そして動作がひとつずつあります。</p>
-  
+  <p class="lead">鉛筆を押して編集モードに入り、ボタンをタップして編集します。長押しすれば別の場所へドラッグできます。ボタンにはラベル、アイコン、色、そして動作がひとつずつあります。</p>
+  <aside class="note">連続実行は一行に一手順です：<code>key ctrl+s</code>、<code>text Hello</code>、<code>delay 500</code>、<code>launch notepad</code>、<code>url https://…</code>、<code>cmd …</code>。エディターの<b>テスト</b>ボタンは、保存せずに動作を一度だけ実行します。扱いにくいショートカットも、決めてしまう前に確かめられます。</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="ラベル、アイコン選択、色。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>ラベル、アイコン選択、色。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="動作の種類と、すぐ選べるショートカット。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>動作の種類と、すぐ選べるショートカット。</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>動作</th><th>内容</th></tr></thead>
-  <tbody><tr><td class="k">キーボードショートカット</td><td>どんな組み合わせでも——<code>ctrl+c</code>、<code>win+d</code>、<code>alt+f4</code>、メディアキー、音量</td></tr><tr><td class="k">テキストを入力</td><td>改行も含めて、決まった文章を代わりに書きます</td></tr><tr><td class="k">アプリ / ファイルを開く</td><td>プログラム、書類、フォルダー</td></tr><tr><td class="k">ウェブアドレスを開く</td><td>既定のブラウザーでリンクを開きます</td></tr><tr><td class="k">コマンドを実行</td><td>PowerShell または CMD</td></tr><tr><td class="k">マウス</td><td>タブレットの画面をタッチパッドに変えます</td></tr><tr><td class="k">連続実行</td><td>複数の手順を順番に、あいだに待ち時間を入れて</td></tr></tbody>
+  <tbody><tr><td class="k">キーボードショートカット</td><td>どんな組み合わせでも：<code>ctrl+c</code>、<code>win+d</code>、<code>alt+f4</code>、メディアキー、音量</td></tr><tr><td class="k">テキストを入力</td><td>改行も含めて、決まった文章を代わりに書きます</td></tr><tr><td class="k">アプリ / ファイルを開く</td><td>プログラム、書類、フォルダー</td></tr><tr><td class="k">ウェブアドレスを開く</td><td>既定のブラウザーでリンクを開きます</td></tr><tr><td class="k">コマンドを実行</td><td>PowerShell または CMD</td></tr><tr><td class="k">マウス</td><td>タブレットの画面をタッチパッドに変えます</td></tr><tr><td class="k">連続実行</td><td>複数の手順を順番に、あいだに待ち時間を入れて</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -299,6 +303,14 @@ footer {
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="デスクトップのエディター。左でページを選び、帯にショートカットを落とします。" loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>追加先のページ</span><span class="callout" style="left:62%;top:13%"><i></i>ここに落とす</span></div></div><figcaption>デスクトップのエディター。左でページを選び、帯にショートカットを落とします。</figcaption></figure>
   
 </section>
+<section id="sync">
+  <p class="eyebrow">同期</p>
+  <h2>どちらからでも、その場で編集</h2>
+  <p class="lead">タブレットとデスクトップのエディターは、同じデッキを二つの窓から見ているだけです。パソコンでボタンを足せば、読み込み直さなくてもタブレットに現れます。タブレットでページの名前を変えれば、エディターのページ一覧もそれに従います。変更はそのつどディスクに書き込まれ、直近三十件の版が残ります。二台で同時に編集した場合は、片方が黙って上書きされるのではなく、拒否されます。</p>
+  
+  
+  
+</section>
 <section id="mouse">
   <p class="eyebrow">ポインター</p>
   <h2>画面がタッチパッドになる</h2>
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="タッチパッドモード。下には、迷いたくないクリックのための明示的なボタン。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>タッチパッドモード。下には、迷いたくないクリックのための明示的なボタン。</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>操作</th><th>結果</th></tr></thead>
-  <tbody><tr><td class="k">ドラッグ</td><td>ポインターを動かす</td></tr><tr><td class="k">タップ</td><td>左クリック</td></tr><tr><td class="k">ダブルタップ</td><td>ダブルクリック</td></tr><tr><td class="k">ダブルタップしてドラッグ</td><td>左ボタンを押したまま移動——文字の選択、ウィンドウの移動</td></tr><tr><td class="k">長押し</td><td>右クリック</td></tr><tr><td class="k">二本指</td><td>縦横のスクロール</td></tr><tr><td class="k">二本指タップ</td><td>右クリック</td></tr><tr><td class="k">ピンチ</td><td>拡大縮小</td></tr><tr><td class="k">三本指 ↑ / ↓</td><td>タスクビュー / デスクトップを表示</td></tr><tr><td class="k">三本指 ← / →</td><td>仮想デスクトップの切り替え</td></tr></tbody>
+  <tbody><tr><td class="k">ドラッグ</td><td>ポインターを動かす</td></tr><tr><td class="k">タップ</td><td>左クリック</td></tr><tr><td class="k">ダブルタップ</td><td>ダブルクリック</td></tr><tr><td class="k">ダブルタップしてドラッグ</td><td>左ボタンを押したまま移動：文字の選択、ウィンドウの移動</td></tr><tr><td class="k">長押し</td><td>右クリック</td></tr><tr><td class="k"><b>ホールド</b>ボタン</td><td>左ボタンを押した状態で固定します。指を押さえ続けなくても、何度かに分けてドラッグできます</td></tr><tr><td class="k"><b>中央</b>ボタン</td><td>ミドルクリック：タブを閉じる、リンクを新しいタブで開く</td></tr><tr><td class="k">二本指</td><td>縦横のスクロール</td></tr><tr><td class="k">二本指タップ</td><td>右クリック</td></tr><tr><td class="k">ピンチ</td><td>拡大縮小</td></tr><tr><td class="k">三本指 ↑ / ↓</td><td>タスクビュー / デスクトップを表示</td></tr><tr><td class="k">三本指 ← / →</td><td>仮想デスクトップの切り替え</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">広さ</p>
-  <h2>必要なだけページを作れます</h2>
-  <p class="lead">ボタンをページごとにまとめましょう——編集用に一枚、ゲーム用に一枚、いつも入っているあの会議用に一枚。デッキ上で左右にスワイプすれば切り替わります。バーを隠していても、フローティングボタンからページ、エディター、テーマに行けますし、使いやすい場所へドラッグして構いません。</p>
+  <h2>スワイプでページを移る</h2>
+  <p class="lead">ボタンをページごとにまとめましょう。編集用に一枚、ゲーム用に一枚、いつも入っているあの会議用に一枚。<b>デッキ上のどこでも左右にスワイプ</b>すれば行き来できます。ページ名が短いあいだ表示されるので、どこに来たのかすぐ分かります。編集モードでは同じ動きがボタンの並べ替えになるため、二つがぶつかることはありません。</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="フローティングメニュー：ページ、バー、編集モード、テーマ、全画面。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>フローティングメニュー：ページ、バー、編集モード、テーマ、全画面。</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="ひとスワイプで、次のページへ。" loading="lazy"></div><figcaption>ひとスワイプで、次のページへ。</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">広さ</p>
+  <h2>ページ、列数、そしてフローティングボタン</h2>
+  <p class="lead">編集モードでは、下のバーからページを増やしたり減らしたり、グリッドの列数を決めたりできます。ページのタブをもう一度タップすれば名前を変えられます。バーを隠していても、フローティングボタンからページ、エディター、テーマに行けます。常に画面に出ている唯一のものなので、使いやすい場所へ自由にドラッグして構いません。</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="フローティングメニュー：ページ、バー、編集モード、テーマ、全画面。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>フローティングメニュー：ページ、バー、編集モード、テーマ、全画面。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="編集モード。下にページと列数の操作が並びます。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>編集モード。下にページと列数の操作が並びます。</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">見た目</p>
   <h2>十一のテーマ、ボタンもそれに合わせて変わる</h2>
-  <p class="lead">多くは開発者になじみのある配色から取っています——Nord、Gruvbox、Solarized、Catppuccin Mocha、Rosé Pine——加えて、あえて二色だけの端末風が二つと、中立的な明るいテーマと暗いテーマ。テーマを変えると、ボタンの色は色相を保ったまま新しい配色へ変換されます。青いボタンは新しいテーマの青になり、並びの読み取りやすさはそのままです。</p>
-  
+  <p class="lead">多くは開発者になじみのある配色から取っています：Nord、Gruvbox、Solarized、Catppuccin Mocha、Rosé Pine。加えて、あえて二色だけの端末風が二つと、中立的な明るいテーマと暗いテーマ。テーマを変えると、ボタンの色は色相を保ったまま新しい配色へ変換されます。青いボタンは新しいテーマの青になり、並びの読み取りやすさはそのままです。</p>
+  <aside class="note">デッキが一色になってしまったら、<b>テーマの配色を振り分ける</b>でテーマの色をボタンに配り直せます。<b>すべてアクセントカラーで塗る</b>を使えば、また一色に戻ります。どのボタンにもカラーピッカーから好きな色を与えられますし、バーとフローティングボタンが使うアクセントカラーも自分で選べます。どんな色にしても、ボタンの文字は黒と白のあいだで自動的に切り替わります。</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="各カードが自分の背景と配色を見せています。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>各カードが自分の背景と配色を見せています。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="同じデッキを明るいテーマで。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>同じデッキを明るいテーマで。</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">画面</p>
   <h2>画面をすべて使う</h2>
-  <p class="lead"><b>画面いっぱいに広げる</b>を使うと行が高さを分け合い、二行のボタンでも下に余白を残さず画面を埋めます。<b>バーを自動的に隠す</b>は上下のバーを完全に取り除き、ボタンだけを残します——フローティングボタンで戻せますし、空いている場所を三秒長押ししても戻ります。</p>
+  <p class="lead"><b>ボタンを画面いっぱいに広げる</b>を使うと行が高さを分け合い、二行のボタンでも下に余白を残さず画面を埋めます。<b>上下のバーを自動的に隠す</b>はそれらを完全に取り除き、ボタンだけを残します。フローティングボタンで戻せますし、空いている場所を三秒長押ししても戻ります。</p>
   <aside class="note">タブレットはスリープしない設定にもしてあります。デッキを開いているあいだ画面は消えません。</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — Windows 向けの自前ホスト型ショートカットデッキ。</footer>
+        <footer>Surecut Deck：Windows 向けの自前ホスト型ショートカットデッキ。</footer>
       </div>
     </div>
   </div>

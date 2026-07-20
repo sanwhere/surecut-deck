@@ -1,4 +1,4 @@
-<title>Surecut Deck — راهنمای استفاده</title>
+<title>Surecut Deck: راهنمای استفاده</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">میزبانی خودی · بدون فروشگاه برنامه · چیزی از شبکهٔ شما بیرون نمی‌رود</p>
       <h1>یک تبلت بلااستفاده را به کنسول فرمان رایانه‌تان تبدیل کنید</h1>
-      <p class="lead">Surecut Deck یک سرور کوچک روی رایانهٔ ویندوزی شما اجرا می‌کند و رابط خودش را خودش ارائه می‌دهد. تبلت فقط یک نشانی وب باز می‌کند — نه برنامه‌ای برای نصب، نه حسابی برای ساختن، و نه ابری در میانه.</p>
+      <p class="lead">Surecut Deck یک سرور کوچک روی رایانهٔ ویندوزی شما اجرا می‌کند و رابط خودش را خودش ارائه می‌دهد. تبلت فقط یک نشانی وب باز می‌کند: نه برنامه‌ای برای نصب، نه حسابی برای ساختن، و نه ابری در میانه.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>چگونه کار می‌کند</p>
-        <ul><li><a href="#buttons"><b>01</b>پایه</a></li><li><a href="#icons"><b>02</b>نمادها</a></li><li><a href="#dragdrop"><b>03</b>میزکار</a></li><li><a href="#mouse"><b>04</b>نشانگر</a></li><li><a href="#pages"><b>05</b>فضا</a></li><li><a href="#themes"><b>06</b>ظاهر</a></li><li><a href="#screen"><b>07</b>صفحه</a></li><li><a href="#languages"><b>08</b>زبان</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>پایه</a></li><li><a href="#icons"><b>02</b>نمادها</a></li><li><a href="#dragdrop"><b>03</b>میزکار</a></li><li><a href="#sync"><b>04</b>همگام‌سازی</a></li><li><a href="#mouse"><b>05</b>نشانگر</a></li><li><a href="#pages"><b>06</b>فضا</a></li><li><a href="#managepages"><b>07</b>فضا</a></li><li><a href="#themes"><b>08</b>ظاهر</a></li><li><a href="#screen"><b>09</b>صفحه</a></li><li><a href="#languages"><b>10</b>زبان</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">پایه</p>
   <h2>دکمه‌ها کاری بیش از فشردن کلید می‌کنند</h2>
-  <p class="lead">برای ورود به حالت ویرایش روی مداد بزنید، سپس هر دکمه‌ای را لمس کنید تا ویرایشش کنید — یا نگه دارید تا جای دیگری بکشیدش. هر دکمه یک برچسب، یک نماد، یک رنگ و یک کنش دارد.</p>
-  
+  <p class="lead">برای ورود به حالت ویرایش روی مداد بزنید، سپس هر دکمه‌ای را لمس کنید تا ویرایشش کنید، یا نگه دارید تا جای دیگری بکشیدش. هر دکمه یک برچسب، یک نماد، یک رنگ و یک کنش دارد.</p>
+  <aside class="note">دنباله در هر سطر یک گام است: <code>key ctrl+s</code>، <code>text Hello</code>، <code>delay 500</code>، <code>launch notepad</code>، <code>url https://…</code>، <code>cmd …</code>. دکمهٔ <b>آزمایش</b> در ویرایشگر کنش را یک بار بدون ذخیره اجرا می‌کند، تا میان‌بر دردسرساز را پیش از آنکه به آن پایبند شوید درست دربیاورید.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="برچسب، انتخابگر نماد و رنگ." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>برچسب، انتخابگر نماد و رنگ.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="نوع کنش، همراه با میان‌برهای آماده." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>نوع کنش، همراه با میان‌برهای آماده.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>کنش</th><th>چه می‌کند</th></tr></thead>
-  <tbody><tr><td class="k">میان‌بر صفحه‌کلید</td><td>هر ترکیبی — <code>ctrl+c</code>، <code>win+d</code>، <code>alt+f4</code>، کلیدهای رسانه، صدا</td></tr><tr><td class="k">نوشتن متن</td><td>بلوکی از متن را به‌جای شما می‌نویسد، همراه با شکست خط</td></tr><tr><td class="k">باز کردن برنامه / پرونده</td><td>یک برنامه، سند یا پوشه</td></tr><tr><td class="k">باز کردن نشانی وب</td><td>پیوند را در مرورگر پیش‌فرض باز می‌کند</td></tr><tr><td class="k">اجرای فرمان</td><td>PowerShell یا CMD</td></tr><tr><td class="k">موشواره</td><td>صفحهٔ تبلت را به صفحه‌لمسی تبدیل می‌کند</td></tr><tr><td class="k">دنبالهٔ گام‌ها</td><td>چند گام به‌ترتیب، با مکث میانشان</td></tr></tbody>
+  <tbody><tr><td class="k">میان‌بر صفحه‌کلید</td><td>هر ترکیبی: <code>ctrl+c</code>، <code>win+d</code>، <code>alt+f4</code>، کلیدهای رسانه، صدا</td></tr><tr><td class="k">نوشتن متن</td><td>بلوکی از متن را به‌جای شما می‌نویسد، همراه با شکست خط</td></tr><tr><td class="k">باز کردن برنامه / پرونده</td><td>یک برنامه، سند یا پوشه</td></tr><tr><td class="k">باز کردن نشانی وب</td><td>پیوند را در مرورگر پیش‌فرض باز می‌کند</td></tr><tr><td class="k">اجرای فرمان</td><td>PowerShell یا CMD</td></tr><tr><td class="k">موشواره</td><td>صفحهٔ تبلت را به صفحه‌لمسی تبدیل می‌کند</td></tr><tr><td class="k">دنبالهٔ گام‌ها</td><td>چند گام به‌ترتیب، با مکث میانشان</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -294,9 +298,17 @@ footer {
 <section id="dragdrop">
   <p class="eyebrow">میزکار</p>
   <h2>میان‌بری را از میزکار بکشید و بیندازید</h2>
-  <p class="lead">ویرایشگر را از نماد سینی باز کنید: پنجره‌ای واقعی روی میزکار با همان رابط در درونش ظاهر می‌شود. یک میان‌بر، برنامه، پوشه یا پرونده را روی نوار بالا رها کنید — مقصد شناسایی می‌شود، نماد برنامه بیرون کشیده می‌شود، و دکمه بی‌درنگ روی تبلت پدیدار می‌گردد.</p>
-  <aside class="note">ویرایشگر به دلیلی مشخص یک پنجرهٔ بومی است نه زبانهٔ مرورگر. مرورگرها هرگز <em>مسیر</em> پروندهٔ رهاشده را به صفحهٔ وب نمی‌دهند، و کرومیوم افزون بر آن میان‌بر رهاشده را به مقصدش تبدیل می‌کند — یعنی مرورگر به‌جای دانستن جای برنامه، می‌کوشد تمام آن را بخواند.</aside>
+  <p class="lead">ویرایشگر را از نماد سینی باز کنید: پنجره‌ای واقعی روی میزکار با همان رابط در درونش ظاهر می‌شود. یک میان‌بر، برنامه، پوشه یا پرونده را روی نوار بالا رها کنید: مقصد شناسایی می‌شود، نماد برنامه بیرون کشیده می‌شود، و دکمه بی‌درنگ روی تبلت پدیدار می‌گردد.</p>
+  <aside class="note">ویرایشگر به دلیلی مشخص یک پنجرهٔ بومی است نه زبانهٔ مرورگر. مرورگرها هرگز <em>مسیر</em> پروندهٔ رهاشده را به صفحهٔ وب نمی‌دهند، و کرومیوم افزون بر آن میان‌بر رهاشده را به مقصدش تبدیل می‌کند، یعنی مرورگر به‌جای دانستن جای برنامه، می‌کوشد تمام آن را بخواند.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="ویرایشگر میزکار. صفحه را از سمت چپ برگزینید و میان‌برها را روی نوار رها کنید." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>صفحهٔ مقصد</span><span class="callout" style="left:62%;top:13%"><i></i>اینجا رها کنید</span></div></div><figcaption>ویرایشگر میزکار. صفحه را از سمت چپ برگزینید و میان‌برها را روی نوار رها کنید.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">همگام‌سازی</p>
+  <h2>از هر دو سو ویرایش کنید، زنده</h2>
+  <p class="lead">تبلت و ویرایشگر میزکار، یک کنسول‌اند که دو بار دیده می‌شود. روی رایانه دکمه‌ای بیفزایید تا بی‌آنکه صفحه‌ای دوباره بار شود روی تبلت پدیدار گردد؛ نام صفحه‌ای را روی تبلت عوض کنید تا فهرست صفحه‌های ویرایشگر هم دنبالش بیاید. هر تغییر بی‌درنگ روی دیسک نوشته می‌شود و سی نسخهٔ آخر نگه داشته می‌شود، از این رو ویرایشی که همزمان روی دو دستگاه انجام شود رد می‌گردد، نه اینکه یکی بی‌سروصدا روی دیگری بنویسد.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="حالت صفحه‌لمسی، و در پایین دکمه‌های صریح برای کلیک‌هایی که نمی‌خواهید حدس بزنید." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>حالت صفحه‌لمسی، و در پایین دکمه‌های صریح برای کلیک‌هایی که نمی‌خواهید حدس بزنید.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>اشاره</th><th>نتیجه</th></tr></thead>
-  <tbody><tr><td class="k">کشیدن</td><td>حرکت نشانگر</td></tr><tr><td class="k">ضربه</td><td>کلیک چپ</td></tr><tr><td class="k">ضربهٔ دوتایی</td><td>دوبار کلیک</td></tr><tr><td class="k">ضربهٔ دوتایی سپس کشیدن</td><td>نگه‌داشتن دکمهٔ چپ و حرکت — گزینش متن، جابه‌جایی پنجره</td></tr><tr><td class="k">فشار طولانی</td><td>کلیک راست</td></tr><tr><td class="k">دو انگشت</td><td>پیمایش عمودی و افقی</td></tr><tr><td class="k">ضربه با دو انگشت</td><td>کلیک راست</td></tr><tr><td class="k">نیشگون</td><td>بزرگ‌نمایی</td></tr><tr><td class="k">سه انگشت ↑ / ↓</td><td>نمای وظایف / نمایش میزکار</td></tr><tr><td class="k">سه انگشت ← / →</td><td>تعویض میزکار مجازی</td></tr></tbody>
+  <tbody><tr><td class="k">کشیدن</td><td>حرکت نشانگر</td></tr><tr><td class="k">ضربه</td><td>کلیک چپ</td></tr><tr><td class="k">ضربهٔ دوتایی</td><td>دوبار کلیک</td></tr><tr><td class="k">ضربهٔ دوتایی سپس کشیدن</td><td>نگه‌داشتن دکمهٔ چپ و حرکت: گزینش متن، جابه‌جایی پنجره</td></tr><tr><td class="k">فشار طولانی</td><td>کلیک راست</td></tr><tr><td class="k">دکمهٔ <b>نگه‌داشتن</b></td><td>دکمهٔ چپ را پایین قفل می‌کند، تا بتوانید با چند حرکت پیاپی بکشید بی‌آنکه انگشتتان را نگه دارید</td></tr><tr><td class="k">دکمهٔ <b>وسط</b></td><td>کلیک وسط: بستن یک زبانه، باز کردن پیوند در زبانه‌ای تازه</td></tr><tr><td class="k">دو انگشت</td><td>پیمایش عمودی و افقی</td></tr><tr><td class="k">ضربه با دو انگشت</td><td>کلیک راست</td></tr><tr><td class="k">نیشگون</td><td>بزرگ‌نمایی</td></tr><tr><td class="k">سه انگشت ↑ / ↓</td><td>نمای وظایف / نمایش میزکار</td></tr><tr><td class="k">سه انگشت ← / →</td><td>تعویض میزکار مجازی</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">فضا</p>
-  <h2>به هر تعداد که لازم دارید، صفحه</h2>
-  <p class="lead">دکمه‌ها را در صفحه‌ها گروه کنید — یکی برای تدوین، یکی برای بازی، یکی برای همان جلسه‌ای که همیشه در آن هستید. برای جابه‌جایی میان آن‌ها روی کنسول به چپ یا راست بکشید. دکمهٔ شناور حتی وقتی نوارها پنهان‌اند شما را به صفحه‌ها، ویرایشگر و پوسته‌ها می‌رساند، و می‌توانید هرجا که راحت‌ترید بکشیدش.</p>
+  <h2>میان صفحه‌ها بکشید</h2>
+  <p class="lead">دکمه‌ها را در صفحه‌ها گروه کنید: یکی برای تدوین، یکی برای بازی، یکی برای همان جلسه‌ای که همیشه در آن هستید. برای جابه‌جایی میان آن‌ها <b>هر جای کنسول به چپ یا راست بکشید</b>؛ نام صفحه لحظه‌ای پدیدار می‌شود تا بدانید کجا فرود آمده‌اید. در حالت ویرایش همین اشاره به‌جای آن ترتیب دکمه‌ها را عوض می‌کند، پس این دو هرگز با هم برخورد نمی‌کنند.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="منوی شناور: صفحه‌ها، نوارها، حالت ویرایش، پوسته و تمام‌صفحه." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>منوی شناور: صفحه‌ها، نوارها، حالت ویرایش، پوسته و تمام‌صفحه.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="یک کشیدن، شما را از صفحه‌ای به صفحهٔ بعد می‌برد." loading="lazy"></div><figcaption>یک کشیدن، شما را از صفحه‌ای به صفحهٔ بعد می‌برد.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">فضا</p>
+  <h2>صفحه‌ها، ستون‌ها و دکمهٔ شناور</h2>
+  <p class="lead">در حالت ویرایش، نوار پایین صفحه می‌افزاید و برمی‌دارد و تعیین می‌کند شبکه از چند ستون استفاده کند. برای تغییر نام یک صفحه، دوباره روی زبانه‌اش بزنید. دکمهٔ شناور حتی وقتی نوارها پنهان‌اند شما را به صفحه‌ها، ویرایشگر و پوسته‌ها می‌رساند، و می‌توانید هرجا که راحت‌ترید بکشیدش، چون تنها چیزی است که همیشه روی صفحه است.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="منوی شناور: صفحه‌ها، نوارها، حالت ویرایش، پوسته و تمام‌صفحه." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>منوی شناور: صفحه‌ها، نوارها، حالت ویرایش، پوسته و تمام‌صفحه.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="حالت ویرایش، با تنظیم صفحه‌ها و ستون‌ها در پایین." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>حالت ویرایش، با تنظیم صفحه‌ها و ستون‌ها در پایین.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">ظاهر</p>
   <h2>یازده پوسته، و دکمه‌ها هم همراه می‌شوند</h2>
-  <p class="lead">بیشتر پوسته‌ها از طرح‌های رنگی شناختهٔ برنامه‌نویسان می‌آیند — Nord، Gruvbox، Solarized، Catppuccin Mocha، Rosé Pine — به‌علاوهٔ دو ظاهر پایانه‌ای که عمداً دورنگ‌اند و یک روشن و یک تیرهٔ خنثی. با تغییر پوسته، رنگ دکمه‌هایتان با حفظ فامشان به پالت تازه تبدیل می‌شود: دکمهٔ آبی، آبیِ پوستهٔ تازه می‌شود و چیدمانتان همان‌طور خوانا می‌ماند.</p>
-  
+  <p class="lead">بیشتر پوسته‌ها از طرح‌های رنگی شناختهٔ برنامه‌نویسان می‌آیند (Nord، Gruvbox، Solarized، Catppuccin Mocha، Rosé Pine)، به‌علاوهٔ دو ظاهر پایانه‌ای که عمداً دورنگ‌اند و یک روشن و یک تیرهٔ خنثی. با تغییر پوسته، رنگ دکمه‌هایتان با حفظ فامشان به پالت تازه تبدیل می‌شود: دکمهٔ آبی، آبیِ پوستهٔ تازه می‌شود و چیدمانتان همان‌طور خوانا می‌ماند.</p>
+  <aside class="note">اگر کنسول یکسره یک‌رنگ از آب درآمد، <b>پخش پالت پوسته</b> رنگ‌های آن را میان دکمه‌ها تقسیم می‌کند و <b>رنگ‌آمیزی همه با رنگ تأکید</b> آن‌ها را دوباره یک‌رنگ می‌کند. هر دکمه می‌تواند رنگ دلخواه شما را هم از انتخابگر بگیرد، و رنگ تأکیدی که نوارها و دکمهٔ شناور به کار می‌برند به انتخاب خودتان است. نوشتهٔ روی دکمه‌ها هم خودبه‌خود میان سیاه و سفید جابه‌جا می‌شود، هر رنگی که برگزینید.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="هر کارت پس‌زمینه و پالت خودش را نشان می‌دهد." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>هر کارت پس‌زمینه و پالت خودش را نشان می‌دهد.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="همان کنسول با پوسته‌ای روشن." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>همان کنسول با پوسته‌ای روشن.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">صفحه</p>
   <h2>از تمام صفحه استفاده کنید</h2>
-  <p class="lead"><b>کشیدن برای پر کردن صفحه</b> باعث می‌شود ردیف‌ها تمام ارتفاع را تقسیم کنند: دو ردیف دکمه به‌جای گذاشتن جای خالی در پایین، صفحه را پر می‌کنند. <b>پنهان‌سازی خودکار نوارها</b> نوارهای بالا و پایین را یکسره برمی‌دارد و فقط دکمه‌ها را می‌گذارد — دکمهٔ شناور بازشان می‌گرداند، یا ناحیه‌ای خالی را سه ثانیه نگه دارید.</p>
+  <p class="lead"><b>کشیدن دکمه‌ها برای پر کردن صفحه</b> باعث می‌شود ردیف‌ها تمام ارتفاع را تقسیم کنند: دو ردیف دکمه به‌جای گذاشتن جای خالی در پایین، صفحه را پر می‌کنند. <b>پنهان‌سازی خودکار نوارهای بالا و پایین</b> آن‌ها را یکسره برمی‌دارد و فقط دکمه‌ها را می‌گذارد. دکمهٔ شناور بازشان می‌گرداند، یا ناحیه‌ای خالی را سه ثانیه نگه دارید.</p>
   <aside class="note">تبلت طوری هم تنظیم شده که بیدار بماند: تا وقتی کنسول باز است، صفحه خاموش نمی‌شود.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — کنسول میان‌بر خودمیزبان برای ویندوز.</footer>
+        <footer>Surecut Deck: کنسول میان‌بر خودمیزبان برای ویندوز.</footer>
       </div>
     </div>
   </div>

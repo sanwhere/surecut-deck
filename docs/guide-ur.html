@@ -1,4 +1,4 @@
-<title>Surecut Deck — استعمال کی رہنمائی</title>
+<title>Surecut Deck: استعمال کی رہنمائی</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">اپنا سرور · کوئی ایپ اسٹور نہیں · کچھ بھی آپ کے نیٹ ورک سے باہر نہیں جاتا</p>
       <h1>فالتو پڑے ٹیبلٹ کو اپنے کمپیوٹر کا کنٹرول پینل بنا لیجیے</h1>
-      <p class="lead">Surecut Deck آپ کے ونڈوز کمپیوٹر پر ایک چھوٹا سرور چلاتا ہے اور اپنا انٹرفیس خود فراہم کرتا ہے۔ ٹیبلٹ صرف ایک ویب پتہ کھولتا ہے — نہ کوئی ایپ نصب کرنی ہے، نہ اکاؤنٹ بنانا ہے، اور نہ بیچ میں کوئی کلاؤڈ ہے۔</p>
+      <p class="lead">Surecut Deck آپ کے ونڈوز کمپیوٹر پر ایک چھوٹا سرور چلاتا ہے اور اپنا انٹرفیس خود فراہم کرتا ہے۔ ٹیبلٹ صرف ایک ویب پتہ کھولتا ہے: نہ کوئی ایپ نصب کرنی ہے، نہ اکاؤنٹ بنانا ہے، اور نہ بیچ میں کوئی کلاؤڈ ہے۔</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>یہ کیسے کام کرتا ہے</p>
-        <ul><li><a href="#buttons"><b>01</b>بنیادی باتیں</a></li><li><a href="#icons"><b>02</b>آئیکن</a></li><li><a href="#dragdrop"><b>03</b>ڈیسک ٹاپ</a></li><li><a href="#mouse"><b>04</b>پوائنٹر</a></li><li><a href="#pages"><b>05</b>جگہ</a></li><li><a href="#themes"><b>06</b>ظاہری شکل</a></li><li><a href="#screen"><b>07</b>اسکرین</a></li><li><a href="#languages"><b>08</b>زبان</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>بنیادی باتیں</a></li><li><a href="#icons"><b>02</b>آئیکن</a></li><li><a href="#dragdrop"><b>03</b>ڈیسک ٹاپ</a></li><li><a href="#sync"><b>04</b>ہم آہنگی</a></li><li><a href="#mouse"><b>05</b>پوائنٹر</a></li><li><a href="#pages"><b>06</b>جگہ</a></li><li><a href="#managepages"><b>07</b>جگہ</a></li><li><a href="#themes"><b>08</b>ظاہری شکل</a></li><li><a href="#screen"><b>09</b>اسکرین</a></li><li><a href="#languages"><b>10</b>زبان</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">بنیادی باتیں</p>
   <h2>بٹن صرف کلید دبانے سے زیادہ کرتے ہیں</h2>
-  <p class="lead">ترمیم کے موڈ میں جانے کے لیے پنسل دبائیں، پھر کسی بٹن کو چھو کر اسے بدلیں — یا دبائے رکھ کر کہیں اور کھینچ لے جائیں۔ ہر بٹن کا ایک لیبل، ایک آئیکن، ایک رنگ اور ایک عمل ہوتا ہے۔</p>
-  
+  <p class="lead">ترمیم کے موڈ میں جانے کے لیے پنسل دبائیں، پھر کسی بٹن کو چھو کر اسے بدلیں، یا دبائے رکھ کر کہیں اور کھینچ لے جائیں۔ ہر بٹن کا ایک لیبل، ایک آئیکن، ایک رنگ اور ایک عمل ہوتا ہے۔</p>
+  <aside class="note">ترتیب میں ہر سطر پر ایک مرحلہ ہوتا ہے: <code>key ctrl+s</code>، <code>text Hello</code>، <code>delay 500</code>، <code>launch notepad</code>، <code>url https://…</code>، <code>cmd …</code>۔ ایڈیٹر کا <b>آزمائیں</b> بٹن عمل کو محفوظ کیے بغیر ایک بار چلا دیتا ہے، تاکہ کوئی نازک شارٹ کٹ اپنانے سے پہلے اسے ٹھیک کر لیں۔</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="لیبل، آئیکن چننے والا اور رنگ۔" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>لیبل، آئیکن چننے والا اور رنگ۔</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="عمل کی قسم، اور چننے کے لیے تیار شارٹ کٹ۔" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>عمل کی قسم، اور چننے کے لیے تیار شارٹ کٹ۔</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>عمل</th><th>کیا کرتا ہے</th></tr></thead>
-  <tbody><tr><td class="k">کی بورڈ شارٹ کٹ</td><td>کوئی بھی مجموعہ — <code>ctrl+c</code>، <code>win+d</code>، <code>alt+f4</code>، میڈیا کلیدیں، آواز</td></tr><tr><td class="k">متن لکھنا</td><td>آپ کی جگہ متن کا ایک ٹکڑا لکھ دیتا ہے، سطر کے وقفوں سمیت</td></tr><tr><td class="k">ایپ / فائل کھولنا</td><td>کوئی پروگرام، دستاویز یا فولڈر</td></tr><tr><td class="k">ویب پتہ کھولنا</td><td>لنک آپ کے طے شدہ براؤزر میں کھولتا ہے</td></tr><tr><td class="k">کمانڈ چلانا</td><td>PowerShell یا CMD</td></tr><tr><td class="k">ماؤس</td><td>ٹیبلٹ کی اسکرین کو ٹچ پیڈ بنا دیتا ہے</td></tr><tr><td class="k">مراحل کی ترتیب</td><td>کئی مرحلے باری باری، بیچ میں وقفوں کے ساتھ</td></tr></tbody>
+  <tbody><tr><td class="k">کی بورڈ شارٹ کٹ</td><td>کوئی بھی مجموعہ: <code>ctrl+c</code>، <code>win+d</code>، <code>alt+f4</code>، میڈیا کلیدیں، آواز</td></tr><tr><td class="k">متن لکھنا</td><td>آپ کی جگہ متن کا ایک ٹکڑا لکھ دیتا ہے، سطر کے وقفوں سمیت</td></tr><tr><td class="k">ایپ / فائل کھولنا</td><td>کوئی پروگرام، دستاویز یا فولڈر</td></tr><tr><td class="k">ویب پتہ کھولنا</td><td>لنک آپ کے طے شدہ براؤزر میں کھولتا ہے</td></tr><tr><td class="k">کمانڈ چلانا</td><td>PowerShell یا CMD</td></tr><tr><td class="k">ماؤس</td><td>ٹیبلٹ کی اسکرین کو ٹچ پیڈ بنا دیتا ہے</td></tr><tr><td class="k">مراحل کی ترتیب</td><td>کئی مرحلے باری باری، بیچ میں وقفوں کے ساتھ</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -294,9 +298,17 @@ footer {
 <section id="dragdrop">
   <p class="eyebrow">ڈیسک ٹاپ</p>
   <h2>ڈیسک ٹاپ سے شارٹ کٹ کھینچ کر لائیں</h2>
-  <p class="lead">ٹاسک بار آئیکن سے ایڈیٹر کھولیں: ایک اصل ڈیسک ٹاپ ونڈو کھلتی ہے جس کے اندر وہی انٹرفیس ہوتا ہے۔ اوپر والی پٹی پر کوئی شارٹ کٹ، پروگرام، فولڈر یا فائل چھوڑ دیں — ہدف حل ہو جاتا ہے، ایپ کا آئیکن نکال لیا جاتا ہے، اور بٹن فوراً ٹیبلٹ پر آ جاتا ہے۔</p>
-  <aside class="note">ایڈیٹر ایک خاص وجہ سے براؤزر ٹیب کے بجائے مقامی ونڈو ہے۔ براؤزر کسی ویب صفحے کو چھوڑی گئی فائل کا <em>راستہ</em> کبھی نہیں دیتے، اور کرومیم چھوڑے گئے شارٹ کٹ کو اس کے ہدف میں بدل دیتا ہے — یعنی براؤزر یہ جاننے کے بجائے کہ پروگرام کہاں ہے، پورا پروگرام پڑھنے کی کوشش کرتا۔</aside>
+  <p class="lead">ٹاسک بار آئیکن سے ایڈیٹر کھولیں: ایک اصل ڈیسک ٹاپ ونڈو کھلتی ہے جس کے اندر وہی انٹرفیس ہوتا ہے۔ اوپر والی پٹی پر کوئی شارٹ کٹ، پروگرام، فولڈر یا فائل چھوڑ دیں: ہدف حل ہو جاتا ہے، ایپ کا آئیکن نکال لیا جاتا ہے، اور بٹن فوراً ٹیبلٹ پر آ جاتا ہے۔</p>
+  <aside class="note">ایڈیٹر ایک خاص وجہ سے براؤزر ٹیب کے بجائے مقامی ونڈو ہے۔ براؤزر کسی ویب صفحے کو چھوڑی گئی فائل کا <em>راستہ</em> کبھی نہیں دیتے، اور کرومیم چھوڑے گئے شارٹ کٹ کو اس کے ہدف میں بدل دیتا ہے، یعنی براؤزر یہ جاننے کے بجائے کہ پروگرام کہاں ہے، پورا پروگرام پڑھنے کی کوشش کرتا۔</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="ڈیسک ٹاپ ایڈیٹر۔ بائیں طرف سے صفحہ چنیں، پھر شارٹ کٹ پٹی پر چھوڑیں۔" loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>ہدف صفحہ</span><span class="callout" style="left:62%;top:13%"><i></i>یہاں چھوڑیں</span></div></div><figcaption>ڈیسک ٹاپ ایڈیٹر۔ بائیں طرف سے صفحہ چنیں، پھر شارٹ کٹ پٹی پر چھوڑیں۔</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">ہم آہنگی</p>
+  <h2>دونوں طرف سے ترمیم، فوری</h2>
+  <p class="lead">ٹیبلٹ اور ڈیسک ٹاپ ایڈیٹر ایک ہی ڈیک ہیں، بس دو جگہ نظر آتے ہیں۔ پی سی پر بٹن شامل کریں تو وہ صفحہ دوبارہ لوڈ کیے بغیر ٹیبلٹ پر آ جاتا ہے؛ ٹیبلٹ پر کسی صفحے کا نام بدلیں تو ایڈیٹر کی صفحہ فہرست بھی ساتھ بدل جاتی ہے۔ ہر تبدیلی فوراً ڈسک پر لکھی جاتی ہے اور آخری تیس نسخے محفوظ رہتے ہیں، اسی لیے دو آلوں پر بیک وقت کی گئی ترمیم چپکے سے دوسری کو مٹانے کے بجائے مسترد کر دی جاتی ہے۔</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="ٹچ پیڈ موڈ، اور نیچے ان کلکوں کے لیے واضح بٹن جن کا اندازہ نہیں لگانا چاہتے۔" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>ٹچ پیڈ موڈ، اور نیچے ان کلکوں کے لیے واضح بٹن جن کا اندازہ نہیں لگانا چاہتے۔</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>اشارہ</th><th>نتیجہ</th></tr></thead>
-  <tbody><tr><td class="k">کھینچنا</td><td>پوائنٹر ہلانا</td></tr><tr><td class="k">ٹیپ</td><td>بایاں کلک</td></tr><tr><td class="k">ڈبل ٹیپ</td><td>ڈبل کلک</td></tr><tr><td class="k">ڈبل ٹیپ پھر کھینچنا</td><td>بایاں بٹن دبائے رکھ کر ہلانا — متن منتخب کرنا، ونڈو کھسکانا</td></tr><tr><td class="k">دیر تک دبانا</td><td>دایاں کلک</td></tr><tr><td class="k">دو انگلیاں</td><td>عمودی اور افقی اسکرول</td></tr><tr><td class="k">دو انگلیوں سے ٹیپ</td><td>دایاں کلک</td></tr><tr><td class="k">چٹکی</td><td>زوم</td></tr><tr><td class="k">تین انگلیاں ↑ / ↓</td><td>ٹاسک ویو / ڈیسک ٹاپ دکھائیں</td></tr><tr><td class="k">تین انگلیاں ← / →</td><td>ورچوئل ڈیسک ٹاپ بدلیں</td></tr></tbody>
+  <tbody><tr><td class="k">کھینچنا</td><td>پوائنٹر ہلانا</td></tr><tr><td class="k">ٹیپ</td><td>بایاں کلک</td></tr><tr><td class="k">ڈبل ٹیپ</td><td>ڈبل کلک</td></tr><tr><td class="k">ڈبل ٹیپ پھر کھینچنا</td><td>بایاں بٹن دبائے رکھ کر ہلانا: متن منتخب کرنا، ونڈو کھسکانا</td></tr><tr><td class="k">دیر تک دبانا</td><td>دایاں کلک</td></tr><tr><td class="k"><b>پکڑیں</b> بٹن</td><td>بایاں بٹن دبا ہوا مقفل کر دیتا ہے، تاکہ انگلی رکھے بغیر کئی حرکتوں میں کھینچ سکیں</td></tr><tr><td class="k"><b>درمیانی</b> بٹن</td><td>درمیانی کلک: ٹیب بند کریں، لنک نئے ٹیب میں کھولیں</td></tr><tr><td class="k">دو انگلیاں</td><td>عمودی اور افقی اسکرول</td></tr><tr><td class="k">دو انگلیوں سے ٹیپ</td><td>دایاں کلک</td></tr><tr><td class="k">چٹکی</td><td>زوم</td></tr><tr><td class="k">تین انگلیاں ↑ / ↓</td><td>ٹاسک ویو / ڈیسک ٹاپ دکھائیں</td></tr><tr><td class="k">تین انگلیاں ← / →</td><td>ورچوئل ڈیسک ٹاپ بدلیں</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">جگہ</p>
-  <h2>جتنے صفحے چاہیں</h2>
-  <p class="lead">بٹنوں کو صفحوں میں بانٹ لیں — ایک ترمیم کے لیے، ایک کھیلوں کے لیے، ایک اس میٹنگ کے لیے جس سے آپ کبھی نہیں نکلتے۔ صفحے بدلنے کے لیے ڈیک پر بائیں یا دائیں سوائپ کریں۔ تیرتا بٹن پٹیاں چھپی ہونے پر بھی صفحوں، ایڈیٹر اور تھیموں تک پہنچاتا ہے، اور آپ اسے جہاں مناسب لگے کھینچ سکتے ہیں۔</p>
+  <h2>صفحوں کے درمیان سوائپ کریں</h2>
+  <p class="lead">بٹنوں کو صفحوں میں بانٹ لیں: ایک ترمیم کے لیے، ایک کھیلوں کے لیے، ایک اس میٹنگ کے لیے جس سے آپ کبھی نہیں نکلتے۔ ان کے درمیان جانے کے لیے <b>ڈیک پر کہیں بھی بائیں یا دائیں سوائپ کریں</b>؛ صفحے کا نام لمحہ بھر کو دکھائی دیتا ہے تاکہ پتہ چلے آپ کہاں پہنچے۔ ترمیم کے موڈ میں یہی اشارہ اس کے بجائے بٹنوں کی ترتیب بدلتا ہے، سو دونوں کبھی ٹکراتے نہیں۔</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="تیرتا مینو: صفحے، پٹیاں، ترمیم کا موڈ، تھیم اور پوری اسکرین۔" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>تیرتا مینو: صفحے، پٹیاں، ترمیم کا موڈ، تھیم اور پوری اسکرین۔</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="ایک سوائپ ایک صفحے سے اگلے صفحے پر لے جاتا ہے۔" loading="lazy"></div><figcaption>ایک سوائپ ایک صفحے سے اگلے صفحے پر لے جاتا ہے۔</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">جگہ</p>
+  <h2>صفحے، کالم اور تیرتا بٹن</h2>
+  <p class="lead">ترمیم کے موڈ میں نیچے کی پٹی صفحے شامل اور ختم کرتی ہے اور طے کرتی ہے کہ گرڈ کتنے کالم استعمال کرے۔ کسی صفحے کا نام بدلنے کے لیے اس کے ٹیب کو دوبارہ چھوئیں۔ تیرتا بٹن پٹیاں چھپی ہونے پر بھی صفحوں، ایڈیٹر اور تھیموں تک پہنچاتا ہے، اور آپ اسے جہاں مناسب لگے کھینچ سکتے ہیں، کیونکہ یہی ایک چیز ہمیشہ اسکرین پر رہتی ہے۔</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="تیرتا مینو: صفحے، پٹیاں، ترمیم کا موڈ، تھیم اور پوری اسکرین۔" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>تیرتا مینو: صفحے، پٹیاں، ترمیم کا موڈ، تھیم اور پوری اسکرین۔</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="ترمیم کا موڈ، اور نیچے صفحوں اور کالموں کے کنٹرول۔" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>ترمیم کا موڈ، اور نیچے صفحوں اور کالموں کے کنٹرول۔</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">ظاہری شکل</p>
   <h2>گیارہ تھیم، اور بٹن بھی ساتھ چلتے ہیں</h2>
-  <p class="lead">زیادہ تر تھیم ڈویلپروں میں معروف رنگ اسکیموں سے آئے ہیں — Nord، Gruvbox، Solarized، Catppuccin Mocha، Rosé Pine — اس کے علاوہ جان بوجھ کر دو رنگوں والے دو ٹرمینل انداز اور ایک غیر جانبدار روشن و گہرا۔ تھیم بدلنے پر آپ کے بٹنوں کے رنگ اپنی رنگت برقرار رکھتے ہوئے نئے پیلیٹ میں بدل جاتے ہیں: نیلا بٹن نئے تھیم کا نیلا بن جاتا ہے اور آپ کی ترتیب ویسی ہی پڑھی جاتی ہے۔</p>
-  
+  <p class="lead">زیادہ تر تھیم ڈویلپروں میں معروف رنگ اسکیموں سے آئے ہیں (Nord، Gruvbox، Solarized، Catppuccin Mocha، Rosé Pine)، اس کے علاوہ جان بوجھ کر دو رنگوں والے دو ٹرمینل انداز اور ایک غیر جانبدار روشن و گہرا۔ تھیم بدلنے پر آپ کے بٹنوں کے رنگ اپنی رنگت برقرار رکھتے ہوئے نئے پیلیٹ میں بدل جاتے ہیں: نیلا بٹن نئے تھیم کا نیلا بن جاتا ہے اور آپ کی ترتیب ویسی ہی پڑھی جاتی ہے۔</p>
+  <aside class="note">اگر ڈیک پورا ایک ہی رنگ کا ہو جائے تو <b>تھیم پیلیٹ تقسیم کریں</b> اس کے رنگ بٹنوں پر بانٹ دیتا ہے، اور <b>سب کو نمایاں رنگ میں رنگیں</b> انہیں واپس ایک ہی رنگ کر دیتا ہے۔ کوئی بھی بٹن پکر سے آپ کا اپنا رنگ بھی لے سکتا ہے، اور پٹیاں اور تیرتا بٹن جو نمایاں رنگ استعمال کرتے ہیں وہ آپ کی مرضی سے چنا جاتا ہے۔ بٹن کا متن خود بخود سیاہ اور سفید کے درمیان بدلتا رہتا ہے، آپ جو بھی رنگ چن لیں۔</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="ہر کارڈ اپنا پس منظر اور پیلیٹ دکھاتا ہے۔" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>ہر کارڈ اپنا پس منظر اور پیلیٹ دکھاتا ہے۔</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="وہی ڈیک ایک روشن تھیم میں۔" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>وہی ڈیک ایک روشن تھیم میں۔</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">اسکرین</p>
   <h2>پوری اسکرین استعمال کریں</h2>
-  <p class="lead"><b>پوری اسکرین پر پھیلائیں</b> قطاروں کو ساری اونچائی بانٹنے دیتا ہے: بٹنوں کی دو قطاریں نیچے خلا چھوڑنے کے بجائے اسکرین بھر دیتی ہیں۔ <b>پٹیاں خودکار چھپائیں</b> اوپر اور نیچے کی پٹیاں مکمل ہٹا دیتا ہے اور صرف بٹن چھوڑتا ہے — تیرتا بٹن انہیں واپس لاتا ہے، یا خالی جگہ تین سیکنڈ دبائے رکھیں۔</p>
+  <p class="lead"><b>بٹنوں کو پوری اسکرین پر پھیلائیں</b> قطاروں کو ساری اونچائی بانٹنے دیتا ہے: بٹنوں کی دو قطاریں نیچے خلا چھوڑنے کے بجائے اسکرین بھر دیتی ہیں۔ <b>اوپر اور نیچے کی پٹیاں خودکار چھپائیں</b> انہیں مکمل ہٹا دیتا ہے اور صرف بٹن چھوڑتا ہے۔ تیرتا بٹن انہیں واپس لاتا ہے، یا خالی جگہ تین سیکنڈ دبائے رکھیں۔</p>
   <aside class="note">ٹیبلٹ کو جاگتا رہنے کے لیے بھی ترتیب دیا گیا ہے: ڈیک کھلا ہونے تک اسکرین بند نہیں ہوگی۔</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — ونڈوز کے لیے اپنے سرور والا شارٹ کٹ ڈیک۔</footer>
+        <footer>Surecut Deck: ونڈوز کے لیے اپنے سرور والا شارٹ کٹ ڈیک۔</footer>
       </div>
     </div>
   </div>

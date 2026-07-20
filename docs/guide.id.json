@@ -1,10 +1,10 @@
 {
   "lang": "id",
   "dir": "ltr",
-  "title": "Surecut Deck — Panduan Penggunaan",
+  "title": "Surecut Deck: Panduan Penggunaan",
   "eyebrow": "Server sendiri · Tanpa toko aplikasi · Tidak ada yang keluar dari jaringanmu",
   "heroTitle": "Ubah tablet nganggur menjadi panel kendali PC-mu",
-  "heroLead": "Surecut Deck menjalankan server kecil di komputer Windows-mu dan menyajikan antarmukanya sendiri. Tablet hanya membuka sebuah alamat web — tidak ada aplikasi yang perlu dipasang, akun yang perlu dibuat, atau awan di tengahnya.",
+  "heroLead": "Surecut Deck menjalankan server kecil di komputer Windows-mu dan menyajikan antarmukanya sendiri. Tablet hanya membuka sebuah alamat web: tidak ada aplikasi yang perlu dipasang, akun yang perlu dibuat, atau awan di tengahnya.",
   "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "Dek pada tablet Android 1024×600, tema Nord dalam layar penuh." },
 
   "pillars": {
@@ -44,7 +44,7 @@
       "id": "buttons",
       "eyebrow": "Dasar",
       "title": "Tombol melakukan lebih dari sekadar menekan tuts",
-      "body": "Ketuk pensil untuk masuk ke mode ubah, lalu ketuk tombol mana pun untuk menyuntingnya — atau tekan agak lama untuk menyeretnya ke tempat lain. Setiap tombol punya label, ikon, warna, dan satu tindakan.",
+      "body": "Ketuk pensil untuk masuk ke mode ubah, lalu ketuk tombol mana pun untuk menyuntingnya, atau tekan agak lama untuk menyeretnya ke tempat lain. Setiap tombol punya label, ikon, warna, dan satu tindakan.",
       "figures": [
         { "src": "04-editor.png", "frame": "tablet", "caption": "Label, pemilih ikon, dan warna." },
         { "src": "05-action.png", "frame": "tablet", "caption": "Jenis tindakan, dengan pintasan siap pakai untuk dipilih." }
@@ -52,7 +52,7 @@
       "table": {
         "head": ["Tindakan", "Yang dilakukan"],
         "rows": [
-          ["Pintasan papan ketik", "Kombinasi apa pun — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, tombol media, volume"],
+          ["Pintasan papan ketik", "Kombinasi apa pun: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, tombol media, volume"],
           ["Tulis teks", "Menuliskan sepotong teks untukmu, termasuk ganti baris"],
           ["Buka aplikasi / berkas", "Sebuah program, dokumen, atau folder"],
           ["Buka alamat web", "Membuka tautan di peramban bawaanmu"],
@@ -60,7 +60,8 @@
           ["Tetikus", "Mengubah layar tablet menjadi panel sentuh"],
           ["Rangkaian langkah", "Beberapa langkah berurutan, dengan jeda di antaranya"]
         ]
-      }
+      },
+      "note": "Rangkaian ditulis satu langkah per baris: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Tombol <b>Uji</b> di penyunting menjalankan tindakannya sekali tanpa menyimpannya, jadi pintasan yang rewel bisa kamu bereskan dulu sebelum benar-benar dipakai."
     },
     {
       "id": "icons",
@@ -75,8 +76,8 @@
       "id": "dragdrop",
       "eyebrow": "Desktop",
       "title": "Seret pintasan dari desktop",
-      "body": "Buka penyunting dari ikon baki sistem: muncul jendela desktop sungguhan dengan antarmuka yang sama di dalamnya. Jatuhkan pintasan, program, folder, atau berkas ke bilah di bagian atas — sasarannya diuraikan, ikon aplikasinya diambil, dan tombolnya langsung muncul di tablet.",
-      "note": "Penyunting berupa jendela asli, bukan tab peramban, karena satu alasan tertentu. Peramban tidak pernah memberikan <em>lokasi</em> berkas yang dijatuhkan kepada halaman web, dan Chromium bahkan menguraikan pintasan yang dijatuhkan menjadi sasarannya — jadi peramban akan mencoba membaca seluruh program alih-alih mengetahui di mana letaknya.",
+      "body": "Buka penyunting dari ikon baki sistem: muncul jendela desktop sungguhan dengan antarmuka yang sama di dalamnya. Jatuhkan pintasan, program, folder, atau berkas ke bilah di bagian atas: sasarannya diuraikan, ikon aplikasinya diambil, dan tombolnya langsung muncul di tablet.",
+      "note": "Penyunting berupa jendela asli, bukan tab peramban, karena satu alasan tertentu. Peramban tidak pernah memberikan <em>lokasi</em> berkas yang dijatuhkan kepada halaman web, dan Chromium bahkan menguraikan pintasan yang dijatuhkan menjadi sasarannya, jadi peramban akan mencoba membaca seluruh program alih-alih mengetahui di mana letaknya.",
       "figures": [
         {
           "src": "10-editor-win.png",
@@ -88,6 +89,12 @@
           ]
         }
       ]
+    },
+    {
+      "id": "sync",
+      "eyebrow": "Sinkron",
+      "title": "Sunting dari sisi mana pun, langsung terlihat",
+      "body": "Tablet dan penyunting desktop adalah dek yang sama, hanya dilihat dari dua sisi. Tambahkan tombol di PC dan ia muncul di tablet tanpa perlu memuat ulang; ganti nama halaman di tablet dan daftar halaman di penyunting ikut menyesuaikan. Setiap perubahan langsung ditulis ke disk, dan tiga puluh versi terakhir disimpan, jadi suntingan yang dilakukan di dua perangkat sekaligus akan ditolak, bukan diam-diam menimpa yang lain."
     },
     {
       "id": "mouse",
@@ -103,8 +110,10 @@
           ["Seret", "Menggerakkan penunjuk"],
           ["Ketuk", "Klik kiri"],
           ["Ketuk dua kali", "Klik ganda"],
-          ["Ketuk dua kali lalu seret", "Menahan tombol kiri sambil bergerak — memilih teks, menggeser jendela"],
+          ["Ketuk dua kali lalu seret", "Menahan tombol kiri sambil bergerak: memilih teks, menggeser jendela"],
           ["Tekan lama", "Klik kanan"],
+          ["Tombol <b>Tahan</b>", "Mengunci tombol kiri tetap tertekan, jadi kamu bisa menyeret dalam beberapa usapan tanpa menahan jari"],
+          ["Tombol <b>Tengah</b>", "Klik tengah: menutup tab, membuka tautan di tab baru"],
           ["Dua jari", "Gulir tegak dan mendatar"],
           ["Ketuk dua jari", "Klik kanan"],
           ["Cubit", "Perbesar/perkecil"],
@@ -116,17 +125,28 @@
     {
       "id": "pages",
       "eyebrow": "Ruang",
-      "title": "Sebanyak halaman yang kamu perlukan",
-      "body": "Kelompokkan tombol ke dalam halaman — satu untuk menyunting, satu untuk bermain, satu untuk rapat yang tak pernah kamu tinggalkan. Geser ke kiri atau ke kanan pada dek untuk berpindah. Tombol mengambang membawamu ke halaman, penyunting, dan tema bahkan ketika bilah tersembunyi, dan bisa kamu seret ke tempat yang nyaman.",
+      "title": "Geser untuk berpindah halaman",
+      "body": "Kelompokkan tombol ke dalam halaman: satu untuk menyunting, satu untuk bermain, satu untuk rapat yang tak pernah kamu tinggalkan. <b>Geser ke kiri atau ke kanan di mana pun pada dek</b> untuk berpindah di antaranya; nama halamannya muncul sekilas supaya kamu tahu sedang mendarat di mana. Dalam mode ubah, gerakan yang sama justru menata ulang tombol, jadi keduanya tidak pernah bentrok.",
       "figures": [
-        { "src": "07-menu.png", "frame": "tablet", "caption": "Menu mengambang: halaman, bilah, mode ubah, tema, dan layar penuh." }
+        { "src": "12-swipe.png", "frame": "none", "caption": "Sekali geser berpindah dari satu halaman ke halaman berikutnya." }
+      ]
+    },
+    {
+      "id": "managepages",
+      "eyebrow": "Ruang",
+      "title": "Halaman, kolom, dan tombol mengambang",
+      "body": "Dalam mode ubah, bilah bawah menambah dan menghapus halaman serta mengatur berapa kolom yang dipakai kisi. Ketuk lagi tab sebuah halaman untuk mengganti namanya. Tombol mengambang menjangkau halaman, penyunting, dan tema bahkan ketika bilah tersembunyi, dan bisa kamu seret ke mana pun yang terasa nyaman, karena ia satu-satunya yang selalu ada di layar.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Menu mengambang: halaman, bilah, mode ubah, tema, dan layar penuh." },
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Mode ubah, dengan kendali halaman dan kolom di sepanjang bagian bawah." }
       ]
     },
     {
       "id": "themes",
       "eyebrow": "Tampilan",
       "title": "Sebelas tema, dan tombolnya ikut menyesuaikan",
-      "body": "Sebagian besar tema berasal dari skema warna yang dikenal para pengembang — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — ditambah dua tampilan terminal yang sengaja hanya dua warna serta satu terang dan satu gelap yang netral. Saat tema diganti, warna tombolmu dikonversi ke palet baru dengan mempertahankan ronanya: tombol biru menjadi biru tema yang baru, dan tata letakmu tetap terbaca sama.",
+      "body": "Sebagian besar tema berasal dari skema warna yang dikenal para pengembang (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), ditambah dua tampilan terminal yang sengaja hanya dua warna serta satu terang dan satu gelap yang netral. Saat tema diganti, warna tombolmu dikonversi ke palet baru dengan mempertahankan ronanya: tombol biru menjadi biru tema yang baru, dan tata letakmu tetap terbaca sama.",
+      "note": "Kalau sebuah dek berakhir serba satu warna, <b>Sebar palet tema</b> membagikan warna-warna tema itu ke seluruh tombol; <b>Warnai semua dengan warna aksen</b> mengembalikannya menjadi satu warna. Tombol mana pun juga bisa memakai warna pilihanmu sendiri dari pemilih warna, dan warna aksen yang dipakai bilah serta tombol mengambang terserah kamu. Teks tombol berganti sendiri antara hitam dan putih, apa pun warna yang kamu pilih.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Tiap kartu menampilkan latar dan paletnya sendiri." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Dek yang sama dengan tema terang." }
@@ -136,7 +156,7 @@
       "id": "screen",
       "eyebrow": "Layar",
       "title": "Manfaatkan seluruh layar",
-      "body": "<b>Regangkan memenuhi layar</b> membuat baris berbagi seluruh tinggi: dua baris tombol memenuhi layar alih-alih menyisakan ruang kosong di bawah. <b>Sembunyikan bilah otomatis</b> menghilangkan bilah atas dan bawah sepenuhnya dan menyisakan tombol saja — tombol mengambang mengembalikannya, atau tekan area kosong selama tiga detik.",
+      "body": "<b>Regangkan tombol memenuhi layar</b> membuat baris berbagi seluruh tinggi: dua baris tombol memenuhi layar alih-alih menyisakan ruang kosong di bawah. <b>Sembunyikan bilah atas dan bawah otomatis</b> menghilangkannya sepenuhnya dan menyisakan tombol saja. Tombol mengambang mengembalikannya, atau tekan area kosong selama tiga detik.",
       "note": "Tablet juga diatur agar tetap terjaga: layar tidak akan mati selama dek terbuka."
     },
     {
@@ -157,5 +177,5 @@
     ]
   },
 
-  "footer": "Surecut Deck — dek pintasan dengan server sendiri untuk Windows."
+  "footer": "Surecut Deck: dek pintasan dengan server sendiri untuk Windows."
 }

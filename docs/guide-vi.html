@@ -1,4 +1,4 @@
-<title>Surecut Deck — Hướng dẫn sử dụng</title>
+<title>Surecut Deck: Hướng dẫn sử dụng</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">Tự dựng máy chủ · Không cần cửa hàng ứng dụng · Không gì rời khỏi mạng của bạn</p>
       <h1>Biến chiếc máy tính bảng bỏ không thành bàn điều khiển cho máy tính</h1>
-      <p class="lead">Surecut Deck chạy một máy chủ nhỏ trên máy Windows của bạn và tự phục vụ giao diện của chính nó. Máy tính bảng chỉ mở một địa chỉ web — không có ứng dụng phải cài, không có tài khoản phải tạo, và không có đám mây ở giữa.</p>
+      <p class="lead">Surecut Deck chạy một máy chủ nhỏ trên máy Windows của bạn và tự phục vụ giao diện của chính nó. Máy tính bảng chỉ mở một địa chỉ web: không có ứng dụng phải cài, không có tài khoản phải tạo, và không có đám mây ở giữa.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Cách hoạt động</p>
-        <ul><li><a href="#buttons"><b>01</b>Cơ bản</a></li><li><a href="#icons"><b>02</b>Biểu tượng</a></li><li><a href="#dragdrop"><b>03</b>Màn hình nền</a></li><li><a href="#mouse"><b>04</b>Con trỏ</a></li><li><a href="#pages"><b>05</b>Không gian</a></li><li><a href="#themes"><b>06</b>Diện mạo</a></li><li><a href="#screen"><b>07</b>Màn hình</a></li><li><a href="#languages"><b>08</b>Ngôn ngữ</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Cơ bản</a></li><li><a href="#icons"><b>02</b>Biểu tượng</a></li><li><a href="#dragdrop"><b>03</b>Màn hình nền</a></li><li><a href="#sync"><b>04</b>Đồng bộ</a></li><li><a href="#mouse"><b>05</b>Con trỏ</a></li><li><a href="#pages"><b>06</b>Không gian</a></li><li><a href="#managepages"><b>07</b>Không gian</a></li><li><a href="#themes"><b>08</b>Diện mạo</a></li><li><a href="#screen"><b>09</b>Màn hình</a></li><li><a href="#languages"><b>10</b>Ngôn ngữ</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">Cơ bản</p>
   <h2>Nút làm được nhiều hơn là bấm phím</h2>
-  <p class="lead">Chạm biểu tượng bút chì để vào chế độ sửa, rồi chạm vào nút bất kỳ để chỉnh — hoặc nhấn giữ để kéo nó sang chỗ khác. Mỗi nút có một nhãn, một biểu tượng, một màu và một hành động.</p>
-  
+  <p class="lead">Chạm biểu tượng bút chì để vào chế độ sửa, rồi chạm vào nút bất kỳ để chỉnh, hoặc nhấn giữ để kéo nó sang chỗ khác. Mỗi nút có một nhãn, một biểu tượng, một màu và một hành động.</p>
+  <aside class="note">Chuỗi bước được viết mỗi dòng một bước: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Nút <b>Thử</b> trong trình chỉnh sửa chạy hành động một lần mà không lưu lại, nên bạn có thể chỉnh cho đúng một phím tắt khó chiều trước khi thật sự chốt nó.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Nhãn, bộ chọn biểu tượng và màu." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Nhãn, bộ chọn biểu tượng và màu.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Loại hành động, kèm các phím tắt dựng sẵn để chọn." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Loại hành động, kèm các phím tắt dựng sẵn để chọn.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Hành động</th><th>Tác dụng</th></tr></thead>
-  <tbody><tr><td class="k">Phím tắt</td><td>Bất kỳ tổ hợp nào — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, phím đa phương tiện, âm lượng</td></tr><tr><td class="k">Gõ văn bản</td><td>Viết sẵn một đoạn văn bản thay bạn, kể cả xuống dòng</td></tr><tr><td class="k">Mở ứng dụng / tệp</td><td>Một chương trình, một tài liệu hoặc một thư mục</td></tr><tr><td class="k">Mở địa chỉ web</td><td>Mở liên kết trong trình duyệt mặc định</td></tr><tr><td class="k">Chạy lệnh</td><td>PowerShell hoặc CMD</td></tr><tr><td class="k">Chuột</td><td>Biến màn hình máy tính bảng thành bàn di chuột</td></tr><tr><td class="k">Chuỗi bước</td><td>Nhiều bước theo thứ tự, có thể chèn thời gian chờ</td></tr></tbody>
+  <tbody><tr><td class="k">Phím tắt</td><td>Bất kỳ tổ hợp nào: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, phím đa phương tiện, âm lượng</td></tr><tr><td class="k">Gõ văn bản</td><td>Viết sẵn một đoạn văn bản thay bạn, kể cả xuống dòng</td></tr><tr><td class="k">Mở ứng dụng / tệp</td><td>Một chương trình, một tài liệu hoặc một thư mục</td></tr><tr><td class="k">Mở địa chỉ web</td><td>Mở liên kết trong trình duyệt mặc định</td></tr><tr><td class="k">Chạy lệnh</td><td>PowerShell hoặc CMD</td></tr><tr><td class="k">Chuột</td><td>Biến màn hình máy tính bảng thành bàn di chuột</td></tr><tr><td class="k">Chuỗi bước</td><td>Nhiều bước theo thứ tự, có thể chèn thời gian chờ</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -294,9 +298,17 @@ footer {
 <section id="dragdrop">
   <p class="eyebrow">Màn hình nền</p>
   <h2>Kéo một lối tắt từ màn hình nền vào</h2>
-  <p class="lead">Mở trình chỉnh sửa từ biểu tượng khay: một cửa sổ desktop thật hiện ra, bên trong là cùng giao diện đó. Thả một lối tắt, chương trình, thư mục hay tệp lên dải phía trên — đích được phân giải, biểu tượng ứng dụng được trích ra, và nút xuất hiện ngay trên máy tính bảng.</p>
-  <aside class="note">Trình chỉnh sửa là cửa sổ gốc chứ không phải thẻ trình duyệt, vì một lý do cụ thể. Trình duyệt không bao giờ trao cho trang web <em>đường dẫn</em> của tệp được thả vào, và Chromium còn phân giải lối tắt được thả thành đích của nó — nghĩa là trình duyệt sẽ cố đọc cả chương trình thay vì biết nó nằm ở đâu.</aside>
+  <p class="lead">Mở trình chỉnh sửa từ biểu tượng khay: một cửa sổ desktop thật hiện ra, bên trong là cùng giao diện đó. Thả một lối tắt, chương trình, thư mục hay tệp lên dải phía trên: đích được phân giải, biểu tượng ứng dụng được trích ra, và nút xuất hiện ngay trên máy tính bảng.</p>
+  <aside class="note">Trình chỉnh sửa là cửa sổ gốc chứ không phải thẻ trình duyệt, vì một lý do cụ thể. Trình duyệt không bao giờ trao cho trang web <em>đường dẫn</em> của tệp được thả vào, và Chromium còn phân giải lối tắt được thả thành đích của nó, nghĩa là trình duyệt sẽ cố đọc cả chương trình thay vì biết nó nằm ở đâu.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="Trình chỉnh sửa trên desktop. Chọn trang ở bên trái, rồi thả lối tắt lên dải." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Trang đích</span><span class="callout" style="left:62%;top:13%"><i></i>Thả vào đây</span></div></div><figcaption>Trình chỉnh sửa trên desktop. Chọn trang ở bên trái, rồi thả lối tắt lên dải.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">Đồng bộ</p>
+  <h2>Sửa từ phía nào cũng được, ngay tức thì</h2>
+  <p class="lead">Máy tính bảng và trình chỉnh sửa trên desktop là cùng một bàn điều khiển nhìn từ hai phía. Thêm một nút trên máy tính thì nó hiện ngay trên máy tính bảng mà không phải tải lại; đổi tên một trang trên máy tính bảng thì danh sách trang trong trình chỉnh sửa cũng đổi theo. Mọi thay đổi đều được ghi xuống đĩa ngay lập tức, và ba mươi phiên bản gần nhất được giữ lại, nên nếu hai thiết bị cùng sửa một lúc thì thao tác đó bị từ chối chứ không lặng lẽ đè lên thao tác kia.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Chế độ bàn di chuột, bên dưới là các nút rõ ràng cho những cú nhấp bạn không muốn đoán mò." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Chế độ bàn di chuột, bên dưới là các nút rõ ràng cho những cú nhấp bạn không muốn đoán mò.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Cử chỉ</th><th>Kết quả</th></tr></thead>
-  <tbody><tr><td class="k">Kéo</td><td>Di chuyển con trỏ</td></tr><tr><td class="k">Chạm</td><td>Nhấp chuột trái</td></tr><tr><td class="k">Chạm hai lần</td><td>Nhấp đúp</td></tr><tr><td class="k">Chạm hai lần rồi kéo</td><td>Giữ nút trái và di chuyển — chọn văn bản, kéo cửa sổ</td></tr><tr><td class="k">Nhấn giữ</td><td>Nhấp chuột phải</td></tr><tr><td class="k">Hai ngón</td><td>Cuộn dọc và ngang</td></tr><tr><td class="k">Chạm hai ngón</td><td>Nhấp chuột phải</td></tr><tr><td class="k">Chụm ngón</td><td>Thu phóng</td></tr><tr><td class="k">Ba ngón ↑ / ↓</td><td>Xem tác vụ / hiện màn hình nền</td></tr><tr><td class="k">Ba ngón ← / →</td><td>Chuyển màn hình nền ảo</td></tr></tbody>
+  <tbody><tr><td class="k">Kéo</td><td>Di chuyển con trỏ</td></tr><tr><td class="k">Chạm</td><td>Nhấp chuột trái</td></tr><tr><td class="k">Chạm hai lần</td><td>Nhấp đúp</td></tr><tr><td class="k">Chạm hai lần rồi kéo</td><td>Giữ nút trái và di chuyển: chọn văn bản, kéo cửa sổ</td></tr><tr><td class="k">Nhấn giữ</td><td>Nhấp chuột phải</td></tr><tr><td class="k">Nút <b>Giữ</b></td><td>Khoá nút trái ở trạng thái nhấn, nên bạn kéo được qua nhiều lượt vuốt mà không phải giữ ngón tay</td></tr><tr><td class="k">Nút <b>Giữa</b></td><td>Nhấp chuột giữa: đóng một thẻ, mở liên kết trong thẻ mới</td></tr><tr><td class="k">Hai ngón</td><td>Cuộn dọc và ngang</td></tr><tr><td class="k">Chạm hai ngón</td><td>Nhấp chuột phải</td></tr><tr><td class="k">Chụm ngón</td><td>Thu phóng</td></tr><tr><td class="k">Ba ngón ↑ / ↓</td><td>Xem tác vụ / hiện màn hình nền</td></tr><tr><td class="k">Ba ngón ← / →</td><td>Chuyển màn hình nền ảo</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">Không gian</p>
-  <h2>Bao nhiêu trang tuỳ bạn</h2>
-  <p class="lead">Gom các nút thành từng trang — một trang để dựng phim, một trang cho trò chơi, một trang cho cuộc họp mà bạn chẳng bao giờ thoát ra. Vuốt sang trái hoặc phải trên bàn điều khiển để chuyển trang. Nút nổi đưa bạn tới các trang, trình chỉnh sửa và giao diện ngay cả khi các thanh đang ẩn, và bạn có thể kéo nó tới chỗ thuận tay.</p>
+  <h2>Vuốt để chuyển trang</h2>
+  <p class="lead">Gom các nút thành từng trang: một trang để dựng phim, một trang cho trò chơi, một trang cho cuộc họp mà bạn chẳng bao giờ thoát ra. <b>Vuốt sang trái hoặc sang phải ở bất kỳ đâu trên bàn điều khiển</b> để đi qua lại giữa chúng; tên trang hiện ra trong chốc lát để bạn biết mình vừa tới đâu. Trong chế độ sửa, đúng cử chỉ đó lại dùng để sắp xếp lại các nút, nên hai bên không bao giờ giẫm chân nhau.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Menu nổi: trang, thanh công cụ, chế độ sửa, giao diện và toàn màn hình." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Menu nổi: trang, thanh công cụ, chế độ sửa, giao diện và toàn màn hình.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Một cú vuốt là chuyển từ trang này sang trang kế tiếp." loading="lazy"></div><figcaption>Một cú vuốt là chuyển từ trang này sang trang kế tiếp.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">Không gian</p>
+  <h2>Trang, số cột và nút nổi</h2>
+  <p class="lead">Trong chế độ sửa, thanh dưới dùng để thêm và bớt trang cũng như đặt lưới có bao nhiêu cột. Chạm lần nữa vào thẻ của một trang để đổi tên nó. Nút nổi đưa bạn tới các trang, trình chỉnh sửa và giao diện ngay cả khi các thanh đang ẩn, và bạn có thể kéo nó tới bất cứ chỗ nào thuận tay, vì đó là thứ duy nhất lúc nào cũng có mặt trên màn hình.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Menu nổi: trang, thanh công cụ, chế độ sửa, giao diện và toàn màn hình." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Menu nổi: trang, thanh công cụ, chế độ sửa, giao diện và toàn màn hình.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Chế độ sửa, với các nút điều khiển trang và số cột chạy dọc phía dưới." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Chế độ sửa, với các nút điều khiển trang và số cột chạy dọc phía dưới.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Diện mạo</p>
   <h2>Mười một giao diện, và các nút cũng theo</h2>
-  <p class="lead">Phần lớn giao diện lấy từ những bảng màu quen thuộc với lập trình viên — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — cộng thêm hai kiểu terminal cố ý chỉ dùng hai màu, cùng một sáng và một tối trung tính. Khi đổi giao diện, màu các nút được chuyển sang bảng màu mới mà vẫn giữ sắc độ: nút xanh dương trở thành xanh dương của giao diện mới, và bố cục của bạn vẫn đọc như cũ.</p>
-  
+  <p class="lead">Phần lớn giao diện lấy từ những bảng màu quen thuộc với lập trình viên (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), cộng thêm hai kiểu terminal cố ý chỉ dùng hai màu, cùng một sáng và một tối trung tính. Khi đổi giao diện, màu các nút được chuyển sang bảng màu mới mà vẫn giữ sắc độ: nút xanh dương trở thành xanh dương của giao diện mới, và bố cục của bạn vẫn đọc như cũ.</p>
+  <aside class="note">Nếu cả bàn điều khiển hoá ra chỉ một màu, <b>Phân bổ bảng màu giao diện</b> sẽ rải màu của giao diện ra khắp các nút; <b>Tô tất cả bằng màu nhấn</b> đưa chúng về lại một màu. Nút nào cũng có thể nhận một màu riêng bạn chọn từ bộ chọn màu, và màu nhấn mà các thanh cùng nút nổi dùng cũng do bạn quyết định. Chữ trên nút tự chuyển giữa đen và trắng, dù bạn chọn màu gì đi nữa.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Mỗi thẻ tự trưng ra nền và bảng màu của nó." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Mỗi thẻ tự trưng ra nền và bảng màu của nó.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Cũng bàn điều khiển đó với giao diện sáng." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Cũng bàn điều khiển đó với giao diện sáng.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">Màn hình</p>
   <h2>Dùng hết cả màn hình</h2>
-  <p class="lead"><b>Kéo giãn cho đầy màn hình</b> khiến các hàng chia nhau toàn bộ chiều cao: hai hàng nút sẽ lấp kín màn hình thay vì chừa một khoảng trống bên dưới. <b>Tự động ẩn thanh</b> bỏ hẳn thanh trên và thanh dưới, chỉ để lại các nút — nút nổi sẽ gọi chúng trở lại, hoặc nhấn giữ vùng trống trong ba giây.</p>
+  <p class="lead"><b>Kéo giãn nút cho đầy màn hình</b> khiến các hàng chia nhau toàn bộ chiều cao: hai hàng nút sẽ lấp kín màn hình thay vì chừa một khoảng trống bên dưới. <b>Tự động ẩn thanh trên và dưới</b> bỏ hẳn chúng đi, chỉ để lại các nút. Nút nổi sẽ gọi chúng trở lại, hoặc nhấn giữ vùng trống trong ba giây.</p>
   <aside class="note">Máy tính bảng cũng được đặt để không ngủ: màn hình sẽ không tắt khi bàn điều khiển đang mở.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — bàn phím tắt tự dựng máy chủ cho Windows.</footer>
+        <footer>Surecut Deck: bàn phím tắt tự dựng máy chủ cho Windows.</footer>
       </div>
     </div>
   </div>

@@ -1,10 +1,10 @@
 {
   "lang": "pl",
   "dir": "ltr",
-  "title": "Surecut Deck — Podręcznik",
+  "title": "Surecut Deck: Podręcznik",
   "eyebrow": "Własny serwer · Bez sklepu z aplikacjami · Nic nie opuszcza twojej sieci",
   "heroTitle": "Zamień niepotrzebny tablet w pulpit sterowania komputerem",
-  "heroLead": "Surecut Deck uruchamia mały serwer na twoim komputerze z Windows i sam udostępnia swój interfejs. Tablet otwiera tylko adres internetowy — nie ma aplikacji do zainstalowania, konta do założenia ani chmury pośrodku.",
+  "heroLead": "Surecut Deck uruchamia mały serwer na twoim komputerze z Windows i sam udostępnia swój interfejs. Tablet otwiera tylko adres internetowy: nie ma aplikacji do zainstalowania, konta do założenia ani chmury pośrodku.",
   "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "Pulpit na tablecie z Androidem 1024×600, motyw Nord na pełnym ekranie." },
 
   "pillars": {
@@ -44,7 +44,7 @@
       "id": "buttons",
       "eyebrow": "Podstawy",
       "title": "Przyciski potrafią więcej niż wciskać klawisze",
-      "body": "Dotknij ołówka, aby wejść w tryb edycji, a potem dotknij dowolnego przycisku, aby go zmienić — albo przytrzymaj, aby przeciągnąć go gdzie indziej. Każdy przycisk ma etykietę, ikonę, kolor i jedną akcję.",
+      "body": "Dotknij ołówka, aby wejść w tryb edycji, a potem dotknij dowolnego przycisku, aby go zmienić, albo przytrzymaj, aby przeciągnąć go gdzie indziej. Każdy przycisk ma etykietę, ikonę, kolor i jedną akcję.",
       "figures": [
         { "src": "04-editor.png", "frame": "tablet", "caption": "Etykieta, wybór ikony i kolor." },
         { "src": "05-action.png", "frame": "tablet", "caption": "Rodzaj akcji, z gotowymi skrótami do wyboru." }
@@ -52,7 +52,7 @@
       "table": {
         "head": ["Akcja", "Co robi"],
         "rows": [
-          ["Skrót klawiszowy", "Dowolna kombinacja — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, klawisze multimedialne, głośność"],
+          ["Skrót klawiszowy", "Dowolna kombinacja: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, klawisze multimedialne, głośność"],
           ["Wpisz tekst", "Pisze za ciebie blok tekstu, razem ze znakami nowej linii"],
           ["Otwórz aplikację / plik", "Program, dokument albo folder"],
           ["Otwórz adres WWW", "Otwiera odnośnik w domyślnej przeglądarce"],
@@ -60,12 +60,13 @@
           ["Mysz", "Zamienia ekran tabletu w touchpad"],
           ["Sekwencja", "Kilka kroków po kolei, z przerwami pomiędzy nimi"]
         ]
-      }
+      },
+      "note": "Sekwencja to jeden krok na linię: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Przycisk <b>Testuj</b> w edytorze wykonuje akcję raz, bez zapisywania, dzięki czemu dopracujesz kapryśny skrót, zanim się na niego zdecydujesz."
     },
     {
       "id": "icons",
       "eyebrow": "Ikony",
-      "title": "Wybierz emoji — albo weź prawdziwą ikonę programu",
+      "title": "Wybierz emoji albo weź prawdziwą ikonę programu",
       "body": "Edytor ma siatkę ikon, więc nigdy nie musisz wpisywać emoji ręcznie. Dla programów jest coś lepszego: przeciągnij skrót z pulpitu, a prawdziwa ikona aplikacji przyjdzie razem z nim.",
       "figures": [
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Tryb edycji. Każdy przycisk ma ołówek; przytrzymaj, aby zmienić kolejność." }
@@ -75,8 +76,8 @@
       "id": "dragdrop",
       "eyebrow": "Pulpit",
       "title": "Przeciągnij skrót z pulpitu",
-      "body": "Otwórz edytor z ikony w zasobniku — pojawi się prawdziwe okno pulpitu z tym samym interfejsem w środku. Upuść skrót, program, folder albo plik na pasek u góry: cel zostanie rozwiązany, ikona aplikacji wyodrębniona, a przycisk pojawi się na tablecie od razu.",
-      "note": "Edytor jest osobnym oknem, a nie kartą przeglądarki, z konkretnego powodu. Przeglądarki nigdy nie przekazują stronie <em>ścieżki</em> upuszczonego pliku, a Chromium dodatkowo rozwiązuje upuszczony skrót do jego celu — przeglądarka próbowałaby więc odczytać cały program, zamiast dowiedzieć się, gdzie on leży.",
+      "body": "Otwórz edytor z ikony w zasobniku: pojawi się prawdziwe okno pulpitu z tym samym interfejsem w środku. Upuść skrót, program, folder albo plik na pasek u góry: cel zostanie rozwiązany, ikona aplikacji wyodrębniona, a przycisk pojawi się na tablecie od razu.",
+      "note": "Edytor jest osobnym oknem, a nie kartą przeglądarki, z konkretnego powodu. Przeglądarki nigdy nie przekazują stronie <em>ścieżki</em> upuszczonego pliku, a Chromium dodatkowo rozwiązuje upuszczony skrót do jego celu, dlatego przeglądarka próbowałaby odczytać cały program, zamiast dowiedzieć się, gdzie on leży.",
       "figures": [
         {
           "src": "10-editor-win.png",
@@ -90,10 +91,16 @@
       ]
     },
     {
+      "id": "sync",
+      "eyebrow": "Synchronizacja",
+      "title": "Edytuj z obu stron, na żywo",
+      "body": "Tablet i edytor na komputerze to ten sam pulpit widziany dwa razy. Dodaj przycisk na PC, a pojawi się na tablecie bez przeładowania; zmień nazwę strony na tablecie, a lista stron w edytorze podąży za tym. Każda zmiana trafia na dysk od razu, a trzydzieści ostatnich wersji jest przechowywanych, dlatego zmiana wprowadzona jednocześnie na dwóch urządzeniach zostaje odrzucona, zamiast po cichu nadpisać tę drugą."
+    },
+    {
       "id": "mouse",
       "eyebrow": "Wskaźnik",
       "title": "Ekran zamienia się w touchpad",
-      "body": "Przypisz przyciskowi akcję <b>Mysz</b> — po naciśnięciu cały tablet staje się gładzikiem. Dwa suwaki ustawiają szybkość wskaźnika i przewijania, a kierunek przewijania można odwrócić zgodnie z twoim przyzwyczajeniem.",
+      "body": "Przypisz przyciskowi akcję <b>Mysz</b>: po naciśnięciu cały tablet staje się gładzikiem. Dwa suwaki ustawiają szybkość wskaźnika i przewijania, a kierunek przewijania można odwrócić zgodnie z twoim przyzwyczajeniem.",
       "figures": [
         { "src": "06-touchpad.png", "frame": "tablet", "caption": "Tryb touchpada, a pod spodem wyraźne przyciski do kliknięć, których nie chcesz zgadywać." }
       ],
@@ -103,8 +110,10 @@
           ["Przeciągnięcie", "Ruch wskaźnika"],
           ["Dotknięcie", "Lewy przycisk"],
           ["Podwójne dotknięcie", "Podwójne kliknięcie"],
-          ["Podwójne dotknięcie i przeciągnięcie", "Przytrzymanie lewego przycisku i ruch — zaznaczanie tekstu, przenoszenie okna"],
+          ["Podwójne dotknięcie i przeciągnięcie", "Przytrzymanie lewego przycisku i ruch: zaznaczanie tekstu, przenoszenie okna"],
           ["Długie naciśnięcie", "Prawy przycisk"],
+          ["Przycisk <b>Przytrzymaj</b>", "Blokuje wciśnięty lewy przycisk, więc możesz przeciągać kilkoma ruchami, nie trzymając palca"],
+          ["Przycisk <b>Środkowy</b>", "Kliknięcie środkowym: zamknij kartę, otwórz odnośnik w nowej"],
           ["Dwa palce", "Przewijanie w pionie i w poziomie"],
           ["Dotknięcie dwoma palcami", "Prawy przycisk"],
           ["Uszczypnięcie", "Powiększenie"],
@@ -116,17 +125,28 @@
     {
       "id": "pages",
       "eyebrow": "Przestrzeń",
-      "title": "Tyle stron, ile potrzebujesz",
-      "body": "Pogrupuj przyciski na strony — jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. Przesuń palcem w lewo lub w prawo po pulpicie, aby zmienić stronę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie.",
+      "title": "Przesuwaj palcem między stronami",
+      "body": "Pogrupuj przyciski na strony: jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. <b>Przesuń palcem w lewo lub w prawo w dowolnym miejscu pulpitu</b>, aby się między nimi przemieszczać; nazwa strony pokaże się na chwilę, więc wiesz, gdzie wylądowałeś. W trybie edycji ten sam gest zmienia zamiast tego kolejność przycisków, więc te dwa nigdy sobie nie wchodzą w drogę.",
       "figures": [
-        { "src": "07-menu.png", "frame": "tablet", "caption": "Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran." }
+        { "src": "12-swipe.png", "frame": "none", "caption": "Jedno przesunięcie przenosi z jednej strony na następną." }
+      ]
+    },
+    {
+      "id": "managepages",
+      "eyebrow": "Przestrzeń",
+      "title": "Strony, kolumny i pływający przycisk",
+      "body": "W trybie edycji dolny pasek dodaje i usuwa strony oraz ustala, ilu kolumn używa siatka. Dotknij zakładki strony ponownie, aby zmienić jej nazwę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie, bo to jedyna rzecz zawsze widoczna na ekranie.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran." },
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Tryb edycji, z ustawieniami stron i kolumn na dole." }
       ]
     },
     {
       "id": "themes",
       "eyebrow": "Wygląd",
       "title": "Jedenaście motywów, a przyciski nadążają",
-      "body": "Większość motywów pochodzi ze schematów kolorów znanych programistom — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — plus dwa celowo dwubarwne wyglądy terminala oraz neutralny jasny i ciemny. Zmiana motywu przenosi kolory twoich przycisków do nowej palety z zachowaniem odcieni: niebieski przycisk staje się niebieskim nowego motywu, a układ czyta się tak samo.",
+      "body": "Większość motywów pochodzi ze schematów kolorów znanych programistom (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), plus dwa celowo dwubarwne wyglądy terminala oraz neutralny jasny i ciemny. Zmiana motywu przenosi kolory twoich przycisków do nowej palety z zachowaniem odcieni: niebieski przycisk staje się niebieskim nowego motywu, a układ czyta się tak samo.",
+      "note": "Jeśli pulpit wyszedł cały w jednym kolorze, <b>Rozłóż paletę motywu</b> rozdaje jego kolory pomiędzy przyciski, a <b>Pomaluj wszystko kolorem akcentu</b> sprowadza je z powrotem do jednego. Każdy przycisk może też dostać twój własny kolor z próbnika, a akcent używany przez paski i pływający przycisk wybierasz sam. Tekst na przyciskach sam przełącza się między czernią a bielą, na jakim kolorze byś nie wylądował.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Każda karta pokazuje własne tło i paletę." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Ten sam pulpit w jasnym motywie." }
@@ -136,7 +156,7 @@
       "id": "screen",
       "eyebrow": "Ekran",
       "title": "Wykorzystaj cały ekran",
-      "body": "<b>Rozciągnij na cały ekran</b> sprawia, że wiersze dzielą całą wysokość: dwa rzędy przycisków wypełniają ekran, zamiast zostawiać pustkę na dole. <b>Automatycznie ukrywaj paski</b> całkowicie usuwa górny i dolny pasek i zostawia same przyciski — pływający przycisk je przywraca albo przytrzymaj puste miejsce przez trzy sekundy.",
+      "body": "<b>Rozciągnij przyciski na cały ekran</b> sprawia, że wiersze dzielą całą wysokość: dwa rzędy przycisków wypełniają ekran, zamiast zostawiać pustkę na dole. <b>Automatycznie ukrywaj paski</b> całkowicie usuwa górny i dolny pasek i zostawia same przyciski. Pływający przycisk je przywraca, albo przytrzymaj puste miejsce przez trzy sekundy.",
       "note": "Tablet jest też ustawiony tak, aby nie zasypiał: ekran nie zgaśnie, dopóki pulpit jest otwarty."
     },
     {
@@ -157,5 +177,5 @@
     ]
   },
 
-  "footer": "Surecut Deck — pulpit skrótów dla Windows z własnym serwerem."
+  "footer": "Surecut Deck: pulpit skrótów dla Windows z własnym serwerem."
 }

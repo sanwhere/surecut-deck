@@ -1,4 +1,4 @@
-<title>Surecut Deck — دليل الاستخدام</title>
+<title>Surecut Deck: دليل الاستخدام</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">خادم ذاتي · بلا متجر تطبيقات · لا شيء يغادر شبكتك</p>
       <h1>حوّل أي جهاز لوحي إلى لوحة تحكم لحاسوبك</h1>
-      <p class="lead">يشغّل Surecut Deck خادمًا صغيرًا على حاسوب Windows ويقدّم واجهته بنفسه. الجهاز اللوحي يفتح عنوان ويب فقط — لا تطبيق تثبّته، ولا حساب تنشئه، ولا سحابة في المنتصف.</p>
+      <p class="lead">يشغّل Surecut Deck خادمًا صغيرًا على حاسوب Windows ويقدّم واجهته بنفسه. الجهاز اللوحي يفتح عنوان ويب فقط: لا تطبيق تثبّته، ولا حساب تنشئه، ولا سحابة في المنتصف.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>كيف يعمل</p>
-        <ul><li><a href="#buttons"><b>01</b>الأساسيات</a></li><li><a href="#icons"><b>02</b>الأيقونات</a></li><li><a href="#dragdrop"><b>03</b>سطح المكتب</a></li><li><a href="#mouse"><b>04</b>المؤشر</a></li><li><a href="#pages"><b>05</b>المساحة</a></li><li><a href="#themes"><b>06</b>المظهر</a></li><li><a href="#screen"><b>07</b>الشاشة</a></li><li><a href="#languages"><b>08</b>اللغة</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>الأساسيات</a></li><li><a href="#icons"><b>02</b>الأيقونات</a></li><li><a href="#dragdrop"><b>03</b>سطح المكتب</a></li><li><a href="#sync"><b>04</b>المزامنة</a></li><li><a href="#mouse"><b>05</b>المؤشر</a></li><li><a href="#pages"><b>06</b>المساحة</a></li><li><a href="#managepages"><b>07</b>المساحة</a></li><li><a href="#themes"><b>08</b>المظهر</a></li><li><a href="#screen"><b>09</b>الشاشة</a></li><li><a href="#languages"><b>10</b>اللغة</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">الأساسيات</p>
   <h2>الأزرار تفعل أكثر من إرسال المفاتيح</h2>
-  <p class="lead">اضغط القلم للدخول إلى وضع التحرير، ثم اضغط أي زر لتحريره — أو اضغط مطوّلًا لسحبه إلى مكان آخر. لكل زر تسمية وأيقونة ولون وإجراء واحد.</p>
-  
+  <p class="lead">اضغط القلم للدخول إلى وضع التحرير، ثم اضغط أي زر لتحريره، أو اضغط مطوّلًا لسحبه إلى مكان آخر. لكل زر تسمية وأيقونة ولون وإجراء واحد.</p>
+  <aside class="note">السلسلة خطوة واحدة في كل سطر: <code>key ctrl+s</code>، <code>text Hello</code>، <code>delay 500</code>، <code>launch notepad</code>، <code>url https://…</code>، <code>cmd …</code>. وزر <b>اختبار</b> في المحرّر ينفّذ الإجراء مرة واحدة دون حفظه، فتضبط الاختصار العسير قبل أن تلتزم به.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="التسمية ومنتقي الأيقونات واللون." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>التسمية ومنتقي الأيقونات واللون.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="نوع الإجراء، مع اختصارات جاهزة للاختيار منها." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>نوع الإجراء، مع اختصارات جاهزة للاختيار منها.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>الإجراء</th><th>ماذا يفعل</th></tr></thead>
-  <tbody><tr><td class="k">اختصار لوحة المفاتيح</td><td>أي تركيبة — <code>ctrl+c</code>، <code>win+d</code>، <code>alt+f4</code>، مفاتيح الوسائط، الصوت</td></tr><tr><td class="k">كتابة نص</td><td>يكتب لك كتلة نصية، بما فيها فواصل الأسطر</td></tr><tr><td class="k">فتح تطبيق / ملف</td><td>برنامج أو مستند أو مجلد</td></tr><tr><td class="k">فتح عنوان ويب</td><td>يفتح الرابط في متصفّحك الافتراضي</td></tr><tr><td class="k">تنفيذ أمر</td><td>PowerShell أو CMD</td></tr><tr><td class="k">الفأرة</td><td>يحوّل شاشة الجهاز اللوحي إلى لوحة لمس</td></tr><tr><td class="k">سلسلة خطوات</td><td>عدة خطوات بالترتيب، مع فترات انتظار بينها</td></tr></tbody>
+  <tbody><tr><td class="k">اختصار لوحة المفاتيح</td><td>أي تركيبة: <code>ctrl+c</code>، <code>win+d</code>، <code>alt+f4</code>، مفاتيح الوسائط، الصوت</td></tr><tr><td class="k">كتابة نص</td><td>يكتب لك كتلة نصية، بما فيها فواصل الأسطر</td></tr><tr><td class="k">فتح تطبيق / ملف</td><td>برنامج أو مستند أو مجلد</td></tr><tr><td class="k">فتح عنوان ويب</td><td>يفتح الرابط في متصفّحك الافتراضي</td></tr><tr><td class="k">تنفيذ أمر</td><td>PowerShell أو CMD</td></tr><tr><td class="k">الفأرة</td><td>يحوّل شاشة الجهاز اللوحي إلى لوحة لمس</td></tr><tr><td class="k">سلسلة خطوات</td><td>عدة خطوات بالترتيب، مع فترات انتظار بينها</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -295,8 +299,16 @@ footer {
   <p class="eyebrow">سطح المكتب</p>
   <h2>اسحب اختصارًا من سطح المكتب</h2>
   <p class="lead">افتح المحرّر من أيقونة شريط المهام فتظهر نافذة سطح مكتب حقيقية تحتوي الواجهة نفسها. أفلِت اختصارًا أو برنامجًا أو مجلدًا أو ملفًا على الشريط العلوي: يُستخرج الهدف وأيقونة التطبيق، ويظهر الزر على الجهاز اللوحي فورًا.</p>
-  <aside class="note">المحرّر نافذة أصلية لا تبويب متصفّح، لسبب محدّد: المتصفّحات لا تعطي صفحة الويب أبدًا <em>مسار</em> الملف المُفلَت، كما أن Chromium يحوّل الاختصار المُفلَت إلى هدفه — فيحاول المتصفّح قراءة البرنامج كاملًا بدل معرفة مكانه.</aside>
+  <aside class="note">المحرّر نافذة أصلية لا تبويب متصفّح، لسبب محدّد: المتصفّحات لا تعطي صفحة الويب أبدًا <em>مسار</em> الملف المُفلَت، كما أن Chromium يحوّل الاختصار المُفلَت إلى هدفه، فيحاول المتصفّح قراءة البرنامج كاملًا بدل معرفة مكانه.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="محرّر سطح المكتب. اختر الصفحة من اليسار، ثم أفلِت الاختصارات على الشريط." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>الصفحة الهدف</span><span class="callout" style="left:62%;top:13%"><i></i>أفلِت الاختصارات هنا</span></div></div><figcaption>محرّر سطح المكتب. اختر الصفحة من اليسار، ثم أفلِت الاختصارات على الشريط.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">المزامنة</p>
+  <h2>حرِّر من أي جهة، مباشرةً</h2>
+  <p class="lead">الجهاز اللوحي ومحرّر سطح المكتب هما اللوحة نفسها مرئية مرتين. أضف زرًا على الحاسوب فيظهر على الجهاز اللوحي دون إعادة تحميل؛ وغيّر اسم صفحة على الجهاز اللوحي فتتبعه قائمة الصفحات في المحرّر. كل تغيير يُكتب إلى القرص فورًا، وتُحفظ آخر ثلاثين نسخة، لذلك يُرفض التعديل الذي يجري على جهازين في وقت واحد بدل أن يطمس أحدهما الآخر بصمت.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="وضع لوحة اللمس، مع أزرار صريحة في الأسفل للنقرات التي لا تريد تخمينها." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>وضع لوحة اللمس، مع أزرار صريحة في الأسفل للنقرات التي لا تريد تخمينها.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>الإيماءة</th><th>النتيجة</th></tr></thead>
-  <tbody><tr><td class="k">السحب</td><td>تحريك المؤشر</td></tr><tr><td class="k">النقر</td><td>نقر أيسر</td></tr><tr><td class="k">نقر مزدوج</td><td>نقر مزدوج</td></tr><tr><td class="k">نقر مزدوج ثم سحب</td><td>إبقاء الزر الأيسر مضغوطًا مع التحريك — تحديد نص، سحب نافذة</td></tr><tr><td class="k">ضغط مطوّل</td><td>نقر أيمن</td></tr><tr><td class="k">إصبعان</td><td>تمرير رأسي وأفقي</td></tr><tr><td class="k">نقر بإصبعين</td><td>نقر أيمن</td></tr><tr><td class="k">قرص</td><td>تكبير وتصغير</td></tr><tr><td class="k">ثلاثة أصابع ↑ / ↓</td><td>عرض المهام / إظهار سطح المكتب</td></tr><tr><td class="k">ثلاثة أصابع ← / →</td><td>تبديل سطح المكتب الافتراضي</td></tr></tbody>
+  <tbody><tr><td class="k">السحب</td><td>تحريك المؤشر</td></tr><tr><td class="k">النقر</td><td>نقر أيسر</td></tr><tr><td class="k">نقر مزدوج</td><td>نقر مزدوج</td></tr><tr><td class="k">نقر مزدوج ثم سحب</td><td>إبقاء الزر الأيسر مضغوطًا مع التحريك: تحديد نص، سحب نافذة</td></tr><tr><td class="k">ضغط مطوّل</td><td>نقر أيمن</td></tr><tr><td class="k">زر <b>إمساك</b></td><td>يُبقي الزر الأيسر مضغوطًا، فتسحب عبر عدة حركات دون إبقاء إصبعك على الشاشة</td></tr><tr><td class="k">زر <b>الأوسط</b></td><td>نقر أوسط: أغلق تبويبًا، أو افتح رابطًا في تبويب جديد</td></tr><tr><td class="k">إصبعان</td><td>تمرير رأسي وأفقي</td></tr><tr><td class="k">نقر بإصبعين</td><td>نقر أيمن</td></tr><tr><td class="k">قرص</td><td>تكبير وتصغير</td></tr><tr><td class="k">ثلاثة أصابع ↑ / ↓</td><td>عرض المهام / إظهار سطح المكتب</td></tr><tr><td class="k">ثلاثة أصابع ← / →</td><td>تبديل سطح المكتب الافتراضي</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">المساحة</p>
-  <h2>صفحات بقدر ما تحتاج</h2>
-  <p class="lead">اجمع الأزرار في صفحات — واحدة للتحرير، وأخرى للألعاب، وثالثة للاجتماع الذي لا تخرج منه. مرّر يمينًا أو يسارًا على اللوحة للتنقّل بينها. ويوصلك الزر العائم إلى الصفحات والمحرّر والسمات حتى عندما تكون الأشرطة مخفية، ويمكنك سحبه إلى حيث يناسبك.</p>
+  <h2>مرِّر بين الصفحات</h2>
+  <p class="lead">اجمع الأزرار في صفحات: واحدة للتحرير، وأخرى للألعاب، وثالثة للاجتماع الذي لا تخرج منه. <b>مرّر يمينًا أو يسارًا في أي مكان على اللوحة</b> للتنقّل بينها؛ ويظهر اسم الصفحة لحظةً لتعرف أين وصلت. وفي وضع التحرير تعيد الإيماءة نفسها ترتيب الأزرار بدل ذلك، فلا يتصادم الاثنان أبدًا.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="القائمة العائمة: الصفحات، الأشرطة، وضع التحرير، السمة وملء الشاشة." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>القائمة العائمة: الصفحات، الأشرطة، وضع التحرير، السمة وملء الشاشة.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="تمريرة واحدة تنقلك من صفحة إلى التي تليها." loading="lazy"></div><figcaption>تمريرة واحدة تنقلك من صفحة إلى التي تليها.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">المساحة</p>
+  <h2>الصفحات والأعمدة والزر العائم</h2>
+  <p class="lead">في وضع التحرير يضيف الشريط السفلي الصفحات ويحذفها ويحدّد عدد الأعمدة التي تستخدمها الشبكة. اضغط على لسان الصفحة مرة أخرى لتغيير اسمها. ويوصلك الزر العائم إلى الصفحات والمحرّر والسمات حتى عندما تكون الأشرطة مخفية، ويمكنك سحبه إلى حيث يناسبك، فهو الشيء الوحيد الظاهر على الشاشة دائمًا.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="القائمة العائمة: الصفحات، الأشرطة، وضع التحرير، السمة وملء الشاشة." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>القائمة العائمة: الصفحات، الأشرطة، وضع التحرير، السمة وملء الشاشة.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="وضع التحرير، مع عناصر التحكّم بالصفحات والأعمدة في الأسفل." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>وضع التحرير، مع عناصر التحكّم بالصفحات والأعمدة في الأسفل.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">المظهر</p>
   <h2>إحدى عشرة سمة، والأزرار تتبعها</h2>
-  <p class="lead">معظم السمات مأخوذة من مجموعات ألوان معروفة لدى المطوّرين — Nord وGruvbox وSolarized وCatppuccin Mocha وRosé Pine — إضافة إلى مظهرين طرفيّين بلونين عن قصد، وسمتين محايدتين فاتحة وداكنة. عند تغيير السمة تُحوَّل ألوان أزرارك إلى اللوحة الجديدة مع الحفاظ على درجاتها، فيصبح الزر الأزرق أزرقَ السمة الجديدة ويبقى تخطيطك مقروءًا كما هو.</p>
-  
+  <p class="lead">معظم السمات مأخوذة من مجموعات ألوان معروفة لدى المطوّرين (Nord وGruvbox وSolarized وCatppuccin Mocha وRosé Pine)، إضافة إلى مظهرين طرفيّين بلونين عن قصد، وسمتين محايدتين فاتحة وداكنة. عند تغيير السمة تُحوَّل ألوان أزرارك إلى اللوحة الجديدة مع الحفاظ على درجاتها، فيصبح الزر الأزرق أزرقَ السمة الجديدة ويبقى تخطيطك مقروءًا كما هو.</p>
+  <aside class="note">إن انتهت اللوحة بلون واحد، فإن <b>توزيع لوحة السمة</b> يفرّق ألوانها على الأزرار، و<b>تلوين الكل بلون التمييز</b> يعيدها جميعًا إلى لون واحد. ويمكن لأي زر أن يأخذ لونًا من عندك عبر المنتقي، واللون المميّز الذي تستخدمه الأشرطة والزر العائم متروك لاختيارك. أما نص الأزرار فيتبدّل بين الأسود والأبيض من تلقاء نفسه، مهما كان اللون الذي استقررت عليه.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="تعرض كل بطاقة خلفيتها ولوحتها." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>تعرض كل بطاقة خلفيتها ولوحتها.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="اللوحة نفسها بسمة فاتحة." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>اللوحة نفسها بسمة فاتحة.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">الشاشة</p>
   <h2>استخدم الشاشة كاملة</h2>
-  <p class="lead"><b>المدّ لملء الشاشة</b> يجعل الصفوف تتقاسم الارتفاع كاملًا، فيملأ صفّان من الأزرار الشاشة بدل ترك فراغ في الأسفل. و<b>إخفاء الأشرطة تلقائيًا</b> يزيل الشريطين العلوي والسفلي تمامًا ويترك الأزرار وحدها — يعيدهما الزر العائم، أو اضغط مطوّلًا على منطقة فارغة ثلاث ثوانٍ.</p>
+  <p class="lead"><b>مدّ الأزرار لملء الشاشة</b> يجعل الصفوف تتقاسم الارتفاع كاملًا، فيملأ صفّان من الأزرار الشاشة بدل ترك فراغ في الأسفل. و<b>إخفاء الشريطين العلوي والسفلي تلقائيًا</b> يزيلهما تمامًا ويترك الأزرار وحدها. يعيدهما الزر العائم، أو اضغط مطوّلًا على منطقة فارغة ثلاث ثوانٍ.</p>
   <aside class="note">الجهاز اللوحي مضبوط أيضًا ليبقى مستيقظًا: لن تنطفئ الشاشة ما دامت اللوحة مفتوحة.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — لوحة اختصارات ذاتية الاستضافة لنظام Windows.</footer>
+        <footer>Surecut Deck: لوحة اختصارات ذاتية الاستضافة لنظام Windows.</footer>
       </div>
     </div>
   </div>

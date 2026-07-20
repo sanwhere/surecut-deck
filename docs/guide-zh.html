@@ -1,4 +1,4 @@
-<title>Surecut Deck — 使用指南</title>
+<title>Surecut Deck：使用指南</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">自建服务 · 无需应用商店 · 数据不出你的网络</p>
       <h1>把闲置平板变成电脑的控制台</h1>
-      <p class="lead">Surecut Deck 在你的 Windows 电脑上运行一个小服务器，并自行提供界面。平板只需打开一个网址——不用安装应用，不用注册账号，中间也没有云。</p>
+      <p class="lead">Surecut Deck 在你的 Windows 电脑上运行一个小服务器，并自行提供界面。平板只需打开一个网址，不用安装应用，不用注册账号，中间也没有云。</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>工作方式</p>
-        <ul><li><a href="#buttons"><b>01</b>基础</a></li><li><a href="#icons"><b>02</b>图标</a></li><li><a href="#dragdrop"><b>03</b>桌面</a></li><li><a href="#mouse"><b>04</b>指针</a></li><li><a href="#pages"><b>05</b>空间</a></li><li><a href="#themes"><b>06</b>外观</a></li><li><a href="#screen"><b>07</b>屏幕</a></li><li><a href="#languages"><b>08</b>语言</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>基础</a></li><li><a href="#icons"><b>02</b>图标</a></li><li><a href="#dragdrop"><b>03</b>桌面</a></li><li><a href="#sync"><b>04</b>同步</a></li><li><a href="#mouse"><b>05</b>指针</a></li><li><a href="#pages"><b>06</b>空间</a></li><li><a href="#managepages"><b>07</b>空间</a></li><li><a href="#themes"><b>08</b>外观</a></li><li><a href="#screen"><b>09</b>屏幕</a></li><li><a href="#languages"><b>10</b>语言</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">基础</p>
   <h2>按钮不只是发送按键</h2>
-  <p class="lead">点铅笔进入编辑模式，然后点任意按钮进行编辑——或者长按把它拖到别处。每个按钮都有标签、图标、颜色和一个动作。</p>
-  
+  <p class="lead">点铅笔进入编辑模式，然后点任意按钮进行编辑，或者长按把它拖到别处。每个按钮都有标签、图标、颜色和一个动作。</p>
+  <aside class="note">步骤序列每行写一步：<code>key ctrl+s</code>、<code>text Hello</code>、<code>delay 500</code>、<code>launch notepad</code>、<code>url https://…</code>、<code>cmd …</code>。编辑器里的<b>测试</b>按钮会执行一次动作但不保存，因此你可以先把难调的快捷键试对，再决定保存。</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="标签、图标选择器和颜色。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>标签、图标选择器和颜色。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="动作类型，并提供现成的快捷键可选。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>动作类型，并提供现成的快捷键可选。</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>动作</th><th>作用</th></tr></thead>
-  <tbody><tr><td class="k">键盘快捷键</td><td>任意组合——<code>ctrl+c</code>、<code>win+d</code>、<code>alt+f4</code>、媒体键、音量</td></tr><tr><td class="k">输入文本</td><td>替你写下一段文本，包括换行</td></tr><tr><td class="k">打开应用 / 文件</td><td>程序、文档或文件夹</td></tr><tr><td class="k">打开网址</td><td>在默认浏览器中打开链接</td></tr><tr><td class="k">执行命令</td><td>PowerShell 或 CMD</td></tr><tr><td class="k">鼠标</td><td>把平板屏幕变成触控板</td></tr><tr><td class="k">步骤序列</td><td>按顺序执行多个步骤，中间可插入延时</td></tr></tbody>
+  <tbody><tr><td class="k">键盘快捷键</td><td>任意组合：<code>ctrl+c</code>、<code>win+d</code>、<code>alt+f4</code>、媒体键、音量</td></tr><tr><td class="k">输入文本</td><td>替你写下一段文本，包括换行</td></tr><tr><td class="k">打开应用 / 文件</td><td>程序、文档或文件夹</td></tr><tr><td class="k">打开网址</td><td>在默认浏览器中打开链接</td></tr><tr><td class="k">执行命令</td><td>PowerShell 或 CMD</td></tr><tr><td class="k">鼠标</td><td>把平板屏幕变成触控板</td></tr><tr><td class="k">步骤序列</td><td>按顺序执行多个步骤，中间可插入延时</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -295,8 +299,16 @@ footer {
   <p class="eyebrow">桌面</p>
   <h2>从桌面拖入快捷方式</h2>
   <p class="lead">从托盘图标打开编辑器，会出现一个真正的桌面窗口，里面是同一套界面。把快捷方式、程序、文件夹或文件拖到顶部的条上：目标会被解析，应用图标会被提取，按钮随即出现在平板上。</p>
-  <aside class="note">编辑器做成原生窗口而非浏览器标签页，有其具体原因。浏览器从不把拖入文件的<em>路径</em>交给网页，而且 Chromium 还会把拖入的快捷方式解析成它的目标——浏览器于是会试图读取整个程序，而不是知道它在哪里。</aside>
+  <aside class="note">编辑器做成原生窗口而非浏览器标签页，有其具体原因。浏览器从不把拖入文件的<em>路径</em>交给网页，而且 Chromium 还会把拖入的快捷方式解析成它的目标，于是浏览器会试图读取整个程序，而不是知道它在哪里。</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="桌面编辑器。在左侧选择页面，然后把快捷方式拖到条上。" loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>目标页面</span><span class="callout" style="left:62%;top:13%"><i></i>拖到这里</span></div></div><figcaption>桌面编辑器。在左侧选择页面，然后把快捷方式拖到条上。</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">同步</p>
+  <h2>两边都能改，实时生效</h2>
+  <p class="lead">平板和桌面编辑器是同一个控制台的两个视图。在电脑上加一个按钮，平板不用刷新就会出现；在平板上给页面改名，编辑器的页面列表也会跟着变。每次改动都会立即写入磁盘，并保留最近三十个版本。所以两台设备同时改动时，其中一次会被拒绝，而不是悄悄覆盖掉另一次。</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="触控板模式，下方是明确的按键，省得你去猜。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>触控板模式，下方是明确的按键，省得你去猜。</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>手势</th><th>结果</th></tr></thead>
-  <tbody><tr><td class="k">拖动</td><td>移动指针</td></tr><tr><td class="k">轻点</td><td>左键</td></tr><tr><td class="k">双击</td><td>双击</td></tr><tr><td class="k">双击后拖动</td><td>按住左键并移动——选择文本、拖动窗口</td></tr><tr><td class="k">长按</td><td>右键</td></tr><tr><td class="k">双指</td><td>纵向和横向滚动</td></tr><tr><td class="k">双指轻点</td><td>右键</td></tr><tr><td class="k">捏合</td><td>缩放</td></tr><tr><td class="k">三指 ↑ / ↓</td><td>任务视图 / 显示桌面</td></tr><tr><td class="k">三指 ← / →</td><td>切换虚拟桌面</td></tr></tbody>
+  <tbody><tr><td class="k">拖动</td><td>移动指针</td></tr><tr><td class="k">轻点</td><td>左键</td></tr><tr><td class="k">双击</td><td>双击</td></tr><tr><td class="k">双击后拖动</td><td>按住左键并移动：选择文本、拖动窗口</td></tr><tr><td class="k">长按</td><td>右键</td></tr><tr><td class="k"><b>按住</b>按钮</td><td>把鼠标左键锁定在按下状态，于是你可以分几次拖完，而不必一直按着手指</td></tr><tr><td class="k"><b>中键</b>按钮</td><td>中键点击：关闭标签页，或在新标签页中打开链接</td></tr><tr><td class="k">双指</td><td>纵向和横向滚动</td></tr><tr><td class="k">双指轻点</td><td>右键</td></tr><tr><td class="k">捏合</td><td>缩放</td></tr><tr><td class="k">三指 ↑ / ↓</td><td>任务视图 / 显示桌面</td></tr><tr><td class="k">三指 ← / →</td><td>切换虚拟桌面</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">空间</p>
-  <h2>需要多少页就建多少页</h2>
-  <p class="lead">把按钮分组到不同页面——一页用于剪辑，一页用于游戏，一页留给那个你总在里面的会议。在控制台上左右滑动即可切换。即使工具栏已隐藏，悬浮按钮依然能带你去页面、编辑器和主题，而且可以拖到你顺手的位置。</p>
+  <h2>滑动切换页面</h2>
+  <p class="lead">把按钮分组到不同页面：一页用于剪辑，一页用于游戏，一页留给那个你总在里面的会议。<b>在控制台上任意位置左右滑动</b>即可在页面间切换；页面名会短暂显示，让你知道自己落在了哪一页。在编辑模式下，同样的手势用来调整按钮顺序，两者不会冲突。</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="悬浮菜单：页面、工具栏、编辑模式、主题和全屏。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>悬浮菜单：页面、工具栏、编辑模式、主题和全屏。</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="一次滑动，从一页翻到下一页。" loading="lazy"></div><figcaption>一次滑动，从一页翻到下一页。</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">空间</p>
+  <h2>页面、列数和悬浮按钮</h2>
+  <p class="lead">在编辑模式下，底部工具栏可以增删页面，并设置网格使用多少列。再点一次页面标签即可给它重命名。即使工具栏已隐藏，悬浮按钮依然能带你去页面、编辑器和主题，而且可以拖到任何你顺手的位置，因为它是唯一始终显示在屏幕上的东西。</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="悬浮菜单：页面、工具栏、编辑模式、主题和全屏。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>悬浮菜单：页面、工具栏、编辑模式、主题和全屏。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="编辑模式，底部是页面和列数的控件。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>编辑模式，底部是页面和列数的控件。</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">外观</p>
   <h2>十一款主题，按钮也跟着变</h2>
-  <p class="lead">多数主题取自开发者熟悉的配色方案——Nord、Gruvbox、Solarized、Catppuccin Mocha、Rosé Pine——另外还有两款刻意只用双色的终端风格，以及中性的浅色与深色。切换主题时，按钮颜色会在保留色相的前提下转换到新配色：蓝色按钮变成新主题的蓝色，你的布局读起来依然一致。</p>
-  
+  <p class="lead">多数主题取自开发者熟悉的配色方案，比如 Nord、Gruvbox、Solarized、Catppuccin Mocha、Rosé Pine；另外还有两款刻意只用双色的终端风格，以及中性的浅色与深色。切换主题时，按钮颜色会在保留色相的前提下转换到新配色：蓝色按钮变成新主题的蓝色，你的布局读起来依然一致。</p>
+  <aside class="note">如果整个控制台最后变成了一种颜色，<b>按主题配色分配</b>会把主题的颜色分散到各个按钮上；<b>全部涂成强调色</b>则把它们全都改回同一种。任意按钮也可以从取色器里选一个你自己的颜色，工具栏和悬浮按钮使用的强调色同样由你决定。无论你选了什么颜色，按钮文字都会自动在黑白之间切换。</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="每张卡片都展示自己的背景和配色。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>每张卡片都展示自己的背景和配色。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="同一个控制台，浅色主题。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>同一个控制台，浅色主题。</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">屏幕</p>
   <h2>把整块屏幕用起来</h2>
-  <p class="lead"><b>拉伸填满屏幕</b>让各行平分全部高度：两行按钮会铺满屏幕，而不是在下方留出空白。<b>自动隐藏工具栏</b>则彻底移除上下两条栏，只留下按钮——悬浮按钮可以把它们叫回来，或者长按空白处三秒。</p>
+  <p class="lead"><b>拉伸按钮填满屏幕</b>让各行平分全部高度：两行按钮会铺满屏幕，而不是在下方留出空白。<b>自动隐藏上下工具栏</b>则把它们彻底移除，只留下按钮；想让它们回来，可以点悬浮按钮，或者长按空白处三秒。</p>
   <aside class="note">平板也已设置为保持唤醒：只要控制台开着，屏幕就不会自动熄灭。</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — 面向 Windows 的自建快捷指令控制台。</footer>
+        <footer>Surecut Deck：面向 Windows 的自建快捷指令控制台。</footer>
       </div>
     </div>
   </div>

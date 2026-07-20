@@ -1,10 +1,10 @@
 {
   "lang": "vi",
   "dir": "ltr",
-  "title": "Surecut Deck — Hướng dẫn sử dụng",
+  "title": "Surecut Deck: Hướng dẫn sử dụng",
   "eyebrow": "Tự dựng máy chủ · Không cần cửa hàng ứng dụng · Không gì rời khỏi mạng của bạn",
   "heroTitle": "Biến chiếc máy tính bảng bỏ không thành bàn điều khiển cho máy tính",
-  "heroLead": "Surecut Deck chạy một máy chủ nhỏ trên máy Windows của bạn và tự phục vụ giao diện của chính nó. Máy tính bảng chỉ mở một địa chỉ web — không có ứng dụng phải cài, không có tài khoản phải tạo, và không có đám mây ở giữa.",
+  "heroLead": "Surecut Deck chạy một máy chủ nhỏ trên máy Windows của bạn và tự phục vụ giao diện của chính nó. Máy tính bảng chỉ mở một địa chỉ web: không có ứng dụng phải cài, không có tài khoản phải tạo, và không có đám mây ở giữa.",
   "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "Bàn điều khiển trên máy tính bảng Android 1024×600, giao diện Nord ở chế độ toàn màn hình." },
 
   "pillars": {
@@ -44,7 +44,7 @@
       "id": "buttons",
       "eyebrow": "Cơ bản",
       "title": "Nút làm được nhiều hơn là bấm phím",
-      "body": "Chạm biểu tượng bút chì để vào chế độ sửa, rồi chạm vào nút bất kỳ để chỉnh — hoặc nhấn giữ để kéo nó sang chỗ khác. Mỗi nút có một nhãn, một biểu tượng, một màu và một hành động.",
+      "body": "Chạm biểu tượng bút chì để vào chế độ sửa, rồi chạm vào nút bất kỳ để chỉnh, hoặc nhấn giữ để kéo nó sang chỗ khác. Mỗi nút có một nhãn, một biểu tượng, một màu và một hành động.",
       "figures": [
         { "src": "04-editor.png", "frame": "tablet", "caption": "Nhãn, bộ chọn biểu tượng và màu." },
         { "src": "05-action.png", "frame": "tablet", "caption": "Loại hành động, kèm các phím tắt dựng sẵn để chọn." }
@@ -52,7 +52,7 @@
       "table": {
         "head": ["Hành động", "Tác dụng"],
         "rows": [
-          ["Phím tắt", "Bất kỳ tổ hợp nào — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, phím đa phương tiện, âm lượng"],
+          ["Phím tắt", "Bất kỳ tổ hợp nào: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, phím đa phương tiện, âm lượng"],
           ["Gõ văn bản", "Viết sẵn một đoạn văn bản thay bạn, kể cả xuống dòng"],
           ["Mở ứng dụng / tệp", "Một chương trình, một tài liệu hoặc một thư mục"],
           ["Mở địa chỉ web", "Mở liên kết trong trình duyệt mặc định"],
@@ -60,7 +60,8 @@
           ["Chuột", "Biến màn hình máy tính bảng thành bàn di chuột"],
           ["Chuỗi bước", "Nhiều bước theo thứ tự, có thể chèn thời gian chờ"]
         ]
-      }
+      },
+      "note": "Chuỗi bước được viết mỗi dòng một bước: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Nút <b>Thử</b> trong trình chỉnh sửa chạy hành động một lần mà không lưu lại, nên bạn có thể chỉnh cho đúng một phím tắt khó chiều trước khi thật sự chốt nó."
     },
     {
       "id": "icons",
@@ -75,8 +76,8 @@
       "id": "dragdrop",
       "eyebrow": "Màn hình nền",
       "title": "Kéo một lối tắt từ màn hình nền vào",
-      "body": "Mở trình chỉnh sửa từ biểu tượng khay: một cửa sổ desktop thật hiện ra, bên trong là cùng giao diện đó. Thả một lối tắt, chương trình, thư mục hay tệp lên dải phía trên — đích được phân giải, biểu tượng ứng dụng được trích ra, và nút xuất hiện ngay trên máy tính bảng.",
-      "note": "Trình chỉnh sửa là cửa sổ gốc chứ không phải thẻ trình duyệt, vì một lý do cụ thể. Trình duyệt không bao giờ trao cho trang web <em>đường dẫn</em> của tệp được thả vào, và Chromium còn phân giải lối tắt được thả thành đích của nó — nghĩa là trình duyệt sẽ cố đọc cả chương trình thay vì biết nó nằm ở đâu.",
+      "body": "Mở trình chỉnh sửa từ biểu tượng khay: một cửa sổ desktop thật hiện ra, bên trong là cùng giao diện đó. Thả một lối tắt, chương trình, thư mục hay tệp lên dải phía trên: đích được phân giải, biểu tượng ứng dụng được trích ra, và nút xuất hiện ngay trên máy tính bảng.",
+      "note": "Trình chỉnh sửa là cửa sổ gốc chứ không phải thẻ trình duyệt, vì một lý do cụ thể. Trình duyệt không bao giờ trao cho trang web <em>đường dẫn</em> của tệp được thả vào, và Chromium còn phân giải lối tắt được thả thành đích của nó, nghĩa là trình duyệt sẽ cố đọc cả chương trình thay vì biết nó nằm ở đâu.",
       "figures": [
         {
           "src": "10-editor-win.png",
@@ -88,6 +89,12 @@
           ]
         }
       ]
+    },
+    {
+      "id": "sync",
+      "eyebrow": "Đồng bộ",
+      "title": "Sửa từ phía nào cũng được, ngay tức thì",
+      "body": "Máy tính bảng và trình chỉnh sửa trên desktop là cùng một bàn điều khiển nhìn từ hai phía. Thêm một nút trên máy tính thì nó hiện ngay trên máy tính bảng mà không phải tải lại; đổi tên một trang trên máy tính bảng thì danh sách trang trong trình chỉnh sửa cũng đổi theo. Mọi thay đổi đều được ghi xuống đĩa ngay lập tức, và ba mươi phiên bản gần nhất được giữ lại, nên nếu hai thiết bị cùng sửa một lúc thì thao tác đó bị từ chối chứ không lặng lẽ đè lên thao tác kia."
     },
     {
       "id": "mouse",
@@ -103,8 +110,10 @@
           ["Kéo", "Di chuyển con trỏ"],
           ["Chạm", "Nhấp chuột trái"],
           ["Chạm hai lần", "Nhấp đúp"],
-          ["Chạm hai lần rồi kéo", "Giữ nút trái và di chuyển — chọn văn bản, kéo cửa sổ"],
+          ["Chạm hai lần rồi kéo", "Giữ nút trái và di chuyển: chọn văn bản, kéo cửa sổ"],
           ["Nhấn giữ", "Nhấp chuột phải"],
+          ["Nút <b>Giữ</b>", "Khoá nút trái ở trạng thái nhấn, nên bạn kéo được qua nhiều lượt vuốt mà không phải giữ ngón tay"],
+          ["Nút <b>Giữa</b>", "Nhấp chuột giữa: đóng một thẻ, mở liên kết trong thẻ mới"],
           ["Hai ngón", "Cuộn dọc và ngang"],
           ["Chạm hai ngón", "Nhấp chuột phải"],
           ["Chụm ngón", "Thu phóng"],
@@ -116,17 +125,28 @@
     {
       "id": "pages",
       "eyebrow": "Không gian",
-      "title": "Bao nhiêu trang tuỳ bạn",
-      "body": "Gom các nút thành từng trang — một trang để dựng phim, một trang cho trò chơi, một trang cho cuộc họp mà bạn chẳng bao giờ thoát ra. Vuốt sang trái hoặc phải trên bàn điều khiển để chuyển trang. Nút nổi đưa bạn tới các trang, trình chỉnh sửa và giao diện ngay cả khi các thanh đang ẩn, và bạn có thể kéo nó tới chỗ thuận tay.",
+      "title": "Vuốt để chuyển trang",
+      "body": "Gom các nút thành từng trang: một trang để dựng phim, một trang cho trò chơi, một trang cho cuộc họp mà bạn chẳng bao giờ thoát ra. <b>Vuốt sang trái hoặc sang phải ở bất kỳ đâu trên bàn điều khiển</b> để đi qua lại giữa chúng; tên trang hiện ra trong chốc lát để bạn biết mình vừa tới đâu. Trong chế độ sửa, đúng cử chỉ đó lại dùng để sắp xếp lại các nút, nên hai bên không bao giờ giẫm chân nhau.",
       "figures": [
-        { "src": "07-menu.png", "frame": "tablet", "caption": "Menu nổi: trang, thanh công cụ, chế độ sửa, giao diện và toàn màn hình." }
+        { "src": "12-swipe.png", "frame": "none", "caption": "Một cú vuốt là chuyển từ trang này sang trang kế tiếp." }
+      ]
+    },
+    {
+      "id": "managepages",
+      "eyebrow": "Không gian",
+      "title": "Trang, số cột và nút nổi",
+      "body": "Trong chế độ sửa, thanh dưới dùng để thêm và bớt trang cũng như đặt lưới có bao nhiêu cột. Chạm lần nữa vào thẻ của một trang để đổi tên nó. Nút nổi đưa bạn tới các trang, trình chỉnh sửa và giao diện ngay cả khi các thanh đang ẩn, và bạn có thể kéo nó tới bất cứ chỗ nào thuận tay, vì đó là thứ duy nhất lúc nào cũng có mặt trên màn hình.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Menu nổi: trang, thanh công cụ, chế độ sửa, giao diện và toàn màn hình." },
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Chế độ sửa, với các nút điều khiển trang và số cột chạy dọc phía dưới." }
       ]
     },
     {
       "id": "themes",
       "eyebrow": "Diện mạo",
       "title": "Mười một giao diện, và các nút cũng theo",
-      "body": "Phần lớn giao diện lấy từ những bảng màu quen thuộc với lập trình viên — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — cộng thêm hai kiểu terminal cố ý chỉ dùng hai màu, cùng một sáng và một tối trung tính. Khi đổi giao diện, màu các nút được chuyển sang bảng màu mới mà vẫn giữ sắc độ: nút xanh dương trở thành xanh dương của giao diện mới, và bố cục của bạn vẫn đọc như cũ.",
+      "body": "Phần lớn giao diện lấy từ những bảng màu quen thuộc với lập trình viên (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), cộng thêm hai kiểu terminal cố ý chỉ dùng hai màu, cùng một sáng và một tối trung tính. Khi đổi giao diện, màu các nút được chuyển sang bảng màu mới mà vẫn giữ sắc độ: nút xanh dương trở thành xanh dương của giao diện mới, và bố cục của bạn vẫn đọc như cũ.",
+      "note": "Nếu cả bàn điều khiển hoá ra chỉ một màu, <b>Phân bổ bảng màu giao diện</b> sẽ rải màu của giao diện ra khắp các nút; <b>Tô tất cả bằng màu nhấn</b> đưa chúng về lại một màu. Nút nào cũng có thể nhận một màu riêng bạn chọn từ bộ chọn màu, và màu nhấn mà các thanh cùng nút nổi dùng cũng do bạn quyết định. Chữ trên nút tự chuyển giữa đen và trắng, dù bạn chọn màu gì đi nữa.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Mỗi thẻ tự trưng ra nền và bảng màu của nó." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Cũng bàn điều khiển đó với giao diện sáng." }
@@ -136,7 +156,7 @@
       "id": "screen",
       "eyebrow": "Màn hình",
       "title": "Dùng hết cả màn hình",
-      "body": "<b>Kéo giãn cho đầy màn hình</b> khiến các hàng chia nhau toàn bộ chiều cao: hai hàng nút sẽ lấp kín màn hình thay vì chừa một khoảng trống bên dưới. <b>Tự động ẩn thanh</b> bỏ hẳn thanh trên và thanh dưới, chỉ để lại các nút — nút nổi sẽ gọi chúng trở lại, hoặc nhấn giữ vùng trống trong ba giây.",
+      "body": "<b>Kéo giãn nút cho đầy màn hình</b> khiến các hàng chia nhau toàn bộ chiều cao: hai hàng nút sẽ lấp kín màn hình thay vì chừa một khoảng trống bên dưới. <b>Tự động ẩn thanh trên và dưới</b> bỏ hẳn chúng đi, chỉ để lại các nút. Nút nổi sẽ gọi chúng trở lại, hoặc nhấn giữ vùng trống trong ba giây.",
       "note": "Máy tính bảng cũng được đặt để không ngủ: màn hình sẽ không tắt khi bàn điều khiển đang mở."
     },
     {
@@ -157,5 +177,5 @@
     ]
   },
 
-  "footer": "Surecut Deck — bàn phím tắt tự dựng máy chủ cho Windows."
+  "footer": "Surecut Deck: bàn phím tắt tự dựng máy chủ cho Windows."
 }

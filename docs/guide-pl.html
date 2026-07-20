@@ -1,4 +1,4 @@
-<title>Surecut Deck — Podręcznik</title>
+<title>Surecut Deck: Podręcznik</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">Własny serwer · Bez sklepu z aplikacjami · Nic nie opuszcza twojej sieci</p>
       <h1>Zamień niepotrzebny tablet w pulpit sterowania komputerem</h1>
-      <p class="lead">Surecut Deck uruchamia mały serwer na twoim komputerze z Windows i sam udostępnia swój interfejs. Tablet otwiera tylko adres internetowy — nie ma aplikacji do zainstalowania, konta do założenia ani chmury pośrodku.</p>
+      <p class="lead">Surecut Deck uruchamia mały serwer na twoim komputerze z Windows i sam udostępnia swój interfejs. Tablet otwiera tylko adres internetowy: nie ma aplikacji do zainstalowania, konta do założenia ani chmury pośrodku.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Jak to działa</p>
-        <ul><li><a href="#buttons"><b>01</b>Podstawy</a></li><li><a href="#icons"><b>02</b>Ikony</a></li><li><a href="#dragdrop"><b>03</b>Pulpit</a></li><li><a href="#mouse"><b>04</b>Wskaźnik</a></li><li><a href="#pages"><b>05</b>Przestrzeń</a></li><li><a href="#themes"><b>06</b>Wygląd</a></li><li><a href="#screen"><b>07</b>Ekran</a></li><li><a href="#languages"><b>08</b>Język</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Podstawy</a></li><li><a href="#icons"><b>02</b>Ikony</a></li><li><a href="#dragdrop"><b>03</b>Pulpit</a></li><li><a href="#sync"><b>04</b>Synchronizacja</a></li><li><a href="#mouse"><b>05</b>Wskaźnik</a></li><li><a href="#pages"><b>06</b>Przestrzeń</a></li><li><a href="#managepages"><b>07</b>Przestrzeń</a></li><li><a href="#themes"><b>08</b>Wygląd</a></li><li><a href="#screen"><b>09</b>Ekran</a></li><li><a href="#languages"><b>10</b>Język</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,17 +279,17 @@ footer {
 <section id="buttons">
   <p class="eyebrow">Podstawy</p>
   <h2>Przyciski potrafią więcej niż wciskać klawisze</h2>
-  <p class="lead">Dotknij ołówka, aby wejść w tryb edycji, a potem dotknij dowolnego przycisku, aby go zmienić — albo przytrzymaj, aby przeciągnąć go gdzie indziej. Każdy przycisk ma etykietę, ikonę, kolor i jedną akcję.</p>
-  
+  <p class="lead">Dotknij ołówka, aby wejść w tryb edycji, a potem dotknij dowolnego przycisku, aby go zmienić, albo przytrzymaj, aby przeciągnąć go gdzie indziej. Każdy przycisk ma etykietę, ikonę, kolor i jedną akcję.</p>
+  <aside class="note">Sekwencja to jeden krok na linię: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Przycisk <b>Testuj</b> w edytorze wykonuje akcję raz, bez zapisywania, dzięki czemu dopracujesz kapryśny skrót, zanim się na niego zdecydujesz.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Etykieta, wybór ikony i kolor." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Etykieta, wybór ikony i kolor.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Rodzaj akcji, z gotowymi skrótami do wyboru." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Rodzaj akcji, z gotowymi skrótami do wyboru.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Akcja</th><th>Co robi</th></tr></thead>
-  <tbody><tr><td class="k">Skrót klawiszowy</td><td>Dowolna kombinacja — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, klawisze multimedialne, głośność</td></tr><tr><td class="k">Wpisz tekst</td><td>Pisze za ciebie blok tekstu, razem ze znakami nowej linii</td></tr><tr><td class="k">Otwórz aplikację / plik</td><td>Program, dokument albo folder</td></tr><tr><td class="k">Otwórz adres WWW</td><td>Otwiera odnośnik w domyślnej przeglądarce</td></tr><tr><td class="k">Uruchom polecenie</td><td>PowerShell albo CMD</td></tr><tr><td class="k">Mysz</td><td>Zamienia ekran tabletu w touchpad</td></tr><tr><td class="k">Sekwencja</td><td>Kilka kroków po kolei, z przerwami pomiędzy nimi</td></tr></tbody>
+  <tbody><tr><td class="k">Skrót klawiszowy</td><td>Dowolna kombinacja: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, klawisze multimedialne, głośność</td></tr><tr><td class="k">Wpisz tekst</td><td>Pisze za ciebie blok tekstu, razem ze znakami nowej linii</td></tr><tr><td class="k">Otwórz aplikację / plik</td><td>Program, dokument albo folder</td></tr><tr><td class="k">Otwórz adres WWW</td><td>Otwiera odnośnik w domyślnej przeglądarce</td></tr><tr><td class="k">Uruchom polecenie</td><td>PowerShell albo CMD</td></tr><tr><td class="k">Mysz</td><td>Zamienia ekran tabletu w touchpad</td></tr><tr><td class="k">Sekwencja</td><td>Kilka kroków po kolei, z przerwami pomiędzy nimi</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
   <p class="eyebrow">Ikony</p>
-  <h2>Wybierz emoji — albo weź prawdziwą ikonę programu</h2>
+  <h2>Wybierz emoji albo weź prawdziwą ikonę programu</h2>
   <p class="lead">Edytor ma siatkę ikon, więc nigdy nie musisz wpisywać emoji ręcznie. Dla programów jest coś lepszego: przeciągnij skrót z pulpitu, a prawdziwa ikona aplikacji przyjdzie razem z nim.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Tryb edycji. Każdy przycisk ma ołówek; przytrzymaj, aby zmienić kolejność." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Tryb edycji. Każdy przycisk ma ołówek; przytrzymaj, aby zmienić kolejność.</figcaption></figure>
@@ -294,42 +298,58 @@ footer {
 <section id="dragdrop">
   <p class="eyebrow">Pulpit</p>
   <h2>Przeciągnij skrót z pulpitu</h2>
-  <p class="lead">Otwórz edytor z ikony w zasobniku — pojawi się prawdziwe okno pulpitu z tym samym interfejsem w środku. Upuść skrót, program, folder albo plik na pasek u góry: cel zostanie rozwiązany, ikona aplikacji wyodrębniona, a przycisk pojawi się na tablecie od razu.</p>
-  <aside class="note">Edytor jest osobnym oknem, a nie kartą przeglądarki, z konkretnego powodu. Przeglądarki nigdy nie przekazują stronie <em>ścieżki</em> upuszczonego pliku, a Chromium dodatkowo rozwiązuje upuszczony skrót do jego celu — przeglądarka próbowałaby więc odczytać cały program, zamiast dowiedzieć się, gdzie on leży.</aside>
+  <p class="lead">Otwórz edytor z ikony w zasobniku: pojawi się prawdziwe okno pulpitu z tym samym interfejsem w środku. Upuść skrót, program, folder albo plik na pasek u góry: cel zostanie rozwiązany, ikona aplikacji wyodrębniona, a przycisk pojawi się na tablecie od razu.</p>
+  <aside class="note">Edytor jest osobnym oknem, a nie kartą przeglądarki, z konkretnego powodu. Przeglądarki nigdy nie przekazują stronie <em>ścieżki</em> upuszczonego pliku, a Chromium dodatkowo rozwiązuje upuszczony skrót do jego celu, dlatego przeglądarka próbowałaby odczytać cały program, zamiast dowiedzieć się, gdzie on leży.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="Edytor na pulpicie. Wybierz stronę po lewej i upuszczaj skróty na pasek." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Strona docelowa</span><span class="callout" style="left:62%;top:13%"><i></i>Upuść tutaj</span></div></div><figcaption>Edytor na pulpicie. Wybierz stronę po lewej i upuszczaj skróty na pasek.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">Synchronizacja</p>
+  <h2>Edytuj z obu stron, na żywo</h2>
+  <p class="lead">Tablet i edytor na komputerze to ten sam pulpit widziany dwa razy. Dodaj przycisk na PC, a pojawi się na tablecie bez przeładowania; zmień nazwę strony na tablecie, a lista stron w edytorze podąży za tym. Każda zmiana trafia na dysk od razu, a trzydzieści ostatnich wersji jest przechowywanych, dlatego zmiana wprowadzona jednocześnie na dwóch urządzeniach zostaje odrzucona, zamiast po cichu nadpisać tę drugą.</p>
+  
+  
   
 </section>
 <section id="mouse">
   <p class="eyebrow">Wskaźnik</p>
   <h2>Ekran zamienia się w touchpad</h2>
-  <p class="lead">Przypisz przyciskowi akcję <b>Mysz</b> — po naciśnięciu cały tablet staje się gładzikiem. Dwa suwaki ustawiają szybkość wskaźnika i przewijania, a kierunek przewijania można odwrócić zgodnie z twoim przyzwyczajeniem.</p>
+  <p class="lead">Przypisz przyciskowi akcję <b>Mysz</b>: po naciśnięciu cały tablet staje się gładzikiem. Dwa suwaki ustawiają szybkość wskaźnika i przewijania, a kierunek przewijania można odwrócić zgodnie z twoim przyzwyczajeniem.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Tryb touchpada, a pod spodem wyraźne przyciski do kliknięć, których nie chcesz zgadywać." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Tryb touchpada, a pod spodem wyraźne przyciski do kliknięć, których nie chcesz zgadywać.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Gest</th><th>Efekt</th></tr></thead>
-  <tbody><tr><td class="k">Przeciągnięcie</td><td>Ruch wskaźnika</td></tr><tr><td class="k">Dotknięcie</td><td>Lewy przycisk</td></tr><tr><td class="k">Podwójne dotknięcie</td><td>Podwójne kliknięcie</td></tr><tr><td class="k">Podwójne dotknięcie i przeciągnięcie</td><td>Przytrzymanie lewego przycisku i ruch — zaznaczanie tekstu, przenoszenie okna</td></tr><tr><td class="k">Długie naciśnięcie</td><td>Prawy przycisk</td></tr><tr><td class="k">Dwa palce</td><td>Przewijanie w pionie i w poziomie</td></tr><tr><td class="k">Dotknięcie dwoma palcami</td><td>Prawy przycisk</td></tr><tr><td class="k">Uszczypnięcie</td><td>Powiększenie</td></tr><tr><td class="k">Trzy palce ↑ / ↓</td><td>Widok zadań / pokaż pulpit</td></tr><tr><td class="k">Trzy palce ← / →</td><td>Zmiana pulpitu wirtualnego</td></tr></tbody>
+  <tbody><tr><td class="k">Przeciągnięcie</td><td>Ruch wskaźnika</td></tr><tr><td class="k">Dotknięcie</td><td>Lewy przycisk</td></tr><tr><td class="k">Podwójne dotknięcie</td><td>Podwójne kliknięcie</td></tr><tr><td class="k">Podwójne dotknięcie i przeciągnięcie</td><td>Przytrzymanie lewego przycisku i ruch: zaznaczanie tekstu, przenoszenie okna</td></tr><tr><td class="k">Długie naciśnięcie</td><td>Prawy przycisk</td></tr><tr><td class="k">Przycisk <b>Przytrzymaj</b></td><td>Blokuje wciśnięty lewy przycisk, więc możesz przeciągać kilkoma ruchami, nie trzymając palca</td></tr><tr><td class="k">Przycisk <b>Środkowy</b></td><td>Kliknięcie środkowym: zamknij kartę, otwórz odnośnik w nowej</td></tr><tr><td class="k">Dwa palce</td><td>Przewijanie w pionie i w poziomie</td></tr><tr><td class="k">Dotknięcie dwoma palcami</td><td>Prawy przycisk</td></tr><tr><td class="k">Uszczypnięcie</td><td>Powiększenie</td></tr><tr><td class="k">Trzy palce ↑ / ↓</td><td>Widok zadań / pokaż pulpit</td></tr><tr><td class="k">Trzy palce ← / →</td><td>Zmiana pulpitu wirtualnego</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">Przestrzeń</p>
-  <h2>Tyle stron, ile potrzebujesz</h2>
-  <p class="lead">Pogrupuj przyciski na strony — jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. Przesuń palcem w lewo lub w prawo po pulpicie, aby zmienić stronę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie.</p>
+  <h2>Przesuwaj palcem między stronami</h2>
+  <p class="lead">Pogrupuj przyciski na strony: jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. <b>Przesuń palcem w lewo lub w prawo w dowolnym miejscu pulpitu</b>, aby się między nimi przemieszczać; nazwa strony pokaże się na chwilę, więc wiesz, gdzie wylądowałeś. W trybie edycji ten sam gest zmienia zamiast tego kolejność przycisków, więc te dwa nigdy sobie nie wchodzą w drogę.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Jedno przesunięcie przenosi z jednej strony na następną." loading="lazy"></div><figcaption>Jedno przesunięcie przenosi z jednej strony na następną.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">Przestrzeń</p>
+  <h2>Strony, kolumny i pływający przycisk</h2>
+  <p class="lead">W trybie edycji dolny pasek dodaje i usuwa strony oraz ustala, ilu kolumn używa siatka. Dotknij zakładki strony ponownie, aby zmienić jej nazwę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie, bo to jedyna rzecz zawsze widoczna na ekranie.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Tryb edycji, z ustawieniami stron i kolumn na dole." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Tryb edycji, z ustawieniami stron i kolumn na dole.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Wygląd</p>
   <h2>Jedenaście motywów, a przyciski nadążają</h2>
-  <p class="lead">Większość motywów pochodzi ze schematów kolorów znanych programistom — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — plus dwa celowo dwubarwne wyglądy terminala oraz neutralny jasny i ciemny. Zmiana motywu przenosi kolory twoich przycisków do nowej palety z zachowaniem odcieni: niebieski przycisk staje się niebieskim nowego motywu, a układ czyta się tak samo.</p>
-  
+  <p class="lead">Większość motywów pochodzi ze schematów kolorów znanych programistom (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), plus dwa celowo dwubarwne wyglądy terminala oraz neutralny jasny i ciemny. Zmiana motywu przenosi kolory twoich przycisków do nowej palety z zachowaniem odcieni: niebieski przycisk staje się niebieskim nowego motywu, a układ czyta się tak samo.</p>
+  <aside class="note">Jeśli pulpit wyszedł cały w jednym kolorze, <b>Rozłóż paletę motywu</b> rozdaje jego kolory pomiędzy przyciski, a <b>Pomaluj wszystko kolorem akcentu</b> sprowadza je z powrotem do jednego. Każdy przycisk może też dostać twój własny kolor z próbnika, a akcent używany przez paski i pływający przycisk wybierasz sam. Tekst na przyciskach sam przełącza się między czernią a bielą, na jakim kolorze byś nie wylądował.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Każda karta pokazuje własne tło i paletę." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Każda karta pokazuje własne tło i paletę.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Ten sam pulpit w jasnym motywie." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Ten sam pulpit w jasnym motywie.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">Ekran</p>
   <h2>Wykorzystaj cały ekran</h2>
-  <p class="lead"><b>Rozciągnij na cały ekran</b> sprawia, że wiersze dzielą całą wysokość: dwa rzędy przycisków wypełniają ekran, zamiast zostawiać pustkę na dole. <b>Automatycznie ukrywaj paski</b> całkowicie usuwa górny i dolny pasek i zostawia same przyciski — pływający przycisk je przywraca albo przytrzymaj puste miejsce przez trzy sekundy.</p>
+  <p class="lead"><b>Rozciągnij przyciski na cały ekran</b> sprawia, że wiersze dzielą całą wysokość: dwa rzędy przycisków wypełniają ekran, zamiast zostawiać pustkę na dole. <b>Automatycznie ukrywaj paski</b> całkowicie usuwa górny i dolny pasek i zostawia same przyciski. Pływający przycisk je przywraca, albo przytrzymaj puste miejsce przez trzy sekundy.</p>
   <aside class="note">Tablet jest też ustawiony tak, aby nie zasypiał: ekran nie zgaśnie, dopóki pulpit jest otwarty.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — pulpit skrótów dla Windows z własnym serwerem.</footer>
+        <footer>Surecut Deck: pulpit skrótów dla Windows z własnym serwerem.</footer>
       </div>
     </div>
   </div>

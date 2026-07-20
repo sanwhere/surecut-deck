@@ -1,7 +1,7 @@
 {
   "lang": "es",
   "dir": "ltr",
-  "title": "Surecut Deck — Guía de uso",
+  "title": "Surecut Deck: Guía de uso",
   "eyebrow": "Servidor propio · Sin tienda de aplicaciones · Nada sale de tu red",
   "heroTitle": "Convierte una tablet que no usas en el panel de control de tu PC",
   "heroLead": "Surecut Deck levanta un pequeño servidor en tu equipo Windows y sirve su propia interfaz. La tablet solo abre una dirección web: no hay aplicación que instalar, ni cuenta que crear, ni nube por medio.",
@@ -60,7 +60,8 @@
           ["Ratón", "Convierte la pantalla de la tablet en un panel táctil"],
           ["Secuencia", "Varios pasos en orden, con pausas entre ellos"]
         ]
-      }
+      },
+      "note": "Una secuencia es un paso por línea: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. El botón <b>Probar</b> del editor ejecuta la acción una vez sin guardarla, así puedes dejar fino un atajo quisquilloso antes de darlo por bueno."
     },
     {
       "id": "icons",
@@ -90,6 +91,12 @@
       ]
     },
     {
+      "id": "sync",
+      "eyebrow": "Sincronización",
+      "title": "Edita desde cualquiera de los dos lados, en vivo",
+      "body": "La tablet y el editor de escritorio son el mismo panel visto dos veces. Añade un botón en el PC y aparece en la tablet sin recargar; cambia el nombre de una página en la tablet y la lista de páginas del editor le sigue. Cada cambio se escribe en disco al momento y se conservan las últimas treinta versiones, de modo que una edición hecha a la vez en dos dispositivos se rechaza en lugar de sobrescribir la otra en silencio."
+    },
+    {
       "id": "mouse",
       "eyebrow": "Puntero",
       "title": "La pantalla se convierte en panel táctil",
@@ -105,6 +112,8 @@
           ["Doble toque", "Doble clic"],
           ["Doble toque y arrastrar", "Mantener el botón izquierdo y mover: seleccionar texto, arrastrar una ventana"],
           ["Mantener pulsado", "Clic derecho"],
+          ["Botón <b>Mantener</b>", "Deja bloqueado el botón izquierdo, para arrastrar en varios trazos sin mantener el dedo"],
+          ["Botón <b>Central</b>", "Clic central: cerrar una pestaña, abrir un enlace en otra nueva"],
           ["Dos dedos", "Desplazar, en vertical y horizontal"],
           ["Toque con dos dedos", "Clic derecho"],
           ["Pellizcar", "Zoom"],
@@ -116,17 +125,28 @@
     {
       "id": "pages",
       "eyebrow": "Espacio",
-      "title": "Tantas páginas como necesites",
-      "body": "Agrupa los botones en páginas: una para editar, otra para juegos, otra para esa reunión en la que siempre estás. Desliza a izquierda o derecha sobre el panel para pasar de una a otra. El botón flotante te lleva a las páginas, al editor y a los temas incluso con las barras ocultas, y puedes arrastrarlo donde te venga bien.",
+      "title": "Desliza entre páginas",
+      "body": "Agrupa los botones en páginas: una para editar, otra para juegos, otra para esa reunión en la que siempre estás. <b>Desliza a izquierda o derecha en cualquier punto del panel</b> para pasar de una a otra; el nombre de la página aparece un instante para que sepas dónde has caído. En modo edición ese mismo gesto reordena los botones, así que los dos nunca chocan.",
       "figures": [
-        { "src": "07-menu.png", "frame": "tablet", "caption": "El menú flotante: páginas, barras, modo edición, tema y pantalla completa." }
+        { "src": "12-swipe.png", "frame": "none", "caption": "Un deslizamiento lleva de una página a la siguiente." }
+      ]
+    },
+    {
+      "id": "managepages",
+      "eyebrow": "Espacio",
+      "title": "Páginas, columnas y el botón flotante",
+      "body": "En modo edición la barra inferior añade y quita páginas y fija cuántas columnas usa la cuadrícula. Toca otra vez una pestaña de página para cambiarle el nombre. El botón flotante te lleva a las páginas, al editor y a los temas incluso con las barras ocultas, y puedes arrastrarlo donde te venga bien, ya que es lo único que está siempre en pantalla.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "El menú flotante: páginas, barras, modo edición, tema y pantalla completa." },
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Modo edición, con los controles de páginas y columnas abajo." }
       ]
     },
     {
       "id": "themes",
       "eyebrow": "Aspecto",
       "title": "Once temas, y los botones se adaptan",
-      "body": "La mayoría de los temas vienen de esquemas de color conocidos entre desarrolladores — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — más dos aspectos de terminal deliberadamente bicolores y un claro y un oscuro neutros. Al cambiar de tema, los colores de tus botones se convierten a la nueva paleta conservando sus tonos: un botón azul pasa a ser el azul del nuevo tema y tu distribución se sigue leyendo igual.",
+      "body": "La mayoría de los temas vienen de esquemas de color conocidos entre desarrolladores (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), más dos aspectos de terminal deliberadamente bicolores y un claro y un oscuro neutros. Al cambiar de tema, los colores de tus botones se convierten a la nueva paleta conservando sus tonos: un botón azul pasa a ser el azul del nuevo tema y tu distribución se sigue leyendo igual.",
+      "note": "Si un panel acaba todo del mismo color, <b>Repartir la paleta del tema</b> reparte los colores del tema entre los botones; <b>Pintar todo con el color de acento</b> los devuelve a uno solo. Cualquier botón puede tomar además un color propio del selector, y el color de acento que usan las barras y el botón flotante lo eliges tú. El texto de los botones alterna por su cuenta entre negro y blanco, sea cual sea el color en el que acabes.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Cada tarjeta muestra su propio fondo y su paleta." },
         { "src": "08-light.png", "frame": "tablet", "caption": "El mismo panel con un tema claro." }
@@ -136,7 +156,7 @@
       "id": "screen",
       "eyebrow": "Pantalla",
       "title": "Aprovecha toda la pantalla",
-      "body": "<b>Estirar para llenar</b> hace que las filas repartan toda la altura, de modo que dos filas de botones llenan la pantalla en lugar de dejar un hueco debajo. <b>Ocultar barras automáticamente</b> quita del todo las barras superior e inferior y deja solo los botones: el botón flotante las recupera, o mantén pulsada un área vacía durante tres segundos.",
+      "body": "<b>Estirar los botones para llenar la pantalla</b> hace que las filas repartan toda la altura, de modo que dos filas de botones la llenan en lugar de dejar un hueco debajo. <b>Ocultar automáticamente las barras</b> quita del todo la superior y la inferior y deja solo los botones: el botón flotante las recupera, o mantén pulsada un área vacía durante tres segundos.",
       "note": "La tablet también está configurada para no dormirse: la pantalla no se apagará mientras el panel esté abierto."
     },
     {
@@ -157,5 +177,5 @@
     ]
   },
 
-  "footer": "Surecut Deck — un panel de atajos autoalojado para Windows."
+  "footer": "Surecut Deck: un panel de atajos autoalojado para Windows."
 }

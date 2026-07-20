@@ -1,4 +1,4 @@
-<title>Surecut Deck — User Guide</title>
+<title>Surecut Deck: User Guide</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">Self-hosted · No app store · Nothing leaves your network</p>
       <h1>Turn a spare tablet into a control deck for your PC</h1>
-      <p class="lead">Surecut Deck runs a small server on your Windows machine and serves its own interface. The tablet just opens a web address — there is no app to install, no account to create, and no cloud in the middle.</p>
+      <p class="lead">Surecut Deck runs a small server on your Windows machine and serves its own interface. The tablet just opens a web address. There is no app to install, no account to create, and no cloud in the middle.</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>How it works</p>
-        <ul><li><a href="#buttons"><b>01</b>The basics</a></li><li><a href="#icons"><b>02</b>Icons</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#mouse"><b>04</b>Pointer</a></li><li><a href="#pages"><b>05</b>Space</a></li><li><a href="#themes"><b>06</b>Looks</a></li><li><a href="#screen"><b>07</b>Screen</a></li><li><a href="#languages"><b>08</b>Language</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>The basics</a></li><li><a href="#icons"><b>02</b>Icons</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Sync</a></li><li><a href="#mouse"><b>05</b>Pointer</a></li><li><a href="#pages"><b>06</b>Space</a></li><li><a href="#managepages"><b>07</b>Space</a></li><li><a href="#themes"><b>08</b>Looks</a></li><li><a href="#screen"><b>09</b>Screen</a></li><li><a href="#languages"><b>10</b>Language</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">The basics</p>
   <h2>Buttons do more than keystrokes</h2>
-  <p class="lead">Tap the pencil to enter edit mode, then tap any button to edit it — or press and hold to drag it somewhere else. Every button has a label, an icon, a colour and one action.</p>
-  
+  <p class="lead">Tap the pencil to enter edit mode, then tap any button to edit it, or press and hold to drag it somewhere else. Every button has a label, an icon, a colour and one action.</p>
+  <aside class="note">A sequence is one step per line: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. The editor's <b>Test</b> button runs the action once without saving it, so you can get a fiddly shortcut right before committing to it.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Label, icon picker and colour." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Label, icon picker and colour.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Action type, with ready-made shortcuts to pick from." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Action type, with ready-made shortcuts to pick from.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Action</th><th>What it does</th></tr></thead>
-  <tbody><tr><td class="k">Keyboard shortcut</td><td>Any combination — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, media keys, volume</td></tr><tr><td class="k">Type text</td><td>Writes a block of text for you, line breaks included</td></tr><tr><td class="k">Open app / file</td><td>A program, a document or a folder</td></tr><tr><td class="k">Open web address</td><td>Opens a link in your default browser</td></tr><tr><td class="k">Run command</td><td>PowerShell or CMD</td></tr><tr><td class="k">Mouse</td><td>Turns the tablet screen into a touchpad</td></tr><tr><td class="k">Sequence</td><td>Several steps in order, with delays in between</td></tr></tbody>
+  <tbody><tr><td class="k">Keyboard shortcut</td><td>Any combination: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, media keys, volume</td></tr><tr><td class="k">Type text</td><td>Writes a block of text for you, line breaks included</td></tr><tr><td class="k">Open app / file</td><td>A program, a document or a folder</td></tr><tr><td class="k">Open web address</td><td>Opens a link in your default browser</td></tr><tr><td class="k">Run command</td><td>PowerShell or CMD</td></tr><tr><td class="k">Mouse</td><td>Turns the tablet screen into a touchpad</td></tr><tr><td class="k">Sequence</td><td>Several steps in order, with delays in between</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -295,8 +299,16 @@ footer {
   <p class="eyebrow">Desktop</p>
   <h2>Drag a shortcut in from the desktop</h2>
   <p class="lead">Open the editor from the tray icon and a proper desktop window appears with the same interface inside it. Drop a shortcut, program, folder or file onto the strip at the top: the target is resolved, the application icon is extracted, and the button appears on the tablet immediately.</p>
-  <aside class="note">The editor is a native window rather than a browser tab for a specific reason. Browsers never hand a web page the <em>path</em> of a dropped file, and Chromium resolves a dropped shortcut to its target — so a browser would try to read the whole program instead of learning where it lives.</aside>
+  <aside class="note">The editor is a native window rather than a browser tab for a specific reason. Browsers never hand a web page the <em>path</em> of a dropped file, and Chromium resolves a dropped shortcut to its target, so a browser would try to read the whole program instead of learning where it lives.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="The desktop editor. Choose the page on the left, then drop shortcuts onto the strip." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Target page</span><span class="callout" style="left:62%;top:13%"><i></i>Drop shortcuts here</span></div></div><figcaption>The desktop editor. Choose the page on the left, then drop shortcuts onto the strip.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">Sync</p>
+  <h2>Edit from either side, live</h2>
+  <p class="lead">The tablet and the desktop editor are the same deck seen twice. Add a button on the PC and it appears on the tablet without a reload; rename a page on the tablet and the editor's page list follows. Every change is written to disk immediately, and the last thirty versions are kept, so an edit made on two devices at once is refused rather than silently overwriting the other.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Touchpad mode, with explicit buttons underneath for the clicks you don't want to guess at." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Touchpad mode, with explicit buttons underneath for the clicks you don't want to guess at.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Gesture</th><th>Result</th></tr></thead>
-  <tbody><tr><td class="k">Drag</td><td>Move the pointer</td></tr><tr><td class="k">Tap</td><td>Left click</td></tr><tr><td class="k">Double tap</td><td>Double click</td></tr><tr><td class="k">Double tap, then drag</td><td>Hold the left button and move — select text, drag a window</td></tr><tr><td class="k">Long press</td><td>Right click</td></tr><tr><td class="k">Two fingers</td><td>Scroll, vertically and horizontally</td></tr><tr><td class="k">Two-finger tap</td><td>Right click</td></tr><tr><td class="k">Pinch</td><td>Zoom</td></tr><tr><td class="k">Three fingers ↑ / ↓</td><td>Task view / show desktop</td></tr><tr><td class="k">Three fingers ← / →</td><td>Switch virtual desktop</td></tr></tbody>
+  <tbody><tr><td class="k">Drag</td><td>Move the pointer</td></tr><tr><td class="k">Tap</td><td>Left click</td></tr><tr><td class="k">Double tap</td><td>Double click</td></tr><tr><td class="k">Double tap, then drag</td><td>Hold the left button and move: select text, drag a window</td></tr><tr><td class="k">Long press</td><td>Right click</td></tr><tr><td class="k"><b>Hold</b> button</td><td>Locks the left button down, so you can drag across several strokes without holding a finger</td></tr><tr><td class="k"><b>Middle</b> button</td><td>Middle click: close a tab, open a link in a new one</td></tr><tr><td class="k">Two fingers</td><td>Scroll, vertically and horizontally</td></tr><tr><td class="k">Two-finger tap</td><td>Right click</td></tr><tr><td class="k">Pinch</td><td>Zoom</td></tr><tr><td class="k">Three fingers ↑ / ↓</td><td>Task view / show desktop</td></tr><tr><td class="k">Three fingers ← / →</td><td>Switch virtual desktop</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">Space</p>
-  <h2>As many pages as you need</h2>
-  <p class="lead">Group buttons into pages — one for editing, one for games, one for the meeting you are always in. Swipe left or right across the deck to move between them. The floating button gets you to the pages, the editor and the themes even when the bars are hidden, and you can drag it wherever it suits you.</p>
+  <h2>Swipe between pages</h2>
+  <p class="lead">Group buttons into pages: one for editing, one for games, one for the meeting you are always in. <b>Swipe left or right anywhere on the deck</b> to move between them; the page name appears briefly so you know where you landed. In edit mode the same gesture reorders buttons instead, so the two never collide.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="The floating menu: pages, bars, edit mode, theme and full screen." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>The floating menu: pages, bars, edit mode, theme and full screen.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="One swipe moves from one page to the next." loading="lazy"></div><figcaption>One swipe moves from one page to the next.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">Space</p>
+  <h2>Pages, columns and the floating button</h2>
+  <p class="lead">In edit mode the bottom bar adds and removes pages and sets how many columns the grid uses. Tap a page tab again to rename it. The floating button reaches the pages, the editor and the themes even when the bars are hidden, and you can drag it anywhere that suits you, since it is the one thing always on screen.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="The floating menu: pages, bars, edit mode, theme and full screen." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>The floating menu: pages, bars, edit mode, theme and full screen.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Edit mode, with the page and column controls along the bottom." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Edit mode, with the page and column controls along the bottom.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Looks</p>
   <h2>Eleven themes, and the buttons follow</h2>
-  <p class="lead">Most themes come from well-known developer colour schemes — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — plus two deliberately two-tone terminal looks and neutral light and dark. Changing the theme converts your button colours to the new palette while keeping their hues, so a blue button becomes the new theme's blue and your layout still reads the same.</p>
-  
+  <p class="lead">Most themes come from well-known developer colour schemes: Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine, plus two deliberately two-tone terminal looks and neutral light and dark. Changing the theme converts your button colours to the new palette while keeping their hues, so a blue button becomes the new theme's blue and your layout still reads the same.</p>
+  <aside class="note">If a deck ends up all one colour, <b>Spread theme palette</b> deals the theme's colours across the buttons; <b>Paint all in accent colour</b> puts them all back to one. Any button can also take a colour of your own from the picker, and the accent used by the bars and the floating button is yours to choose. Button text switches between black and white on its own, whatever colour you land on.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Each card previews its own background and palette." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Each card previews its own background and palette.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="The same deck on a light theme." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>The same deck on a light theme.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">Screen</p>
   <h2>Use the whole display</h2>
-  <p class="lead"><b>Stretch to fill</b> makes the rows share the full height, so two rows of buttons fill the screen instead of leaving a gap underneath. <b>Auto-hide bars</b> removes the top and bottom bars entirely and leaves only the buttons — the floating button brings them back, or hold an empty area for three seconds.</p>
+  <p class="lead"><b>Stretch buttons to fill the screen</b> makes the rows share the full height, so two rows of buttons use the whole display instead of leaving a gap underneath. <b>Auto-hide top and bottom bars</b> removes them entirely and leaves only the buttons. The floating button brings them back, or hold an empty area for three seconds.</p>
   <aside class="note">The tablet is also set to stay awake: the screen will not time out while the deck is open.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — a self-hosted shortcut deck for Windows.</footer>
+        <footer>Surecut Deck: a self-hosted shortcut deck for Windows.</footer>
       </div>
     </div>
   </div>

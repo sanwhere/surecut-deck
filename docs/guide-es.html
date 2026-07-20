@@ -1,4 +1,4 @@
-<title>Surecut Deck — Guía de uso</title>
+<title>Surecut Deck: Guía de uso</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Cómo funciona</p>
-        <ul><li><a href="#buttons"><b>01</b>Lo básico</a></li><li><a href="#icons"><b>02</b>Iconos</a></li><li><a href="#dragdrop"><b>03</b>Escritorio</a></li><li><a href="#mouse"><b>04</b>Puntero</a></li><li><a href="#pages"><b>05</b>Espacio</a></li><li><a href="#themes"><b>06</b>Aspecto</a></li><li><a href="#screen"><b>07</b>Pantalla</a></li><li><a href="#languages"><b>08</b>Idioma</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Lo básico</a></li><li><a href="#icons"><b>02</b>Iconos</a></li><li><a href="#dragdrop"><b>03</b>Escritorio</a></li><li><a href="#sync"><b>04</b>Sincronización</a></li><li><a href="#mouse"><b>05</b>Puntero</a></li><li><a href="#pages"><b>06</b>Espacio</a></li><li><a href="#managepages"><b>07</b>Espacio</a></li><li><a href="#themes"><b>08</b>Aspecto</a></li><li><a href="#screen"><b>09</b>Pantalla</a></li><li><a href="#languages"><b>10</b>Idioma</a></li></ul>
       </nav>
 
       <div class="col">
@@ -276,7 +280,7 @@ footer {
   <p class="eyebrow">Lo básico</p>
   <h2>Los botones hacen algo más que pulsar teclas</h2>
   <p class="lead">Toca el lápiz para entrar en modo edición y luego toca cualquier botón para editarlo, o mantenlo pulsado para arrastrarlo a otro sitio. Cada botón tiene una etiqueta, un icono, un color y una acción.</p>
-  
+  <aside class="note">Una secuencia es un paso por línea: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. El botón <b>Probar</b> del editor ejecuta la acción una vez sin guardarla, así puedes dejar fino un atajo quisquilloso antes de darlo por bueno.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Etiqueta, selector de iconos y color." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Etiqueta, selector de iconos y color.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Tipo de acción, con atajos preparados para elegir." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Tipo de acción, con atajos preparados para elegir.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Acción</th><th>Qué hace</th></tr></thead>
@@ -299,6 +303,14 @@ footer {
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="El editor de escritorio. Elige la página a la izquierda y suelta accesos directos en la franja." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Página destino</span><span class="callout" style="left:62%;top:13%"><i></i>Suelta aquí</span></div></div><figcaption>El editor de escritorio. Elige la página a la izquierda y suelta accesos directos en la franja.</figcaption></figure>
   
 </section>
+<section id="sync">
+  <p class="eyebrow">Sincronización</p>
+  <h2>Edita desde cualquiera de los dos lados, en vivo</h2>
+  <p class="lead">La tablet y el editor de escritorio son el mismo panel visto dos veces. Añade un botón en el PC y aparece en la tablet sin recargar; cambia el nombre de una página en la tablet y la lista de páginas del editor le sigue. Cada cambio se escribe en disco al momento y se conservan las últimas treinta versiones, de modo que una edición hecha a la vez en dos dispositivos se rechaza en lugar de sobrescribir la otra en silencio.</p>
+  
+  
+  
+</section>
 <section id="mouse">
   <p class="eyebrow">Puntero</p>
   <h2>La pantalla se convierte en panel táctil</h2>
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Modo panel táctil, con botones explícitos abajo para los clics que no quieres dejar al azar." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Modo panel táctil, con botones explícitos abajo para los clics que no quieres dejar al azar.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Gesto</th><th>Resultado</th></tr></thead>
-  <tbody><tr><td class="k">Arrastrar</td><td>Mover el puntero</td></tr><tr><td class="k">Tocar</td><td>Clic izquierdo</td></tr><tr><td class="k">Doble toque</td><td>Doble clic</td></tr><tr><td class="k">Doble toque y arrastrar</td><td>Mantener el botón izquierdo y mover: seleccionar texto, arrastrar una ventana</td></tr><tr><td class="k">Mantener pulsado</td><td>Clic derecho</td></tr><tr><td class="k">Dos dedos</td><td>Desplazar, en vertical y horizontal</td></tr><tr><td class="k">Toque con dos dedos</td><td>Clic derecho</td></tr><tr><td class="k">Pellizcar</td><td>Zoom</td></tr><tr><td class="k">Tres dedos ↑ / ↓</td><td>Vista de tareas / mostrar escritorio</td></tr><tr><td class="k">Tres dedos ← / →</td><td>Cambiar de escritorio virtual</td></tr></tbody>
+  <tbody><tr><td class="k">Arrastrar</td><td>Mover el puntero</td></tr><tr><td class="k">Tocar</td><td>Clic izquierdo</td></tr><tr><td class="k">Doble toque</td><td>Doble clic</td></tr><tr><td class="k">Doble toque y arrastrar</td><td>Mantener el botón izquierdo y mover: seleccionar texto, arrastrar una ventana</td></tr><tr><td class="k">Mantener pulsado</td><td>Clic derecho</td></tr><tr><td class="k">Botón <b>Mantener</b></td><td>Deja bloqueado el botón izquierdo, para arrastrar en varios trazos sin mantener el dedo</td></tr><tr><td class="k">Botón <b>Central</b></td><td>Clic central: cerrar una pestaña, abrir un enlace en otra nueva</td></tr><tr><td class="k">Dos dedos</td><td>Desplazar, en vertical y horizontal</td></tr><tr><td class="k">Toque con dos dedos</td><td>Clic derecho</td></tr><tr><td class="k">Pellizcar</td><td>Zoom</td></tr><tr><td class="k">Tres dedos ↑ / ↓</td><td>Vista de tareas / mostrar escritorio</td></tr><tr><td class="k">Tres dedos ← / →</td><td>Cambiar de escritorio virtual</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">Espacio</p>
-  <h2>Tantas páginas como necesites</h2>
-  <p class="lead">Agrupa los botones en páginas: una para editar, otra para juegos, otra para esa reunión en la que siempre estás. Desliza a izquierda o derecha sobre el panel para pasar de una a otra. El botón flotante te lleva a las páginas, al editor y a los temas incluso con las barras ocultas, y puedes arrastrarlo donde te venga bien.</p>
+  <h2>Desliza entre páginas</h2>
+  <p class="lead">Agrupa los botones en páginas: una para editar, otra para juegos, otra para esa reunión en la que siempre estás. <b>Desliza a izquierda o derecha en cualquier punto del panel</b> para pasar de una a otra; el nombre de la página aparece un instante para que sepas dónde has caído. En modo edición ese mismo gesto reordena los botones, así que los dos nunca chocan.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="El menú flotante: páginas, barras, modo edición, tema y pantalla completa." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>El menú flotante: páginas, barras, modo edición, tema y pantalla completa.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Un deslizamiento lleva de una página a la siguiente." loading="lazy"></div><figcaption>Un deslizamiento lleva de una página a la siguiente.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">Espacio</p>
+  <h2>Páginas, columnas y el botón flotante</h2>
+  <p class="lead">En modo edición la barra inferior añade y quita páginas y fija cuántas columnas usa la cuadrícula. Toca otra vez una pestaña de página para cambiarle el nombre. El botón flotante te lleva a las páginas, al editor y a los temas incluso con las barras ocultas, y puedes arrastrarlo donde te venga bien, ya que es lo único que está siempre en pantalla.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="El menú flotante: páginas, barras, modo edición, tema y pantalla completa." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>El menú flotante: páginas, barras, modo edición, tema y pantalla completa.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Modo edición, con los controles de páginas y columnas abajo." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Modo edición, con los controles de páginas y columnas abajo.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Aspecto</p>
   <h2>Once temas, y los botones se adaptan</h2>
-  <p class="lead">La mayoría de los temas vienen de esquemas de color conocidos entre desarrolladores — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — más dos aspectos de terminal deliberadamente bicolores y un claro y un oscuro neutros. Al cambiar de tema, los colores de tus botones se convierten a la nueva paleta conservando sus tonos: un botón azul pasa a ser el azul del nuevo tema y tu distribución se sigue leyendo igual.</p>
-  
+  <p class="lead">La mayoría de los temas vienen de esquemas de color conocidos entre desarrolladores (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), más dos aspectos de terminal deliberadamente bicolores y un claro y un oscuro neutros. Al cambiar de tema, los colores de tus botones se convierten a la nueva paleta conservando sus tonos: un botón azul pasa a ser el azul del nuevo tema y tu distribución se sigue leyendo igual.</p>
+  <aside class="note">Si un panel acaba todo del mismo color, <b>Repartir la paleta del tema</b> reparte los colores del tema entre los botones; <b>Pintar todo con el color de acento</b> los devuelve a uno solo. Cualquier botón puede tomar además un color propio del selector, y el color de acento que usan las barras y el botón flotante lo eliges tú. El texto de los botones alterna por su cuenta entre negro y blanco, sea cual sea el color en el que acabes.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Cada tarjeta muestra su propio fondo y su paleta." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Cada tarjeta muestra su propio fondo y su paleta.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="El mismo panel con un tema claro." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>El mismo panel con un tema claro.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">Pantalla</p>
   <h2>Aprovecha toda la pantalla</h2>
-  <p class="lead"><b>Estirar para llenar</b> hace que las filas repartan toda la altura, de modo que dos filas de botones llenan la pantalla en lugar de dejar un hueco debajo. <b>Ocultar barras automáticamente</b> quita del todo las barras superior e inferior y deja solo los botones: el botón flotante las recupera, o mantén pulsada un área vacía durante tres segundos.</p>
+  <p class="lead"><b>Estirar los botones para llenar la pantalla</b> hace que las filas repartan toda la altura, de modo que dos filas de botones la llenan en lugar de dejar un hueco debajo. <b>Ocultar automáticamente las barras</b> quita del todo la superior y la inferior y deja solo los botones: el botón flotante las recupera, o mantén pulsada un área vacía durante tres segundos.</p>
   <aside class="note">La tablet también está configurada para no dormirse: la pantalla no se apagará mientras el panel esté abierto.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — un panel de atajos autoalojado para Windows.</footer>
+        <footer>Surecut Deck: un panel de atajos autoalojado para Windows.</footer>
       </div>
     </div>
   </div>

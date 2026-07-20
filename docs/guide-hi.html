@@ -1,4 +1,4 @@
-<title>Surecut Deck — उपयोग गाइड</title>
+<title>Surecut Deck: उपयोग गाइड</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -218,7 +222,7 @@ footer {
     <div class="wrap">
       <p class="eyebrow">अपना ही सर्वर · कोई ऐप स्टोर नहीं · कुछ भी आपके नेटवर्क से बाहर नहीं जाता</p>
       <h1>बेकार पड़े टैबलेट को अपने पीसी का कंट्रोल पैनल बना लीजिए</h1>
-      <p class="lead">Surecut Deck आपके विंडोज़ कंप्यूटर पर एक छोटा सर्वर चलाता है और अपना इंटरफ़ेस ख़ुद देता है। टैबलेट बस एक वेब पता खोलता है — न कोई ऐप इंस्टॉल करनी है, न खाता बनाना है, और न बीच में कोई क्लाउड है।</p>
+      <p class="lead">Surecut Deck आपके विंडोज़ कंप्यूटर पर एक छोटा सर्वर चलाता है और अपना इंटरफ़ेस ख़ुद देता है। टैबलेट बस एक वेब पता खोलता है: न कोई ऐप इंस्टॉल करनी है, न खाता बनाना है, और न बीच में कोई क्लाउड है।</p>
     </div>
   </header>
 
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>यह कैसे काम करता है</p>
-        <ul><li><a href="#buttons"><b>01</b>बुनियाद</a></li><li><a href="#icons"><b>02</b>आइकन</a></li><li><a href="#dragdrop"><b>03</b>डेस्कटॉप</a></li><li><a href="#mouse"><b>04</b>सूचक</a></li><li><a href="#pages"><b>05</b>जगह</a></li><li><a href="#themes"><b>06</b>रूप</a></li><li><a href="#screen"><b>07</b>स्क्रीन</a></li><li><a href="#languages"><b>08</b>भाषा</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>बुनियाद</a></li><li><a href="#icons"><b>02</b>आइकन</a></li><li><a href="#dragdrop"><b>03</b>डेस्कटॉप</a></li><li><a href="#sync"><b>04</b>सिंक</a></li><li><a href="#mouse"><b>05</b>सूचक</a></li><li><a href="#pages"><b>06</b>जगह</a></li><li><a href="#managepages"><b>07</b>जगह</a></li><li><a href="#themes"><b>08</b>रूप</a></li><li><a href="#screen"><b>09</b>स्क्रीन</a></li><li><a href="#languages"><b>10</b>भाषा</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,12 +279,12 @@ footer {
 <section id="buttons">
   <p class="eyebrow">बुनियाद</p>
   <h2>बटन कुंजियाँ दबाने से कहीं ज़्यादा करते हैं</h2>
-  <p class="lead">संपादन मोड में जाने के लिए पेंसिल दबाएँ, फिर किसी भी बटन को छूकर बदलें — या दबाए रखकर कहीं और खींच ले जाएँ। हर बटन का एक लेबल, एक आइकन, एक रंग और एक क्रिया होती है।</p>
-  
+  <p class="lead">संपादन मोड में जाने के लिए पेंसिल दबाएँ, फिर किसी भी बटन को छूकर बदलें, या दबाए रखकर कहीं और खींच ले जाएँ। हर बटन का एक लेबल, एक आइकन, एक रंग और एक क्रिया होती है।</p>
+  <aside class="note">चरणों के क्रम में हर पंक्ति पर एक चरण होता है: <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>। संपादक का <b>परखें</b> बटन क्रिया को बिना सहेजे एक बार चला देता है, ताकि किसी पेचीदा शॉर्टकट को पक्का करने से पहले ठीक से बिठा सकें।</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="लेबल, आइकन चयन और रंग।" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>लेबल, आइकन चयन और रंग।</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="क्रिया का प्रकार, और चुनने के लिए तैयार शॉर्टकट।" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>क्रिया का प्रकार, और चुनने के लिए तैयार शॉर्टकट।</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>क्रिया</th><th>क्या करती है</th></tr></thead>
-  <tbody><tr><td class="k">कीबोर्ड शॉर्टकट</td><td>कोई भी संयोजन — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, मीडिया कुंजियाँ, आवाज़</td></tr><tr><td class="k">टेक्स्ट लिखना</td><td>आपकी जगह एक पाठ लिख देता है, पंक्ति विराम सहित</td></tr><tr><td class="k">ऐप / फ़ाइल खोलना</td><td>कोई प्रोग्राम, दस्तावेज़ या फ़ोल्डर</td></tr><tr><td class="k">वेब पता खोलना</td><td>लिंक आपके डिफ़ॉल्ट ब्राउज़र में खोलता है</td></tr><tr><td class="k">कमांड चलाना</td><td>PowerShell या CMD</td></tr><tr><td class="k">माउस</td><td>टैबलेट की स्क्रीन को टचपैड बना देता है</td></tr><tr><td class="k">चरणों का क्रम</td><td>कई चरण क्रम से, बीच में ठहराव के साथ</td></tr></tbody>
+  <tbody><tr><td class="k">कीबोर्ड शॉर्टकट</td><td>कोई भी संयोजन: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, मीडिया कुंजियाँ, आवाज़</td></tr><tr><td class="k">टेक्स्ट लिखना</td><td>आपकी जगह एक पाठ लिख देता है, पंक्ति विराम सहित</td></tr><tr><td class="k">ऐप / फ़ाइल खोलना</td><td>कोई प्रोग्राम, दस्तावेज़ या फ़ोल्डर</td></tr><tr><td class="k">वेब पता खोलना</td><td>लिंक आपके डिफ़ॉल्ट ब्राउज़र में खोलता है</td></tr><tr><td class="k">कमांड चलाना</td><td>PowerShell या CMD</td></tr><tr><td class="k">माउस</td><td>टैबलेट की स्क्रीन को टचपैड बना देता है</td></tr><tr><td class="k">चरणों का क्रम</td><td>कई चरण क्रम से, बीच में ठहराव के साथ</td></tr></tbody>
   </table></div>
 </section>
 <section id="icons">
@@ -294,9 +298,17 @@ footer {
 <section id="dragdrop">
   <p class="eyebrow">डेस्कटॉप</p>
   <h2>डेस्कटॉप से शॉर्टकट खींचकर लाएँ</h2>
-  <p class="lead">ट्रे आइकन से संपादक खोलें: एक असली डेस्कटॉप विंडो आती है जिसके अंदर वही इंटरफ़ेस होता है। ऊपर की पट्टी पर कोई शॉर्टकट, प्रोग्राम, फ़ोल्डर या फ़ाइल छोड़ें — लक्ष्य पहचाना जाता है, ऐप का आइकन निकाल लिया जाता है, और बटन तुरंत टैबलेट पर आ जाता है।</p>
-  <aside class="note">संपादक ब्राउज़र टैब नहीं बल्कि एक अलग विंडो है, और इसकी ठोस वजह है। ब्राउज़र छोड़ी गई फ़ाइल का <em>पथ</em> वेब पेज को कभी नहीं देते, और Chromium छोड़े गए शॉर्टकट को उसके लक्ष्य में बदल देता है — यानी ब्राउज़र यह जानने के बजाय कि प्रोग्राम कहाँ है, पूरा प्रोग्राम पढ़ने की कोशिश करता।</aside>
+  <p class="lead">ट्रे आइकन से संपादक खोलें: एक असली डेस्कटॉप विंडो आती है जिसके अंदर वही इंटरफ़ेस होता है। ऊपर की पट्टी पर कोई शॉर्टकट, प्रोग्राम, फ़ोल्डर या फ़ाइल छोड़ें: लक्ष्य पहचाना जाता है, ऐप का आइकन निकाल लिया जाता है, और बटन तुरंत टैबलेट पर आ जाता है।</p>
+  <aside class="note">संपादक ब्राउज़र टैब नहीं बल्कि एक अलग विंडो है, और इसकी ठोस वजह है। ब्राउज़र छोड़ी गई फ़ाइल का <em>पथ</em> वेब पेज को कभी नहीं देते, और Chromium छोड़े गए शॉर्टकट को उसके लक्ष्य में बदल देता है, यानी ब्राउज़र यह जानने के बजाय कि प्रोग्राम कहाँ है, पूरा प्रोग्राम पढ़ने की कोशिश करता।</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="डेस्कटॉप संपादक। बाईं ओर से पृष्ठ चुनें, फिर शॉर्टकट पट्टी पर छोड़ें।" loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>लक्ष्य पृष्ठ</span><span class="callout" style="left:62%;top:13%"><i></i>यहाँ छोड़ें</span></div></div><figcaption>डेस्कटॉप संपादक। बाईं ओर से पृष्ठ चुनें, फिर शॉर्टकट पट्टी पर छोड़ें।</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">सिंक</p>
+  <h2>किसी भी तरफ़ से बदलें, तुरंत</h2>
+  <p class="lead">टैबलेट और डेस्कटॉप संपादक एक ही डेक के दो रूप हैं। पीसी पर बटन जोड़ें और वह बिना पेज दोबारा लोड किए टैबलेट पर आ जाता है; टैबलेट पर पृष्ठ का नाम बदलें और संपादक की पृष्ठ सूची भी साथ बदल जाती है। हर बदलाव तुरंत डिस्क पर लिख दिया जाता है, और पिछले तीस संस्करण सँभालकर रखे जाते हैं, इसलिए दो उपकरणों पर एक साथ किया गया बदलाव चुपचाप दूसरे को मिटाने के बजाय अस्वीकार कर दिया जाता है।</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="टचपैड मोड, और नीचे उन क्लिकों के लिए साफ़ बटन जिनका अंदाज़ा नहीं लगाना।" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>टचपैड मोड, और नीचे उन क्लिकों के लिए साफ़ बटन जिनका अंदाज़ा नहीं लगाना।</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>इशारा</th><th>परिणाम</th></tr></thead>
-  <tbody><tr><td class="k">खींचना</td><td>सूचक हिलाना</td></tr><tr><td class="k">टैप</td><td>बायाँ क्लिक</td></tr><tr><td class="k">दो बार टैप</td><td>डबल क्लिक</td></tr><tr><td class="k">दो बार टैप कर खींचना</td><td>बायाँ बटन दबाए रखकर हिलाना — टेक्स्ट चुनना, विंडो खिसकाना</td></tr><tr><td class="k">देर तक दबाना</td><td>दायाँ क्लिक</td></tr><tr><td class="k">दो उंगलियाँ</td><td>लंबवत और क्षैतिज स्क्रॉल</td></tr><tr><td class="k">दो उंगलियों से टैप</td><td>दायाँ क्लिक</td></tr><tr><td class="k">पिंच</td><td>ज़ूम</td></tr><tr><td class="k">तीन उंगलियाँ ↑ / ↓</td><td>टास्क व्यू / डेस्कटॉप दिखाएँ</td></tr><tr><td class="k">तीन उंगलियाँ ← / →</td><td>वर्चुअल डेस्कटॉप बदलें</td></tr></tbody>
+  <tbody><tr><td class="k">खींचना</td><td>सूचक हिलाना</td></tr><tr><td class="k">टैप</td><td>बायाँ क्लिक</td></tr><tr><td class="k">दो बार टैप</td><td>डबल क्लिक</td></tr><tr><td class="k">दो बार टैप कर खींचना</td><td>बायाँ बटन दबाए रखकर हिलाना: टेक्स्ट चुनना, विंडो खिसकाना</td></tr><tr><td class="k">देर तक दबाना</td><td>दायाँ क्लिक</td></tr><tr><td class="k"><b>दबाए रखें</b> बटन</td><td>बाएँ बटन को दबा हुआ ही लॉक कर देता है, ताकि उँगली टिकाए बिना कई बार में खींच सकें</td></tr><tr><td class="k"><b>मध्य</b> बटन</td><td>बीच का क्लिक: टैब बंद करना, लिंक को नए टैब में खोलना</td></tr><tr><td class="k">दो उंगलियाँ</td><td>लंबवत और क्षैतिज स्क्रॉल</td></tr><tr><td class="k">दो उंगलियों से टैप</td><td>दायाँ क्लिक</td></tr><tr><td class="k">पिंच</td><td>ज़ूम</td></tr><tr><td class="k">तीन उंगलियाँ ↑ / ↓</td><td>टास्क व्यू / डेस्कटॉप दिखाएँ</td></tr><tr><td class="k">तीन उंगलियाँ ← / →</td><td>वर्चुअल डेस्कटॉप बदलें</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">जगह</p>
-  <h2>जितने पृष्ठ चाहिए, उतने</h2>
-  <p class="lead">बटनों को पृष्ठों में बाँटें — एक संपादन के लिए, एक खेलों के लिए, एक उस बैठक के लिए जिसमें आप हमेशा रहते हैं। पृष्ठ बदलने के लिए डेक पर बाएँ या दाएँ स्वाइप करें। पट्टियाँ छिपी होने पर भी तैरता बटन आपको पृष्ठों, संपादक और थीमों तक ले जाता है, और उसे जहाँ सुविधा हो वहाँ खींचा जा सकता है।</p>
+  <h2>स्वाइप करके पृष्ठ बदलें</h2>
+  <p class="lead">बटनों को पृष्ठों में बाँटें: एक संपादन के लिए, एक खेलों के लिए, एक उस बैठक के लिए जिसमें आप हमेशा रहते हैं। एक से दूसरे पर जाने के लिए <b>डेक पर कहीं भी बाएँ या दाएँ स्वाइप करें</b>; पृष्ठ का नाम कुछ पल के लिए दिखता है ताकि पता रहे कि आप कहाँ पहुँचे। संपादन मोड में वही इशारा बटनों का क्रम बदलता है, इसलिए दोनों कभी आपस में नहीं टकराते।</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="तैरता मेन्यू: पृष्ठ, पट्टियाँ, संपादन मोड, थीम और पूरी स्क्रीन।" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>तैरता मेन्यू: पृष्ठ, पट्टियाँ, संपादन मोड, थीम और पूरी स्क्रीन।</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="एक स्वाइप, और एक पृष्ठ से अगले पर।" loading="lazy"></div><figcaption>एक स्वाइप, और एक पृष्ठ से अगले पर।</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">जगह</p>
+  <h2>पृष्ठ, कॉलम और तैरता बटन</h2>
+  <p class="lead">संपादन मोड में नीचे की पट्टी से पृष्ठ जोड़े और हटाए जाते हैं, और यह तय होता है कि ग्रिड कितने कॉलम ले। पृष्ठ के टैब को दोबारा छूकर उसका नाम बदलें। पट्टियाँ छिपी होने पर भी तैरता बटन आपको पृष्ठों, संपादक और थीमों तक ले जाता है, और उसे जहाँ सुविधा हो वहाँ खींचा जा सकता है, क्योंकि स्क्रीन पर हमेशा बनी रहने वाली वही एक चीज़ है।</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="तैरता मेन्यू: पृष्ठ, पट्टियाँ, संपादन मोड, थीम और पूरी स्क्रीन।" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>तैरता मेन्यू: पृष्ठ, पट्टियाँ, संपादन मोड, थीम और पूरी स्क्रीन।</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="संपादन मोड, नीचे की ओर पृष्ठ और कॉलम के नियंत्रण।" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>संपादन मोड, नीचे की ओर पृष्ठ और कॉलम के नियंत्रण।</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">रूप</p>
   <h2>ग्यारह थीम, और बटन भी साथ चलते हैं</h2>
-  <p class="lead">ज़्यादातर थीम डेवलपरों की जानी-पहचानी रंग योजनाओं से आई हैं — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — साथ में जानबूझकर दो रंगों वाले दो टर्मिनल रूप और एक तटस्थ हल्का व गहरा। थीम बदलने पर आपके बटनों के रंग अपनी रंगत बनाए रखते हुए नए पैलेट में बदल जाते हैं: नीला बटन नई थीम का नीला बन जाता है और आपकी सजावट वैसी ही पढ़ी जाती है।</p>
-  
+  <p class="lead">ज़्यादातर थीम डेवलपरों की जानी-पहचानी रंग योजनाओं से आई हैं (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), साथ में जानबूझकर दो रंगों वाले दो टर्मिनल रूप और एक तटस्थ हल्का व गहरा। थीम बदलने पर आपके बटनों के रंग अपनी रंगत बनाए रखते हुए नए पैलेट में बदल जाते हैं: नीला बटन नई थीम का नीला बन जाता है और आपकी सजावट वैसी ही पढ़ी जाती है।</p>
+  <aside class="note">अगर पूरा डेक एक ही रंग का हो जाए, तो <b>थीम पैलेट बाँटें</b> थीम के रंगों को बटनों में बाँट देता है; <b>सबको उभार रंग से रंगें</b> उन सबको फिर एक ही रंग पर ले आता है। किसी भी बटन को रंग चयनकर्ता से अपनी पसंद का रंग भी दिया जा सकता है, और पट्टियाँ तथा तैरता बटन जिस उभार रंग का उपयोग करते हैं वह भी आपकी पसंद का है। आप जो भी रंग चुनें, बटन का पाठ अपने आप काले और सफ़ेद के बीच बदल जाता है।</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="हर कार्ड अपनी पृष्ठभूमि और पैलेट दिखाता है।" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>हर कार्ड अपनी पृष्ठभूमि और पैलेट दिखाता है।</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="वही डेक एक हल्की थीम में।" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>वही डेक एक हल्की थीम में।</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">स्क्रीन</p>
   <h2>पूरी स्क्रीन का उपयोग करें</h2>
-  <p class="lead"><b>पूरी स्क्रीन पर फैलाएँ</b> पंक्तियों को सारी ऊँचाई बाँटने देता है: बटनों की दो पंक्तियाँ नीचे खाली जगह छोड़ने के बजाय स्क्रीन भर देती हैं। <b>पट्टियाँ स्वतः छिपाएँ</b> ऊपर और नीचे की पट्टियाँ पूरी तरह हटा देता है और सिर्फ़ बटन छोड़ता है — तैरता बटन उन्हें वापस लाता है, या खाली जगह तीन सेकंड दबाए रखें।</p>
+  <p class="lead"><b>बटनों को पूरी स्क्रीन पर फैलाएँ</b> पंक्तियों को सारी ऊँचाई बाँटने देता है: बटनों की दो पंक्तियाँ नीचे खाली जगह छोड़ने के बजाय स्क्रीन भर देती हैं। <b>ऊपरी और निचली बार अपने आप छिपाएँ</b> उन्हें पूरी तरह हटा देता है और सिर्फ़ बटन छोड़ता है। तैरता बटन उन्हें वापस लाता है, या खाली जगह तीन सेकंड दबाए रखें।</p>
   <aside class="note">टैबलेट को जागते रहने के लिए भी सेट किया गया है: डेक खुला रहने तक स्क्रीन बंद नहीं होगी।</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — विंडोज़ के लिए अपने सर्वर वाला शॉर्टकट डेक।</footer>
+        <footer>Surecut Deck: विंडोज़ के लिए अपने सर्वर वाला शॉर्टकट डेक।</footer>
       </div>
     </div>
   </div>

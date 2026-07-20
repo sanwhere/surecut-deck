@@ -37,9 +37,12 @@ function figure(f) {
   const callouts = (f.callouts || []).map((c) =>
     `<span class="callout" style="left:${c.x}%;top:${c.y}%"><i></i>${esc(c.label)}</span>`).join('');
 
-  const shell = f.frame === 'window'
-    ? `<div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot">${img}${callouts}</div></div>`
-    : `<div class="tab"><div class="tab-cam"></div><div class="shot">${img}${callouts}</div><div class="tab-bar"></div></div>`;
+  // frame:"none" - cerceve goruntunun icine cizilmis (orn. yan yana iki tablet).
+  const shell = f.frame === 'none'
+    ? `<div class="bare">${img}${callouts}</div>`
+    : f.frame === 'window'
+      ? `<div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot">${img}${callouts}</div></div>`
+      : `<div class="tab"><div class="tab-cam"></div><div class="shot">${img}${callouts}</div><div class="tab-bar"></div></div>`;
 
   return `<figure class="plate">${shell}${f.caption ? `<figcaption>${f.caption}</figcaption>` : ''}</figure>`;
 }
@@ -209,6 +212,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;

@@ -1,4 +1,4 @@
-<title>Surecut Deck — Guide d'utilisation</title>
+<title>Surecut Deck : Guide d'utilisation</title>
 <style>
 /* ------------------------------------------------------------------ tokens
    Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
@@ -142,6 +142,10 @@ section .lead { max-width: 66ch; color: var(--ink-2); }
 .tab .shot { border-radius: 5px; }
 
 /* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+/* cercevesi kendi icinde cizilmis gorseller: govde yok, sadece olcek */
+.bare { max-width: 100%; }
+.bare img { display: block; width: 100%; height: auto; }
+
 .win {
   background: var(--surface); border: 1px solid var(--line);
   border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
@@ -226,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Comment ça marche</p>
-        <ul><li><a href="#buttons"><b>01</b>Les bases</a></li><li><a href="#icons"><b>02</b>Icônes</a></li><li><a href="#dragdrop"><b>03</b>Bureau</a></li><li><a href="#mouse"><b>04</b>Pointeur</a></li><li><a href="#pages"><b>05</b>Espace</a></li><li><a href="#themes"><b>06</b>Apparence</a></li><li><a href="#screen"><b>07</b>Écran</a></li><li><a href="#languages"><b>08</b>Langue</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Les bases</a></li><li><a href="#icons"><b>02</b>Icônes</a></li><li><a href="#dragdrop"><b>03</b>Bureau</a></li><li><a href="#sync"><b>04</b>Synchronisation</a></li><li><a href="#mouse"><b>05</b>Pointeur</a></li><li><a href="#pages"><b>06</b>Espace</a></li><li><a href="#managepages"><b>07</b>Espace</a></li><li><a href="#themes"><b>08</b>Apparence</a></li><li><a href="#screen"><b>09</b>Écran</a></li><li><a href="#languages"><b>10</b>Langue</a></li></ul>
       </nav>
 
       <div class="col">
@@ -275,8 +279,8 @@ footer {
 <section id="buttons">
   <p class="eyebrow">Les bases</p>
   <h2>Les boutons ne font pas qu'envoyer des touches</h2>
-  <p class="lead">Touchez le crayon pour passer en mode édition, puis touchez un bouton pour le modifier — ou maintenez-le pour le faire glisser ailleurs. Chaque bouton a un libellé, une icône, une couleur et une action.</p>
-  
+  <p class="lead">Touchez le crayon pour passer en mode édition, puis touchez un bouton pour le modifier, ou maintenez-le pour le faire glisser ailleurs. Chaque bouton a un libellé, une icône, une couleur et une action.</p>
+  <aside class="note">Une suite d'étapes, c'est une étape par ligne : <code>key ctrl+s</code>, <code>text Hello</code>, <code>delay 500</code>, <code>launch notepad</code>, <code>url https://…</code>, <code>cmd …</code>. Le bouton <b>Tester</b> de l'éditeur exécute l'action une fois sans l'enregistrer : de quoi mettre au point un raccourci capricieux avant de le valider.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Libellé, sélecteur d'icônes et couleur." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Libellé, sélecteur d'icônes et couleur.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Type d'action, avec des raccourcis tout prêts." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Type d'action, avec des raccourcis tout prêts.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Action</th><th>Effet</th></tr></thead>
@@ -295,8 +299,16 @@ footer {
   <p class="eyebrow">Bureau</p>
   <h2>Faites glisser un raccourci depuis le bureau</h2>
   <p class="lead">Ouvrez l'éditeur depuis l'icône de la zone de notification : une véritable fenêtre de bureau s'affiche, avec la même interface à l'intérieur. Déposez un raccourci, un programme, un dossier ou un fichier sur la bande du haut : la cible est résolue, l'icône de l'application est extraite, et le bouton apparaît immédiatement sur la tablette.</p>
-  <aside class="note">L'éditeur est une fenêtre native plutôt qu'un onglet de navigateur, pour une raison précise. Les navigateurs ne transmettent jamais à une page le <em>chemin</em> d'un fichier déposé, et Chromium résout en plus un raccourci vers sa cible — un navigateur essaierait donc de lire tout le programme au lieu d'apprendre où il se trouve.</aside>
+  <aside class="note">L'éditeur est une fenêtre native plutôt qu'un onglet de navigateur, pour une raison précise. Les navigateurs ne transmettent jamais à une page le <em>chemin</em> d'un fichier déposé, et Chromium résout en plus un raccourci vers sa cible, si bien qu'un navigateur essaierait de lire tout le programme au lieu d'apprendre où il se trouve.</aside>
   <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="L'éditeur de bureau. Choisissez la page à gauche, puis déposez les raccourcis sur la bande." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Page cible</span><span class="callout" style="left:62%;top:13%"><i></i>Déposez ici</span></div></div><figcaption>L'éditeur de bureau. Choisissez la page à gauche, puis déposez les raccourcis sur la bande.</figcaption></figure>
+  
+</section>
+<section id="sync">
+  <p class="eyebrow">Synchronisation</p>
+  <h2>Modifiez d'un côté comme de l'autre, en direct</h2>
+  <p class="lead">La tablette et l'éditeur de bureau sont le même pupitre vu deux fois. Ajoutez un bouton sur le PC et il apparaît sur la tablette sans recharger ; renommez une page sur la tablette et la liste des pages de l'éditeur suit. Chaque changement est écrit sur le disque immédiatement, et les trente dernières versions sont conservées : une modification faite sur deux appareils en même temps est donc refusée plutôt que d'écraser l'autre en silence.</p>
+  
+  
   
 </section>
 <section id="mouse">
@@ -307,29 +319,37 @@ footer {
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Mode pavé tactile, avec en dessous des boutons explicites pour les clics que l'on ne veut pas deviner." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Mode pavé tactile, avec en dessous des boutons explicites pour les clics que l'on ne veut pas deviner.</figcaption></figure>
   <div class="tablewrap"><table>
   <thead><tr><th>Geste</th><th>Résultat</th></tr></thead>
-  <tbody><tr><td class="k">Glisser</td><td>Déplacer le pointeur</td></tr><tr><td class="k">Toucher</td><td>Clic gauche</td></tr><tr><td class="k">Double toucher</td><td>Double clic</td></tr><tr><td class="k">Double toucher puis glisser</td><td>Maintenir le bouton gauche et déplacer : sélectionner du texte, déplacer une fenêtre</td></tr><tr><td class="k">Appui long</td><td>Clic droit</td></tr><tr><td class="k">Deux doigts</td><td>Défilement vertical et horizontal</td></tr><tr><td class="k">Toucher à deux doigts</td><td>Clic droit</td></tr><tr><td class="k">Pincer</td><td>Zoom</td></tr><tr><td class="k">Trois doigts ↑ / ↓</td><td>Vue des tâches / afficher le bureau</td></tr><tr><td class="k">Trois doigts ← / →</td><td>Changer de bureau virtuel</td></tr></tbody>
+  <tbody><tr><td class="k">Glisser</td><td>Déplacer le pointeur</td></tr><tr><td class="k">Toucher</td><td>Clic gauche</td></tr><tr><td class="k">Double toucher</td><td>Double clic</td></tr><tr><td class="k">Double toucher puis glisser</td><td>Maintenir le bouton gauche et déplacer : sélectionner du texte, déplacer une fenêtre</td></tr><tr><td class="k">Appui long</td><td>Clic droit</td></tr><tr><td class="k">Bouton <b>Maintenir</b></td><td>Verrouille le bouton gauche enfoncé, pour glisser en plusieurs passes sans garder le doigt appuyé</td></tr><tr><td class="k">Bouton <b>Milieu</b></td><td>Clic du milieu : fermer un onglet, ouvrir un lien dans un nouveau</td></tr><tr><td class="k">Deux doigts</td><td>Défilement vertical et horizontal</td></tr><tr><td class="k">Toucher à deux doigts</td><td>Clic droit</td></tr><tr><td class="k">Pincer</td><td>Zoom</td></tr><tr><td class="k">Trois doigts ↑ / ↓</td><td>Vue des tâches / afficher le bureau</td></tr><tr><td class="k">Trois doigts ← / →</td><td>Changer de bureau virtuel</td></tr></tbody>
   </table></div>
 </section>
 <section id="pages">
   <p class="eyebrow">Espace</p>
-  <h2>Autant de pages qu'il vous en faut</h2>
-  <p class="lead">Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. Balayez vers la gauche ou la droite sur le pupitre pour passer de l'une à l'autre. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble.</p>
+  <h2>Balayez d'une page à l'autre</h2>
+  <p class="lead">Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. <b>Balayez vers la gauche ou la droite n'importe où sur le pupitre</b> pour passer de l'une à l'autre ; le nom de la page s'affiche brièvement pour que vous sachiez où vous avez atterri. En mode édition, le même geste réorganise les boutons : les deux ne se marchent jamais dessus.</p>
   
-  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Le menu flottant : pages, barres, mode édition, thème et plein écran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Le menu flottant : pages, barres, mode édition, thème et plein écran.</figcaption></figure>
+  <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Un balayage fait passer d'une page à la suivante." loading="lazy"></div><figcaption>Un balayage fait passer d'une page à la suivante.</figcaption></figure>
+  
+</section>
+<section id="managepages">
+  <p class="eyebrow">Espace</p>
+  <h2>Pages, colonnes et bouton flottant</h2>
+  <p class="lead">En mode édition, la barre du bas ajoute et supprime des pages et fixe le nombre de colonnes de la grille. Touchez de nouveau l'onglet d'une page pour la renommer. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble, puisqu'il est la seule chose toujours à l'écran.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Le menu flottant : pages, barres, mode édition, thème et plein écran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Le menu flottant : pages, barres, mode édition, thème et plein écran.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Le mode édition, avec les commandes de pages et de colonnes en bas." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Le mode édition, avec les commandes de pages et de colonnes en bas.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Apparence</p>
   <h2>Onze thèmes, et les boutons suivent</h2>
-  <p class="lead">La plupart des thèmes proviennent de palettes bien connues des développeurs — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — auxquelles s'ajoutent deux allures de terminal volontairement bicolores et un clair et un sombre neutres. Changer de thème convertit la couleur de vos boutons vers la nouvelle palette en conservant leurs teintes : un bouton bleu devient le bleu du nouveau thème et votre disposition se lit toujours pareil.</p>
-  
+  <p class="lead">La plupart des thèmes proviennent de palettes bien connues des développeurs (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), auxquelles s'ajoutent deux allures de terminal volontairement bicolores et un clair et un sombre neutres. Changer de thème convertit la couleur de vos boutons vers la nouvelle palette en conservant leurs teintes : un bouton bleu devient le bleu du nouveau thème et votre disposition se lit toujours pareil.</p>
+  <aside class="note">Si un pupitre finit tout d'une seule couleur, <b>Répartir la palette du thème</b> distribue les couleurs du thème sur les boutons ; <b>Tout peindre en couleur d'accent</b> les ramène à une seule. Chaque bouton peut aussi prendre une couleur de votre choix dans le sélecteur, et la couleur d'accent utilisée par les barres et le bouton flottant vous revient. Le texte des boutons bascule tout seul entre noir et blanc, quelle que soit la couleur retenue.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Chaque carte montre son propre fond et sa palette." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Chaque carte montre son propre fond et sa palette.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Le même pupitre sur un thème clair." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Le même pupitre sur un thème clair.</figcaption></figure>
   
 </section>
 <section id="screen">
   <p class="eyebrow">Écran</p>
   <h2>Occupez tout l'écran</h2>
-  <p class="lead"><b>Étirer pour remplir</b> fait partager toute la hauteur aux rangées : deux rangées de boutons remplissent l'écran au lieu de laisser un vide en bas. <b>Masquer les barres automatiquement</b> supprime entièrement les barres haute et basse et ne laisse que les boutons — le bouton flottant les rappelle, ou appuyez trois secondes sur une zone vide.</p>
+  <p class="lead"><b>Étirer les boutons sur tout l'écran</b> fait partager toute la hauteur aux rangées : deux rangées de boutons le remplissent au lieu de laisser un vide en bas. <b>Masquer automatiquement les barres</b> supprime entièrement celles du haut et du bas et ne laisse que les boutons ; le bouton flottant les rappelle, ou appuyez trois secondes sur une zone vide.</p>
   <aside class="note">La tablette est également réglée pour rester éveillée : l'écran ne s'éteindra pas tant que le pupitre est ouvert.</aside>
   
   
@@ -350,7 +370,7 @@ footer {
           </dl>
         </div>
 
-        <footer>Surecut Deck — un pupitre de raccourcis auto-hébergé pour Windows.</footer>
+        <footer>Surecut Deck : un pupitre de raccourcis auto-hébergé pour Windows.</footer>
       </div>
     </div>
   </div>

@@ -1,0 +1,161 @@
+{
+  "lang": "pl",
+  "dir": "ltr",
+  "title": "Surecut Deck — Podręcznik",
+  "eyebrow": "Własny serwer · Bez sklepu z aplikacjami · Nic nie opuszcza twojej sieci",
+  "heroTitle": "Zamień niepotrzebny tablet w pulpit sterowania komputerem",
+  "heroLead": "Surecut Deck uruchamia mały serwer na twoim komputerze z Windows i sam udostępnia swój interfejs. Tablet otwiera tylko adres internetowy — nie ma aplikacji do zainstalowania, konta do założenia ani chmury pośrodku.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "Pulpit na tablecie z Androidem 1024×600, motyw Nord na pełnym ekranie." },
+
+  "pillars": {
+    "title": "Jak to działa",
+    "items": [
+      { "k": "Serwerem jest twój komputer", "v": "Mała aplikacja w zasobniku systemowym uruchamia lokalny serwer i utrzymuje go. To jedyna rzecz, którą instalujesz." },
+      { "k": "Tablet otwiera adres", "v": "Dowolna przeglądarka w tej samej sieci. Dodaj do ekranu głównego, a zachowa się jak aplikacja." },
+      { "k": "Przyciski wysyłają prawdziwe zdarzenia", "v": "Naciśnięcia stają się prawdziwymi zdarzeniami klawiatury i myszy Windows, więc reaguje każdy program." }
+    ]
+  },
+
+  "setup": {
+    "title": "Połączenie",
+    "lead": "Trzy kroki, jeden raz.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Uruchom serwer",
+        "body": "Uruchom <code>start.cmd</code>. W zasobniku systemowym pojawi się ikona i tam zostanie. Kliknij ją w dowolnej chwili, aby zobaczyć dane parowania albo otworzyć edytor."
+      },
+      {
+        "n": "2",
+        "title": "Otwórz adres na tablecie",
+        "body": "Okno serwera wypisuje wszystkie adresy, pod którymi da się dosięgnąć twojego komputera. Wpisz jeden z nich w przeglądarce tabletu, a potem podaj wyświetlony obok kod parowania.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Dane serwera z ikony w zasobniku. Kod i adresy są przykładowe." }
+      },
+      {
+        "n": "3",
+        "title": "Niech wygląda jak aplikacja",
+        "body": "Dotknij <b>⛶</b>, aby przejść na pełny ekran, albo użyj opcji <b>Dodaj do ekranu głównego</b> w przeglądarce. Na pełnym ekranie tablet dodatkowo nie zasypia, dopóki pulpit jest otwarty."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "Podstawy",
+      "title": "Przyciski potrafią więcej niż wciskać klawisze",
+      "body": "Dotknij ołówka, aby wejść w tryb edycji, a potem dotknij dowolnego przycisku, aby go zmienić — albo przytrzymaj, aby przeciągnąć go gdzie indziej. Każdy przycisk ma etykietę, ikonę, kolor i jedną akcję.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Etykieta, wybór ikony i kolor." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Rodzaj akcji, z gotowymi skrótami do wyboru." }
+      ],
+      "table": {
+        "head": ["Akcja", "Co robi"],
+        "rows": [
+          ["Skrót klawiszowy", "Dowolna kombinacja — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, klawisze multimedialne, głośność"],
+          ["Wpisz tekst", "Pisze za ciebie blok tekstu, razem ze znakami nowej linii"],
+          ["Otwórz aplikację / plik", "Program, dokument albo folder"],
+          ["Otwórz adres WWW", "Otwiera odnośnik w domyślnej przeglądarce"],
+          ["Uruchom polecenie", "PowerShell albo CMD"],
+          ["Mysz", "Zamienia ekran tabletu w touchpad"],
+          ["Sekwencja", "Kilka kroków po kolei, z przerwami pomiędzy nimi"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Ikony",
+      "title": "Wybierz emoji — albo weź prawdziwą ikonę programu",
+      "body": "Edytor ma siatkę ikon, więc nigdy nie musisz wpisywać emoji ręcznie. Dla programów jest coś lepszego: przeciągnij skrót z pulpitu, a prawdziwa ikona aplikacji przyjdzie razem z nim.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Tryb edycji. Każdy przycisk ma ołówek; przytrzymaj, aby zmienić kolejność." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Pulpit",
+      "title": "Przeciągnij skrót z pulpitu",
+      "body": "Otwórz edytor z ikony w zasobniku — pojawi się prawdziwe okno pulpitu z tym samym interfejsem w środku. Upuść skrót, program, folder albo plik na pasek u góry: cel zostanie rozwiązany, ikona aplikacji wyodrębniona, a przycisk pojawi się na tablecie od razu.",
+      "note": "Edytor jest osobnym oknem, a nie kartą przeglądarki, z konkretnego powodu. Przeglądarki nigdy nie przekazują stronie <em>ścieżki</em> upuszczonego pliku, a Chromium dodatkowo rozwiązuje upuszczony skrót do jego celu — przeglądarka próbowałaby więc odczytać cały program, zamiast dowiedzieć się, gdzie on leży.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "Edytor na pulpicie. Wybierz stronę po lewej i upuszczaj skróty na pasek.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Strona docelowa" },
+            { "x": 62, "y": 13, "label": "Upuść tutaj" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "Wskaźnik",
+      "title": "Ekran zamienia się w touchpad",
+      "body": "Przypisz przyciskowi akcję <b>Mysz</b> — po naciśnięciu cały tablet staje się gładzikiem. Dwa suwaki ustawiają szybkość wskaźnika i przewijania, a kierunek przewijania można odwrócić zgodnie z twoim przyzwyczajeniem.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Tryb touchpada, a pod spodem wyraźne przyciski do kliknięć, których nie chcesz zgadywać." }
+      ],
+      "table": {
+        "head": ["Gest", "Efekt"],
+        "rows": [
+          ["Przeciągnięcie", "Ruch wskaźnika"],
+          ["Dotknięcie", "Lewy przycisk"],
+          ["Podwójne dotknięcie", "Podwójne kliknięcie"],
+          ["Podwójne dotknięcie i przeciągnięcie", "Przytrzymanie lewego przycisku i ruch — zaznaczanie tekstu, przenoszenie okna"],
+          ["Długie naciśnięcie", "Prawy przycisk"],
+          ["Dwa palce", "Przewijanie w pionie i w poziomie"],
+          ["Dotknięcie dwoma palcami", "Prawy przycisk"],
+          ["Uszczypnięcie", "Powiększenie"],
+          ["Trzy palce ↑ / ↓", "Widok zadań / pokaż pulpit"],
+          ["Trzy palce ← / →", "Zmiana pulpitu wirtualnego"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Przestrzeń",
+      "title": "Tyle stron, ile potrzebujesz",
+      "body": "Pogrupuj przyciski na strony — jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. Przesuń palcem w lewo lub w prawo po pulpicie, aby zmienić stronę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Wygląd",
+      "title": "Jedenaście motywów, a przyciski nadążają",
+      "body": "Większość motywów pochodzi ze schematów kolorów znanych programistom — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — plus dwa celowo dwubarwne wyglądy terminala oraz neutralny jasny i ciemny. Zmiana motywu przenosi kolory twoich przycisków do nowej palety z zachowaniem odcieni: niebieski przycisk staje się niebieskim nowego motywu, a układ czyta się tak samo.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Każda karta pokazuje własne tło i paletę." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "Ten sam pulpit w jasnym motywie." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Ekran",
+      "title": "Wykorzystaj cały ekran",
+      "body": "<b>Rozciągnij na cały ekran</b> sprawia, że wiersze dzielą całą wysokość: dwa rzędy przycisków wypełniają ekran, zamiast zostawiać pustkę na dole. <b>Automatycznie ukrywaj paski</b> całkowicie usuwa górny i dolny pasek i zostawia same przyciski — pływający przycisk je przywraca albo przytrzymaj puste miejsce przez trzy sekundy.",
+      "note": "Tablet jest też ustawiony tak, aby nie zasypiał: ekran nie zgaśnie, dopóki pulpit jest otwarty."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Język",
+      "title": "Dwadzieścia języków, wybierane automatycznie",
+      "body": "Interfejs jest dostępny po angielsku, turecku, hiszpańsku, francusku, niemiecku, włosku, portugalsku, rosyjsku, ukraińsku, polsku, arabsku, persku, w urdu, chińsku, japońsku, koreańsku, hindi, bengalsku, indonezyjsku i wietnamsku. Podąża za językiem przeglądarki, dopóki nie wybierzesz własnego; arabski, perski i urdu przełączają układ na prawo-do-lewej. Wybór działa osobno dla każdego urządzenia, więc tablet i edytor na komputerze mogą się różnić."
+    }
+  ],
+
+  "notes": {
+    "title": "Warto wiedzieć",
+    "items": [
+      { "k": "Zapora", "v": "Windows może za pierwszym razem poprosić o zezwolenie na połączenie. Jeśli tablet nie dosięga serwera, zezwól dla sieci prywatnych." },
+      { "k": "VPN", "v": "Niektóre klienty VPN blokują ruch w sieci lokalnej. Jeśli nic się nie łączy, spróbuj z wyłączonym VPN." },
+      { "k": "Okna administratora", "v": "Program uruchomiony jako administrator nie przyjmuje zdarzeń od zwykłego programu. Uruchom serwer jako administrator, jeśli skróty mają docierać do takich okien." },
+      { "k": "Kod parowania", "v": "Każdy w twojej sieci, kto ma kod, może sterować komputerem, łącznie z uruchamianiem poleceń. Zachowaj go dla siebie i nie uruchamiaj serwera w sieciach, którym nie ufasz." }
+    ]
+  },
+
+  "footer": "Surecut Deck — pulpit skrótów dla Windows z własnym serwerem."
+}

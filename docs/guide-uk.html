@@ -1,0 +1,357 @@
+<title>Surecut Deck — Посібник</title>
+<style>
+/* ------------------------------------------------------------------ tokens
+   Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
+   gorseller sayfaya yapistirilmis gibi degil, sayfaya ait duruyor. */
+:root {
+  --paper:#eef1f5; --surface:#ffffff; --sunken:#e4e8ee;
+  --ink:#2e3440; --ink-2:#4c566a; --ink-3:#6b7688;
+  --line:#d3dae3; --line-soft:#e3e8ef;
+  --accent:#5e81ac; --frost:#88c0d0;
+  --warn:#b58a2b; --caution:#bf616a;
+  --shadow:24px 24px 60px rgba(46,52,64,.10);
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:#1d222a; --surface:#252b35; --sunken:#1a1f26;
+    --ink:#e5e9f0; --ink-2:#c2cad8; --ink-3:#8c97a8;
+    --line:#39424f; --line-soft:#2f3742;
+    --accent:#88c0d0; --frost:#8fbcbb;
+    --warn:#ebcb8b; --caution:#d08770;
+    --shadow:24px 24px 60px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1d222a; --surface:#252b35; --sunken:#1a1f26;
+  --ink:#e5e9f0; --ink-2:#c2cad8; --ink-3:#8c97a8;
+  --line:#39424f; --line-soft:#2f3742;
+  --accent:#88c0d0; --frost:#8fbcbb;
+  --warn:#ebcb8b; --caution:#d08770;
+  --shadow:24px 24px 60px rgba(0,0,0,.35);
+}
+:root[data-theme="light"] {
+  --paper:#eef1f5; --surface:#ffffff; --sunken:#e4e8ee;
+  --ink:#2e3440; --ink-2:#4c566a; --ink-3:#6b7688;
+  --line:#d3dae3; --line-soft:#e3e8ef;
+  --accent:#5e81ac; --frost:#88c0d0;
+  --warn:#b58a2b; --caution:#bf616a;
+  --shadow:24px 24px 60px rgba(46,52,64,.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Web fontu gomulmuyor: CSP dis fontlari engelliyor ve sayfada zaten
+   ~750KB gorsel var. Karakter agirlik, olcek ve harf araligiyla veriliyor. */
+.gd {
+  --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", "SF Mono", "JetBrains Mono", Consolas, monospace;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.gd :where(h1,h2,h3) { text-wrap: balance; margin: 0; }
+.gd p { margin: 0; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+
+/* ------------------------------------------------------------------ hero */
+.hero { padding: 84px 0 56px; border-bottom: 1px solid var(--line); }
+.eyebrow {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 18px;
+}
+.hero h1 {
+  font-size: clamp(38px, 6vw, 68px); line-height: 1.02;
+  letter-spacing: -.03em; font-weight: 800; max-width: 16ch;
+}
+.hero .lead { margin-top: 22px; max-width: 62ch; font-size: 19px; color: var(--ink-2); }
+
+/* ------------------------------------------------------------------ layout */
+.body { display: grid; grid-template-columns: 210px minmax(0,1fr); gap: 56px; padding: 56px 0 40px; }
+@media (max-width: 900px) { .body { grid-template-columns: 1fr; gap: 0; } }
+
+.index { position: sticky; top: 28px; align-self: start; }
+@media (max-width: 900px) { .index { display: none; } }
+.index p {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px;
+}
+.index ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.index a {
+  display: flex; gap: 10px; align-items: baseline;
+  padding: 6px 0; color: var(--ink-2); text-decoration: none;
+  font-size: 14px; border-bottom: 1px solid transparent;
+}
+.index a b {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+  font-variant-numeric: tabular-nums; font-weight: 500;
+}
+.index a:hover { color: var(--accent); }
+.index a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.col { display: grid; gap: 76px; min-width: 0; }
+
+section { display: grid; gap: 20px; scroll-margin-top: 24px; }
+section h2 { font-size: clamp(25px, 3.2vw, 34px); letter-spacing: -.02em; font-weight: 750; }
+section .lead { max-width: 66ch; color: var(--ink-2); }
+
+/* ------------------------------------------------------------------ pillars */
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 1px;
+  background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.pillars div { background: var(--surface); padding: 22px 20px; display: grid; gap: 7px; align-content: start; }
+.pillars b { font-size: 15.5px; letter-spacing: -.01em; }
+.pillars span { font-size: 14.5px; color: var(--ink-3); line-height: 1.55; }
+
+/* ------------------------------------------------------------------ steps */
+.steps { display: grid; gap: 34px; }
+.step { display: grid; grid-template-columns: 46px minmax(0,1fr); gap: 20px; align-items: start; }
+.step .n {
+  font-family: var(--mono); font-size: 26px; font-weight: 600; line-height: 1;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+  border-top: 2px solid var(--accent); padding-top: 10px;
+}
+.step h3 { font-size: 19px; letter-spacing: -.01em; margin-bottom: 6px; }
+.step p { color: var(--ink-2); max-width: 60ch; font-size: 16px; }
+
+/* ------------------------------------------------------------------ plates */
+.plate { margin: 6px 0 0; display: grid; gap: 12px; justify-items: start; }
+.plate figcaption {
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.5;
+  color: var(--ink-3); max-width: 60ch;
+}
+
+/* tablet govdesi: 1024x600 ekrani kusatan koyu cerceve */
+.tab {
+  background: linear-gradient(160deg,#3b424e,#242a33);
+  padding: 20px 26px; border-radius: 22px; position: relative;
+  box-shadow: var(--shadow); max-width: 100%;
+}
+.tab-cam {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #10141a; box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+}
+.tab-bar {
+  position: absolute; right: 9px; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 46px; border-radius: 3px; background: rgba(255,255,255,.12);
+}
+.tab .shot { border-radius: 5px; }
+
+/* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+.win {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
+}
+.win-bar { display: flex; gap: 7px; padding: 11px 13px; background: var(--sunken); border-bottom: 1px solid var(--line); }
+.win-bar s { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+
+.shot { position: relative; overflow: hidden; line-height: 0; }
+.shot img { display: block; width: 100%; height: auto; }
+
+.callout {
+  position: absolute; transform: translate(-50%,-50%);
+  font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+  background: var(--accent); color: #fff; padding: 4px 9px; border-radius: 999px;
+  white-space: nowrap; box-shadow: 0 3px 12px rgba(0,0,0,.3);
+  display: flex; align-items: center; gap: 7px;
+}
+.callout i { width: 5px; height: 5px; border-radius: 50%; background: #fff; opacity: .85; }
+
+/* ------------------------------------------------------------------ tables */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ink-3); font-weight: 500; background: var(--sunken);
+  border-bottom: 1px solid var(--line);
+}
+td.k { white-space: nowrap; font-weight: 600; padding-right: 26px; }
+td { color: var(--ink-2); }
+
+/* kisayol notasyonu tus kapagi gibi: konuya ait, ucuz suslemeye kacmadan */
+code {
+  font-family: var(--mono); font-size: .86em;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-bottom-width: 2px;
+  border-radius: 5px; padding: 1px 6px; white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ notes */
+.note {
+  border-left: 2px solid var(--warn); background: var(--surface);
+  padding: 15px 18px; border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 15.5px; color: var(--ink-2); max-width: 66ch;
+}
+.note em { font-style: normal; color: var(--ink); }
+
+.notes { border-top: 1px solid var(--line); padding: 46px 0 0; display: grid; gap: 22px; }
+.notes h2 { font-size: 24px; letter-spacing: -.01em; }
+.notes dl { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden; margin: 0; }
+.notes .row { background: var(--surface); padding: 16px 18px; display: grid;
+  grid-template-columns: 190px minmax(0,1fr); gap: 18px; }
+@media (max-width: 640px) { .notes .row { grid-template-columns: 1fr; gap: 5px; } }
+.notes dt { font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--caution); padding-top: 2px; }
+.notes dd { margin: 0; font-size: 15.5px; color: var(--ink-2); }
+
+footer {
+  border-top: 1px solid var(--line); margin-top: 56px; padding: 26px 0 60px;
+  font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: .04em;
+}
+
+/* ------------------------------------------------------------------ motion */
+@media (prefers-reduced-motion: no-preference) {
+  section, .step, .pillars { animation: rise .5s cubic-bezier(.2,.7,.3,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+}
+</style>
+
+<div class="gd" dir="ltr">
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Власний сервер · Без магазину застосунків · Ніщо не залишає вашу мережу</p>
+      <h1>Перетворіть зайвий планшет на пульт керування комп'ютером</h1>
+      <p class="lead">Surecut Deck запускає невеликий сервер на вашому комп'ютері з Windows і сам віддає свій інтерфейс. Планшет лише відкриває вебадресу — немає застосунку, який треба встановити, облікового запису, який треба створити, і хмари посередині.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="body">
+      <nav class="index" aria-label="Contents">
+        <p>Як це працює</p>
+        <ul><li><a href="#buttons"><b>01</b>Основи</a></li><li><a href="#icons"><b>02</b>Значки</a></li><li><a href="#dragdrop"><b>03</b>Робочий стіл</a></li><li><a href="#mouse"><b>04</b>Вказівник</a></li><li><a href="#pages"><b>05</b>Простір</a></li><li><a href="#themes"><b>06</b>Вигляд</a></li><li><a href="#screen"><b>07</b>Екран</a></li><li><a href="#languages"><b>08</b>Мова</a></li></ul>
+      </nav>
+
+      <div class="col">
+        <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/01-deck.png" alt="Пульт на Android-планшеті 1024×600, тема Nord на весь екран." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Пульт на Android-планшеті 1024×600, тема Nord на весь екран.</figcaption></figure>
+
+        <section>
+          <p class="eyebrow">Як це працює</p>
+          <div class="pillars">
+            <div><b>Сервер — ваш комп'ютер</b><span>Невеликий застосунок у системному лотку запускає локальний сервер і підтримує його роботу. Це єдине, що ви встановлюєте.</span></div><div><b>Планшет відкриває адресу</b><span>Будь-який браузер у тій самій мережі. Додайте на головний екран — і він поводиться як застосунок.</span></div><div><b>Кнопки надсилають справжнє введення</b><span>Натискання стають справжніми подіями клавіатури та миші Windows, тож реагує будь-яка програма.</span></div>
+          </div>
+        </section>
+
+        <section>
+          <p class="eyebrow">Три кроки, один раз.</p>
+          <h2>Підключення</h2>
+          <div class="steps">
+            
+            <div class="step">
+              <div class="n">1</div>
+              <div>
+                <h3>Запустіть сервер</h3>
+                <p>Запустіть <code>start.cmd</code>. У системному лотку з'явиться значок і залишиться там. Натисніть на нього будь-коли, щоб побачити дані підключення або відкрити редактор.</p>
+                
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <div>
+                <h3>Відкрийте адресу на планшеті</h3>
+                <p>Вікно сервера перелічує всі адреси, за якими доступний ваш комп'ютер. Введіть одну з них у браузері планшета, а потім код підключення, показаний поруч.</p>
+                <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/11-info-win.png" alt="Дані сервера зі значка в лотку. Код та адреси тут — приклади." loading="lazy"></div></div><figcaption>Дані сервера зі значка в лотку. Код та адреси тут — приклади.</figcaption></figure>
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">3</div>
+              <div>
+                <h3>Хай виглядає як застосунок</h3>
+                <p>Торкніться <b>⛶</b> для повного екрана або скористайтеся <b>Додати на головний екран</b> у браузері. У повноекранному режимі планшет також не засинає, доки пульт відкритий.</p>
+                
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
+<section id="buttons">
+  <p class="eyebrow">Основи</p>
+  <h2>Кнопки вміють більше, ніж натискати клавіші</h2>
+  <p class="lead">Торкніться олівця, щоб увійти в режим редагування, потім торкніться будь-якої кнопки, щоб змінити її, — або утримуйте, щоб перетягнути в інше місце. Кожна кнопка має підпис, значок, колір і одну дію.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Підпис, вибір значка та колір." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Підпис, вибір значка та колір.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Тип дії та готові комбінації на вибір." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Тип дії та готові комбінації на вибір.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Дія</th><th>Що робить</th></tr></thead>
+  <tbody><tr><td class="k">Комбінація клавіш</td><td>Будь-яка комбінація — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, мультимедійні клавіші, гучність</td></tr><tr><td class="k">Ввести текст</td><td>Друкує за вас блок тексту, разом із переносами рядків</td></tr><tr><td class="k">Відкрити застосунок / файл</td><td>Програму, документ або теку</td></tr><tr><td class="k">Відкрити вебадресу</td><td>Відкриває посилання у браузері за замовчуванням</td></tr><tr><td class="k">Виконати команду</td><td>PowerShell або CMD</td></tr><tr><td class="k">Миша</td><td>Перетворює екран планшета на тачпад</td></tr><tr><td class="k">Послідовність</td><td>Кілька кроків по черзі, з паузами між ними</td></tr></tbody>
+  </table></div>
+</section>
+<section id="icons">
+  <p class="eyebrow">Значки</p>
+  <h2>Оберіть емодзі — або візьміть справжній значок програми</h2>
+  <p class="lead">У редакторі є сітка значків, тож вводити емодзі вручну не доведеться. Для програм є дещо краще: перетягніть ярлик з робочого столу, і справжній значок застосунку прийде разом із ним.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Режим редагування. На кожній кнопці значок олівця; утримуйте, щоб переставити." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Режим редагування. На кожній кнопці значок олівця; утримуйте, щоб переставити.</figcaption></figure>
+  
+</section>
+<section id="dragdrop">
+  <p class="eyebrow">Робочий стіл</p>
+  <h2>Перетягніть ярлик з робочого столу</h2>
+  <p class="lead">Відкрийте редактор зі значка в лотку — з'явиться справжнє вікно робочого столу з тим самим інтерфейсом усередині. Киньте ярлик, програму, теку чи файл на смугу вгорі: ціль буде розібрано, значок застосунку витягнуто, а кнопка з'явиться на планшеті одразу.</p>
+  <aside class="note">Редактор зроблено окремим вікном, а не вкладкою браузера, з конкретної причини. Браузери ніколи не передають вебсторінці <em>шлях</em> кинутого файлу, а Chromium додатково розв'язує кинутий ярлик у його ціль — тобто браузер спробував би прочитати всю програму замість того, щоб дізнатися, де вона лежить.</aside>
+  <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="Редактор на робочому столі. Оберіть сторінку ліворуч і кидайте ярлики на смугу." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Цільова сторінка</span><span class="callout" style="left:62%;top:13%"><i></i>Кидайте сюди</span></div></div><figcaption>Редактор на робочому столі. Оберіть сторінку ліворуч і кидайте ярлики на смугу.</figcaption></figure>
+  
+</section>
+<section id="mouse">
+  <p class="eyebrow">Вказівник</p>
+  <h2>Екран стає тачпадом</h2>
+  <p class="lead">Призначте кнопці дію <b>Миша</b> — після натискання весь планшет перетворюється на трекпад. Два повзунки задають швидкість вказівника та прокручування, а напрямок прокручування можна обернути під свою звичку.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Режим тачпада; знизу — явні кнопки для тих натискань, які не хочеться вгадувати." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Режим тачпада; знизу — явні кнопки для тих натискань, які не хочеться вгадувати.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Жест</th><th>Результат</th></tr></thead>
+  <tbody><tr><td class="k">Провести</td><td>Рухати вказівник</td></tr><tr><td class="k">Торкнутися</td><td>Лівий клік</td></tr><tr><td class="k">Подвійний дотик</td><td>Подвійний клік</td></tr><tr><td class="k">Подвійний дотик і протягування</td><td>Утримувати ліву кнопку й рухати — виділити текст, перетягнути вікно</td></tr><tr><td class="k">Довге натискання</td><td>Правий клік</td></tr><tr><td class="k">Два пальці</td><td>Прокручування вертикально й горизонтально</td></tr><tr><td class="k">Дотик двома пальцями</td><td>Правий клік</td></tr><tr><td class="k">Щипок</td><td>Масштаб</td></tr><tr><td class="k">Три пальці ↑ / ↓</td><td>Подання завдань / показати робочий стіл</td></tr><tr><td class="k">Три пальці ← / →</td><td>Перемкнути віртуальний робочий стіл</td></tr></tbody>
+  </table></div>
+</section>
+<section id="pages">
+  <p class="eyebrow">Простір</p>
+  <h2>Стільки сторінок, скільки потрібно</h2>
+  <p class="lead">Згрупуйте кнопки у сторінки: одна для монтажу, друга для ігор, третя для наради, з якої ви не вилазите. Проведіть по пульту ліворуч або праворуч, щоб перемкнутися. Плаваюча кнопка веде до сторінок, редактора й тем навіть при схованих панелях, і її можна перетягнути туди, де зручно.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Плаваюче меню: сторінки, панелі, режим редагування, тема й повний екран." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Плаваюче меню: сторінки, панелі, режим редагування, тема й повний екран.</figcaption></figure>
+  
+</section>
+<section id="themes">
+  <p class="eyebrow">Вигляд</p>
+  <h2>Одинадцять тем, і кнопки підлаштовуються</h2>
+  <p class="lead">Більшість тем узято з відомих розробникам колірних схем — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — плюс два навмисно двоколірні термінальні вигляди та нейтральні світла й темна. Під час зміни теми кольори ваших кнопок переводяться в нову палітру зі збереженням відтінків: синя кнопка стає синьою вже в новій темі, і розкладка читається так само.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Кожна картка показує власне тло й палітру." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Кожна картка показує власне тло й палітру.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Той самий пульт у світлій темі." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Той самий пульт у світлій темі.</figcaption></figure>
+  
+</section>
+<section id="screen">
+  <p class="eyebrow">Екран</p>
+  <h2>Використайте весь екран</h2>
+  <p class="lead"><b>Розтягнути на весь екран</b> змушує рядки ділити всю висоту: два ряди кнопок заповнюють екран, а не лишають порожнечу знизу. <b>Автоматично приховувати панелі</b> цілком прибирає верхню й нижню панелі та лишає тільки кнопки — плаваюча кнопка поверне їх, або утримуйте порожню ділянку три секунди.</p>
+  <aside class="note">Планшет також налаштовано не засинати: екран не згасне, доки пульт відкритий.</aside>
+  
+  
+</section>
+<section id="languages">
+  <p class="eyebrow">Мова</p>
+  <h2>Двадцять мов, обираються автоматично</h2>
+  <p class="lead">Інтерфейс доступний англійською, турецькою, іспанською, французькою, німецькою, італійською, португальською, російською, українською, польською, арабською, перською, урду, китайською, японською, корейською, гінді, бенгальською, індонезійською та в'єтнамською. Він слідує мові браузера, доки ви не оберете свою; арабська, перська й урду перемикають розкладку справа наліво. Вибір діє окремо для кожного пристрою, тож планшет і редактор на комп'ютері можуть відрізнятися.</p>
+  
+  
+  
+</section>
+
+        <div class="notes">
+          <h2>Варто знати</h2>
+          <dl>
+            <div class="row"><dt>Брандмауер</dt><dd>Windows може вперше запитати дозвіл на підключення. Якщо планшет не дістає до сервера, дозвольте для приватних мереж.</dd></div><div class="row"><dt>VPN</dt><dd>Деякі VPN-клієнти блокують трафік локальної мережі. Якщо ніщо не підключається, спробуйте з вимкненим VPN.</dd></div><div class="row"><dt>Вікна з правами адміністратора</dt><dd>Програма, запущена від імені адміністратора, не приймає введення від звичайної програми. Запустіть сервер від адміністратора, якщо комбінації мають доходити до таких вікон.</dd></div><div class="row"><dt>Код підключення</dt><dd>Будь-хто у вашій мережі, хто має код, може керувати комп'ютером, зокрема виконувати команди. Тримайте код при собі й не піднімайте сервер у мережах, яким не довіряєте.</dd></div>
+          </dl>
+        </div>
+
+        <footer>Surecut Deck — пульт швидких команд для Windows із власним сервером.</footer>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+# Calisma zamani durumu ve kisisel veri - asla depoya girmez
+# token.txt eslestirme kodudur, config.json kullanicinin kendi butonlaridir.
+/data/
+
+# Uygulama ikonlari surukle-birak sirasinda kullanicinin kurulu programlarindan
+# cikarilir; ucuncu taraf varliklari, dagitilmaz.
+/public/icons/
+
+# Derleme ciktilari
+/helper/*.exe
+/tray/*.exe
+/tray/*.pdb
+
+# WebView2 yeniden dagitilabilir ikilileri - tray/fetch-webview2.cmd ile indirilir
+/tray/Microsoft.Web.WebView2.*.dll
+/tray/WebView2Loader.dll
+
+node_modules/
+*.log

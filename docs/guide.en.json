@@ -1,0 +1,161 @@
+{
+  "lang": "en",
+  "dir": "ltr",
+  "title": "Surecut Deck — User Guide",
+  "eyebrow": "Self-hosted · No app store · Nothing leaves your network",
+  "heroTitle": "Turn a spare tablet into a control deck for your PC",
+  "heroLead": "Surecut Deck runs a small server on your Windows machine and serves its own interface. The tablet just opens a web address — there is no app to install, no account to create, and no cloud in the middle.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "The deck on a 1024×600 Android tablet, running the Nord theme in full screen." },
+
+  "pillars": {
+    "title": "How it works",
+    "items": [
+      { "k": "Your PC hosts it", "v": "A tray app starts a local server and keeps it running. It is the only thing you install." },
+      { "k": "The tablet opens a URL", "v": "Any browser on the same network. Add it to the home screen and it behaves like an app." },
+      { "k": "Buttons send real input", "v": "Presses become genuine Windows keyboard and mouse events, so any program responds to them." }
+    ]
+  },
+
+  "setup": {
+    "title": "Getting connected",
+    "lead": "Three steps, once.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Start the host",
+        "body": "Run <code>start.cmd</code>. An icon appears in the system tray and stays there. Left-click it any time to see the pairing details or open the editor."
+      },
+      {
+        "n": "2",
+        "title": "Open the address on the tablet",
+        "body": "The host window lists every address your PC can be reached at. Type one into the tablet's browser, then enter the pairing code shown next to it.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Server details, from the tray icon. The code and addresses here are examples." }
+      },
+      {
+        "n": "3",
+        "title": "Make it feel like an app",
+        "body": "Tap <b>⛶</b> for full screen, or use your browser's <b>Add to home screen</b>. In full screen the tablet also stays awake while the deck is open."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "The basics",
+      "title": "Buttons do more than keystrokes",
+      "body": "Tap the pencil to enter edit mode, then tap any button to edit it — or press and hold to drag it somewhere else. Every button has a label, an icon, a colour and one action.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Label, icon picker and colour." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Action type, with ready-made shortcuts to pick from." }
+      ],
+      "table": {
+        "head": ["Action", "What it does"],
+        "rows": [
+          ["Keyboard shortcut", "Any combination — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, media keys, volume"],
+          ["Type text", "Writes a block of text for you, line breaks included"],
+          ["Open app / file", "A program, a document or a folder"],
+          ["Open web address", "Opens a link in your default browser"],
+          ["Run command", "PowerShell or CMD"],
+          ["Mouse", "Turns the tablet screen into a touchpad"],
+          ["Sequence", "Several steps in order, with delays in between"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Icons",
+      "title": "Pick an emoji, or use the real app icon",
+      "body": "The editor has an icon grid so you never have to type an emoji by hand. For programs there is something better: drag the shortcut in from your desktop and the real application icon comes with it.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Edit mode. Each button carries a pencil badge; hold one to reorder." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Desktop",
+      "title": "Drag a shortcut in from the desktop",
+      "body": "Open the editor from the tray icon and a proper desktop window appears with the same interface inside it. Drop a shortcut, program, folder or file onto the strip at the top: the target is resolved, the application icon is extracted, and the button appears on the tablet immediately.",
+      "note": "The editor is a native window rather than a browser tab for a specific reason. Browsers never hand a web page the <em>path</em> of a dropped file, and Chromium resolves a dropped shortcut to its target — so a browser would try to read the whole program instead of learning where it lives.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "The desktop editor. Choose the page on the left, then drop shortcuts onto the strip.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Target page" },
+            { "x": 62, "y": 13, "label": "Drop shortcuts here" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "Pointer",
+      "title": "The screen becomes a touchpad",
+      "body": "Give a button the <b>Mouse</b> action and pressing it turns the whole tablet into a trackpad. Two sliders set pointer and scroll speed, and scrolling can be reversed to match how you think.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Touchpad mode, with explicit buttons underneath for the clicks you don't want to guess at." }
+      ],
+      "table": {
+        "head": ["Gesture", "Result"],
+        "rows": [
+          ["Drag", "Move the pointer"],
+          ["Tap", "Left click"],
+          ["Double tap", "Double click"],
+          ["Double tap, then drag", "Hold the left button and move — select text, drag a window"],
+          ["Long press", "Right click"],
+          ["Two fingers", "Scroll, vertically and horizontally"],
+          ["Two-finger tap", "Right click"],
+          ["Pinch", "Zoom"],
+          ["Three fingers ↑ / ↓", "Task view / show desktop"],
+          ["Three fingers ← / →", "Switch virtual desktop"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Space",
+      "title": "As many pages as you need",
+      "body": "Group buttons into pages — one for editing, one for games, one for the meeting you are always in. Swipe left or right across the deck to move between them. The floating button gets you to the pages, the editor and the themes even when the bars are hidden, and you can drag it wherever it suits you.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "The floating menu: pages, bars, edit mode, theme and full screen." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Looks",
+      "title": "Eleven themes, and the buttons follow",
+      "body": "Most themes come from well-known developer colour schemes — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — plus two deliberately two-tone terminal looks and neutral light and dark. Changing the theme converts your button colours to the new palette while keeping their hues, so a blue button becomes the new theme's blue and your layout still reads the same.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Each card previews its own background and palette." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "The same deck on a light theme." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Screen",
+      "title": "Use the whole display",
+      "body": "<b>Stretch to fill</b> makes the rows share the full height, so two rows of buttons fill the screen instead of leaving a gap underneath. <b>Auto-hide bars</b> removes the top and bottom bars entirely and leaves only the buttons — the floating button brings them back, or hold an empty area for three seconds.",
+      "note": "The tablet is also set to stay awake: the screen will not time out while the deck is open."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Language",
+      "title": "Twenty languages, picked automatically",
+      "body": "The interface ships in English, Turkish, Spanish, French, German, Italian, Portuguese, Russian, Ukrainian, Polish, Arabic, Persian, Urdu, Chinese, Japanese, Korean, Hindi, Bengali, Indonesian and Vietnamese. It follows the browser's language unless you choose one, and Arabic, Persian and Urdu switch the layout to right-to-left. The choice is per device, so the tablet and the desktop editor can differ."
+    }
+  ],
+
+  "notes": {
+    "title": "Worth knowing",
+    "items": [
+      { "k": "Firewall", "v": "Windows may ask to allow the connection the first time. If the tablet cannot reach the host, allow it for private networks." },
+      { "k": "VPN", "v": "Some VPN clients block local network traffic. If nothing connects, try with the VPN off." },
+      { "k": "Windows asks for admin", "v": "A program running as administrator will not accept input from a normal program. Run the host as administrator if you need shortcuts to reach those windows." },
+      { "k": "Pairing code", "v": "Anyone on your network who has the code can control the PC, including running commands. Keep it to yourself and don't host it on networks you don't trust." }
+    ]
+  },
+
+  "footer": "Surecut Deck — a self-hosted shortcut deck for Windows."
+}

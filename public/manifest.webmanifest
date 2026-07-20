@@ -1,0 +1,12 @@
+{
+  "name": "Surecut Deck",
+  "short_name": "Deck",
+  "start_url": ".",
+  "display": "fullscreen",
+  "orientation": "landscape",
+  "background_color": "#1c1c1f",
+  "theme_color": "#3c3c3f",
+  "icons": [
+    { "src": "icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}

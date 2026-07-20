@@ -1,0 +1,9 @@
+{
+  "name": "surecut-deck",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Tabletten Windows kontrolu - host",
+  "main": "server.js",
+  "scripts": { "start": "node server.js" },
+  "dependencies": { "ws": "^8.18.0" }
+}

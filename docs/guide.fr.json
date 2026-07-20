@@ -1,0 +1,161 @@
+{
+  "lang": "fr",
+  "dir": "ltr",
+  "title": "Surecut Deck — Guide d'utilisation",
+  "eyebrow": "Auto-hébergé · Sans magasin d'applications · Rien ne quitte votre réseau",
+  "heroTitle": "Transformez une tablette inutilisée en pupitre de commande pour votre PC",
+  "heroLead": "Surecut Deck fait tourner un petit serveur sur votre machine Windows et sert lui-même son interface. La tablette ouvre simplement une adresse web : aucune application à installer, aucun compte à créer, aucun nuage entre les deux.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "Le pupitre sur une tablette Android 1024×600, thème Nord en plein écran." },
+
+  "pillars": {
+    "title": "Comment ça marche",
+    "items": [
+      { "k": "Votre PC l'héberge", "v": "Une petite application dans la zone de notification lance le serveur local et le maintient. C'est la seule chose que vous installez." },
+      { "k": "La tablette ouvre une adresse", "v": "N'importe quel navigateur sur le même réseau. Ajoutez-la à l'écran d'accueil et elle se comporte comme une application." },
+      { "k": "Les boutons envoient de vraies entrées", "v": "Les appuis deviennent de véritables événements clavier et souris Windows : tous les programmes y répondent." }
+    ]
+  },
+
+  "setup": {
+    "title": "Se connecter",
+    "lead": "Trois étapes, une seule fois.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Démarrez le serveur",
+        "body": "Lancez <code>start.cmd</code>. Une icône apparaît dans la zone de notification et y reste. Cliquez dessus à tout moment pour voir les informations d'appairage ou ouvrir l'éditeur."
+      },
+      {
+        "n": "2",
+        "title": "Ouvrez l'adresse sur la tablette",
+        "body": "La fenêtre du serveur liste toutes les adresses par lesquelles votre PC est joignable. Saisissez-en une dans le navigateur de la tablette, puis entrez le code d'appairage affiché à côté.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Informations du serveur, depuis l'icône de la zone de notification. Le code et les adresses sont des exemples." }
+      },
+      {
+        "n": "3",
+        "title": "Donnez-lui l'allure d'une application",
+        "body": "Touchez <b>⛶</b> pour le plein écran, ou utilisez <b>Ajouter à l'écran d'accueil</b> de votre navigateur. En plein écran, la tablette reste également éveillée tant que le pupitre est ouvert."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "Les bases",
+      "title": "Les boutons ne font pas qu'envoyer des touches",
+      "body": "Touchez le crayon pour passer en mode édition, puis touchez un bouton pour le modifier — ou maintenez-le pour le faire glisser ailleurs. Chaque bouton a un libellé, une icône, une couleur et une action.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Libellé, sélecteur d'icônes et couleur." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Type d'action, avec des raccourcis tout prêts." }
+      ],
+      "table": {
+        "head": ["Action", "Effet"],
+        "rows": [
+          ["Raccourci clavier", "N'importe quelle combinaison : <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, touches multimédia, volume"],
+          ["Saisir du texte", "Écrit un bloc de texte à votre place, sauts de ligne compris"],
+          ["Ouvrir une application / un fichier", "Un programme, un document ou un dossier"],
+          ["Ouvrir une adresse web", "Ouvre le lien dans votre navigateur par défaut"],
+          ["Exécuter une commande", "PowerShell ou CMD"],
+          ["Souris", "Transforme l'écran de la tablette en pavé tactile"],
+          ["Suite d'étapes", "Plusieurs étapes dans l'ordre, avec des pauses entre elles"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Icônes",
+      "title": "Choisissez un émoji, ou l'icône réelle de l'application",
+      "body": "L'éditeur propose une grille d'icônes : plus besoin de taper un émoji à la main. Pour les programmes, il y a mieux : faites glisser le raccourci depuis le bureau et l'icône réelle de l'application vient avec.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Mode édition. Chaque bouton porte un crayon ; maintenez-le pour réorganiser." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Bureau",
+      "title": "Faites glisser un raccourci depuis le bureau",
+      "body": "Ouvrez l'éditeur depuis l'icône de la zone de notification : une véritable fenêtre de bureau s'affiche, avec la même interface à l'intérieur. Déposez un raccourci, un programme, un dossier ou un fichier sur la bande du haut : la cible est résolue, l'icône de l'application est extraite, et le bouton apparaît immédiatement sur la tablette.",
+      "note": "L'éditeur est une fenêtre native plutôt qu'un onglet de navigateur, pour une raison précise. Les navigateurs ne transmettent jamais à une page le <em>chemin</em> d'un fichier déposé, et Chromium résout en plus un raccourci vers sa cible — un navigateur essaierait donc de lire tout le programme au lieu d'apprendre où il se trouve.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "L'éditeur de bureau. Choisissez la page à gauche, puis déposez les raccourcis sur la bande.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Page cible" },
+            { "x": 62, "y": 13, "label": "Déposez ici" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "Pointeur",
+      "title": "L'écran devient un pavé tactile",
+      "body": "Donnez à un bouton l'action <b>Souris</b> : en appuyant dessus, toute la tablette devient un trackpad. Deux curseurs règlent la vitesse du pointeur et du défilement, et le sens du défilement peut être inversé selon votre habitude.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Mode pavé tactile, avec en dessous des boutons explicites pour les clics que l'on ne veut pas deviner." }
+      ],
+      "table": {
+        "head": ["Geste", "Résultat"],
+        "rows": [
+          ["Glisser", "Déplacer le pointeur"],
+          ["Toucher", "Clic gauche"],
+          ["Double toucher", "Double clic"],
+          ["Double toucher puis glisser", "Maintenir le bouton gauche et déplacer : sélectionner du texte, déplacer une fenêtre"],
+          ["Appui long", "Clic droit"],
+          ["Deux doigts", "Défilement vertical et horizontal"],
+          ["Toucher à deux doigts", "Clic droit"],
+          ["Pincer", "Zoom"],
+          ["Trois doigts ↑ / ↓", "Vue des tâches / afficher le bureau"],
+          ["Trois doigts ← / →", "Changer de bureau virtuel"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Espace",
+      "title": "Autant de pages qu'il vous en faut",
+      "body": "Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. Balayez vers la gauche ou la droite sur le pupitre pour passer de l'une à l'autre. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Le menu flottant : pages, barres, mode édition, thème et plein écran." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Apparence",
+      "title": "Onze thèmes, et les boutons suivent",
+      "body": "La plupart des thèmes proviennent de palettes bien connues des développeurs — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — auxquelles s'ajoutent deux allures de terminal volontairement bicolores et un clair et un sombre neutres. Changer de thème convertit la couleur de vos boutons vers la nouvelle palette en conservant leurs teintes : un bouton bleu devient le bleu du nouveau thème et votre disposition se lit toujours pareil.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Chaque carte montre son propre fond et sa palette." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "Le même pupitre sur un thème clair." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Écran",
+      "title": "Occupez tout l'écran",
+      "body": "<b>Étirer pour remplir</b> fait partager toute la hauteur aux rangées : deux rangées de boutons remplissent l'écran au lieu de laisser un vide en bas. <b>Masquer les barres automatiquement</b> supprime entièrement les barres haute et basse et ne laisse que les boutons — le bouton flottant les rappelle, ou appuyez trois secondes sur une zone vide.",
+      "note": "La tablette est également réglée pour rester éveillée : l'écran ne s'éteindra pas tant que le pupitre est ouvert."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Langue",
+      "title": "Vingt langues, choisies automatiquement",
+      "body": "L'interface est fournie en anglais, turc, espagnol, français, allemand, italien, portugais, russe, ukrainien, polonais, arabe, persan, ourdou, chinois, japonais, coréen, hindi, bengali, indonésien et vietnamien. Elle suit la langue du navigateur tant que vous n'en choisissez pas une, et l'arabe, le persan et l'ourdou basculent la mise en page de droite à gauche. Le choix est propre à chaque appareil : la tablette et l'éditeur de bureau peuvent différer."
+    }
+  ],
+
+  "notes": {
+    "title": "Bon à savoir",
+    "items": [
+      { "k": "Pare-feu", "v": "Windows peut demander d'autoriser la connexion la première fois. Si la tablette n'atteint pas le serveur, autorisez-le pour les réseaux privés." },
+      { "k": "VPN", "v": "Certains clients VPN bloquent le trafic du réseau local. Si rien ne se connecte, essayez VPN désactivé." },
+      { "k": "Fenêtres administrateur", "v": "Un programme exécuté en administrateur n'accepte pas les entrées d'un programme normal. Lancez le serveur en administrateur si vos raccourcis doivent atteindre ces fenêtres." },
+      { "k": "Code d'appairage", "v": "Toute personne de votre réseau qui possède le code peut piloter le PC, y compris exécuter des commandes. Gardez-le pour vous et n'hébergez pas sur des réseaux auxquels vous ne faites pas confiance." }
+    ]
+  },
+
+  "footer": "Surecut Deck — un pupitre de raccourcis auto-hébergé pour Windows."
+}

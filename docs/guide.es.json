@@ -1,0 +1,161 @@
+{
+  "lang": "es",
+  "dir": "ltr",
+  "title": "Surecut Deck — Guía de uso",
+  "eyebrow": "Servidor propio · Sin tienda de aplicaciones · Nada sale de tu red",
+  "heroTitle": "Convierte una tablet que no usas en el panel de control de tu PC",
+  "heroLead": "Surecut Deck levanta un pequeño servidor en tu equipo Windows y sirve su propia interfaz. La tablet solo abre una dirección web: no hay aplicación que instalar, ni cuenta que crear, ni nube por medio.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "El panel en una tablet Android de 1024×600, con el tema Nord a pantalla completa." },
+
+  "pillars": {
+    "title": "Cómo funciona",
+    "items": [
+      { "k": "Tu PC lo aloja", "v": "Una pequeña aplicación en la bandeja inicia el servidor local y lo mantiene activo. Es lo único que instalas." },
+      { "k": "La tablet abre una dirección", "v": "Cualquier navegador de la misma red. Añádelo a la pantalla de inicio y se comporta como una app." },
+      { "k": "Los botones envían entrada real", "v": "Las pulsaciones se convierten en eventos reales de teclado y ratón de Windows, así que cualquier programa responde." }
+    ]
+  },
+
+  "setup": {
+    "title": "Conectar",
+    "lead": "Tres pasos, una sola vez.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Inicia el servidor",
+        "body": "Ejecuta <code>start.cmd</code>. Aparece un icono en la bandeja del sistema y se queda ahí. Haz clic en él cuando quieras para ver los datos de emparejamiento o abrir el editor."
+      },
+      {
+        "n": "2",
+        "title": "Abre la dirección en la tablet",
+        "body": "La ventana del servidor lista todas las direcciones por las que se puede llegar a tu PC. Escribe una en el navegador de la tablet e introduce el código de emparejamiento que aparece al lado.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Datos del servidor, desde el icono de la bandeja. El código y las direcciones son ejemplos." }
+      },
+      {
+        "n": "3",
+        "title": "Haz que parezca una app",
+        "body": "Toca <b>⛶</b> para pantalla completa, o usa <b>Añadir a pantalla de inicio</b> del navegador. En pantalla completa la tablet además no se apaga mientras el panel está abierto."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "Lo básico",
+      "title": "Los botones hacen algo más que pulsar teclas",
+      "body": "Toca el lápiz para entrar en modo edición y luego toca cualquier botón para editarlo, o mantenlo pulsado para arrastrarlo a otro sitio. Cada botón tiene una etiqueta, un icono, un color y una acción.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Etiqueta, selector de iconos y color." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Tipo de acción, con atajos preparados para elegir." }
+      ],
+      "table": {
+        "head": ["Acción", "Qué hace"],
+        "rows": [
+          ["Atajo de teclado", "Cualquier combinación: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, teclas multimedia, volumen"],
+          ["Escribir texto", "Escribe un bloque de texto por ti, saltos de línea incluidos"],
+          ["Abrir aplicación / archivo", "Un programa, un documento o una carpeta"],
+          ["Abrir dirección web", "Abre el enlace en tu navegador predeterminado"],
+          ["Ejecutar comando", "PowerShell o CMD"],
+          ["Ratón", "Convierte la pantalla de la tablet en un panel táctil"],
+          ["Secuencia", "Varios pasos en orden, con pausas entre ellos"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Iconos",
+      "title": "Elige un emoji, o usa el icono real de la aplicación",
+      "body": "El editor incluye una cuadrícula de iconos, así no tienes que escribir emojis a mano. Para los programas hay algo mejor: arrastra el acceso directo desde el escritorio y el icono real de la aplicación viene con él.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Modo edición. Cada botón lleva una insignia de lápiz; mantén pulsado para reordenar." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Escritorio",
+      "title": "Arrastra un acceso directo desde el escritorio",
+      "body": "Abre el editor desde el icono de la bandeja y aparecerá una ventana de escritorio con la misma interfaz dentro. Suelta un acceso directo, un programa, una carpeta o un archivo sobre la franja superior: se resuelve el destino, se extrae el icono de la aplicación y el botón aparece en la tablet al instante.",
+      "note": "El editor es una ventana nativa y no una pestaña del navegador por un motivo concreto. Los navegadores nunca entregan a una página web la <em>ruta</em> de un archivo soltado, y Chromium además resuelve un acceso directo a su destino, de modo que el navegador intentaría leer el programa entero en vez de saber dónde está.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "El editor de escritorio. Elige la página a la izquierda y suelta accesos directos en la franja.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Página destino" },
+            { "x": 62, "y": 13, "label": "Suelta aquí" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "Puntero",
+      "title": "La pantalla se convierte en panel táctil",
+      "body": "Dale a un botón la acción <b>Ratón</b> y al pulsarlo toda la tablet se convierte en un trackpad. Dos deslizadores ajustan la velocidad del puntero y del desplazamiento, y el desplazamiento puede invertirse para que coincida con tu costumbre.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Modo panel táctil, con botones explícitos abajo para los clics que no quieres dejar al azar." }
+      ],
+      "table": {
+        "head": ["Gesto", "Resultado"],
+        "rows": [
+          ["Arrastrar", "Mover el puntero"],
+          ["Tocar", "Clic izquierdo"],
+          ["Doble toque", "Doble clic"],
+          ["Doble toque y arrastrar", "Mantener el botón izquierdo y mover: seleccionar texto, arrastrar una ventana"],
+          ["Mantener pulsado", "Clic derecho"],
+          ["Dos dedos", "Desplazar, en vertical y horizontal"],
+          ["Toque con dos dedos", "Clic derecho"],
+          ["Pellizcar", "Zoom"],
+          ["Tres dedos ↑ / ↓", "Vista de tareas / mostrar escritorio"],
+          ["Tres dedos ← / →", "Cambiar de escritorio virtual"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Espacio",
+      "title": "Tantas páginas como necesites",
+      "body": "Agrupa los botones en páginas: una para editar, otra para juegos, otra para esa reunión en la que siempre estás. Desliza a izquierda o derecha sobre el panel para pasar de una a otra. El botón flotante te lleva a las páginas, al editor y a los temas incluso con las barras ocultas, y puedes arrastrarlo donde te venga bien.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "El menú flotante: páginas, barras, modo edición, tema y pantalla completa." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Aspecto",
+      "title": "Once temas, y los botones se adaptan",
+      "body": "La mayoría de los temas vienen de esquemas de color conocidos entre desarrolladores — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — más dos aspectos de terminal deliberadamente bicolores y un claro y un oscuro neutros. Al cambiar de tema, los colores de tus botones se convierten a la nueva paleta conservando sus tonos: un botón azul pasa a ser el azul del nuevo tema y tu distribución se sigue leyendo igual.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Cada tarjeta muestra su propio fondo y su paleta." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "El mismo panel con un tema claro." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Pantalla",
+      "title": "Aprovecha toda la pantalla",
+      "body": "<b>Estirar para llenar</b> hace que las filas repartan toda la altura, de modo que dos filas de botones llenan la pantalla en lugar de dejar un hueco debajo. <b>Ocultar barras automáticamente</b> quita del todo las barras superior e inferior y deja solo los botones: el botón flotante las recupera, o mantén pulsada un área vacía durante tres segundos.",
+      "note": "La tablet también está configurada para no dormirse: la pantalla no se apagará mientras el panel esté abierto."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Idioma",
+      "title": "Veinte idiomas, elegidos automáticamente",
+      "body": "La interfaz viene en inglés, turco, español, francés, alemán, italiano, portugués, ruso, ucraniano, polaco, árabe, persa, urdu, chino, japonés, coreano, hindi, bengalí, indonesio y vietnamita. Sigue el idioma del navegador salvo que elijas uno, y el árabe, el persa y el urdu cambian la disposición a derecha-izquierda. La elección es por dispositivo, así que la tablet y el editor de escritorio pueden diferir."
+    }
+  ],
+
+  "notes": {
+    "title": "Conviene saber",
+    "items": [
+      { "k": "Cortafuegos", "v": "Windows puede pedir permiso para la conexión la primera vez. Si la tablet no llega al servidor, permítelo para redes privadas." },
+      { "k": "VPN", "v": "Algunos clientes VPN bloquean el tráfico de red local. Si no conecta nada, prueba con la VPN apagada." },
+      { "k": "Ventanas de administrador", "v": "Un programa que se ejecuta como administrador no acepta entrada de un programa normal. Ejecuta el servidor como administrador si necesitas que los atajos lleguen a esas ventanas." },
+      { "k": "Código de emparejamiento", "v": "Cualquiera de tu red que tenga el código puede controlar el PC, incluido ejecutar comandos. Guárdatelo y no lo publiques en redes en las que no confíes." }
+    ]
+  },
+
+  "footer": "Surecut Deck — un panel de atajos autoalojado para Windows."
+}

@@ -1,0 +1,161 @@
+{
+  "lang": "tr",
+  "dir": "ltr",
+  "title": "Surecut Deck — Kullanım Rehberi",
+  "eyebrow": "Kendi sunucusu · Uygulama mağazası yok · Ağının dışına çıkmaz",
+  "heroTitle": "Kenarda duran tableti bilgisayarının kontrol paneline çevir",
+  "heroLead": "Surecut Deck, Windows bilgisayarında küçük bir sunucu çalıştırır ve kendi arayüzünü kendisi yayınlar. Tablet sadece bir web adresi açar — kurulacak uygulama, açılacak hesap ve aradaki bulut yoktur.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "1024×600 bir Android tablette deck, Nord teması ve tam ekran." },
+
+  "pillars": {
+    "title": "Nasıl çalışır",
+    "items": [
+      { "k": "Sunucu senin bilgisayarında", "v": "Tepsideki küçük uygulama yerel sunucuyu başlatır ve ayakta tutar. Kurduğun tek şey odur." },
+      { "k": "Tablet bir adres açar", "v": "Aynı ağdaki herhangi bir tarayıcı. Ana ekrana eklersen uygulama gibi davranır." },
+      { "k": "Butonlar gerçek girdi gönderir", "v": "Basışlar gerçek Windows klavye ve fare olaylarına dönüşür; bu yüzden her program tepki verir." }
+    ]
+  },
+
+  "setup": {
+    "title": "Bağlanmak",
+    "lead": "Bir kez, üç adım.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Sunucuyu başlat",
+        "body": "<code>start.cmd</code> dosyasını çalıştır. Sistem tepsisinde bir simge belirir ve orada kalır. İstediğin an sol tıklayarak eşleştirme bilgilerini görebilir ya da düzenleyiciyi açabilirsin."
+      },
+      {
+        "n": "2",
+        "title": "Adresi tablette aç",
+        "body": "Sunucu penceresi bilgisayarına ulaşılabilecek tüm adresleri listeler. Birini tabletin tarayıcısına yaz, sonra yanında yazan eşleştirme kodunu gir.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Tepsi simgesinden açılan sunucu bilgisi. Buradaki kod ve adresler örnektir." }
+      },
+      {
+        "n": "3",
+        "title": "Uygulama gibi dursun",
+        "body": "Tam ekran için <b>⛶</b> düğmesine dokun ya da tarayıcının <b>Ana ekrana ekle</b> seçeneğini kullan. Tam ekranda deck açıkken tablet uyumaz."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "Temel",
+      "title": "Butonlar sadece tuş göndermez",
+      "body": "Kalem simgesiyle düzenleme moduna gir, sonra herhangi bir butona dokunarak düzenle — ya da basılı tutup başka yere sürükle. Her butonun bir etiketi, simgesi, rengi ve tek bir eylemi vardır.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Etiket, simge seçici ve renk." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Eylem tipi ve hazır kısayollar." }
+      ],
+      "table": {
+        "head": ["Eylem", "Ne yapar"],
+        "rows": [
+          ["Klavye kısayolu", "Her kombinasyon — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, medya tuşları, ses"],
+          ["Metin yaz", "Hazır bir metni senin yerine yazar, satır sonları dahil"],
+          ["Uygulama / dosya aç", "Bir program, belge veya klasör"],
+          ["Web adresi aç", "Bağlantıyı varsayılan tarayıcında açar"],
+          ["Komut çalıştır", "PowerShell ya da CMD"],
+          ["Fare", "Tablet ekranını touchpad'e çevirir"],
+          ["Sıralı adımlar", "Birden çok adımı sırayla, aralarında beklemeyle"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Simgeler",
+      "title": "Emoji seç, ya da uygulamanın kendi simgesini kullan",
+      "body": "Düzenleyicide simge ızgarası var; emojiyi elle yazmak zorunda değilsin. Programlar için daha iyisi var: kısayolu masaüstünden sürükleyip bırak, uygulamanın gerçek simgesi de onunla gelsin.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Düzenleme modu. Her butonda kalem rozeti var; basılı tutunca sıralayabilirsin." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Masaüstü",
+      "title": "Kısayolu masaüstünden sürükleyip bırak",
+      "body": "Düzenleyiciyi tepsi simgesinden aç: aynı arayüzü içinde barındıran gerçek bir masaüstü penceresi gelir. Üstteki şeride bir kısayol, program, klasör veya dosya bırak — hedefi çözülür, uygulama simgesi çıkarılır ve buton tablette anında belirir.",
+      "note": "Düzenleyicinin tarayıcı sekmesi değil de native bir pencere olmasının belirli bir sebebi var. Tarayıcılar bırakılan dosyanın <em>yolunu</em> web sayfasına asla vermez, üstelik Chromium bırakılan kısayolu hedefine çözer — yani tarayıcı, programın nerede olduğunu öğrenmek yerine programın tamamını okumaya çalışırdı.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "Masaüstü düzenleyicisi. Soldan sayfayı seç, kısayolları şeride bırak.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Hedef sayfa" },
+            { "x": 62, "y": 13, "label": "Kısayolları buraya bırak" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "İmleç",
+      "title": "Ekran touchpad'e dönüşür",
+      "body": "Bir butona <b>Fare</b> eylemini ver; bastığında tüm tablet dokunmatik yüzeye dönüşür. İki kaydırıcı imleç ve kaydırma hızını ayarlar, kaydırma yönü de kendi alışkanlığına göre ters çevrilebilir.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Touchpad kipi; altta, tahmin etmek istemediğin tıklamalar için açık düğmeler." }
+      ],
+      "table": {
+        "head": ["Jest", "Sonuç"],
+        "rows": [
+          ["Sürükle", "İmleci hareket ettirir"],
+          ["Dokun", "Sol tık"],
+          ["Çift dokun", "Çift tık"],
+          ["Çift dokun, sonra sürükle", "Sol tuşu basılı tutar — metin seç, pencere taşı"],
+          ["Uzun bas", "Sağ tık"],
+          ["İki parmak", "Dikey ve yatay kaydırma"],
+          ["İki parmakla dokun", "Sağ tık"],
+          ["Kıstır", "Yakınlaştır"],
+          ["Üç parmak ↑ / ↓", "Görev görünümü / masaüstünü göster"],
+          ["Üç parmak ← / →", "Sanal masaüstleri arasında geçiş"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Alan",
+      "title": "İhtiyacın kadar sayfa",
+      "body": "Butonları sayfalara ayır — biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Deck üzerinde sağa sola kaydırarak sayfalar arasında geçersin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; istediğin yere de sürükleyebilirsin.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Görünüm",
+      "title": "On bir tema, butonlar da ona uyar",
+      "body": "Temaların çoğu bilinen geliştirici renk şemalarından geliyor — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — artı bilinçli olarak iki renkli iki terminal görünümü ve nötr açık ile koyu. Tema değiştirdiğinde buton renkleri tonları korunarak yeni palete çevrilir; mavi buton yeni temanın mavisi olur ve kurduğun düzen aynı okunur.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Her kart kendi zeminini ve paletini önizler." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "Aynı deck, açık temada." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Ekran",
+      "title": "Ekranın tamamını kullan",
+      "body": "<b>Ekrana yay</b> seçeneği satırların yüksekliği paylaşmasını sağlar; iki satır buton altta boşluk bırakmak yerine ekranı doldurur. <b>Çubukları otomatik gizle</b> ise üst ve alt çubukları tamamen kaldırır, geriye yalnızca butonlar kalır — yüzen buton onları geri getirir, ya da boş bir alana üç saniye basılı tut.",
+      "note": "Tablet uyanık kalacak şekilde de ayarlanmıştır: deck açıkken ekran sönmez."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Dil",
+      "title": "Yirmi dil, kendiliğinden seçilir",
+      "body": "Arayüz İngilizce, Türkçe, İspanyolca, Fransızca, Almanca, İtalyanca, Portekizce, Rusça, Ukraynaca, Lehçe, Arapça, Farsça, Urduca, Çince, Japonca, Korece, Hintçe, Bengalce, Endonezce ve Vietnamca ile gelir. Sen bir dil seçmediysen tarayıcının dilini izler; Arapça, Farsça ve Urduca düzeni sağdan sola çevirir. Seçim cihaz başınadır, yani tablet ile masaüstü düzenleyicisi farklı dillerde olabilir."
+    }
+  ],
+
+  "notes": {
+    "title": "Bilinmesi gerekenler",
+    "items": [
+      { "k": "Güvenlik duvarı", "v": "Windows ilk seferde bağlantıya izin vermeni isteyebilir. Tablet sunucuya ulaşamıyorsa özel ağlar için izin ver." },
+      { "k": "VPN", "v": "Bazı VPN istemcileri yerel ağ trafiğini engeller. Hiçbir şey bağlanmıyorsa VPN kapalıyken dene." },
+      { "k": "Yönetici pencereleri", "v": "Yönetici olarak çalışan bir program, normal bir programdan girdi kabul etmez. Kısayolların o pencerelere ulaşması gerekiyorsa sunucuyu yönetici olarak çalıştır." },
+      { "k": "Eşleştirme kodu", "v": "Ağındaki kodu bilen herkes bilgisayarı kontrol edebilir, komut çalıştırmak dahil. Kodu paylaşma ve güvenmediğin ağlarda yayınlama." }
+    ]
+  },
+
+  "footer": "Surecut Deck — Windows için kendi sunucusuyla çalışan bir kısayol paneli."
+}

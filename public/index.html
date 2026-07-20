@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<meta name="theme-color" content="#3c3c3f">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="icon.svg">
+<link rel="stylesheet" href="style.css">
+<title>Surecut Deck</title>
+</head>
+<body>
+
+<!-- Eslestirme ekrani -->
+<div id="pair" class="screen">
+  <div class="pair-box">
+    <div class="pair-icon">⌨️</div>
+    <h1>Surecut Deck</h1>
+    <p class="muted" data-i18n="pairHint"></p>
+    <input id="pairInput" type="text" inputmode="latin" autocapitalize="characters"
+           autocomplete="off" spellcheck="false" maxlength="8" placeholder="ABCD1234">
+    <button id="pairBtn" class="primary" data-i18n="connect"></button>
+    <div id="pairError" class="error"></div>
+    <div class="pair-lang">
+      <select id="pairLang"></select>
+    </div>
+  </div>
+</div>
+
+<!-- Ana ekran -->
+<div id="app" class="screen hidden">
+  <header>
+    <div id="pageTabs" class="tabs"></div>
+    <div class="header-actions">
+      <span id="status" class="status" data-i18n-title="connStatus"></span>
+      <button id="themeToggle" class="icon-btn" data-i18n-title="theme">🎨</button>
+      <button id="fsToggle" class="icon-btn" data-i18n-title="fullscreen">⛶</button>
+      <button id="editToggle" class="icon-btn" data-i18n-title="edit">✏️</button>
+    </div>
+  </header>
+
+  <main id="grid" class="grid"></main>
+
+  <div id="editBar" class="edit-bar hidden">
+    <button id="addBtn" class="ghost" data-i18n="addButton"></button>
+    <button id="addPageBtn" class="ghost" data-i18n="addPage"></button>
+    <button id="delPageBtn" class="ghost danger" data-i18n="deletePage"></button>
+    <label class="cols">
+      <span data-i18n="columns"></span>
+      <input id="colsInput" type="number" min="2" max="10" step="1">
+    </label>
+  </div>
+
+  <!-- Yuzen menu butonu: cubuklar gizliyken tek erisim noktasi -->
+  <button id="fab" class="fab" data-i18n-title="menu">☰</button>
+
+  <div id="fabMenu" class="fab-menu hidden">
+    <div id="fabPages" class="fab-pages"></div>
+    <button type="button" class="fab-item" data-act="bars">▤&nbsp; <span data-i18n="showBars"></span></button>
+    <button type="button" class="fab-item" data-act="edit">✏️&nbsp; <span data-i18n="edit"></span></button>
+    <button type="button" class="fab-item" data-act="theme">🎨&nbsp; <span data-i18n="theme"></span></button>
+    <button type="button" class="fab-item" data-act="fs">⛶&nbsp; <span data-i18n="fullscreen"></span></button>
+    <div class="fab-tip" data-i18n="dragTip"></div>
+  </div>
+
+  <div id="toast" class="toast"></div>
+</div>
+
+<!-- Touchpad -->
+<div id="touchpad" class="touchpad hidden">
+  <div class="tp-head">
+    <span class="tp-title" data-i18n="mouse"></span>
+    <label class="tp-sens">
+      <span data-i18n="cursor"></span>
+      <input id="tpSens" type="range" min="0.5" max="4" step="0.1">
+    </label>
+    <label class="tp-sens">
+      <span data-i18n="scrollSpeed"></span>
+      <input id="tpScrollSpeed" type="range" min="0.4" max="3" step="0.1">
+    </label>
+    <div class="tp-dir">
+      <span data-i18n="direction"></span>
+      <button id="tpDirNormal" type="button" class="tp-dir-btn" data-i18n="normal"></button>
+      <button id="tpDirReverse" type="button" class="tp-dir-btn" data-i18n="reverse"></button>
+    </div>
+    <button id="tpClose" class="icon-btn">✕</button>
+  </div>
+
+  <div id="tpSurface" class="tp-surface">
+    <div id="tpStatus" class="tp-status"></div>
+    <div class="tp-hint">
+      <span data-i18n="tpHint1"></span><br>
+      <span data-i18n="tpHint2"></span><br>
+      <span data-i18n="tpHint3"></span><br>
+      <span data-i18n="tpHint4"></span>
+    </div>
+  </div>
+
+  <div class="tp-buttons">
+    <button id="tpLeft" class="tp-btn" data-i18n="leftClick"></button>
+    <button id="tpMid" class="tp-btn narrow" data-i18n="middle"></button>
+    <button id="tpRight" class="tp-btn" data-i18n="rightClick"></button>
+    <button id="tpDrag" class="tp-btn narrow" data-i18n="hold" data-i18n-title="holdTitle"></button>
+  </div>
+</div>
+
+<!-- Tema paneli -->
+<div id="themeModal" class="modal hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 data-i18n="theme"></h2>
+      <button id="themeClose" class="icon-btn">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="field">
+        <span data-i18n="language"></span>
+        <select id="langSelect"></select>
+      </div>
+
+      <div class="field">
+        <span data-i18n="appearance"></span>
+        <div id="themeList" class="theme-list"></div>
+      </div>
+
+      <div class="field">
+        <span data-i18n="accentColor"></span>
+        <div id="accentRow" class="color-row"></div>
+        <div class="hint" style="margin-top:10px" data-i18n="accentHint"></div>
+      </div>
+
+      <div class="field">
+        <span data-i18n="themeColors"></span>
+        <div id="palettePreview" class="palette-preview"></div>
+      </div>
+
+      <div class="field">
+        <span data-i18n="screen"></span>
+        <label class="check">
+          <input id="autoHide" type="checkbox">
+          <span data-i18n="autoHideBars"></span>
+        </label>
+        <div class="hint" style="margin-top:8px" data-i18n="autoHideHint"></div>
+        <label class="check" style="margin-top:12px">
+          <input id="stretchFill" type="checkbox">
+          <span data-i18n="stretchFill"></span>
+        </label>
+        <div class="hint" style="margin-top:8px" data-i18n="stretchHint"></div>
+        <label class="check" style="margin-top:12px">
+          <input id="hideFab" type="checkbox">
+          <span data-i18n="hideFab"></span>
+        </label>
+      </div>
+
+      <div class="field">
+        <span data-i18n="recolor"></span>
+        <div class="recolor-row">
+          <button id="applyPalette" type="button" class="ghost" data-i18n="distribute"></button>
+          <button id="applyMono" type="button" class="ghost" data-i18n="monochrome"></button>
+        </div>
+        <div class="hint" style="margin-top:10px" data-i18n="recolorHint"></div>
+      </div>
+    </div>
+
+    <div class="modal-foot">
+      <div class="spacer"></div>
+      <button id="themeDone" class="primary" data-i18n="ok"></button>
+    </div>
+  </div>
+</div>
+
+<!-- Buton duzenleme paneli -->
+<div id="editor" class="modal hidden">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h2 id="editorTitle" data-i18n="buttonTitle"></h2>
+      <button id="editorClose" class="icon-btn">✕</button>
+    </div>
+
+    <div class="modal-body">
+      <div class="row">
+        <label class="field grow">
+          <span data-i18n="label"></span>
+          <input id="fLabel" type="text">
+        </label>
+        <label class="field narrow">
+          <span data-i18n="icon"></span>
+          <input id="fIcon" type="text" maxlength="4" placeholder="📋">
+        </label>
+      </div>
+
+      <div class="field">
+        <span data-i18n="pickIcon"></span>
+        <div id="emojiGrid" class="emoji-grid"></div>
+      </div>
+
+      <div id="iconImgRow" class="field icon-img-row hidden">
+        <span data-i18n="appIcon"></span>
+        <div class="icon-img-box">
+          <img id="iconImgPrev" alt="">
+          <button id="iconImgClear" type="button" class="ghost" data-i18n="removeImage"></button>
+        </div>
+      </div>
+
+      <div class="field">
+        <span data-i18n="color"></span>
+        <div id="colorRow" class="color-row"></div>
+      </div>
+
+      <div class="field">
+        <span data-i18n="actionType"></span>
+        <select id="fType">
+          <option value="hotkey" data-i18n="actHotkey"></option>
+          <option value="text" data-i18n="actText"></option>
+          <option value="launch" data-i18n="actLaunch"></option>
+          <option value="url" data-i18n="actUrl"></option>
+          <option value="command" data-i18n="actCommand"></option>
+          <option value="touchpad" data-i18n="actTouchpad"></option>
+          <option value="sequence" data-i18n="actSequence"></option>
+        </select>
+      </div>
+
+      <!-- hotkey -->
+      <div class="pane" data-type="hotkey">
+        <label class="field">
+          <span data-i18n="keyCombo"></span>
+          <input id="fKeys" type="text" placeholder="ctrl+shift+esc" autocapitalize="off" spellcheck="false">
+        </label>
+        <div class="hint"><span data-i18n="keyHint"></span> <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code></div>
+        <div id="keyPresets" class="presets"></div>
+      </div>
+
+      <!-- text -->
+      <div class="pane hidden" data-type="text">
+        <label class="field">
+          <span data-i18n="textToType"></span>
+          <textarea id="fText" rows="4"></textarea>
+        </label>
+        <div class="hint" data-i18n="textHint"></div>
+      </div>
+
+      <!-- launch -->
+      <div class="pane hidden" data-type="launch">
+        <label class="field">
+          <span data-i18n="target"></span>
+          <input id="fTarget" type="text" placeholder="notepad.exe" autocapitalize="off" spellcheck="false">
+        </label>
+        <label class="field">
+          <span data-i18n="args"></span>
+          <input id="fArgs" type="text" autocapitalize="off" spellcheck="false">
+        </label>
+        <div class="hint" data-i18n="launchHint"></div>
+      </div>
+
+      <!-- url -->
+      <div class="pane hidden" data-type="url">
+        <label class="field">
+          <span data-i18n="address"></span>
+          <input id="fUrl" type="url" placeholder="https://example.com" autocapitalize="off" spellcheck="false">
+        </label>
+      </div>
+
+      <!-- command -->
+      <div class="pane hidden" data-type="command">
+        <label class="field">
+          <span data-i18n="shell"></span>
+          <select id="fShell">
+            <option value="powershell">PowerShell</option>
+            <option value="cmd">CMD</option>
+          </select>
+        </label>
+        <label class="field">
+          <span data-i18n="command"></span>
+          <textarea id="fCommand" rows="3" placeholder="Stop-Service Spooler" autocapitalize="off" spellcheck="false"></textarea>
+        </label>
+      </div>
+
+      <!-- touchpad -->
+      <div class="pane hidden" data-type="touchpad">
+        <div class="hint" style="margin-top:0" data-i18n="tpPaneHint"></div>
+      </div>
+
+      <!-- sequence -->
+      <div class="pane hidden" data-type="sequence">
+        <label class="field">
+          <span data-i18n="steps"></span>
+          <textarea id="fSequence" rows="6" autocapitalize="off" spellcheck="false"
+            placeholder="key ctrl+c&#10;delay 200&#10;key alt+tab&#10;key ctrl+v&#10;launch notepad.exe"></textarea>
+        </label>
+        <div class="hint"><span data-i18n="stepsHint"></span> <code>key …</code>, <code>text …</code>, <code>delay ms</code>, <code>launch …</code>, <code>url …</code>, <code>cmd …</code></div>
+      </div>
+    </div>
+
+    <div class="modal-foot">
+      <button id="editorDelete" class="ghost danger" data-i18n="del"></button>
+      <div class="spacer"></div>
+      <button id="editorTest" class="ghost" data-i18n="test"></button>
+      <button id="editorSave" class="primary" data-i18n="save"></button>
+    </div>
+  </div>
+</div>
+
+<script src="i18n.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

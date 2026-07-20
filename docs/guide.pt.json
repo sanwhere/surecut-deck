@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Espaço",
       "title": "Desliza entre páginas",
-      "body": "Agrupa os botões em páginas: uma para edição, outra para jogos, outra para aquela reunião de onde nunca sais. <b>Desliza para a esquerda ou para a direita em qualquer ponto do painel</b> para mudar de uma para outra; o nome da página aparece por instantes, para saberes onde foste parar. Em modo de edição o mesmo gesto reordena os botões, por isso os dois nunca se atropelam.",
+      "body": "Agrupa os botões em páginas: uma para edição, outra para jogos, outra para aquela reunião de onde nunca sais. <b>Desliza para a esquerda ou para a direita em qualquer ponto do painel</b> para mudar de uma para outra; o nome da página aparece por instantes, para saberes onde foste parar. Em modo de edição o mesmo gesto reordena os botões, por isso os dois nunca se atropelam. Para mover uma peça para outra página, arrasta-a para o separador dessa página.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Um deslize passa de uma página para a seguinte." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Espaço",
       "title": "Páginas, colunas e o botão flutuante",
-      "body": "Em modo de edição a barra de baixo acrescenta e remove páginas e define quantas colunas a grelha usa. Toca outra vez no separador de uma página para lhe mudares o nome. O botão flutuante leva-te às páginas, ao editor e aos temas mesmo com as barras escondidas, e podes arrastá-lo para onde te der jeito, já que é a única coisa sempre no ecrã.",
+      "body": "Em modo de edição a barra de baixo acrescenta e remove páginas e define quantas colunas a grelha usa. A contagem de colunas pertence à página em que estás, por isso uma página de medidores pode ter quatro colunas enquanto uma página de atalhos tem cinco. Toca outra vez no separador de uma página para lhe mudares o nome. O botão flutuante leva-te às páginas, ao editor e aos temas mesmo com as barras escondidas, e podes arrastá-lo para onde te der jeito, já que é a única coisa sempre no ecrã.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "O menu flutuante: páginas, barras, modo de edição, tema e ecrã inteiro." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Modo de edição, com os controlos de páginas e colunas ao longo do fundo." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Leituras",
+      "title": "Põe os sinais vitais da máquina no painel",
+      "body": "Uma peça pode ser um medidor em vez de um botão: processador, memória, gráficos, espaço em disco, atividade do disco, tráfego de rede, temperatura, tempo ligado e um relógio. Os medidores ficam na mesma grelha dos botões, por isso as páginas, as colunas, o esticar para preencher e o arrastar para reordenar funcionam neles sem teres de aprender nada de novo. São para ler e não para carregar, por isso são desenhados como instrumentos embutidos na superfície e não como peças preenchidas.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Mostradores, barras, uma leitura de rede com o seu histórico recente, e um botão vulgar a partilhar a mesma página." }
+      ],
+      "table": {
+        "head": ["Medidor", "O que mostra"],
+        "rows": [
+          ["CPU", "Carga do processador em todos os núcleos"],
+          ["Memória", "Em uso em percentagem, com os valores reais por baixo"],
+          ["GPU", "Carga dos gráficos"],
+          ["Disco", "Quão cheia está uma unidade; escolhes qual"],
+          ["Atividade do disco", "Quão ocupados estão os discos"],
+          ["Rede", "Tráfego de subida e de descida, com o traço do último meio minuto"],
+          ["Temperatura", "Do sensor térmico da placa-mãe"],
+          ["Tempo ligado", "Há quanto tempo a máquina está a funcionar"],
+          ["Relógio", "As horas, que não precisam de medição nenhuma"]
+        ]
+      },
+      "note": "A temperatura exige que o servidor corra como administrador, e há placas-mãe que simplesmente não publicam sensor nenhum. O medidor diz de qual dos dois casos se trata, porque um deles podes resolver e o outro não."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Leituras",
+      "title": "Acrescenta um da mesma forma que acrescentas um botão",
+      "body": "Em modo de edição, acrescenta uma peça e define a sua ação como <b>Medidor do sistema</b>. Escolhe o que medir, se é desenhado como mostrador ou como barra, e a sua cor. A pré-visualização por baixo é ao vivo e mostra a leitura real antes de guardares. Deixa a etiqueta vazia e o medidor dá nome a si próprio.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "A escolha do que medir, com pré-visualização ao vivo do resultado." }
+      ],
+      "note": "A medição só corre enquanto estiver aberta uma página com um medidor, e para quando sai o último espectador, por isso um painel sem medidores não custa nada."
+    },
+    {
       "id": "themes",
       "eyebrow": "Aspeto",
       "title": "Onze temas, e os botões acompanham",
       "body": "A maioria dos temas vem de esquemas de cor conhecidos entre programadores (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), mais dois visuais de terminal propositadamente a duas cores e um claro e um escuro neutros. Ao mudar de tema, as cores dos teus botões são convertidas para a nova paleta mantendo os tons: um botão azul passa a ser o azul do novo tema e a tua disposição continua a ler-se igual.",
-      "note": "Se um painel acabar todo da mesma cor, <b>Distribuir a paleta do tema</b> reparte essas cores pelos botões; <b>Pintar tudo com a cor de destaque</b> volta a pô-los todos numa só. Qualquer botão pode também levar uma cor tua a partir do seletor, e o destaque usado pelas barras e pelo botão flutuante é escolha tua. O texto dos botões alterna sozinho entre preto e branco, seja qual for a cor em que pares.",
+      "note": "<b>Painel</b> é o caso à parte: em vez de uma paleta muda a linguagem visual, transformando os botões em mostradores de instrumento como os dos medidores, com a cor reduzida a uma faixa ao longo do bordo superior. Também podes dar aos medidores um tema só deles, por isso os botões podem seguir um tema enquanto as leituras mantêm outro. Se um painel acabar todo da mesma cor, <b>Distribuir a paleta do tema</b> reparte essas cores pelos botões; <b>Pintar tudo com a cor de destaque</b> volta a pô-los todos numa só. Qualquer botão pode também levar uma cor tua a partir do seletor, e o destaque usado pelas barras e pelo botão flutuante é escolha tua. O texto dos botões alterna sozinho entre preto e branco, seja qual for a cor em que pares.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Cada cartão mostra o seu próprio fundo e paleta." },
         { "src": "08-light.png", "frame": "tablet", "caption": "O mesmo painel com um tema claro." }

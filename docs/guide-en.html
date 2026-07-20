@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>How it works</p>
-        <ul><li><a href="#buttons"><b>01</b>The basics</a></li><li><a href="#icons"><b>02</b>Icons</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Sync</a></li><li><a href="#mouse"><b>05</b>Pointer</a></li><li><a href="#pages"><b>06</b>Space</a></li><li><a href="#managepages"><b>07</b>Space</a></li><li><a href="#themes"><b>08</b>Looks</a></li><li><a href="#screen"><b>09</b>Screen</a></li><li><a href="#languages"><b>10</b>Language</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>The basics</a></li><li><a href="#icons"><b>02</b>Icons</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Sync</a></li><li><a href="#mouse"><b>05</b>Pointer</a></li><li><a href="#pages"><b>06</b>Space</a></li><li><a href="#managepages"><b>07</b>Space</a></li><li><a href="#gauges"><b>08</b>Readouts</a></li><li><a href="#gaugeedit"><b>09</b>Readouts</a></li><li><a href="#themes"><b>10</b>Looks</a></li><li><a href="#screen"><b>11</b>Screen</a></li><li><a href="#languages"><b>12</b>Language</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">Space</p>
   <h2>Swipe between pages</h2>
-  <p class="lead">Group buttons into pages: one for editing, one for games, one for the meeting you are always in. <b>Swipe left or right anywhere on the deck</b> to move between them; the page name appears briefly so you know where you landed. In edit mode the same gesture reorders buttons instead, so the two never collide.</p>
+  <p class="lead">Group buttons into pages: one for editing, one for games, one for the meeting you are always in. <b>Swipe left or right anywhere on the deck</b> to move between them; the page name appears briefly so you know where you landed. In edit mode the same gesture reorders buttons instead, so the two never collide. To move a tile to another page, drag it onto that page's tab.</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="One swipe moves from one page to the next." loading="lazy"></div><figcaption>One swipe moves from one page to the next.</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">Space</p>
   <h2>Pages, columns and the floating button</h2>
-  <p class="lead">In edit mode the bottom bar adds and removes pages and sets how many columns the grid uses. Tap a page tab again to rename it. The floating button reaches the pages, the editor and the themes even when the bars are hidden, and you can drag it anywhere that suits you, since it is the one thing always on screen.</p>
+  <p class="lead">In edit mode the bottom bar adds and removes pages and sets how many columns the grid uses. The column count belongs to the page you are on, so a page of gauges can be four across while a page of shortcuts is five. Tap a page tab again to rename it. The floating button reaches the pages, the editor and the themes even when the bars are hidden, and you can drag it anywhere that suits you, since it is the one thing always on screen.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="The floating menu: pages, bars, edit mode, theme and full screen." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>The floating menu: pages, bars, edit mode, theme and full screen.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Edit mode, with the page and column controls along the bottom." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Edit mode, with the page and column controls along the bottom.</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">Readouts</p>
+  <h2>Put the machine's vital signs on the deck</h2>
+  <p class="lead">A tile can be a gauge instead of a button: processor, memory, graphics, disk space, disk activity, network throughput, temperature, uptime and a clock. Gauges sit in the same grid as the buttons, so pages, columns, stretch to fill and drag to reorder all work on them without you learning anything new. They are read rather than pressed, so they are drawn as instruments set into the surface rather than filled tiles.</p>
+  <aside class="note">Temperature needs the host to run as administrator, and some motherboards do not publish a sensor at all. The gauge says which of the two it is, because one you can fix and the other you cannot.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="Dials, bars, a network readout with its recent history, and an ordinary button sharing the same page." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Dials, bars, a network readout with its recent history, and an ordinary button sharing the same page.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Gauge</th><th>What it shows</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>Processor load across all cores</td></tr><tr><td class="k">Memory</td><td>In use as a percentage, with the actual figures underneath</td></tr><tr><td class="k">GPU</td><td>Graphics load</td></tr><tr><td class="k">Disk</td><td>How full a drive is; pick which one</td></tr><tr><td class="k">Disk activity</td><td>How busy the disks are</td></tr><tr><td class="k">Network</td><td>Up and down throughput, with a trace of the last half minute</td></tr><tr><td class="k">Temperature</td><td>From the motherboard's thermal sensor</td></tr><tr><td class="k">Uptime</td><td>How long the machine has been running</td></tr><tr><td class="k">Clock</td><td>The time, which needs no measurement at all</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">Readouts</p>
+  <h2>Add one the same way you add a button</h2>
+  <p class="lead">In edit mode, add a tile and set its action to <b>System gauge</b>. Choose what to measure, whether it is drawn as a dial or a bar, and its colour. The preview underneath is live, showing the real reading before you save. Leave the label empty and the gauge names itself.</p>
+  <aside class="note">Measurement only runs while a page with a gauge is open, and stops when the last viewer leaves, so a deck without gauges costs nothing.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="Choosing what to measure, with a live preview of the result." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Choosing what to measure, with a live preview of the result.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Looks</p>
   <h2>Eleven themes, and the buttons follow</h2>
   <p class="lead">Most themes come from well-known developer colour schemes: Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine, plus two deliberately two-tone terminal looks and neutral light and dark. Changing the theme converts your button colours to the new palette while keeping their hues, so a blue button becomes the new theme's blue and your layout still reads the same.</p>
-  <aside class="note">If a deck ends up all one colour, <b>Spread theme palette</b> deals the theme's colours across the buttons; <b>Paint all in accent colour</b> puts them all back to one. Any button can also take a colour of your own from the picker, and the accent used by the bars and the floating button is yours to choose. Button text switches between black and white on its own, whatever colour you land on.</aside>
+  <aside class="note"><b>Panel</b> is the odd one out: instead of a palette it changes the idiom, turning buttons into instrument faces like the gauges, with their colour reduced to a stripe along the top edge. Gauges can also be given a theme of their own, so the buttons can follow one theme while the readouts keep another. If a deck ends up all one colour, <b>Spread theme palette</b> deals the theme's colours across the buttons; <b>Paint all in accent colour</b> puts them all back to one. Any button can also take a colour of your own from the picker, and the accent used by the bars and the floating button is yours to choose. Button text switches between black and white on its own, whatever colour you land on.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Each card previews its own background and palette." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Each card previews its own background and palette.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="The same deck on a light theme." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>The same deck on a light theme.</figcaption></figure>
   
 </section>

@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>しくみ</p>
-        <ul><li><a href="#buttons"><b>01</b>基本</a></li><li><a href="#icons"><b>02</b>アイコン</a></li><li><a href="#dragdrop"><b>03</b>デスクトップ</a></li><li><a href="#sync"><b>04</b>同期</a></li><li><a href="#mouse"><b>05</b>ポインター</a></li><li><a href="#pages"><b>06</b>広さ</a></li><li><a href="#managepages"><b>07</b>広さ</a></li><li><a href="#themes"><b>08</b>見た目</a></li><li><a href="#screen"><b>09</b>画面</a></li><li><a href="#languages"><b>10</b>言語</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>基本</a></li><li><a href="#icons"><b>02</b>アイコン</a></li><li><a href="#dragdrop"><b>03</b>デスクトップ</a></li><li><a href="#sync"><b>04</b>同期</a></li><li><a href="#mouse"><b>05</b>ポインター</a></li><li><a href="#pages"><b>06</b>広さ</a></li><li><a href="#managepages"><b>07</b>広さ</a></li><li><a href="#gauges"><b>08</b>計器</a></li><li><a href="#gaugeedit"><b>09</b>計器</a></li><li><a href="#themes"><b>10</b>見た目</a></li><li><a href="#screen"><b>11</b>画面</a></li><li><a href="#languages"><b>12</b>言語</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">広さ</p>
   <h2>スワイプでページを移る</h2>
-  <p class="lead">ボタンをページごとにまとめましょう。編集用に一枚、ゲーム用に一枚、いつも入っているあの会議用に一枚。<b>デッキ上のどこでも左右にスワイプ</b>すれば行き来できます。ページ名が短いあいだ表示されるので、どこに来たのかすぐ分かります。編集モードでは同じ動きがボタンの並べ替えになるため、二つがぶつかることはありません。</p>
+  <p class="lead">ボタンをページごとにまとめましょう。編集用に一枚、ゲーム用に一枚、いつも入っているあの会議用に一枚。<b>デッキ上のどこでも左右にスワイプ</b>すれば行き来できます。ページ名が短いあいだ表示されるので、どこに来たのかすぐ分かります。編集モードでは同じ動きがボタンの並べ替えになるため、二つがぶつかることはありません。タイルを別のページへ移すには、そのページのタブの上へドラッグしてください。</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="ひとスワイプで、次のページへ。" loading="lazy"></div><figcaption>ひとスワイプで、次のページへ。</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">広さ</p>
   <h2>ページ、列数、そしてフローティングボタン</h2>
-  <p class="lead">編集モードでは、下のバーからページを増やしたり減らしたり、グリッドの列数を決めたりできます。ページのタブをもう一度タップすれば名前を変えられます。バーを隠していても、フローティングボタンからページ、エディター、テーマに行けます。常に画面に出ている唯一のものなので、使いやすい場所へ自由にドラッグして構いません。</p>
+  <p class="lead">編集モードでは、下のバーからページを増やしたり減らしたり、グリッドの列数を決めたりできます。列数はいま開いているページごとのものなので、計器のページは四列、ショートカットのページは五列といった使い分けができます。ページのタブをもう一度タップすれば名前を変えられます。バーを隠していても、フローティングボタンからページ、エディター、テーマに行けます。常に画面に出ている唯一のものなので、使いやすい場所へ自由にドラッグして構いません。</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="フローティングメニュー：ページ、バー、編集モード、テーマ、全画面。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>フローティングメニュー：ページ、バー、編集モード、テーマ、全画面。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="編集モード。下にページと列数の操作が並びます。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>編集モード。下にページと列数の操作が並びます。</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">計器</p>
+  <h2>パソコンの状態をデッキに並べる</h2>
+  <p class="lead">タイルはボタンではなく計器にもできます。プロセッサー、メモリ、グラフィックス、ディスクの空き、ディスクの動き、ネットワークの流量、温度、稼働時間、そして時計。計器はボタンと同じグリッドに収まるので、ページも列数も、画面いっぱいに広げる設定も、ドラッグでの並べ替えも、そのまま働きます。新しく覚えることはありません。押すものではなく読むものなので、色で塗ったタイルではなく、面に埋め込まれた計器として描かれます。</p>
+  <aside class="note">温度はサーバーを管理者として実行する必要があり、そもそもセンサーを出していないマザーボードもあります。計器はそのどちらなのかを示します。前者は直せますが、後者は直しようがないからです。</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="ダイヤル、バー、直近の推移を添えたネットワークの表示、そして同じページに並ぶ普通のボタン。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>ダイヤル、バー、直近の推移を添えたネットワークの表示、そして同じページに並ぶ普通のボタン。</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>計器</th><th>表示する内容</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>全コアのプロセッサー負荷</td></tr><tr><td class="k">メモリ</td><td>使用中の割合と、その下に実際の数値</td></tr><tr><td class="k">GPU</td><td>グラフィックスの負荷</td></tr><tr><td class="k">ディスク</td><td>ドライブがどれだけ埋まっているか。どれを見るかは選べます</td></tr><tr><td class="k">ディスク使用率</td><td>ディスクがどれだけ動いているか</td></tr><tr><td class="k">ネットワーク</td><td>上りと下りの流量。直近三十秒の軌跡付き</td></tr><tr><td class="k">温度</td><td>マザーボードの温度センサーから</td></tr><tr><td class="k">稼働時間</td><td>パソコンが動き続けている長さ</td></tr><tr><td class="k">時計</td><td>時刻。これだけは測る必要がありません</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">計器</p>
+  <h2>ボタンを足すのと同じやり方で足せます</h2>
+  <p class="lead">編集モードでタイルを足し、その動作を<b>システムモニター</b>にします。何を測るか、ダイヤルとバーのどちらで描くか、そして色を選びます。下のプレビューは生きていて、保存する前から本物の値が見えます。ラベルを空のままにすれば、計器が自分で名乗ります。</p>
+  <aside class="note">計測は計器のあるページが開いているあいだだけ動き、最後のひとりが離れると止まります。計器のないデッキには何の負担もかかりません。</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="何を測るかを選ぶところ。結果はその場でプレビューされます。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>何を測るかを選ぶところ。結果はその場でプレビューされます。</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">見た目</p>
   <h2>十一のテーマ、ボタンもそれに合わせて変わる</h2>
   <p class="lead">多くは開発者になじみのある配色から取っています：Nord、Gruvbox、Solarized、Catppuccin Mocha、Rosé Pine。加えて、あえて二色だけの端末風が二つと、中立的な明るいテーマと暗いテーマ。テーマを変えると、ボタンの色は色相を保ったまま新しい配色へ変換されます。青いボタンは新しいテーマの青になり、並びの読み取りやすさはそのままです。</p>
-  <aside class="note">デッキが一色になってしまったら、<b>テーマの配色を振り分ける</b>でテーマの色をボタンに配り直せます。<b>すべてアクセントカラーで塗る</b>を使えば、また一色に戻ります。どのボタンにもカラーピッカーから好きな色を与えられますし、バーとフローティングボタンが使うアクセントカラーも自分で選べます。どんな色にしても、ボタンの文字は黒と白のあいだで自動的に切り替わります。</aside>
+  <aside class="note"><b>パネル</b>だけは毛色が違います。配色を変えるのではなく作法そのものを変え、ボタンを計器と同じ文字盤にして、色は上辺の細い帯だけに残します。計器にも別のテーマを与えられるので、ボタンはひとつのテーマに従い、表示のほうは別のテーマのまま、ということもできます。デッキが一色になってしまったら、<b>テーマの配色を振り分ける</b>でテーマの色をボタンに配り直せます。<b>すべてアクセントカラーで塗る</b>を使えば、また一色に戻ります。どのボタンにもカラーピッカーから好きな色を与えられますし、バーとフローティングボタンが使うアクセントカラーも自分で選べます。どんな色にしても、ボタンの文字は黒と白のあいだで自動的に切り替わります。</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="各カードが自分の背景と配色を見せています。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>各カードが自分の背景と配色を見せています。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="同じデッキを明るいテーマで。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>同じデッキを明るいテーマで。</figcaption></figure>
   
 </section>

@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Platz",
       "title": "Wische zwischen den Seiten",
-      "body": "Fasse Schaltflächen zu Seiten zusammen: eine zum Bearbeiten, eine für Spiele, eine für das Meeting, in dem du immer sitzt. <b>Wische an beliebiger Stelle auf dem Pult nach links oder rechts</b>, um zu wechseln; der Seitenname erscheint kurz, damit du weißt, wo du gelandet bist. Im Bearbeitungsmodus sortiert dieselbe Geste stattdessen die Schaltflächen, die beiden kommen sich also nie in die Quere.",
+      "body": "Fasse Schaltflächen zu Seiten zusammen: eine zum Bearbeiten, eine für Spiele, eine für das Meeting, in dem du immer sitzt. <b>Wische an beliebiger Stelle auf dem Pult nach links oder rechts</b>, um zu wechseln; der Seitenname erscheint kurz, damit du weißt, wo du gelandet bist. Im Bearbeitungsmodus sortiert dieselbe Geste stattdessen die Schaltflächen, die beiden kommen sich also nie in die Quere. Um eine Kachel auf eine andere Seite zu holen, zieh sie auf die Lasche dieser Seite.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Ein Wisch führt von einer Seite zur nächsten." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Platz",
       "title": "Seiten, Spalten und die schwebende Schaltfläche",
-      "body": "Im Bearbeitungsmodus legt die untere Leiste Seiten an und entfernt sie und bestimmt, wie viele Spalten das Raster nutzt. Tippe eine Seitenlasche erneut an, um sie umzubenennen. Die schwebende Schaltfläche führt dich auch bei ausgeblendeten Leisten zu den Seiten, zum Editor und zu den Designs, und du kannst sie hinziehen, wo sie dir passt, denn sie ist das Einzige, was immer auf dem Bildschirm bleibt.",
+      "body": "Im Bearbeitungsmodus legt die untere Leiste Seiten an und entfernt sie und bestimmt, wie viele Spalten das Raster nutzt. Die Spaltenzahl gehört zu der Seite, auf der du gerade bist, eine Seite mit Anzeigen kann also vier Spalten breit sein, während eine Seite mit Kürzeln fünf hat. Tippe eine Seitenlasche erneut an, um sie umzubenennen. Die schwebende Schaltfläche führt dich auch bei ausgeblendeten Leisten zu den Seiten, zum Editor und zu den Designs, und du kannst sie hinziehen, wo sie dir passt, denn sie ist das Einzige, was immer auf dem Bildschirm bleibt.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Bearbeitungsmodus, mit den Seiten- und Spaltensteuerungen unten." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Ablesungen",
+      "title": "Bring die Lebenszeichen der Maschine aufs Pult",
+      "body": "Eine Kachel kann statt einer Schaltfläche auch eine Anzeige sein: Prozessor, Arbeitsspeicher, Grafik, Festplattenplatz, Festplattenaktivität, Netzwerkdurchsatz, Temperatur, Laufzeit und eine Uhr. Anzeigen sitzen im selben Raster wie die Schaltflächen, deshalb funktionieren Seiten, Spalten, das Strecken auf volle Höhe und das Ziehen zum Umsortieren auch bei ihnen, ohne dass du etwas Neues lernen musst. Sie werden gelesen und nicht gedrückt, also sind sie als in die Fläche eingelassene Instrumente gezeichnet und nicht als gefüllte Kacheln.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Zifferblätter, Balken, eine Netzwerkanzeige mit ihrem jüngsten Verlauf und eine gewöhnliche Schaltfläche auf derselben Seite." }
+      ],
+      "table": {
+        "head": ["Anzeige", "Was sie zeigt"],
+        "rows": [
+          ["CPU", "Prozessorlast über alle Kerne"],
+          ["Speicher", "Belegung in Prozent, darunter die tatsächlichen Zahlen"],
+          ["GPU", "Grafiklast"],
+          ["Festplatte", "Wie voll ein Laufwerk ist; du wählst, welches"],
+          ["Disk-Aktivität", "Wie beschäftigt die Laufwerke sind"],
+          ["Netzwerk", "Durchsatz hoch und runter, mit dem Verlauf der letzten halben Minute"],
+          ["Temperatur", "Vom Wärmefühler des Mainboards"],
+          ["Laufzeit", "Wie lange die Maschine schon läuft"],
+          ["Uhr", "Die Uhrzeit, die überhaupt nichts zu messen hat"]
+        ]
+      },
+      "note": "Für die Temperatur muss der Server als Administrator laufen, und manche Mainboards liefern gar keinen Fühler. Die Anzeige sagt dir, welcher der beiden Fälle vorliegt, denn den einen kannst du beheben, den anderen nicht."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Ablesungen",
+      "title": "Hinzugefügt wie eine Schaltfläche",
+      "body": "Füge im Bearbeitungsmodus eine Kachel hinzu und gib ihr die Aktion <b>Systemanzeige</b>. Wähle, was gemessen wird, ob es als Zifferblatt oder als Balken gezeichnet wird, und die Farbe. Die Vorschau darunter ist live und zeigt den echten Messwert, bevor du speicherst. Lass die Beschriftung leer, dann benennt sich die Anzeige selbst.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "Die Wahl des Messwerts, mit einer Live-Vorschau des Ergebnisses." }
+      ],
+      "note": "Gemessen wird nur, solange eine Seite mit einer Anzeige geöffnet ist, und es hört auf, sobald der letzte Betrachter geht; ein Pult ohne Anzeigen kostet also nichts."
+    },
+    {
       "id": "themes",
       "eyebrow": "Aussehen",
       "title": "Elf Designs, und die Schaltflächen ziehen mit",
       "body": "Die meisten Designs stammen aus bekannten Farbschemata für Entwickler (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), dazu zwei bewusst zweifarbige Terminal-Looks sowie ein neutrales Hell und Dunkel. Beim Wechsel werden deine Schaltflächenfarben unter Beibehaltung ihrer Farbtöne in die neue Palette übertragen: Aus einer blauen Schaltfläche wird das Blau des neuen Designs, und dein Aufbau liest sich weiterhin gleich.",
-      "note": "Wenn ein Pult am Ende einfarbig ist, verteilt <b>Design-Palette verteilen</b> die Farben des Designs auf die Schaltflächen; <b>Alle in Akzentfarbe färben</b> setzt sie wieder auf eine einzige zurück. Jede Schaltfläche kann außerdem aus der Farbauswahl eine eigene Farbe bekommen, und die Akzentfarbe für die Leisten und die schwebende Schaltfläche wählst du selbst. Die Schaltflächenbeschriftung wechselt von allein zwischen Schwarz und Weiß, welche Farbe du auch triffst.",
+      "note": "<b>Panel</b> fällt aus der Reihe: Statt einer Palette wechselt es die Sprache und macht aus Schaltflächen Instrumentenflächen wie bei den Anzeigen, deren Farbe auf einen Streifen an der Oberkante schrumpft. Auch die Anzeigen können ein eigenes Design bekommen, die Schaltflächen können also einem Design folgen, während die Ablesungen bei einem anderen bleiben. Wenn ein Pult am Ende einfarbig ist, verteilt <b>Design-Palette verteilen</b> die Farben des Designs auf die Schaltflächen; <b>Alle in Akzentfarbe färben</b> setzt sie wieder auf eine einzige zurück. Jede Schaltfläche kann außerdem aus der Farbauswahl eine eigene Farbe bekommen, und die Akzentfarbe für die Leisten und die schwebende Schaltfläche wählst du selbst. Die Schaltflächenbeschriftung wechselt von allein zwischen Schwarz und Weiß, welche Farbe du auch triffst.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Jede Karte zeigt ihren eigenen Hintergrund und ihre Palette." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Dasselbe Pult in einem hellen Design." }

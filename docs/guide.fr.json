@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Espace",
       "title": "Balayez d'une page à l'autre",
-      "body": "Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. <b>Balayez vers la gauche ou la droite n'importe où sur le pupitre</b> pour passer de l'une à l'autre ; le nom de la page s'affiche brièvement pour que vous sachiez où vous avez atterri. En mode édition, le même geste réorganise les boutons : les deux ne se marchent jamais dessus.",
+      "body": "Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. <b>Balayez vers la gauche ou la droite n'importe où sur le pupitre</b> pour passer de l'une à l'autre ; le nom de la page s'affiche brièvement pour que vous sachiez où vous avez atterri. En mode édition, le même geste réorganise les boutons : les deux ne se marchent jamais dessus. Pour déplacer une tuile vers une autre page, faites-la glisser sur l'onglet de cette page.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Un balayage fait passer d'une page à la suivante." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Espace",
       "title": "Pages, colonnes et bouton flottant",
-      "body": "En mode édition, la barre du bas ajoute et supprime des pages et fixe le nombre de colonnes de la grille. Touchez de nouveau l'onglet d'une page pour la renommer. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble, puisqu'il est la seule chose toujours à l'écran.",
+      "body": "En mode édition, la barre du bas ajoute et supprime des pages et fixe le nombre de colonnes de la grille. Le nombre de colonnes appartient à la page où vous êtes : une page de jauges peut tenir sur quatre colonnes pendant qu'une page de raccourcis en compte cinq. Touchez de nouveau l'onglet d'une page pour la renommer. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble, puisqu'il est la seule chose toujours à l'écran.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "Le menu flottant : pages, barres, mode édition, thème et plein écran." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Le mode édition, avec les commandes de pages et de colonnes en bas." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Relevés",
+      "title": "Mettez les constantes vitales de la machine sur le pupitre",
+      "body": "Une tuile peut être une jauge plutôt qu'un bouton : processeur, mémoire, carte graphique, espace disque, activité disque, débit réseau, température, durée de fonctionnement et une horloge. Les jauges occupent la même grille que les boutons : les pages, les colonnes, l'étirement et le glisser pour réorganiser fonctionnent donc sur elles sans rien avoir à réapprendre. On les lit, on ne les appuie pas, aussi sont-elles dessinées comme des instruments encastrés dans la surface plutôt que comme des tuiles pleines.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Des cadrans, des barres, un relevé réseau avec son historique récent, et un bouton ordinaire partageant la même page." }
+      ],
+      "table": {
+        "head": ["Jauge", "Ce qu'elle montre"],
+        "rows": [
+          ["CPU", "La charge du processeur sur tous les cœurs"],
+          ["Mémoire", "La part utilisée en pourcentage, avec les chiffres réels en dessous"],
+          ["GPU", "La charge graphique"],
+          ["Disque", "Le taux de remplissage d'un disque ; vous choisissez lequel"],
+          ["Activité disque", "À quel point les disques travaillent"],
+          ["Réseau", "Débit montant et descendant, avec le tracé de la dernière demi-minute"],
+          ["Température", "Depuis la sonde thermique de la carte mère"],
+          ["Durée d'activité", "Depuis combien de temps la machine tourne"],
+          ["Horloge", "L'heure, qui n'a rien à mesurer du tout"]
+        ]
+      },
+      "note": "La température exige que le serveur tourne en administrateur, et certaines cartes mères n'exposent aucune sonde. La jauge indique lequel des deux cas s'applique, car l'un se corrige et l'autre non."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Relevés",
+      "title": "Elle s'ajoute comme un bouton",
+      "body": "En mode édition, ajoutez une tuile et donnez-lui l'action <b>Jauge système</b>. Choisissez ce qu'il faut mesurer, si le résultat prend la forme d'un cadran ou d'une barre, et sa couleur. L'aperçu en dessous est vivant : il montre le relevé réel avant même l'enregistrement. Laissez le libellé vide et la jauge se nomme toute seule.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "Le choix de ce qu'on mesure, avec un aperçu en direct du résultat." }
+      ],
+      "note": "La mesure ne tourne que tant qu'une page comportant une jauge est ouverte, et s'arrête au départ du dernier spectateur : un pupitre sans jauge ne coûte donc rien."
+    },
+    {
       "id": "themes",
       "eyebrow": "Apparence",
       "title": "Onze thèmes, et les boutons suivent",
       "body": "La plupart des thèmes proviennent de palettes bien connues des développeurs (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), auxquelles s'ajoutent deux allures de terminal volontairement bicolores et un clair et un sombre neutres. Changer de thème convertit la couleur de vos boutons vers la nouvelle palette en conservant leurs teintes : un bouton bleu devient le bleu du nouveau thème et votre disposition se lit toujours pareil.",
-      "note": "Si un pupitre finit tout d'une seule couleur, <b>Répartir la palette du thème</b> distribue les couleurs du thème sur les boutons ; <b>Tout peindre en couleur d'accent</b> les ramène à une seule. Chaque bouton peut aussi prendre une couleur de votre choix dans le sélecteur, et la couleur d'accent utilisée par les barres et le bouton flottant vous revient. Le texte des boutons bascule tout seul entre noir et blanc, quelle que soit la couleur retenue.",
+      "note": "<b>Panneau</b> fait bande à part : au lieu d'une palette, il change de langage et transforme les boutons en cadrans d'instrument, comme les jauges, leur couleur se réduisant à un liseré le long du bord supérieur. Les jauges peuvent elles aussi recevoir un thème à elles, si bien que les boutons peuvent suivre un thème pendant que les relevés en gardent un autre. Si un pupitre finit tout d'une seule couleur, <b>Répartir la palette du thème</b> distribue les couleurs du thème sur les boutons ; <b>Tout peindre en couleur d'accent</b> les ramène à une seule. Chaque bouton peut aussi prendre une couleur de votre choix dans le sélecteur, et la couleur d'accent utilisée par les barres et le bouton flottant vous revient. Le texte des boutons bascule tout seul entre noir et blanc, quelle que soit la couleur retenue.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Chaque carte montre son propre fond et sa palette." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Le même pupitre sur un thème clair." }

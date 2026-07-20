@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Nasıl çalışır</p>
-        <ul><li><a href="#buttons"><b>01</b>Temel</a></li><li><a href="#icons"><b>02</b>Simgeler</a></li><li><a href="#dragdrop"><b>03</b>Masaüstü</a></li><li><a href="#sync"><b>04</b>Eşitleme</a></li><li><a href="#mouse"><b>05</b>İmleç</a></li><li><a href="#pages"><b>06</b>Alan</a></li><li><a href="#managepages"><b>07</b>Alan</a></li><li><a href="#themes"><b>08</b>Görünüm</a></li><li><a href="#screen"><b>09</b>Ekran</a></li><li><a href="#languages"><b>10</b>Dil</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Temel</a></li><li><a href="#icons"><b>02</b>Simgeler</a></li><li><a href="#dragdrop"><b>03</b>Masaüstü</a></li><li><a href="#sync"><b>04</b>Eşitleme</a></li><li><a href="#mouse"><b>05</b>İmleç</a></li><li><a href="#pages"><b>06</b>Alan</a></li><li><a href="#managepages"><b>07</b>Alan</a></li><li><a href="#gauges"><b>08</b>Göstergeler</a></li><li><a href="#gaugeedit"><b>09</b>Göstergeler</a></li><li><a href="#themes"><b>10</b>Görünüm</a></li><li><a href="#screen"><b>11</b>Ekran</a></li><li><a href="#languages"><b>12</b>Dil</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">Alan</p>
   <h2>Sayfalar arasında kaydır</h2>
-  <p class="lead">Butonları sayfalara ayır: biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Aralarında geçmek için <b>deck üzerinde herhangi bir yerde sağa ya da sola kaydır</b>; sayfanın adı kısaca görünür, böylece nereye geldiğini bilirsin. Düzenleme modunda aynı hareket bunun yerine butonları sıralar, yani ikisi hiç çakışmaz.</p>
+  <p class="lead">Butonları sayfalara ayır: biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Aralarında geçmek için <b>deck üzerinde herhangi bir yerde sağa ya da sola kaydır</b>; sayfanın adı kısaca görünür, böylece nereye geldiğini bilirsin. Düzenleme modunda aynı hareket bunun yerine butonları sıralar, yani ikisi hiç çakışmaz. Bir kutucuğu başka bir sayfaya taşımak için onu o sayfanın sekmesine sürükle.</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Tek kaydırma bir sonraki sayfaya geçirir." loading="lazy"></div><figcaption>Tek kaydırma bir sonraki sayfaya geçirir.</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">Alan</p>
   <h2>Sayfalar, sütunlar ve yüzen buton</h2>
-  <p class="lead">Düzenleme modunda alt çubuk sayfa ekleyip siler ve ızgaranın kaç sütun kullanacağını belirler. Sayfa sekmesine tekrar dokunursan adını değiştirebilirsin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; ekranda her zaman duran tek şey o olduğu için istediğin yere de sürükleyebilirsin.</p>
+  <p class="lead">Düzenleme modunda alt çubuk sayfa ekleyip siler ve ızgaranın kaç sütun kullanacağını belirler. Sütun sayısı bulunduğun sayfaya aittir, yani gösterge dolu bir sayfa dört sütun olurken kısayol sayfası beş olabilir. Sayfa sekmesine tekrar dokunursan adını değiştirebilirsin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; ekranda her zaman duran tek şey o olduğu için istediğin yere de sürükleyebilirsin.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Düzenleme modu; altta sayfa ve sütun denetimleri." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Düzenleme modu; altta sayfa ve sütun denetimleri.</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">Göstergeler</p>
+  <h2>Makinenin hayati değerlerini deck'e koy</h2>
+  <p class="lead">Bir kutucuk buton yerine gösterge de olabilir: işlemci, bellek, ekran kartı, disk alanı, disk etkinliği, ağ trafiği, sıcaklık, çalışma süresi ve saat. Göstergeler butonlarla aynı ızgarada durur; sayfalar, sütunlar, ekrana yayma ve sürükleyip sıralama yeni bir şey öğrenmene gerek kalmadan onlarda da çalışır. Basılmak için değil okunmak için olduklarından, dolu kutucuklar yerine yüzeye gömülü aletler gibi çizilirler.</p>
+  <aside class="note">Sıcaklık için sunucunun yönetici olarak çalışması gerekir, üstelik bazı anakartlar hiç sensör yayınlamaz. Gösterge hangisi olduğunu söyler, çünkü birini düzeltebilirsin, diğerini düzeltemezsin.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="Kadranlar, çubuklar, yakın geçmişini de gösteren bir ağ göstergesi ve aynı sayfayı paylaşan sıradan bir buton." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Kadranlar, çubuklar, yakın geçmişini de gösteren bir ağ göstergesi ve aynı sayfayı paylaşan sıradan bir buton.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Gösterge</th><th>Ne gösterir</th></tr></thead>
+  <tbody><tr><td class="k">İşlemci</td><td>Tüm çekirdeklerdeki işlemci yükü</td></tr><tr><td class="k">Bellek</td><td>Yüzde olarak kullanım, altında gerçek değerleriyle</td></tr><tr><td class="k">Ekran kartı</td><td>Grafik yükü</td></tr><tr><td class="k">Disk</td><td>Bir sürücünün ne kadar dolu olduğu; hangisi olduğunu sen seçersin</td></tr><tr><td class="k">Disk etkinliği</td><td>Disklerin ne kadar meşgul olduğu</td></tr><tr><td class="k">Ağ</td><td>Yükleme ve indirme hızı, son yarım dakikanın izleriyle</td></tr><tr><td class="k">Sıcaklık</td><td>Anakartın ısı sensöründen</td></tr><tr><td class="k">Çalışma süresi</td><td>Makinenin ne zamandır açık olduğu</td></tr><tr><td class="k">Saat</td><td>Ölçülecek hiçbir yanı olmayan saat</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">Göstergeler</p>
+  <h2>Buton eklediğin gibi ekle</h2>
+  <p class="lead">Düzenleme modunda bir kutucuk ekle ve eylemini <b>Sistem göstergesi</b> yap. Neyi ölçeceğini, kadran mı çubuk mu olarak çizileceğini ve rengini seç. Alttaki önizleme canlıdır: kaydetmeden önce gerçek değeri gösterir. Etiketi boş bırakırsan gösterge kendi adını kendi koyar.</p>
+  <aside class="note">Ölçüm yalnızca göstergesi olan bir sayfa açıkken çalışır ve son izleyici ayrılınca durur; yani göstergesiz bir deck hiçbir şeye mal olmaz.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="Neyin ölçüleceğini seçmek, sonucun canlı önizlemesiyle." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Neyin ölçüleceğini seçmek, sonucun canlı önizlemesiyle.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Görünüm</p>
   <h2>On bir tema, butonlar da ona uyar</h2>
   <p class="lead">Temaların çoğu bilinen geliştirici renk şemalarından geliyor (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), artı bilinçli olarak iki renkli iki terminal görünümü ve nötr açık ile koyu. Tema değiştirdiğinde buton renkleri tonları korunarak yeni palete çevrilir; mavi buton yeni temanın mavisi olur ve kurduğun düzen aynı okunur.</p>
-  <aside class="note">Deck tek renge dönüştüyse <b>Tema paletine dağıt</b> temanın renklerini butonlara dağıtır; <b>Hepsini vurgu rengine boya</b> ise hepsini tek renge döndürür. Her buton seçiciden kendi rengini de alabilir, çubukların ve yüzen butonun kullandığı vurgu rengini de sen seçersin. Buton yazısı hangi renge denk gelirse gelsin siyah ile beyaz arasında kendiliğinden geçer.</aside>
+  <aside class="note"><b>Panel</b> diğerlerinden ayrı durur: bir palet sunmak yerine dili değiştirir, butonları göstergeler gibi alet yüzeylerine çevirir ve renklerini üst kenar boyunca ince bir şeride indirger. Göstergelere de kendilerine ait bir tema verilebilir, yani butonlar bir temayı izlerken göstergeler başka bir temada kalabilir. Deck tek renge dönüştüyse <b>Tema paletine dağıt</b> temanın renklerini butonlara dağıtır; <b>Hepsini vurgu rengine boya</b> ise hepsini tek renge döndürür. Her buton seçiciden kendi rengini de alabilir, çubukların ve yüzen butonun kullandığı vurgu rengini de sen seçersin. Buton yazısı hangi renge denk gelirse gelsin siyah ile beyaz arasında kendiliğinden geçer.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Her kart kendi zeminini ve paletini önizler." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Her kart kendi zeminini ve paletini önizler.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Aynı deck, açık temada." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Aynı deck, açık temada.</figcaption></figure>
   
 </section>

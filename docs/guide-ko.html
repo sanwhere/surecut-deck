@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>작동 방식</p>
-        <ul><li><a href="#buttons"><b>01</b>기본</a></li><li><a href="#icons"><b>02</b>아이콘</a></li><li><a href="#dragdrop"><b>03</b>바탕 화면</a></li><li><a href="#sync"><b>04</b>동기화</a></li><li><a href="#mouse"><b>05</b>포인터</a></li><li><a href="#pages"><b>06</b>공간</a></li><li><a href="#managepages"><b>07</b>공간</a></li><li><a href="#themes"><b>08</b>겉모습</a></li><li><a href="#screen"><b>09</b>화면</a></li><li><a href="#languages"><b>10</b>언어</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>기본</a></li><li><a href="#icons"><b>02</b>아이콘</a></li><li><a href="#dragdrop"><b>03</b>바탕 화면</a></li><li><a href="#sync"><b>04</b>동기화</a></li><li><a href="#mouse"><b>05</b>포인터</a></li><li><a href="#pages"><b>06</b>공간</a></li><li><a href="#managepages"><b>07</b>공간</a></li><li><a href="#gauges"><b>08</b>계기</a></li><li><a href="#gaugeedit"><b>09</b>계기</a></li><li><a href="#themes"><b>10</b>겉모습</a></li><li><a href="#screen"><b>11</b>화면</a></li><li><a href="#languages"><b>12</b>언어</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">공간</p>
   <h2>밀어서 페이지 넘기기</h2>
-  <p class="lead">버튼을 페이지로 묶으세요: 편집용 한 장, 게임용 한 장, 늘 들어가 있는 그 회의용 한 장. <b>덱의 아무 곳에서나 좌우로 밀면</b> 페이지 사이를 오갑니다. 페이지 이름이 잠깐 떠서 어디에 왔는지 알려 줍니다. 편집 모드에서는 같은 동작이 버튼 순서 바꾸기가 되므로, 둘이 부딪칠 일은 없습니다.</p>
+  <p class="lead">버튼을 페이지로 묶으세요: 편집용 한 장, 게임용 한 장, 늘 들어가 있는 그 회의용 한 장. <b>덱의 아무 곳에서나 좌우로 밀면</b> 페이지 사이를 오갑니다. 페이지 이름이 잠깐 떠서 어디에 왔는지 알려 줍니다. 편집 모드에서는 같은 동작이 버튼 순서 바꾸기가 되므로, 둘이 부딪칠 일은 없습니다. 타일을 다른 페이지로 옮기려면 그 페이지의 탭 위로 끌어다 놓으세요.</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="한 번 밀면 다음 페이지로." loading="lazy"></div><figcaption>한 번 밀면 다음 페이지로.</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">공간</p>
   <h2>페이지, 열, 그리고 떠 있는 버튼</h2>
-  <p class="lead">편집 모드에서는 아래 막대로 페이지를 더하고 지우며, 격자가 몇 열을 쓸지 정합니다. 페이지 탭을 한 번 더 누르면 이름을 바꿉니다. 막대가 숨겨져 있어도 떠 있는 버튼으로 페이지·편집기·테마에 갈 수 있습니다. 화면에 늘 남아 있는 유일한 것인 만큼, 편한 자리 어디로든 끌어 옮길 수 있습니다.</p>
+  <p class="lead">편집 모드에서는 아래 막대로 페이지를 더하고 지우며, 격자가 몇 열을 쓸지 정합니다. 열 수는 지금 보고 있는 페이지에 딸린 것이라, 계기 페이지는 네 열, 단축키 페이지는 다섯 열로 둘 수 있습니다. 페이지 탭을 한 번 더 누르면 이름을 바꿉니다. 막대가 숨겨져 있어도 떠 있는 버튼으로 페이지·편집기·테마에 갈 수 있습니다. 화면에 늘 남아 있는 유일한 것인 만큼, 편한 자리 어디로든 끌어 옮길 수 있습니다.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="떠 있는 메뉴: 페이지, 막대, 편집 모드, 테마, 전체 화면." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>떠 있는 메뉴: 페이지, 막대, 편집 모드, 테마, 전체 화면.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="편집 모드. 아래쪽에 페이지와 열 조절이 놓여 있습니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>편집 모드. 아래쪽에 페이지와 열 조절이 놓여 있습니다.</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">계기</p>
+  <h2>기계의 상태를 덱 위에 올려 두기</h2>
+  <p class="lead">타일은 버튼 대신 계기가 될 수도 있습니다: 프로세서, 메모리, 그래픽, 디스크 공간, 디스크 움직임, 네트워크 처리량, 온도, 가동 시간, 그리고 시계. 계기는 버튼과 같은 격자에 놓이므로 페이지, 열, 화면 가득 채우기, 끌어서 순서 바꾸기가 모두 그대로 통합니다. 새로 익힐 것은 없습니다. 누르는 것이 아니라 읽는 것이어서, 색을 채운 타일이 아니라 표면에 박아 넣은 계기처럼 그려집니다.</p>
+  <aside class="note">온도는 서버를 관리자 권한으로 실행해야 하고, 아예 센서를 내주지 않는 메인보드도 있습니다. 계기가 둘 중 어느 쪽인지 알려 줍니다. 하나는 당신이 고칠 수 있고, 다른 하나는 그럴 수 없기 때문입니다.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="다이얼, 막대, 최근 흐름을 함께 보여 주는 네트워크 표시, 그리고 같은 페이지를 쓰는 평범한 버튼." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>다이얼, 막대, 최근 흐름을 함께 보여 주는 네트워크 표시, 그리고 같은 페이지를 쓰는 평범한 버튼.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>계기</th><th>보여 주는 것</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>모든 코어의 프로세서 부하</td></tr><tr><td class="k">메모리</td><td>사용 중인 비율과, 그 아래 실제 수치</td></tr><tr><td class="k">GPU</td><td>그래픽 부하</td></tr><tr><td class="k">디스크</td><td>드라이브가 얼마나 찼는지. 어느 것인지는 고르세요</td></tr><tr><td class="k">디스크 사용률</td><td>디스크가 얼마나 바쁜지</td></tr><tr><td class="k">네트워크</td><td>올림과 내림 처리량, 최근 30초의 자취와 함께</td></tr><tr><td class="k">온도</td><td>메인보드의 온도 센서에서</td></tr><tr><td class="k">가동 시간</td><td>기계가 켜져 있던 시간</td></tr><tr><td class="k">시계</td><td>시각. 이것만은 잴 필요가 없습니다</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">계기</p>
+  <h2>버튼을 더하듯 똑같이 더하면 됩니다</h2>
+  <p class="lead">편집 모드에서 타일을 하나 더하고 그 동작을 <b>시스템 모니터</b>로 지정하세요. 무엇을 잴지, 다이얼로 그릴지 막대로 그릴지, 그리고 색을 고릅니다. 아래 미리보기는 살아 있어서 저장하기 전에 실제 값이 보입니다. 레이블을 비워 두면 계기가 알아서 이름을 답니다.</p>
+  <aside class="note">측정은 계기가 있는 페이지가 열려 있는 동안에만 돌고, 마지막으로 보던 사람이 떠나면 멈춥니다. 그래서 계기가 없는 덱은 아무 부담도 주지 않습니다.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="무엇을 잴지 고르는 곳. 결과는 그 자리에서 미리 보입니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>무엇을 잴지 고르는 곳. 결과는 그 자리에서 미리 보입니다.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">겉모습</p>
   <h2>열한 가지 테마, 버튼도 따라갑니다</h2>
   <p class="lead">대부분의 테마는 개발자에게 익숙한 색 구성에서 가져왔습니다: Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine. 여기에 일부러 두 가지 색만 쓴 터미널풍 두 가지와 중립적인 밝은·어두운 테마가 더해집니다. 테마를 바꾸면 버튼 색이 색상을 유지한 채 새 팔레트로 옮겨집니다. 파란 버튼은 새 테마의 파랑이 되고, 배치는 그대로 읽힙니다.</p>
-  <aside class="note">덱이 온통 한 가지 색이 되어 버렸다면, <b>테마 팔레트로 분배</b>가 테마의 색을 버튼들에 나눠 줍니다. <b>모두 강조 색으로 칠하기</b>는 다시 하나의 색으로 되돌립니다. 어떤 버튼이든 색 선택기에서 원하는 색을 따로 줄 수 있고, 막대와 떠 있는 버튼이 쓰는 강조 색도 직접 고릅니다. 어떤 색을 고르든 버튼 글자는 검정과 하양 사이에서 알아서 바뀝니다.</aside>
+  <aside class="note"><b>패널</b>은 결이 다릅니다. 팔레트가 아니라 방식 자체를 바꿔, 버튼을 계기와 같은 계기판 면으로 만들고 색은 위쪽 가장자리의 띠 하나로 줄입니다. 계기에도 따로 테마를 줄 수 있어서, 버튼은 한 테마를 따르고 계기는 다른 테마를 지키게 할 수 있습니다. 덱이 온통 한 가지 색이 되어 버렸다면, <b>테마 팔레트로 분배</b>가 테마의 색을 버튼들에 나눠 줍니다. <b>모두 강조 색으로 칠하기</b>는 다시 하나의 색으로 되돌립니다. 어떤 버튼이든 색 선택기에서 원하는 색을 따로 줄 수 있고, 막대와 떠 있는 버튼이 쓰는 강조 색도 직접 고릅니다. 어떤 색을 고르든 버튼 글자는 검정과 하양 사이에서 알아서 바뀝니다.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="각 카드가 자기 배경과 팔레트를 보여 줍니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>각 카드가 자기 배경과 팔레트를 보여 줍니다.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="같은 덱을 밝은 테마로." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>같은 덱을 밝은 테마로.</figcaption></figure>
   
 </section>

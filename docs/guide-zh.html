@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>工作方式</p>
-        <ul><li><a href="#buttons"><b>01</b>基础</a></li><li><a href="#icons"><b>02</b>图标</a></li><li><a href="#dragdrop"><b>03</b>桌面</a></li><li><a href="#sync"><b>04</b>同步</a></li><li><a href="#mouse"><b>05</b>指针</a></li><li><a href="#pages"><b>06</b>空间</a></li><li><a href="#managepages"><b>07</b>空间</a></li><li><a href="#themes"><b>08</b>外观</a></li><li><a href="#screen"><b>09</b>屏幕</a></li><li><a href="#languages"><b>10</b>语言</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>基础</a></li><li><a href="#icons"><b>02</b>图标</a></li><li><a href="#dragdrop"><b>03</b>桌面</a></li><li><a href="#sync"><b>04</b>同步</a></li><li><a href="#mouse"><b>05</b>指针</a></li><li><a href="#pages"><b>06</b>空间</a></li><li><a href="#managepages"><b>07</b>空间</a></li><li><a href="#gauges"><b>08</b>读数</a></li><li><a href="#gaugeedit"><b>09</b>读数</a></li><li><a href="#themes"><b>10</b>外观</a></li><li><a href="#screen"><b>11</b>屏幕</a></li><li><a href="#languages"><b>12</b>语言</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">空间</p>
   <h2>滑动切换页面</h2>
-  <p class="lead">把按钮分组到不同页面：一页用于剪辑，一页用于游戏，一页留给那个你总在里面的会议。<b>在控制台上任意位置左右滑动</b>即可在页面间切换；页面名会短暂显示，让你知道自己落在了哪一页。在编辑模式下，同样的手势用来调整按钮顺序，两者不会冲突。</p>
+  <p class="lead">把按钮分组到不同页面：一页用于剪辑，一页用于游戏，一页留给那个你总在里面的会议。<b>在控制台上任意位置左右滑动</b>即可在页面间切换；页面名会短暂显示，让你知道自己落在了哪一页。在编辑模式下，同样的手势用来调整按钮顺序，两者不会冲突。要把一个格子移到别的页面，把它拖到那一页的标签上即可。</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="一次滑动，从一页翻到下一页。" loading="lazy"></div><figcaption>一次滑动，从一页翻到下一页。</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">空间</p>
   <h2>页面、列数和悬浮按钮</h2>
-  <p class="lead">在编辑模式下，底部工具栏可以增删页面，并设置网格使用多少列。再点一次页面标签即可给它重命名。即使工具栏已隐藏，悬浮按钮依然能带你去页面、编辑器和主题，而且可以拖到任何你顺手的位置，因为它是唯一始终显示在屏幕上的东西。</p>
+  <p class="lead">在编辑模式下，底部工具栏可以增删页面，并设置网格使用多少列。列数属于你当前所在的这一页，所以一页仪表可以是四列，而一页快捷方式是五列。再点一次页面标签即可给它重命名。即使工具栏已隐藏，悬浮按钮依然能带你去页面、编辑器和主题，而且可以拖到任何你顺手的位置，因为它是唯一始终显示在屏幕上的东西。</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="悬浮菜单：页面、工具栏、编辑模式、主题和全屏。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>悬浮菜单：页面、工具栏、编辑模式、主题和全屏。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="编辑模式，底部是页面和列数的控件。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>编辑模式，底部是页面和列数的控件。</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">读数</p>
+  <h2>把机器的生命体征放到控制台上</h2>
+  <p class="lead">一个格子除了做按钮，也可以做成仪表：处理器、内存、显卡、磁盘空间、磁盘活动、网络吞吐、温度、运行时间，还有时钟。仪表和按钮处在同一个网格里，所以页面、列数、拉伸填满和拖动排序对它们同样有效，你不必再学任何新东西。它们是用来看的，不是用来按的，因此画成嵌进表面的仪表，而不是填满颜色的方块。</p>
+  <aside class="note">温度需要服务器以管理员身份运行，而且有些主板根本不提供传感器。仪表会说明属于哪一种情况，因为前者你能自己解决，后者你无能为力。</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="表盘、条形、带近期走势的网络读数，以及共处同一页的一个普通按钮。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>表盘、条形、带近期走势的网络读数，以及共处同一页的一个普通按钮。</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>仪表</th><th>显示内容</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>所有核心的处理器负载</td></tr><tr><td class="k">内存</td><td>已用百分比，下方附上实际数值</td></tr><tr><td class="k">GPU</td><td>显卡负载</td></tr><tr><td class="k">磁盘</td><td>某个驱动器用了多满；具体是哪一个由你选</td></tr><tr><td class="k">磁盘活动</td><td>磁盘有多繁忙</td></tr><tr><td class="k">网络</td><td>上行与下行吞吐，并带最近半分钟的走势</td></tr><tr><td class="k">温度</td><td>来自主板的热敏传感器</td></tr><tr><td class="k">运行时间</td><td>机器已经运行了多久</td></tr><tr><td class="k">时钟</td><td>时间，这一项根本不用测</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">读数</p>
+  <h2>添加方式和添加按钮一样</h2>
+  <p class="lead">在编辑模式下添加一个格子，把它的动作设为<b>系统监测</b>。选择要测量什么、画成表盘还是条形，以及它的颜色。下方的预览是实时的，保存之前就能看到真实读数。标签留空，仪表会自己命名。</p>
+  <aside class="note">只有当带仪表的页面开着时才会进行测量，最后一位查看者离开后就停止，因此没有仪表的控制台不会有任何开销。</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="选择要测量的内容，并实时预览结果。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>选择要测量的内容，并实时预览结果。</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">外观</p>
   <h2>十一款主题，按钮也跟着变</h2>
   <p class="lead">多数主题取自开发者熟悉的配色方案，比如 Nord、Gruvbox、Solarized、Catppuccin Mocha、Rosé Pine；另外还有两款刻意只用双色的终端风格，以及中性的浅色与深色。切换主题时，按钮颜色会在保留色相的前提下转换到新配色：蓝色按钮变成新主题的蓝色，你的布局读起来依然一致。</p>
-  <aside class="note">如果整个控制台最后变成了一种颜色，<b>按主题配色分配</b>会把主题的颜色分散到各个按钮上；<b>全部涂成强调色</b>则把它们全都改回同一种。任意按钮也可以从取色器里选一个你自己的颜色，工具栏和悬浮按钮使用的强调色同样由你决定。无论你选了什么颜色，按钮文字都会自动在黑白之间切换。</aside>
+  <aside class="note"><b>面板</b>是其中的例外：它换掉的不是配色，而是整套表达方式，把按钮变成和仪表一样的仪表盘面，颜色只剩顶边的一道细条。仪表也可以单独设定自己的主题，于是按钮跟着一种主题走，读数保留另一种。如果整个控制台最后变成了一种颜色，<b>按主题配色分配</b>会把主题的颜色分散到各个按钮上；<b>全部涂成强调色</b>则把它们全都改回同一种。任意按钮也可以从取色器里选一个你自己的颜色，工具栏和悬浮按钮使用的强调色同样由你决定。无论你选了什么颜色，按钮文字都会自动在黑白之间切换。</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="每张卡片都展示自己的背景和配色。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>每张卡片都展示自己的背景和配色。</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="同一个控制台，浅色主题。" loading="lazy"></div><div class="tab-bar"></div></div><figcaption>同一个控制台，浅色主题。</figcaption></figure>
   
 </section>

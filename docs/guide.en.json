@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Space",
       "title": "Swipe between pages",
-      "body": "Group buttons into pages: one for editing, one for games, one for the meeting you are always in. <b>Swipe left or right anywhere on the deck</b> to move between them; the page name appears briefly so you know where you landed. In edit mode the same gesture reorders buttons instead, so the two never collide.",
+      "body": "Group buttons into pages: one for editing, one for games, one for the meeting you are always in. <b>Swipe left or right anywhere on the deck</b> to move between them; the page name appears briefly so you know where you landed. In edit mode the same gesture reorders buttons instead, so the two never collide. To move a tile to another page, drag it onto that page's tab.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "One swipe moves from one page to the next." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Space",
       "title": "Pages, columns and the floating button",
-      "body": "In edit mode the bottom bar adds and removes pages and sets how many columns the grid uses. Tap a page tab again to rename it. The floating button reaches the pages, the editor and the themes even when the bars are hidden, and you can drag it anywhere that suits you, since it is the one thing always on screen.",
+      "body": "In edit mode the bottom bar adds and removes pages and sets how many columns the grid uses. The column count belongs to the page you are on, so a page of gauges can be four across while a page of shortcuts is five. Tap a page tab again to rename it. The floating button reaches the pages, the editor and the themes even when the bars are hidden, and you can drag it anywhere that suits you, since it is the one thing always on screen.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "The floating menu: pages, bars, edit mode, theme and full screen." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Edit mode, with the page and column controls along the bottom." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Readouts",
+      "title": "Put the machine's vital signs on the deck",
+      "body": "A tile can be a gauge instead of a button: processor, memory, graphics, disk space, disk activity, network throughput, temperature, uptime and a clock. Gauges sit in the same grid as the buttons, so pages, columns, stretch to fill and drag to reorder all work on them without you learning anything new. They are read rather than pressed, so they are drawn as instruments set into the surface rather than filled tiles.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Dials, bars, a network readout with its recent history, and an ordinary button sharing the same page." }
+      ],
+      "table": {
+        "head": ["Gauge", "What it shows"],
+        "rows": [
+          ["CPU", "Processor load across all cores"],
+          ["Memory", "In use as a percentage, with the actual figures underneath"],
+          ["GPU", "Graphics load"],
+          ["Disk", "How full a drive is; pick which one"],
+          ["Disk activity", "How busy the disks are"],
+          ["Network", "Up and down throughput, with a trace of the last half minute"],
+          ["Temperature", "From the motherboard's thermal sensor"],
+          ["Uptime", "How long the machine has been running"],
+          ["Clock", "The time, which needs no measurement at all"]
+        ]
+      },
+      "note": "Temperature needs the host to run as administrator, and some motherboards do not publish a sensor at all. The gauge says which of the two it is, because one you can fix and the other you cannot."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Readouts",
+      "title": "Add one the same way you add a button",
+      "body": "In edit mode, add a tile and set its action to <b>System gauge</b>. Choose what to measure, whether it is drawn as a dial or a bar, and its colour. The preview underneath is live, showing the real reading before you save. Leave the label empty and the gauge names itself.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "Choosing what to measure, with a live preview of the result." }
+      ],
+      "note": "Measurement only runs while a page with a gauge is open, and stops when the last viewer leaves, so a deck without gauges costs nothing."
+    },
+    {
       "id": "themes",
       "eyebrow": "Looks",
       "title": "Eleven themes, and the buttons follow",
       "body": "Most themes come from well-known developer colour schemes: Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine, plus two deliberately two-tone terminal looks and neutral light and dark. Changing the theme converts your button colours to the new palette while keeping their hues, so a blue button becomes the new theme's blue and your layout still reads the same.",
-      "note": "If a deck ends up all one colour, <b>Spread theme palette</b> deals the theme's colours across the buttons; <b>Paint all in accent colour</b> puts them all back to one. Any button can also take a colour of your own from the picker, and the accent used by the bars and the floating button is yours to choose. Button text switches between black and white on its own, whatever colour you land on.",
+      "note": "<b>Panel</b> is the odd one out: instead of a palette it changes the idiom, turning buttons into instrument faces like the gauges, with their colour reduced to a stripe along the top edge. Gauges can also be given a theme of their own, so the buttons can follow one theme while the readouts keep another. If a deck ends up all one colour, <b>Spread theme palette</b> deals the theme's colours across the buttons; <b>Paint all in accent colour</b> puts them all back to one. Any button can also take a colour of your own from the picker, and the accent used by the bars and the floating button is yours to choose. Button text switches between black and white on its own, whatever colour you land on.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Each card previews its own background and palette." },
         { "src": "08-light.png", "frame": "tablet", "caption": "The same deck on a light theme." }

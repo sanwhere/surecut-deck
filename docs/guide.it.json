@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Spazio",
       "title": "Scorri da una pagina all'altra",
-      "body": "Raggruppa i pulsanti in pagine: una per il montaggio, una per i giochi, una per quella riunione da cui non esci mai. <b>Scorri a sinistra o a destra in un punto qualsiasi della console</b> per passare da una all'altra; il nome della pagina compare per un attimo, così sai dove sei arrivato. In modalità modifica lo stesso gesto riordina invece i pulsanti, così i due non si pestano mai i piedi.",
+      "body": "Raggruppa i pulsanti in pagine: una per il montaggio, una per i giochi, una per quella riunione da cui non esci mai. <b>Scorri a sinistra o a destra in un punto qualsiasi della console</b> per passare da una all'altra; il nome della pagina compare per un attimo, così sai dove sei arrivato. In modalità modifica lo stesso gesto riordina invece i pulsanti, così i due non si pestano mai i piedi. Per spostare una casella su un'altra pagina, trascinala sulla scheda di quella pagina.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Uno scorrimento porta da una pagina alla successiva." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Spazio",
       "title": "Pagine, colonne e il pulsante flottante",
-      "body": "In modalità modifica la barra in basso aggiunge e toglie pagine e imposta quante colonne usa la griglia. Tocca di nuovo la scheda di una pagina per rinominarla. Il pulsante flottante porta alle pagine, all'editor e ai temi anche quando le barre sono nascoste, e puoi trascinarlo dove ti fa comodo, visto che è l'unica cosa sempre presente sullo schermo.",
+      "body": "In modalità modifica la barra in basso aggiunge e toglie pagine e imposta quante colonne usa la griglia. Il numero di colonne appartiene alla pagina in cui ti trovi, così una pagina di indicatori può stare su quattro colonne mentre una di scorciatoie ne ha cinque. Tocca di nuovo la scheda di una pagina per rinominarla. Il pulsante flottante porta alle pagine, all'editor e ai temi anche quando le barre sono nascoste, e puoi trascinarlo dove ti fa comodo, visto che è l'unica cosa sempre presente sullo schermo.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "Il menu flottante: pagine, barre, modalità modifica, tema e schermo intero." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Modalità modifica, con i comandi di pagine e colonne lungo il fondo." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Letture",
+      "title": "Porta i parametri vitali della macchina sulla console",
+      "body": "Una casella può essere un indicatore invece di un pulsante: processore, memoria, grafica, spazio su disco, attività del disco, traffico di rete, temperatura, tempo di accensione e un orologio. Gli indicatori stanno nella stessa griglia dei pulsanti, quindi pagine, colonne, estensione a tutto schermo e trascinamento per riordinare valgono anche per loro senza che tu debba imparare nulla di nuovo. Si leggono, non si premono, perciò sono disegnati come strumenti incassati nella superficie e non come caselle piene.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Quadranti, barre, una lettura di rete con il suo andamento recente e un normale pulsante che condivide la stessa pagina." }
+      ],
+      "table": {
+        "head": ["Indicatore", "Cosa mostra"],
+        "rows": [
+          ["CPU", "Il carico del processore su tutti i core"],
+          ["Memoria", "La quota in uso in percentuale, con i valori reali sotto"],
+          ["GPU", "Il carico della grafica"],
+          ["Disco", "Quanto è pieno un disco; scegli tu quale"],
+          ["Attività disco", "Quanto sono impegnati i dischi"],
+          ["Rete", "Traffico in salita e in discesa, con la traccia dell'ultimo mezzo minuto"],
+          ["Temperatura", "Dal sensore termico della scheda madre"],
+          ["Tempo acceso", "Da quanto la macchina è in funzione"],
+          ["Orologio", "L'ora, che non ha proprio nulla da misurare"]
+        ]
+      },
+      "note": "La temperatura richiede che il server giri come amministratore, e alcune schede madri non espongono alcun sensore. L'indicatore dice quale dei due casi sia, perché uno puoi risolverlo e l'altro no."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Letture",
+      "title": "Si aggiunge come un pulsante",
+      "body": "In modalità modifica aggiungi una casella e assegnale l'azione <b>Indicatore di sistema</b>. Scegli cosa misurare, se disegnarlo come quadrante o come barra, e il colore. L'anteprima sotto è viva: mostra la lettura reale prima ancora che tu salvi. Lascia vuota l'etichetta e l'indicatore si dà un nome da sé.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "La scelta di cosa misurare, con un'anteprima dal vivo del risultato." }
+      ],
+      "note": "La misurazione gira solo mentre è aperta una pagina con un indicatore, e si ferma quando l'ultimo che la guardava se ne va, così una console senza indicatori non costa nulla."
+    },
+    {
       "id": "themes",
       "eyebrow": "Aspetto",
       "title": "Undici temi, e i pulsanti si adeguano",
       "body": "La maggior parte dei temi viene da palette note agli sviluppatori (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), più due look da terminale volutamente bicolori e un chiaro e uno scuro neutri. Cambiando tema i colori dei tuoi pulsanti vengono convertiti nella nuova palette mantenendo le tonalità: un pulsante blu diventa il blu del nuovo tema e la tua disposizione resta leggibile allo stesso modo.",
-      "note": "Se una console finisce tutta di un colore solo, <b>Distribuisci la tavolozza del tema</b> ripartisce quei colori fra i pulsanti; <b>Colora tutto con l'accento</b> li riporta tutti a un colore solo. Ogni pulsante può anche prendere un colore tuo dal selettore, e l'accento usato dalle barre e dal pulsante flottante lo scegli tu. Il testo dei pulsanti passa da solo fra nero e bianco, qualunque colore tu scelga.",
+      "note": "<b>Pannello</b> è quello fuori dal coro: invece di una tavolozza cambia il linguaggio e trasforma i pulsanti in quadranti da strumento, come gli indicatori, riducendone il colore a una striscia lungo il bordo superiore. Anche agli indicatori si può dare un tema tutto loro, così i pulsanti possono seguire un tema mentre le letture ne conservano un altro. Se una console finisce tutta di un colore solo, <b>Distribuisci la tavolozza del tema</b> ripartisce quei colori fra i pulsanti; <b>Colora tutto con l'accento</b> li riporta tutti a un colore solo. Ogni pulsante può anche prendere un colore tuo dal selettore, e l'accento usato dalle barre e dal pulsante flottante lo scegli tu. Il testo dei pulsanti passa da solo fra nero e bianco, qualunque colore tu scelga.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Ogni scheda mostra il proprio sfondo e la propria palette." },
         { "src": "08-light.png", "frame": "tablet", "caption": "La stessa console con un tema chiaro." }

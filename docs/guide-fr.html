@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Comment ça marche</p>
-        <ul><li><a href="#buttons"><b>01</b>Les bases</a></li><li><a href="#icons"><b>02</b>Icônes</a></li><li><a href="#dragdrop"><b>03</b>Bureau</a></li><li><a href="#sync"><b>04</b>Synchronisation</a></li><li><a href="#mouse"><b>05</b>Pointeur</a></li><li><a href="#pages"><b>06</b>Espace</a></li><li><a href="#managepages"><b>07</b>Espace</a></li><li><a href="#themes"><b>08</b>Apparence</a></li><li><a href="#screen"><b>09</b>Écran</a></li><li><a href="#languages"><b>10</b>Langue</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Les bases</a></li><li><a href="#icons"><b>02</b>Icônes</a></li><li><a href="#dragdrop"><b>03</b>Bureau</a></li><li><a href="#sync"><b>04</b>Synchronisation</a></li><li><a href="#mouse"><b>05</b>Pointeur</a></li><li><a href="#pages"><b>06</b>Espace</a></li><li><a href="#managepages"><b>07</b>Espace</a></li><li><a href="#gauges"><b>08</b>Relevés</a></li><li><a href="#gaugeedit"><b>09</b>Relevés</a></li><li><a href="#themes"><b>10</b>Apparence</a></li><li><a href="#screen"><b>11</b>Écran</a></li><li><a href="#languages"><b>12</b>Langue</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">Espace</p>
   <h2>Balayez d'une page à l'autre</h2>
-  <p class="lead">Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. <b>Balayez vers la gauche ou la droite n'importe où sur le pupitre</b> pour passer de l'une à l'autre ; le nom de la page s'affiche brièvement pour que vous sachiez où vous avez atterri. En mode édition, le même geste réorganise les boutons : les deux ne se marchent jamais dessus.</p>
+  <p class="lead">Regroupez les boutons par pages : une pour le montage, une pour les jeux, une pour cette réunion dont vous ne sortez jamais. <b>Balayez vers la gauche ou la droite n'importe où sur le pupitre</b> pour passer de l'une à l'autre ; le nom de la page s'affiche brièvement pour que vous sachiez où vous avez atterri. En mode édition, le même geste réorganise les boutons : les deux ne se marchent jamais dessus. Pour déplacer une tuile vers une autre page, faites-la glisser sur l'onglet de cette page.</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Un balayage fait passer d'une page à la suivante." loading="lazy"></div><figcaption>Un balayage fait passer d'une page à la suivante.</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">Espace</p>
   <h2>Pages, colonnes et bouton flottant</h2>
-  <p class="lead">En mode édition, la barre du bas ajoute et supprime des pages et fixe le nombre de colonnes de la grille. Touchez de nouveau l'onglet d'une page pour la renommer. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble, puisqu'il est la seule chose toujours à l'écran.</p>
+  <p class="lead">En mode édition, la barre du bas ajoute et supprime des pages et fixe le nombre de colonnes de la grille. Le nombre de colonnes appartient à la page où vous êtes : une page de jauges peut tenir sur quatre colonnes pendant qu'une page de raccourcis en compte cinq. Touchez de nouveau l'onglet d'une page pour la renommer. Le bouton flottant donne accès aux pages, à l'éditeur et aux thèmes même quand les barres sont masquées, et vous pouvez le déplacer où bon vous semble, puisqu'il est la seule chose toujours à l'écran.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Le menu flottant : pages, barres, mode édition, thème et plein écran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Le menu flottant : pages, barres, mode édition, thème et plein écran.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Le mode édition, avec les commandes de pages et de colonnes en bas." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Le mode édition, avec les commandes de pages et de colonnes en bas.</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">Relevés</p>
+  <h2>Mettez les constantes vitales de la machine sur le pupitre</h2>
+  <p class="lead">Une tuile peut être une jauge plutôt qu'un bouton : processeur, mémoire, carte graphique, espace disque, activité disque, débit réseau, température, durée de fonctionnement et une horloge. Les jauges occupent la même grille que les boutons : les pages, les colonnes, l'étirement et le glisser pour réorganiser fonctionnent donc sur elles sans rien avoir à réapprendre. On les lit, on ne les appuie pas, aussi sont-elles dessinées comme des instruments encastrés dans la surface plutôt que comme des tuiles pleines.</p>
+  <aside class="note">La température exige que le serveur tourne en administrateur, et certaines cartes mères n'exposent aucune sonde. La jauge indique lequel des deux cas s'applique, car l'un se corrige et l'autre non.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="Des cadrans, des barres, un relevé réseau avec son historique récent, et un bouton ordinaire partageant la même page." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Des cadrans, des barres, un relevé réseau avec son historique récent, et un bouton ordinaire partageant la même page.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Jauge</th><th>Ce qu'elle montre</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>La charge du processeur sur tous les cœurs</td></tr><tr><td class="k">Mémoire</td><td>La part utilisée en pourcentage, avec les chiffres réels en dessous</td></tr><tr><td class="k">GPU</td><td>La charge graphique</td></tr><tr><td class="k">Disque</td><td>Le taux de remplissage d'un disque ; vous choisissez lequel</td></tr><tr><td class="k">Activité disque</td><td>À quel point les disques travaillent</td></tr><tr><td class="k">Réseau</td><td>Débit montant et descendant, avec le tracé de la dernière demi-minute</td></tr><tr><td class="k">Température</td><td>Depuis la sonde thermique de la carte mère</td></tr><tr><td class="k">Durée d'activité</td><td>Depuis combien de temps la machine tourne</td></tr><tr><td class="k">Horloge</td><td>L'heure, qui n'a rien à mesurer du tout</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">Relevés</p>
+  <h2>Elle s'ajoute comme un bouton</h2>
+  <p class="lead">En mode édition, ajoutez une tuile et donnez-lui l'action <b>Jauge système</b>. Choisissez ce qu'il faut mesurer, si le résultat prend la forme d'un cadran ou d'une barre, et sa couleur. L'aperçu en dessous est vivant : il montre le relevé réel avant même l'enregistrement. Laissez le libellé vide et la jauge se nomme toute seule.</p>
+  <aside class="note">La mesure ne tourne que tant qu'une page comportant une jauge est ouverte, et s'arrête au départ du dernier spectateur : un pupitre sans jauge ne coûte donc rien.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="Le choix de ce qu'on mesure, avec un aperçu en direct du résultat." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Le choix de ce qu'on mesure, avec un aperçu en direct du résultat.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Apparence</p>
   <h2>Onze thèmes, et les boutons suivent</h2>
   <p class="lead">La plupart des thèmes proviennent de palettes bien connues des développeurs (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), auxquelles s'ajoutent deux allures de terminal volontairement bicolores et un clair et un sombre neutres. Changer de thème convertit la couleur de vos boutons vers la nouvelle palette en conservant leurs teintes : un bouton bleu devient le bleu du nouveau thème et votre disposition se lit toujours pareil.</p>
-  <aside class="note">Si un pupitre finit tout d'une seule couleur, <b>Répartir la palette du thème</b> distribue les couleurs du thème sur les boutons ; <b>Tout peindre en couleur d'accent</b> les ramène à une seule. Chaque bouton peut aussi prendre une couleur de votre choix dans le sélecteur, et la couleur d'accent utilisée par les barres et le bouton flottant vous revient. Le texte des boutons bascule tout seul entre noir et blanc, quelle que soit la couleur retenue.</aside>
+  <aside class="note"><b>Panneau</b> fait bande à part : au lieu d'une palette, il change de langage et transforme les boutons en cadrans d'instrument, comme les jauges, leur couleur se réduisant à un liseré le long du bord supérieur. Les jauges peuvent elles aussi recevoir un thème à elles, si bien que les boutons peuvent suivre un thème pendant que les relevés en gardent un autre. Si un pupitre finit tout d'une seule couleur, <b>Répartir la palette du thème</b> distribue les couleurs du thème sur les boutons ; <b>Tout peindre en couleur d'accent</b> les ramène à une seule. Chaque bouton peut aussi prendre une couleur de votre choix dans le sélecteur, et la couleur d'accent utilisée par les barres et le bouton flottant vous revient. Le texte des boutons bascule tout seul entre noir et blanc, quelle que soit la couleur retenue.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Chaque carte montre son propre fond et sa palette." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Chaque carte montre son propre fond et sa palette.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Le même pupitre sur un thème clair." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Le même pupitre sur un thème clair.</figcaption></figure>
   
 </section>

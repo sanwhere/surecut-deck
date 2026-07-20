@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Espacio",
       "title": "Desliza entre páginas",
-      "body": "Agrupa los botones en páginas: una para editar, otra para juegos, otra para esa reunión en la que siempre estás. <b>Desliza a izquierda o derecha en cualquier punto del panel</b> para pasar de una a otra; el nombre de la página aparece un instante para que sepas dónde has caído. En modo edición ese mismo gesto reordena los botones, así que los dos nunca chocan.",
+      "body": "Agrupa los botones en páginas: una para editar, otra para juegos, otra para esa reunión en la que siempre estás. <b>Desliza a izquierda o derecha en cualquier punto del panel</b> para pasar de una a otra; el nombre de la página aparece un instante para que sepas dónde has caído. En modo edición ese mismo gesto reordena los botones, así que los dos nunca chocan. Para llevar una casilla a otra página, arrástrala sobre la pestaña de esa página.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Un deslizamiento lleva de una página a la siguiente." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Espacio",
       "title": "Páginas, columnas y el botón flotante",
-      "body": "En modo edición la barra inferior añade y quita páginas y fija cuántas columnas usa la cuadrícula. Toca otra vez una pestaña de página para cambiarle el nombre. El botón flotante te lleva a las páginas, al editor y a los temas incluso con las barras ocultas, y puedes arrastrarlo donde te venga bien, ya que es lo único que está siempre en pantalla.",
+      "body": "En modo edición la barra inferior añade y quita páginas y fija cuántas columnas usa la cuadrícula. El número de columnas pertenece a la página en la que estás, así que una página de medidores puede ir de cuatro en cuatro mientras una de atajos va de cinco. Toca otra vez una pestaña de página para cambiarle el nombre. El botón flotante te lleva a las páginas, al editor y a los temas incluso con las barras ocultas, y puedes arrastrarlo donde te venga bien, ya que es lo único que está siempre en pantalla.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "El menú flotante: páginas, barras, modo edición, tema y pantalla completa." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Modo edición, con los controles de páginas y columnas abajo." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Lecturas",
+      "title": "Pon las constantes vitales de la máquina en el panel",
+      "body": "Una casilla puede ser un medidor en lugar de un botón: procesador, memoria, gráficos, espacio en disco, actividad del disco, tráfico de red, temperatura, tiempo encendido y un reloj. Los medidores viven en la misma cuadrícula que los botones, así que las páginas, las columnas, el estirado y el arrastrar para reordenar funcionan igual con ellos sin que tengas que aprender nada nuevo. Se leen, no se pulsan, por eso se dibujan como instrumentos encastrados en la superficie y no como casillas rellenas.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Esferas, barras, una lectura de red con su historial reciente y un botón corriente compartiendo la misma página." }
+      ],
+      "table": {
+        "head": ["Medidor", "Qué muestra"],
+        "rows": [
+          ["CPU", "Carga del procesador en todos los núcleos"],
+          ["Memoria", "En uso como porcentaje, con las cifras reales debajo"],
+          ["GPU", "Carga de los gráficos"],
+          ["Disco", "Cómo de lleno está una unidad; eliges cuál"],
+          ["Actividad de disco", "Cómo de ocupados están los discos"],
+          ["Red", "Subida y bajada, con el trazo del último medio minuto"],
+          ["Temperatura", "Del sensor térmico de la placa base"],
+          ["Tiempo activo", "Cuánto lleva encendida la máquina"],
+          ["Reloj", "La hora, que no necesita medirse en absoluto"]
+        ]
+      },
+      "note": "La temperatura exige que el servidor se ejecute como administrador, y algunas placas base no publican ningún sensor. El medidor dice cuál de las dos cosas es, porque una tiene arreglo y la otra no."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Lecturas",
+      "title": "Se añade igual que un botón",
+      "body": "En modo edición, añade una casilla y dale la acción <b>Medidor del sistema</b>. Elige qué medir, si se dibuja como esfera o como barra, y su color. La vista previa de debajo está viva: enseña la lectura real antes de que guardes. Deja la etiqueta vacía y el medidor se pone nombre solo.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "Elegir qué medir, con una vista previa viva del resultado." }
+      ],
+      "note": "La medición solo corre mientras haya abierta una página con algún medidor, y para cuando se va el último que la miraba, así que un panel sin medidores no cuesta nada."
+    },
+    {
       "id": "themes",
       "eyebrow": "Aspecto",
       "title": "Once temas, y los botones se adaptan",
       "body": "La mayoría de los temas vienen de esquemas de color conocidos entre desarrolladores (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), más dos aspectos de terminal deliberadamente bicolores y un claro y un oscuro neutros. Al cambiar de tema, los colores de tus botones se convierten a la nueva paleta conservando sus tonos: un botón azul pasa a ser el azul del nuevo tema y tu distribución se sigue leyendo igual.",
-      "note": "Si un panel acaba todo del mismo color, <b>Repartir la paleta del tema</b> reparte los colores del tema entre los botones; <b>Pintar todo con el color de acento</b> los devuelve a uno solo. Cualquier botón puede tomar además un color propio del selector, y el color de acento que usan las barras y el botón flotante lo eliges tú. El texto de los botones alterna por su cuenta entre negro y blanco, sea cual sea el color en el que acabes.",
+      "note": "<b>Panel</b> es la excepción: en vez de una paleta cambia el lenguaje, convirtiendo los botones en esferas de instrumento como los medidores, con su color reducido a una franja en el borde superior. A los medidores también se les puede dar un tema propio, así los botones pueden seguir un tema mientras las lecturas conservan otro. Si un panel acaba todo del mismo color, <b>Repartir la paleta del tema</b> reparte los colores del tema entre los botones; <b>Pintar todo con el color de acento</b> los devuelve a uno solo. Cualquier botón puede tomar además un color propio del selector, y el color de acento que usan las barras y el botón flotante lo eliges tú. El texto de los botones alterna por su cuenta entre negro y blanco, sea cual sea el color en el que acabes.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Cada tarjeta muestra su propio fondo y su paleta." },
         { "src": "08-light.png", "frame": "tablet", "caption": "El mismo panel con un tema claro." }

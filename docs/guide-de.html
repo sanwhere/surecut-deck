@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>So funktioniert es</p>
-        <ul><li><a href="#buttons"><b>01</b>Grundlagen</a></li><li><a href="#icons"><b>02</b>Symbole</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Abgleich</a></li><li><a href="#mouse"><b>05</b>Zeiger</a></li><li><a href="#pages"><b>06</b>Platz</a></li><li><a href="#managepages"><b>07</b>Platz</a></li><li><a href="#themes"><b>08</b>Aussehen</a></li><li><a href="#screen"><b>09</b>Bildschirm</a></li><li><a href="#languages"><b>10</b>Sprache</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Grundlagen</a></li><li><a href="#icons"><b>02</b>Symbole</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Abgleich</a></li><li><a href="#mouse"><b>05</b>Zeiger</a></li><li><a href="#pages"><b>06</b>Platz</a></li><li><a href="#managepages"><b>07</b>Platz</a></li><li><a href="#gauges"><b>08</b>Ablesungen</a></li><li><a href="#gaugeedit"><b>09</b>Ablesungen</a></li><li><a href="#themes"><b>10</b>Aussehen</a></li><li><a href="#screen"><b>11</b>Bildschirm</a></li><li><a href="#languages"><b>12</b>Sprache</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">Platz</p>
   <h2>Wische zwischen den Seiten</h2>
-  <p class="lead">Fasse Schaltflächen zu Seiten zusammen: eine zum Bearbeiten, eine für Spiele, eine für das Meeting, in dem du immer sitzt. <b>Wische an beliebiger Stelle auf dem Pult nach links oder rechts</b>, um zu wechseln; der Seitenname erscheint kurz, damit du weißt, wo du gelandet bist. Im Bearbeitungsmodus sortiert dieselbe Geste stattdessen die Schaltflächen, die beiden kommen sich also nie in die Quere.</p>
+  <p class="lead">Fasse Schaltflächen zu Seiten zusammen: eine zum Bearbeiten, eine für Spiele, eine für das Meeting, in dem du immer sitzt. <b>Wische an beliebiger Stelle auf dem Pult nach links oder rechts</b>, um zu wechseln; der Seitenname erscheint kurz, damit du weißt, wo du gelandet bist. Im Bearbeitungsmodus sortiert dieselbe Geste stattdessen die Schaltflächen, die beiden kommen sich also nie in die Quere. Um eine Kachel auf eine andere Seite zu holen, zieh sie auf die Lasche dieser Seite.</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Ein Wisch führt von einer Seite zur nächsten." loading="lazy"></div><figcaption>Ein Wisch führt von einer Seite zur nächsten.</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">Platz</p>
   <h2>Seiten, Spalten und die schwebende Schaltfläche</h2>
-  <p class="lead">Im Bearbeitungsmodus legt die untere Leiste Seiten an und entfernt sie und bestimmt, wie viele Spalten das Raster nutzt. Tippe eine Seitenlasche erneut an, um sie umzubenennen. Die schwebende Schaltfläche führt dich auch bei ausgeblendeten Leisten zu den Seiten, zum Editor und zu den Designs, und du kannst sie hinziehen, wo sie dir passt, denn sie ist das Einzige, was immer auf dem Bildschirm bleibt.</p>
+  <p class="lead">Im Bearbeitungsmodus legt die untere Leiste Seiten an und entfernt sie und bestimmt, wie viele Spalten das Raster nutzt. Die Spaltenzahl gehört zu der Seite, auf der du gerade bist, eine Seite mit Anzeigen kann also vier Spalten breit sein, während eine Seite mit Kürzeln fünf hat. Tippe eine Seitenlasche erneut an, um sie umzubenennen. Die schwebende Schaltfläche führt dich auch bei ausgeblendeten Leisten zu den Seiten, zum Editor und zu den Designs, und du kannst sie hinziehen, wo sie dir passt, denn sie ist das Einzige, was immer auf dem Bildschirm bleibt.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Bearbeitungsmodus, mit den Seiten- und Spaltensteuerungen unten." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Bearbeitungsmodus, mit den Seiten- und Spaltensteuerungen unten.</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">Ablesungen</p>
+  <h2>Bring die Lebenszeichen der Maschine aufs Pult</h2>
+  <p class="lead">Eine Kachel kann statt einer Schaltfläche auch eine Anzeige sein: Prozessor, Arbeitsspeicher, Grafik, Festplattenplatz, Festplattenaktivität, Netzwerkdurchsatz, Temperatur, Laufzeit und eine Uhr. Anzeigen sitzen im selben Raster wie die Schaltflächen, deshalb funktionieren Seiten, Spalten, das Strecken auf volle Höhe und das Ziehen zum Umsortieren auch bei ihnen, ohne dass du etwas Neues lernen musst. Sie werden gelesen und nicht gedrückt, also sind sie als in die Fläche eingelassene Instrumente gezeichnet und nicht als gefüllte Kacheln.</p>
+  <aside class="note">Für die Temperatur muss der Server als Administrator laufen, und manche Mainboards liefern gar keinen Fühler. Die Anzeige sagt dir, welcher der beiden Fälle vorliegt, denn den einen kannst du beheben, den anderen nicht.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="Zifferblätter, Balken, eine Netzwerkanzeige mit ihrem jüngsten Verlauf und eine gewöhnliche Schaltfläche auf derselben Seite." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Zifferblätter, Balken, eine Netzwerkanzeige mit ihrem jüngsten Verlauf und eine gewöhnliche Schaltfläche auf derselben Seite.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Anzeige</th><th>Was sie zeigt</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>Prozessorlast über alle Kerne</td></tr><tr><td class="k">Speicher</td><td>Belegung in Prozent, darunter die tatsächlichen Zahlen</td></tr><tr><td class="k">GPU</td><td>Grafiklast</td></tr><tr><td class="k">Festplatte</td><td>Wie voll ein Laufwerk ist; du wählst, welches</td></tr><tr><td class="k">Disk-Aktivität</td><td>Wie beschäftigt die Laufwerke sind</td></tr><tr><td class="k">Netzwerk</td><td>Durchsatz hoch und runter, mit dem Verlauf der letzten halben Minute</td></tr><tr><td class="k">Temperatur</td><td>Vom Wärmefühler des Mainboards</td></tr><tr><td class="k">Laufzeit</td><td>Wie lange die Maschine schon läuft</td></tr><tr><td class="k">Uhr</td><td>Die Uhrzeit, die überhaupt nichts zu messen hat</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">Ablesungen</p>
+  <h2>Hinzugefügt wie eine Schaltfläche</h2>
+  <p class="lead">Füge im Bearbeitungsmodus eine Kachel hinzu und gib ihr die Aktion <b>Systemanzeige</b>. Wähle, was gemessen wird, ob es als Zifferblatt oder als Balken gezeichnet wird, und die Farbe. Die Vorschau darunter ist live und zeigt den echten Messwert, bevor du speicherst. Lass die Beschriftung leer, dann benennt sich die Anzeige selbst.</p>
+  <aside class="note">Gemessen wird nur, solange eine Seite mit einer Anzeige geöffnet ist, und es hört auf, sobald der letzte Betrachter geht; ein Pult ohne Anzeigen kostet also nichts.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="Die Wahl des Messwerts, mit einer Live-Vorschau des Ergebnisses." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Die Wahl des Messwerts, mit einer Live-Vorschau des Ergebnisses.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Aussehen</p>
   <h2>Elf Designs, und die Schaltflächen ziehen mit</h2>
   <p class="lead">Die meisten Designs stammen aus bekannten Farbschemata für Entwickler (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), dazu zwei bewusst zweifarbige Terminal-Looks sowie ein neutrales Hell und Dunkel. Beim Wechsel werden deine Schaltflächenfarben unter Beibehaltung ihrer Farbtöne in die neue Palette übertragen: Aus einer blauen Schaltfläche wird das Blau des neuen Designs, und dein Aufbau liest sich weiterhin gleich.</p>
-  <aside class="note">Wenn ein Pult am Ende einfarbig ist, verteilt <b>Design-Palette verteilen</b> die Farben des Designs auf die Schaltflächen; <b>Alle in Akzentfarbe färben</b> setzt sie wieder auf eine einzige zurück. Jede Schaltfläche kann außerdem aus der Farbauswahl eine eigene Farbe bekommen, und die Akzentfarbe für die Leisten und die schwebende Schaltfläche wählst du selbst. Die Schaltflächenbeschriftung wechselt von allein zwischen Schwarz und Weiß, welche Farbe du auch triffst.</aside>
+  <aside class="note"><b>Panel</b> fällt aus der Reihe: Statt einer Palette wechselt es die Sprache und macht aus Schaltflächen Instrumentenflächen wie bei den Anzeigen, deren Farbe auf einen Streifen an der Oberkante schrumpft. Auch die Anzeigen können ein eigenes Design bekommen, die Schaltflächen können also einem Design folgen, während die Ablesungen bei einem anderen bleiben. Wenn ein Pult am Ende einfarbig ist, verteilt <b>Design-Palette verteilen</b> die Farben des Designs auf die Schaltflächen; <b>Alle in Akzentfarbe färben</b> setzt sie wieder auf eine einzige zurück. Jede Schaltfläche kann außerdem aus der Farbauswahl eine eigene Farbe bekommen, und die Akzentfarbe für die Leisten und die schwebende Schaltfläche wählst du selbst. Die Schaltflächenbeschriftung wechselt von allein zwischen Schwarz und Weiß, welche Farbe du auch triffst.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Jede Karte zeigt ihren eigenen Hintergrund und ihre Palette." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Jede Karte zeigt ihren eigenen Hintergrund und ihre Palette.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Dasselbe Pult in einem hellen Design." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Dasselbe Pult in einem hellen Design.</figcaption></figure>
   
 </section>

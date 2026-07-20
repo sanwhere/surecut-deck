@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Ruang",
       "title": "Geser untuk berpindah halaman",
-      "body": "Kelompokkan tombol ke dalam halaman: satu untuk menyunting, satu untuk bermain, satu untuk rapat yang tak pernah kamu tinggalkan. <b>Geser ke kiri atau ke kanan di mana pun pada dek</b> untuk berpindah di antaranya; nama halamannya muncul sekilas supaya kamu tahu sedang mendarat di mana. Dalam mode ubah, gerakan yang sama justru menata ulang tombol, jadi keduanya tidak pernah bentrok.",
+      "body": "Kelompokkan tombol ke dalam halaman: satu untuk menyunting, satu untuk bermain, satu untuk rapat yang tak pernah kamu tinggalkan. <b>Geser ke kiri atau ke kanan di mana pun pada dek</b> untuk berpindah di antaranya; nama halamannya muncul sekilas supaya kamu tahu sedang mendarat di mana. Dalam mode ubah, gerakan yang sama justru menata ulang tombol, jadi keduanya tidak pernah bentrok. Untuk memindahkan sebuah ubin ke halaman lain, seret ubin itu ke tab halaman tersebut.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Sekali geser berpindah dari satu halaman ke halaman berikutnya." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Ruang",
       "title": "Halaman, kolom, dan tombol mengambang",
-      "body": "Dalam mode ubah, bilah bawah menambah dan menghapus halaman serta mengatur berapa kolom yang dipakai kisi. Ketuk lagi tab sebuah halaman untuk mengganti namanya. Tombol mengambang menjangkau halaman, penyunting, dan tema bahkan ketika bilah tersembunyi, dan bisa kamu seret ke mana pun yang terasa nyaman, karena ia satu-satunya yang selalu ada di layar.",
+      "body": "Dalam mode ubah, bilah bawah menambah dan menghapus halaman serta mengatur berapa kolom yang dipakai kisi. Jumlah kolomnya milik halaman yang sedang kamu buka, jadi satu halaman pengukur bisa empat kolom sementara satu halaman pintasan lima. Ketuk lagi tab sebuah halaman untuk mengganti namanya. Tombol mengambang menjangkau halaman, penyunting, dan tema bahkan ketika bilah tersembunyi, dan bisa kamu seret ke mana pun yang terasa nyaman, karena ia satu-satunya yang selalu ada di layar.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "Menu mengambang: halaman, bilah, mode ubah, tema, dan layar penuh." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Mode ubah, dengan kendali halaman dan kolom di sepanjang bagian bawah." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Pembacaan",
+      "title": "Taruh tanda-tanda vital mesinmu di dek",
+      "body": "Sebuah ubin bisa menjadi pengukur alih-alih tombol: prosesor, memori, grafis, ruang disk, aktivitas disk, laju jaringan, suhu, waktu aktif, dan jam. Pengukur duduk di kisi yang sama dengan tombol, jadi halaman, kolom, regangan memenuhi layar, dan seret untuk menata ulang semuanya tetap berlaku tanpa kamu perlu mempelajari hal baru. Ia dibaca, bukan ditekan, maka ia digambar sebagai muka instrumen yang tertanam di permukaan, bukan ubin berwarna penuh.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Dial, batang, sebuah pembacaan jaringan dengan riwayat terakhirnya, dan sebuah tombol biasa yang berbagi halaman yang sama." }
+      ],
+      "table": {
+        "head": ["Pengukur", "Yang ditampilkan"],
+        "rows": [
+          ["CPU", "Beban prosesor di seluruh inti"],
+          ["Memori", "Yang terpakai dalam persen, dengan angka sebenarnya di bawahnya"],
+          ["GPU", "Beban grafis"],
+          ["Disk", "Seberapa penuh sebuah drive; pilih yang mana"],
+          ["Aktivitas disk", "Seberapa sibuk disknya"],
+          ["Jaringan", "Laju naik dan turun, dengan jejak setengah menit terakhir"],
+          ["Suhu", "Dari sensor panas di papan induk"],
+          ["Waktu aktif", "Sudah berapa lama mesin menyala"],
+          ["Jam", "Waktu, yang sama sekali tidak perlu diukur"]
+        ]
+      },
+      "note": "Suhu menuntut server dijalankan sebagai administrator, dan sebagian papan induk memang tidak menyediakan sensor sama sekali. Pengukurnya menyebutkan mana dari keduanya, sebab yang satu bisa kamu perbaiki dan yang lain tidak."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Pembacaan",
+      "title": "Menambahkannya sama seperti menambah tombol",
+      "body": "Dalam mode ubah, tambahkan sebuah ubin dan atur tindakannya menjadi <b>Pengukur sistem</b>. Pilih apa yang diukur, apakah digambar sebagai dial atau batang, dan warnanya. Pratinjau di bawahnya hidup, menampilkan pembacaan sungguhan sebelum kamu menyimpan. Biarkan labelnya kosong dan pengukur itu menamai dirinya sendiri.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "Memilih apa yang diukur, dengan pratinjau hasilnya secara langsung." }
+      ],
+      "note": "Pengukuran hanya berjalan selama ada halaman berisi pengukur yang terbuka, dan berhenti saat penonton terakhir pergi, jadi dek tanpa pengukur tidak memakan apa pun."
+    },
+    {
       "id": "themes",
       "eyebrow": "Tampilan",
       "title": "Sebelas tema, dan tombolnya ikut menyesuaikan",
       "body": "Sebagian besar tema berasal dari skema warna yang dikenal para pengembang (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), ditambah dua tampilan terminal yang sengaja hanya dua warna serta satu terang dan satu gelap yang netral. Saat tema diganti, warna tombolmu dikonversi ke palet baru dengan mempertahankan ronanya: tombol biru menjadi biru tema yang baru, dan tata letakmu tetap terbaca sama.",
-      "note": "Kalau sebuah dek berakhir serba satu warna, <b>Sebar palet tema</b> membagikan warna-warna tema itu ke seluruh tombol; <b>Warnai semua dengan warna aksen</b> mengembalikannya menjadi satu warna. Tombol mana pun juga bisa memakai warna pilihanmu sendiri dari pemilih warna, dan warna aksen yang dipakai bilah serta tombol mengambang terserah kamu. Teks tombol berganti sendiri antara hitam dan putih, apa pun warna yang kamu pilih.",
+      "note": "<b>Panel</b> adalah yang berbeda sendiri: alih-alih sebuah palet, ia mengubah gayanya, menjadikan tombol sebagai muka instrumen seperti para pengukur, dengan warnanya menyusut jadi segaris di tepi atas. Pengukur juga bisa diberi temanya sendiri, jadi tombol boleh mengikuti satu tema sementara pembacaannya mempertahankan tema yang lain. Kalau sebuah dek berakhir serba satu warna, <b>Sebar palet tema</b> membagikan warna-warna tema itu ke seluruh tombol; <b>Warnai semua dengan warna aksen</b> mengembalikannya menjadi satu warna. Tombol mana pun juga bisa memakai warna pilihanmu sendiri dari pemilih warna, dan warna aksen yang dipakai bilah serta tombol mengambang terserah kamu. Teks tombol berganti sendiri antara hitam dan putih, apa pun warna yang kamu pilih.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Tiap kartu menampilkan latar dan paletnya sendiri." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Dek yang sama dengan tema terang." }

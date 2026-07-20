@@ -17,7 +17,8 @@ New-Item -ItemType Directory -Force -Path $out | Out-Null
 # zaten gercek pencere kenarligi var.
 $tabletShots = @(
   '01-deck.png','02-themes.png','03-editmode.png','04-editor.png',
-  '05-action.png','06-touchpad.png','07-menu.png','08-light.png'
+  '05-action.png','06-touchpad.png','07-menu.png','08-light.png',
+  '20-gauges.png','21-gauge-editor.png'
 )
 
 $padX = 34    # yanlarda cerceve kalinligi

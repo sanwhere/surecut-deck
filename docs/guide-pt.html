@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Como funciona</p>
-        <ul><li><a href="#buttons"><b>01</b>O básico</a></li><li><a href="#icons"><b>02</b>Ícones</a></li><li><a href="#dragdrop"><b>03</b>Ambiente de trabalho</a></li><li><a href="#sync"><b>04</b>Sincronização</a></li><li><a href="#mouse"><b>05</b>Ponteiro</a></li><li><a href="#pages"><b>06</b>Espaço</a></li><li><a href="#managepages"><b>07</b>Espaço</a></li><li><a href="#themes"><b>08</b>Aspeto</a></li><li><a href="#screen"><b>09</b>Ecrã</a></li><li><a href="#languages"><b>10</b>Idioma</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>O básico</a></li><li><a href="#icons"><b>02</b>Ícones</a></li><li><a href="#dragdrop"><b>03</b>Ambiente de trabalho</a></li><li><a href="#sync"><b>04</b>Sincronização</a></li><li><a href="#mouse"><b>05</b>Ponteiro</a></li><li><a href="#pages"><b>06</b>Espaço</a></li><li><a href="#managepages"><b>07</b>Espaço</a></li><li><a href="#gauges"><b>08</b>Leituras</a></li><li><a href="#gaugeedit"><b>09</b>Leituras</a></li><li><a href="#themes"><b>10</b>Aspeto</a></li><li><a href="#screen"><b>11</b>Ecrã</a></li><li><a href="#languages"><b>12</b>Idioma</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">Espaço</p>
   <h2>Desliza entre páginas</h2>
-  <p class="lead">Agrupa os botões em páginas: uma para edição, outra para jogos, outra para aquela reunião de onde nunca sais. <b>Desliza para a esquerda ou para a direita em qualquer ponto do painel</b> para mudar de uma para outra; o nome da página aparece por instantes, para saberes onde foste parar. Em modo de edição o mesmo gesto reordena os botões, por isso os dois nunca se atropelam.</p>
+  <p class="lead">Agrupa os botões em páginas: uma para edição, outra para jogos, outra para aquela reunião de onde nunca sais. <b>Desliza para a esquerda ou para a direita em qualquer ponto do painel</b> para mudar de uma para outra; o nome da página aparece por instantes, para saberes onde foste parar. Em modo de edição o mesmo gesto reordena os botões, por isso os dois nunca se atropelam. Para mover uma peça para outra página, arrasta-a para o separador dessa página.</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Um deslize passa de uma página para a seguinte." loading="lazy"></div><figcaption>Um deslize passa de uma página para a seguinte.</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">Espaço</p>
   <h2>Páginas, colunas e o botão flutuante</h2>
-  <p class="lead">Em modo de edição a barra de baixo acrescenta e remove páginas e define quantas colunas a grelha usa. Toca outra vez no separador de uma página para lhe mudares o nome. O botão flutuante leva-te às páginas, ao editor e aos temas mesmo com as barras escondidas, e podes arrastá-lo para onde te der jeito, já que é a única coisa sempre no ecrã.</p>
+  <p class="lead">Em modo de edição a barra de baixo acrescenta e remove páginas e define quantas colunas a grelha usa. A contagem de colunas pertence à página em que estás, por isso uma página de medidores pode ter quatro colunas enquanto uma página de atalhos tem cinco. Toca outra vez no separador de uma página para lhe mudares o nome. O botão flutuante leva-te às páginas, ao editor e aos temas mesmo com as barras escondidas, e podes arrastá-lo para onde te der jeito, já que é a única coisa sempre no ecrã.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="O menu flutuante: páginas, barras, modo de edição, tema e ecrã inteiro." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>O menu flutuante: páginas, barras, modo de edição, tema e ecrã inteiro.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Modo de edição, com os controlos de páginas e colunas ao longo do fundo." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Modo de edição, com os controlos de páginas e colunas ao longo do fundo.</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">Leituras</p>
+  <h2>Põe os sinais vitais da máquina no painel</h2>
+  <p class="lead">Uma peça pode ser um medidor em vez de um botão: processador, memória, gráficos, espaço em disco, atividade do disco, tráfego de rede, temperatura, tempo ligado e um relógio. Os medidores ficam na mesma grelha dos botões, por isso as páginas, as colunas, o esticar para preencher e o arrastar para reordenar funcionam neles sem teres de aprender nada de novo. São para ler e não para carregar, por isso são desenhados como instrumentos embutidos na superfície e não como peças preenchidas.</p>
+  <aside class="note">A temperatura exige que o servidor corra como administrador, e há placas-mãe que simplesmente não publicam sensor nenhum. O medidor diz de qual dos dois casos se trata, porque um deles podes resolver e o outro não.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="Mostradores, barras, uma leitura de rede com o seu histórico recente, e um botão vulgar a partilhar a mesma página." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Mostradores, barras, uma leitura de rede com o seu histórico recente, e um botão vulgar a partilhar a mesma página.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Medidor</th><th>O que mostra</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>Carga do processador em todos os núcleos</td></tr><tr><td class="k">Memória</td><td>Em uso em percentagem, com os valores reais por baixo</td></tr><tr><td class="k">GPU</td><td>Carga dos gráficos</td></tr><tr><td class="k">Disco</td><td>Quão cheia está uma unidade; escolhes qual</td></tr><tr><td class="k">Atividade do disco</td><td>Quão ocupados estão os discos</td></tr><tr><td class="k">Rede</td><td>Tráfego de subida e de descida, com o traço do último meio minuto</td></tr><tr><td class="k">Temperatura</td><td>Do sensor térmico da placa-mãe</td></tr><tr><td class="k">Tempo ligado</td><td>Há quanto tempo a máquina está a funcionar</td></tr><tr><td class="k">Relógio</td><td>As horas, que não precisam de medição nenhuma</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">Leituras</p>
+  <h2>Acrescenta um da mesma forma que acrescentas um botão</h2>
+  <p class="lead">Em modo de edição, acrescenta uma peça e define a sua ação como <b>Medidor do sistema</b>. Escolhe o que medir, se é desenhado como mostrador ou como barra, e a sua cor. A pré-visualização por baixo é ao vivo e mostra a leitura real antes de guardares. Deixa a etiqueta vazia e o medidor dá nome a si próprio.</p>
+  <aside class="note">A medição só corre enquanto estiver aberta uma página com um medidor, e para quando sai o último espectador, por isso um painel sem medidores não custa nada.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="A escolha do que medir, com pré-visualização ao vivo do resultado." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>A escolha do que medir, com pré-visualização ao vivo do resultado.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Aspeto</p>
   <h2>Onze temas, e os botões acompanham</h2>
   <p class="lead">A maioria dos temas vem de esquemas de cor conhecidos entre programadores (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), mais dois visuais de terminal propositadamente a duas cores e um claro e um escuro neutros. Ao mudar de tema, as cores dos teus botões são convertidas para a nova paleta mantendo os tons: um botão azul passa a ser o azul do novo tema e a tua disposição continua a ler-se igual.</p>
-  <aside class="note">Se um painel acabar todo da mesma cor, <b>Distribuir a paleta do tema</b> reparte essas cores pelos botões; <b>Pintar tudo com a cor de destaque</b> volta a pô-los todos numa só. Qualquer botão pode também levar uma cor tua a partir do seletor, e o destaque usado pelas barras e pelo botão flutuante é escolha tua. O texto dos botões alterna sozinho entre preto e branco, seja qual for a cor em que pares.</aside>
+  <aside class="note"><b>Painel</b> é o caso à parte: em vez de uma paleta muda a linguagem visual, transformando os botões em mostradores de instrumento como os dos medidores, com a cor reduzida a uma faixa ao longo do bordo superior. Também podes dar aos medidores um tema só deles, por isso os botões podem seguir um tema enquanto as leituras mantêm outro. Se um painel acabar todo da mesma cor, <b>Distribuir a paleta do tema</b> reparte essas cores pelos botões; <b>Pintar tudo com a cor de destaque</b> volta a pô-los todos numa só. Qualquer botão pode também levar uma cor tua a partir do seletor, e o destaque usado pelas barras e pelo botão flutuante é escolha tua. O texto dos botões alterna sozinho entre preto e branco, seja qual for a cor em que pares.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Cada cartão mostra o seu próprio fundo e paleta." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Cada cartão mostra o seu próprio fundo e paleta.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="O mesmo painel com um tema claro." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>O mesmo painel com um tema claro.</figcaption></figure>
   
 </section>

@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Jak to działa</p>
-        <ul><li><a href="#buttons"><b>01</b>Podstawy</a></li><li><a href="#icons"><b>02</b>Ikony</a></li><li><a href="#dragdrop"><b>03</b>Pulpit</a></li><li><a href="#sync"><b>04</b>Synchronizacja</a></li><li><a href="#mouse"><b>05</b>Wskaźnik</a></li><li><a href="#pages"><b>06</b>Przestrzeń</a></li><li><a href="#managepages"><b>07</b>Przestrzeń</a></li><li><a href="#themes"><b>08</b>Wygląd</a></li><li><a href="#screen"><b>09</b>Ekran</a></li><li><a href="#languages"><b>10</b>Język</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Podstawy</a></li><li><a href="#icons"><b>02</b>Ikony</a></li><li><a href="#dragdrop"><b>03</b>Pulpit</a></li><li><a href="#sync"><b>04</b>Synchronizacja</a></li><li><a href="#mouse"><b>05</b>Wskaźnik</a></li><li><a href="#pages"><b>06</b>Przestrzeń</a></li><li><a href="#managepages"><b>07</b>Przestrzeń</a></li><li><a href="#gauges"><b>08</b>Odczyty</a></li><li><a href="#gaugeedit"><b>09</b>Odczyty</a></li><li><a href="#themes"><b>10</b>Wygląd</a></li><li><a href="#screen"><b>11</b>Ekran</a></li><li><a href="#languages"><b>12</b>Język</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">Przestrzeń</p>
   <h2>Przesuwaj palcem między stronami</h2>
-  <p class="lead">Pogrupuj przyciski na strony: jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. <b>Przesuń palcem w lewo lub w prawo w dowolnym miejscu pulpitu</b>, aby się między nimi przemieszczać; nazwa strony pokaże się na chwilę, więc wiesz, gdzie wylądowałeś. W trybie edycji ten sam gest zmienia zamiast tego kolejność przycisków, więc te dwa nigdy sobie nie wchodzą w drogę.</p>
+  <p class="lead">Pogrupuj przyciski na strony: jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. <b>Przesuń palcem w lewo lub w prawo w dowolnym miejscu pulpitu</b>, aby się między nimi przemieszczać; nazwa strony pokaże się na chwilę, więc wiesz, gdzie wylądowałeś. W trybie edycji ten sam gest zmienia zamiast tego kolejność przycisków, więc te dwa nigdy sobie nie wchodzą w drogę. Aby przenieść kafelek na inną stronę, przeciągnij go na zakładkę tej strony.</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Jedno przesunięcie przenosi z jednej strony na następną." loading="lazy"></div><figcaption>Jedno przesunięcie przenosi z jednej strony na następną.</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">Przestrzeń</p>
   <h2>Strony, kolumny i pływający przycisk</h2>
-  <p class="lead">W trybie edycji dolny pasek dodaje i usuwa strony oraz ustala, ilu kolumn używa siatka. Dotknij zakładki strony ponownie, aby zmienić jej nazwę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie, bo to jedyna rzecz zawsze widoczna na ekranie.</p>
+  <p class="lead">W trybie edycji dolny pasek dodaje i usuwa strony oraz ustala, ilu kolumn używa siatka. Liczba kolumn należy do strony, na której jesteś, więc strona ze wskaźnikami może mieć cztery kolumny, a strona ze skrótami pięć. Dotknij zakładki strony ponownie, aby zmienić jej nazwę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie, bo to jedyna rzecz zawsze widoczna na ekranie.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Tryb edycji, z ustawieniami stron i kolumn na dole." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Tryb edycji, z ustawieniami stron i kolumn na dole.</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">Odczyty</p>
+  <h2>Pokaż na pulpicie parametry życiowe maszyny</h2>
+  <p class="lead">Kafelek może być wskaźnikiem zamiast przyciskiem: procesor, pamięć, grafika, miejsce na dysku, aktywność dysku, ruch sieciowy, temperatura, czas pracy i zegar. Wskaźniki siedzą w tej samej siatce co przyciski, więc strony, kolumny, rozciąganie na cały ekran i przeciąganie dla zmiany kolejności działają na nich bez uczenia się czegokolwiek nowego. Nie naciska się ich, tylko czyta, dlatego są rysowane jako przyrządy wpuszczone w powierzchnię, a nie jako wypełnione kafelki.</p>
+  <aside class="note">Temperatura wymaga serwera uruchomionego jako administrator, a niektóre płyty główne w ogóle nie udostępniają takiego czujnika. Wskaźnik mówi, który z tych dwóch przypadków zachodzi, bo jeden naprawisz, a drugiego nie.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="Tarcze, paski, odczyt sieci z niedawną historią i zwykły przycisk na tej samej stronie." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Tarcze, paski, odczyt sieci z niedawną historią i zwykły przycisk na tej samej stronie.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Wskaźnik</th><th>Co pokazuje</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>Obciążenie procesora na wszystkich rdzeniach</td></tr><tr><td class="k">Pamięć</td><td>Zajęta w procentach, a pod spodem rzeczywiste liczby</td></tr><tr><td class="k">GPU</td><td>Obciążenie grafiki</td></tr><tr><td class="k">Dysk</td><td>Jak pełny jest napęd; wybierasz który</td></tr><tr><td class="k">Aktywność dysku</td><td>Jak bardzo zajęte są dyski</td></tr><tr><td class="k">Sieć</td><td>Ruch w górę i w dół, ze śladem z ostatniego pół minuty</td></tr><tr><td class="k">Temperatura</td><td>Z czujnika termicznego płyty głównej</td></tr><tr><td class="k">Czas pracy</td><td>Jak długo maszyna już działa</td></tr><tr><td class="k">Zegar</td><td>Godzina, której nie trzeba wcale mierzyć</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">Odczyty</p>
+  <h2>Dodajesz go tak samo jak przycisk</h2>
+  <p class="lead">W trybie edycji dodaj kafelek i ustaw jego akcję na <b>Wskaźnik systemowy</b>. Wybierz, co mierzyć, czy ma być narysowany jako tarcza czy jako pasek, oraz jego kolor. Podgląd pod spodem jest żywy i pokazuje prawdziwy odczyt, zanim zapiszesz. Zostaw etykietę pustą, a wskaźnik nazwie się sam.</p>
+  <aside class="note">Pomiar działa tylko wtedy, gdy otwarta jest strona ze wskaźnikiem, i zatrzymuje się, gdy odejdzie ostatni widz, więc pulpit bez wskaźników nic nie kosztuje.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="Wybór tego, co mierzyć, z żywym podglądem wyniku." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Wybór tego, co mierzyć, z żywym podglądem wyniku.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Wygląd</p>
   <h2>Jedenaście motywów, a przyciski nadążają</h2>
   <p class="lead">Większość motywów pochodzi ze schematów kolorów znanych programistom (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), plus dwa celowo dwubarwne wyglądy terminala oraz neutralny jasny i ciemny. Zmiana motywu przenosi kolory twoich przycisków do nowej palety z zachowaniem odcieni: niebieski przycisk staje się niebieskim nowego motywu, a układ czyta się tak samo.</p>
-  <aside class="note">Jeśli pulpit wyszedł cały w jednym kolorze, <b>Rozłóż paletę motywu</b> rozdaje jego kolory pomiędzy przyciski, a <b>Pomaluj wszystko kolorem akcentu</b> sprowadza je z powrotem do jednego. Każdy przycisk może też dostać twój własny kolor z próbnika, a akcent używany przez paski i pływający przycisk wybierasz sam. Tekst na przyciskach sam przełącza się między czernią a bielą, na jakim kolorze byś nie wylądował.</aside>
+  <aside class="note"><b>Panel</b> jest tu wyjątkiem: zamiast palety zmienia sam język wizualny, zamieniając przyciski w tarcze przyrządów, takie jak u wskaźników, a ich kolor sprowadza do paska wzdłuż górnej krawędzi. Wskaźnikom można też nadać własny motyw, więc przyciski mogą trzymać się jednego motywu, a odczyty zachować inny. Jeśli pulpit wyszedł cały w jednym kolorze, <b>Rozłóż paletę motywu</b> rozdaje jego kolory pomiędzy przyciski, a <b>Pomaluj wszystko kolorem akcentu</b> sprowadza je z powrotem do jednego. Każdy przycisk może też dostać twój własny kolor z próbnika, a akcent używany przez paski i pływający przycisk wybierasz sam. Tekst na przyciskach sam przełącza się między czernią a bielą, na jakim kolorze byś nie wylądował.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Każda karta pokazuje własne tło i paletę." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Każda karta pokazuje własne tło i paletę.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Ten sam pulpit w jasnym motywie." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Ten sam pulpit w jasnym motywie.</figcaption></figure>
   
 </section>

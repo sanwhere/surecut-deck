@@ -230,7 +230,7 @@ footer {
     <div class="body">
       <nav class="index" aria-label="Contents">
         <p>Come funziona</p>
-        <ul><li><a href="#buttons"><b>01</b>Le basi</a></li><li><a href="#icons"><b>02</b>Icone</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Sincronizzazione</a></li><li><a href="#mouse"><b>05</b>Puntatore</a></li><li><a href="#pages"><b>06</b>Spazio</a></li><li><a href="#managepages"><b>07</b>Spazio</a></li><li><a href="#themes"><b>08</b>Aspetto</a></li><li><a href="#screen"><b>09</b>Schermo</a></li><li><a href="#languages"><b>10</b>Lingua</a></li></ul>
+        <ul><li><a href="#buttons"><b>01</b>Le basi</a></li><li><a href="#icons"><b>02</b>Icone</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#sync"><b>04</b>Sincronizzazione</a></li><li><a href="#mouse"><b>05</b>Puntatore</a></li><li><a href="#pages"><b>06</b>Spazio</a></li><li><a href="#managepages"><b>07</b>Spazio</a></li><li><a href="#gauges"><b>08</b>Letture</a></li><li><a href="#gaugeedit"><b>09</b>Letture</a></li><li><a href="#themes"><b>10</b>Aspetto</a></li><li><a href="#screen"><b>11</b>Schermo</a></li><li><a href="#languages"><b>12</b>Lingua</a></li></ul>
       </nav>
 
       <div class="col">
@@ -325,7 +325,7 @@ footer {
 <section id="pages">
   <p class="eyebrow">Spazio</p>
   <h2>Scorri da una pagina all'altra</h2>
-  <p class="lead">Raggruppa i pulsanti in pagine: una per il montaggio, una per i giochi, una per quella riunione da cui non esci mai. <b>Scorri a sinistra o a destra in un punto qualsiasi della console</b> per passare da una all'altra; il nome della pagina compare per un attimo, così sai dove sei arrivato. In modalità modifica lo stesso gesto riordina invece i pulsanti, così i due non si pestano mai i piedi.</p>
+  <p class="lead">Raggruppa i pulsanti in pagine: una per il montaggio, una per i giochi, una per quella riunione da cui non esci mai. <b>Scorri a sinistra o a destra in un punto qualsiasi della console</b> per passare da una all'altra; il nome della pagina compare per un attimo, così sai dove sei arrivato. In modalità modifica lo stesso gesto riordina invece i pulsanti, così i due non si pestano mai i piedi. Per spostare una casella su un'altra pagina, trascinala sulla scheda di quella pagina.</p>
   
   <figure class="plate"><div class="bare"><img src="shots/12-swipe.png" alt="Uno scorrimento porta da una pagina alla successiva." loading="lazy"></div><figcaption>Uno scorrimento porta da una pagina alla successiva.</figcaption></figure>
   
@@ -333,16 +333,35 @@ footer {
 <section id="managepages">
   <p class="eyebrow">Spazio</p>
   <h2>Pagine, colonne e il pulsante flottante</h2>
-  <p class="lead">In modalità modifica la barra in basso aggiunge e toglie pagine e imposta quante colonne usa la griglia. Tocca di nuovo la scheda di una pagina per rinominarla. Il pulsante flottante porta alle pagine, all'editor e ai temi anche quando le barre sono nascoste, e puoi trascinarlo dove ti fa comodo, visto che è l'unica cosa sempre presente sullo schermo.</p>
+  <p class="lead">In modalità modifica la barra in basso aggiunge e toglie pagine e imposta quante colonne usa la griglia. Il numero di colonne appartiene alla pagina in cui ti trovi, così una pagina di indicatori può stare su quattro colonne mentre una di scorciatoie ne ha cinque. Tocca di nuovo la scheda di una pagina per rinominarla. Il pulsante flottante porta alle pagine, all'editor e ai temi anche quando le barre sono nascoste, e puoi trascinarlo dove ti fa comodo, visto che è l'unica cosa sempre presente sullo schermo.</p>
   
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Il menu flottante: pagine, barre, modalità modifica, tema e schermo intero." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Il menu flottante: pagine, barre, modalità modifica, tema e schermo intero.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Modalità modifica, con i comandi di pagine e colonne lungo il fondo." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Modalità modifica, con i comandi di pagine e colonne lungo il fondo.</figcaption></figure>
+  
+</section>
+<section id="gauges">
+  <p class="eyebrow">Letture</p>
+  <h2>Porta i parametri vitali della macchina sulla console</h2>
+  <p class="lead">Una casella può essere un indicatore invece di un pulsante: processore, memoria, grafica, spazio su disco, attività del disco, traffico di rete, temperatura, tempo di accensione e un orologio. Gli indicatori stanno nella stessa griglia dei pulsanti, quindi pagine, colonne, estensione a tutto schermo e trascinamento per riordinare valgono anche per loro senza che tu debba imparare nulla di nuovo. Si leggono, non si premono, perciò sono disegnati come strumenti incassati nella superficie e non come caselle piene.</p>
+  <aside class="note">La temperatura richiede che il server giri come amministratore, e alcune schede madri non espongono alcun sensore. L'indicatore dice quale dei due casi sia, perché uno puoi risolverlo e l'altro no.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/20-gauges.png" alt="Quadranti, barre, una lettura di rete con il suo andamento recente e un normale pulsante che condivide la stessa pagina." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Quadranti, barre, una lettura di rete con il suo andamento recente e un normale pulsante che condivide la stessa pagina.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Indicatore</th><th>Cosa mostra</th></tr></thead>
+  <tbody><tr><td class="k">CPU</td><td>Il carico del processore su tutti i core</td></tr><tr><td class="k">Memoria</td><td>La quota in uso in percentuale, con i valori reali sotto</td></tr><tr><td class="k">GPU</td><td>Il carico della grafica</td></tr><tr><td class="k">Disco</td><td>Quanto è pieno un disco; scegli tu quale</td></tr><tr><td class="k">Attività disco</td><td>Quanto sono impegnati i dischi</td></tr><tr><td class="k">Rete</td><td>Traffico in salita e in discesa, con la traccia dell'ultimo mezzo minuto</td></tr><tr><td class="k">Temperatura</td><td>Dal sensore termico della scheda madre</td></tr><tr><td class="k">Tempo acceso</td><td>Da quanto la macchina è in funzione</td></tr><tr><td class="k">Orologio</td><td>L'ora, che non ha proprio nulla da misurare</td></tr></tbody>
+  </table></div>
+</section>
+<section id="gaugeedit">
+  <p class="eyebrow">Letture</p>
+  <h2>Si aggiunge come un pulsante</h2>
+  <p class="lead">In modalità modifica aggiungi una casella e assegnale l'azione <b>Indicatore di sistema</b>. Scegli cosa misurare, se disegnarlo come quadrante o come barra, e il colore. L'anteprima sotto è viva: mostra la lettura reale prima ancora che tu salvi. Lascia vuota l'etichetta e l'indicatore si dà un nome da sé.</p>
+  <aside class="note">La misurazione gira solo mentre è aperta una pagina con un indicatore, e si ferma quando l'ultimo che la guardava se ne va, così una console senza indicatori non costa nulla.</aside>
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/21-gauge-editor.png" alt="La scelta di cosa misurare, con un'anteprima dal vivo del risultato." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>La scelta di cosa misurare, con un'anteprima dal vivo del risultato.</figcaption></figure>
   
 </section>
 <section id="themes">
   <p class="eyebrow">Aspetto</p>
   <h2>Undici temi, e i pulsanti si adeguano</h2>
   <p class="lead">La maggior parte dei temi viene da palette note agli sviluppatori (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), più due look da terminale volutamente bicolori e un chiaro e uno scuro neutri. Cambiando tema i colori dei tuoi pulsanti vengono convertiti nella nuova palette mantenendo le tonalità: un pulsante blu diventa il blu del nuovo tema e la tua disposizione resta leggibile allo stesso modo.</p>
-  <aside class="note">Se una console finisce tutta di un colore solo, <b>Distribuisci la tavolozza del tema</b> ripartisce quei colori fra i pulsanti; <b>Colora tutto con l'accento</b> li riporta tutti a un colore solo. Ogni pulsante può anche prendere un colore tuo dal selettore, e l'accento usato dalle barre e dal pulsante flottante lo scegli tu. Il testo dei pulsanti passa da solo fra nero e bianco, qualunque colore tu scelga.</aside>
+  <aside class="note"><b>Pannello</b> è quello fuori dal coro: invece di una tavolozza cambia il linguaggio e trasforma i pulsanti in quadranti da strumento, come gli indicatori, riducendone il colore a una striscia lungo il bordo superiore. Anche agli indicatori si può dare un tema tutto loro, così i pulsanti possono seguire un tema mentre le letture ne conservano un altro. Se una console finisce tutta di un colore solo, <b>Distribuisci la tavolozza del tema</b> ripartisce quei colori fra i pulsanti; <b>Colora tutto con l'accento</b> li riporta tutti a un colore solo. Ogni pulsante può anche prendere un colore tuo dal selettore, e l'accento usato dalle barre e dal pulsante flottante lo scegli tu. Il testo dei pulsanti passa da solo fra nero e bianco, qualunque colore tu scelga.</aside>
   <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Ogni scheda mostra il proprio sfondo e la propria palette." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Ogni scheda mostra il proprio sfondo e la propria palette.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="La stessa console con un tema chiaro." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>La stessa console con un tema chiaro.</figcaption></figure>
   
 </section>

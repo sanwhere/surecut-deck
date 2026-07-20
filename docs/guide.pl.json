@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Przestrzeń",
       "title": "Przesuwaj palcem między stronami",
-      "body": "Pogrupuj przyciski na strony: jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. <b>Przesuń palcem w lewo lub w prawo w dowolnym miejscu pulpitu</b>, aby się między nimi przemieszczać; nazwa strony pokaże się na chwilę, więc wiesz, gdzie wylądowałeś. W trybie edycji ten sam gest zmienia zamiast tego kolejność przycisków, więc te dwa nigdy sobie nie wchodzą w drogę.",
+      "body": "Pogrupuj przyciski na strony: jedna do montażu, druga do gier, trzecia na to spotkanie, z którego nigdy nie wychodzisz. <b>Przesuń palcem w lewo lub w prawo w dowolnym miejscu pulpitu</b>, aby się między nimi przemieszczać; nazwa strony pokaże się na chwilę, więc wiesz, gdzie wylądowałeś. W trybie edycji ten sam gest zmienia zamiast tego kolejność przycisków, więc te dwa nigdy sobie nie wchodzą w drogę. Aby przenieść kafelek na inną stronę, przeciągnij go na zakładkę tej strony.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Jedno przesunięcie przenosi z jednej strony na następną." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Przestrzeń",
       "title": "Strony, kolumny i pływający przycisk",
-      "body": "W trybie edycji dolny pasek dodaje i usuwa strony oraz ustala, ilu kolumn używa siatka. Dotknij zakładki strony ponownie, aby zmienić jej nazwę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie, bo to jedyna rzecz zawsze widoczna na ekranie.",
+      "body": "W trybie edycji dolny pasek dodaje i usuwa strony oraz ustala, ilu kolumn używa siatka. Liczba kolumn należy do strony, na której jesteś, więc strona ze wskaźnikami może mieć cztery kolumny, a strona ze skrótami pięć. Dotknij zakładki strony ponownie, aby zmienić jej nazwę. Pływający przycisk prowadzi do stron, edytora i motywów nawet przy ukrytych paskach, a możesz go przeciągnąć tam, gdzie ci wygodnie, bo to jedyna rzecz zawsze widoczna na ekranie.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "Pływające menu: strony, paski, tryb edycji, motyw i pełny ekran." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Tryb edycji, z ustawieniami stron i kolumn na dole." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Odczyty",
+      "title": "Pokaż na pulpicie parametry życiowe maszyny",
+      "body": "Kafelek może być wskaźnikiem zamiast przyciskiem: procesor, pamięć, grafika, miejsce na dysku, aktywność dysku, ruch sieciowy, temperatura, czas pracy i zegar. Wskaźniki siedzą w tej samej siatce co przyciski, więc strony, kolumny, rozciąganie na cały ekran i przeciąganie dla zmiany kolejności działają na nich bez uczenia się czegokolwiek nowego. Nie naciska się ich, tylko czyta, dlatego są rysowane jako przyrządy wpuszczone w powierzchnię, a nie jako wypełnione kafelki.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Tarcze, paski, odczyt sieci z niedawną historią i zwykły przycisk na tej samej stronie." }
+      ],
+      "table": {
+        "head": ["Wskaźnik", "Co pokazuje"],
+        "rows": [
+          ["CPU", "Obciążenie procesora na wszystkich rdzeniach"],
+          ["Pamięć", "Zajęta w procentach, a pod spodem rzeczywiste liczby"],
+          ["GPU", "Obciążenie grafiki"],
+          ["Dysk", "Jak pełny jest napęd; wybierasz który"],
+          ["Aktywność dysku", "Jak bardzo zajęte są dyski"],
+          ["Sieć", "Ruch w górę i w dół, ze śladem z ostatniego pół minuty"],
+          ["Temperatura", "Z czujnika termicznego płyty głównej"],
+          ["Czas pracy", "Jak długo maszyna już działa"],
+          ["Zegar", "Godzina, której nie trzeba wcale mierzyć"]
+        ]
+      },
+      "note": "Temperatura wymaga serwera uruchomionego jako administrator, a niektóre płyty główne w ogóle nie udostępniają takiego czujnika. Wskaźnik mówi, który z tych dwóch przypadków zachodzi, bo jeden naprawisz, a drugiego nie."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Odczyty",
+      "title": "Dodajesz go tak samo jak przycisk",
+      "body": "W trybie edycji dodaj kafelek i ustaw jego akcję na <b>Wskaźnik systemowy</b>. Wybierz, co mierzyć, czy ma być narysowany jako tarcza czy jako pasek, oraz jego kolor. Podgląd pod spodem jest żywy i pokazuje prawdziwy odczyt, zanim zapiszesz. Zostaw etykietę pustą, a wskaźnik nazwie się sam.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "Wybór tego, co mierzyć, z żywym podglądem wyniku." }
+      ],
+      "note": "Pomiar działa tylko wtedy, gdy otwarta jest strona ze wskaźnikiem, i zatrzymuje się, gdy odejdzie ostatni widz, więc pulpit bez wskaźników nic nie kosztuje."
+    },
+    {
       "id": "themes",
       "eyebrow": "Wygląd",
       "title": "Jedenaście motywów, a przyciski nadążają",
       "body": "Większość motywów pochodzi ze schematów kolorów znanych programistom (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), plus dwa celowo dwubarwne wyglądy terminala oraz neutralny jasny i ciemny. Zmiana motywu przenosi kolory twoich przycisków do nowej palety z zachowaniem odcieni: niebieski przycisk staje się niebieskim nowego motywu, a układ czyta się tak samo.",
-      "note": "Jeśli pulpit wyszedł cały w jednym kolorze, <b>Rozłóż paletę motywu</b> rozdaje jego kolory pomiędzy przyciski, a <b>Pomaluj wszystko kolorem akcentu</b> sprowadza je z powrotem do jednego. Każdy przycisk może też dostać twój własny kolor z próbnika, a akcent używany przez paski i pływający przycisk wybierasz sam. Tekst na przyciskach sam przełącza się między czernią a bielą, na jakim kolorze byś nie wylądował.",
+      "note": "<b>Panel</b> jest tu wyjątkiem: zamiast palety zmienia sam język wizualny, zamieniając przyciski w tarcze przyrządów, takie jak u wskaźników, a ich kolor sprowadza do paska wzdłuż górnej krawędzi. Wskaźnikom można też nadać własny motyw, więc przyciski mogą trzymać się jednego motywu, a odczyty zachować inny. Jeśli pulpit wyszedł cały w jednym kolorze, <b>Rozłóż paletę motywu</b> rozdaje jego kolory pomiędzy przyciski, a <b>Pomaluj wszystko kolorem akcentu</b> sprowadza je z powrotem do jednego. Każdy przycisk może też dostać twój własny kolor z próbnika, a akcent używany przez paski i pływający przycisk wybierasz sam. Tekst na przyciskach sam przełącza się między czernią a bielą, na jakim kolorze byś nie wylądował.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Każda karta pokazuje własne tło i paletę." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Ten sam pulpit w jasnym motywie." }

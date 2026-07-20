@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Alan",
       "title": "Sayfalar arasında kaydır",
-      "body": "Butonları sayfalara ayır: biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Aralarında geçmek için <b>deck üzerinde herhangi bir yerde sağa ya da sola kaydır</b>; sayfanın adı kısaca görünür, böylece nereye geldiğini bilirsin. Düzenleme modunda aynı hareket bunun yerine butonları sıralar, yani ikisi hiç çakışmaz.",
+      "body": "Butonları sayfalara ayır: biri düzenleme, biri oyun, biri sürekli içinde olduğun o toplantı için. Aralarında geçmek için <b>deck üzerinde herhangi bir yerde sağa ya da sola kaydır</b>; sayfanın adı kısaca görünür, böylece nereye geldiğini bilirsin. Düzenleme modunda aynı hareket bunun yerine butonları sıralar, yani ikisi hiç çakışmaz. Bir kutucuğu başka bir sayfaya taşımak için onu o sayfanın sekmesine sürükle.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Tek kaydırma bir sonraki sayfaya geçirir." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Alan",
       "title": "Sayfalar, sütunlar ve yüzen buton",
-      "body": "Düzenleme modunda alt çubuk sayfa ekleyip siler ve ızgaranın kaç sütun kullanacağını belirler. Sayfa sekmesine tekrar dokunursan adını değiştirebilirsin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; ekranda her zaman duran tek şey o olduğu için istediğin yere de sürükleyebilirsin.",
+      "body": "Düzenleme modunda alt çubuk sayfa ekleyip siler ve ızgaranın kaç sütun kullanacağını belirler. Sütun sayısı bulunduğun sayfaya aittir, yani gösterge dolu bir sayfa dört sütun olurken kısayol sayfası beş olabilir. Sayfa sekmesine tekrar dokunursan adını değiştirebilirsin. Yüzen buton, çubuklar gizliyken bile sayfalara, düzenleyiciye ve temalara ulaştırır; ekranda her zaman duran tek şey o olduğu için istediğin yere de sürükleyebilirsin.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "Yüzen menü: sayfalar, çubuklar, düzenleme, tema ve tam ekran." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Düzenleme modu; altta sayfa ve sütun denetimleri." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Göstergeler",
+      "title": "Makinenin hayati değerlerini deck'e koy",
+      "body": "Bir kutucuk buton yerine gösterge de olabilir: işlemci, bellek, ekran kartı, disk alanı, disk etkinliği, ağ trafiği, sıcaklık, çalışma süresi ve saat. Göstergeler butonlarla aynı ızgarada durur; sayfalar, sütunlar, ekrana yayma ve sürükleyip sıralama yeni bir şey öğrenmene gerek kalmadan onlarda da çalışır. Basılmak için değil okunmak için olduklarından, dolu kutucuklar yerine yüzeye gömülü aletler gibi çizilirler.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Kadranlar, çubuklar, yakın geçmişini de gösteren bir ağ göstergesi ve aynı sayfayı paylaşan sıradan bir buton." }
+      ],
+      "table": {
+        "head": ["Gösterge", "Ne gösterir"],
+        "rows": [
+          ["İşlemci", "Tüm çekirdeklerdeki işlemci yükü"],
+          ["Bellek", "Yüzde olarak kullanım, altında gerçek değerleriyle"],
+          ["Ekran kartı", "Grafik yükü"],
+          ["Disk", "Bir sürücünün ne kadar dolu olduğu; hangisi olduğunu sen seçersin"],
+          ["Disk etkinliği", "Disklerin ne kadar meşgul olduğu"],
+          ["Ağ", "Yükleme ve indirme hızı, son yarım dakikanın izleriyle"],
+          ["Sıcaklık", "Anakartın ısı sensöründen"],
+          ["Çalışma süresi", "Makinenin ne zamandır açık olduğu"],
+          ["Saat", "Ölçülecek hiçbir yanı olmayan saat"]
+        ]
+      },
+      "note": "Sıcaklık için sunucunun yönetici olarak çalışması gerekir, üstelik bazı anakartlar hiç sensör yayınlamaz. Gösterge hangisi olduğunu söyler, çünkü birini düzeltebilirsin, diğerini düzeltemezsin."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Göstergeler",
+      "title": "Buton eklediğin gibi ekle",
+      "body": "Düzenleme modunda bir kutucuk ekle ve eylemini <b>Sistem göstergesi</b> yap. Neyi ölçeceğini, kadran mı çubuk mu olarak çizileceğini ve rengini seç. Alttaki önizleme canlıdır: kaydetmeden önce gerçek değeri gösterir. Etiketi boş bırakırsan gösterge kendi adını kendi koyar.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "Neyin ölçüleceğini seçmek, sonucun canlı önizlemesiyle." }
+      ],
+      "note": "Ölçüm yalnızca göstergesi olan bir sayfa açıkken çalışır ve son izleyici ayrılınca durur; yani göstergesiz bir deck hiçbir şeye mal olmaz."
+    },
+    {
       "id": "themes",
       "eyebrow": "Görünüm",
       "title": "On bir tema, butonlar da ona uyar",
       "body": "Temaların çoğu bilinen geliştirici renk şemalarından geliyor (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), artı bilinçli olarak iki renkli iki terminal görünümü ve nötr açık ile koyu. Tema değiştirdiğinde buton renkleri tonları korunarak yeni palete çevrilir; mavi buton yeni temanın mavisi olur ve kurduğun düzen aynı okunur.",
-      "note": "Deck tek renge dönüştüyse <b>Tema paletine dağıt</b> temanın renklerini butonlara dağıtır; <b>Hepsini vurgu rengine boya</b> ise hepsini tek renge döndürür. Her buton seçiciden kendi rengini de alabilir, çubukların ve yüzen butonun kullandığı vurgu rengini de sen seçersin. Buton yazısı hangi renge denk gelirse gelsin siyah ile beyaz arasında kendiliğinden geçer.",
+      "note": "<b>Panel</b> diğerlerinden ayrı durur: bir palet sunmak yerine dili değiştirir, butonları göstergeler gibi alet yüzeylerine çevirir ve renklerini üst kenar boyunca ince bir şeride indirger. Göstergelere de kendilerine ait bir tema verilebilir, yani butonlar bir temayı izlerken göstergeler başka bir temada kalabilir. Deck tek renge dönüştüyse <b>Tema paletine dağıt</b> temanın renklerini butonlara dağıtır; <b>Hepsini vurgu rengine boya</b> ise hepsini tek renge döndürür. Her buton seçiciden kendi rengini de alabilir, çubukların ve yüzen butonun kullandığı vurgu rengini de sen seçersin. Buton yazısı hangi renge denk gelirse gelsin siyah ile beyaz arasında kendiliğinden geçer.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Her kart kendi zeminini ve paletini önizler." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Aynı deck, açık temada." }

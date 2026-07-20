@@ -126,7 +126,7 @@
       "id": "pages",
       "eyebrow": "Không gian",
       "title": "Vuốt để chuyển trang",
-      "body": "Gom các nút thành từng trang: một trang để dựng phim, một trang cho trò chơi, một trang cho cuộc họp mà bạn chẳng bao giờ thoát ra. <b>Vuốt sang trái hoặc sang phải ở bất kỳ đâu trên bàn điều khiển</b> để đi qua lại giữa chúng; tên trang hiện ra trong chốc lát để bạn biết mình vừa tới đâu. Trong chế độ sửa, đúng cử chỉ đó lại dùng để sắp xếp lại các nút, nên hai bên không bao giờ giẫm chân nhau.",
+      "body": "Gom các nút thành từng trang: một trang để dựng phim, một trang cho trò chơi, một trang cho cuộc họp mà bạn chẳng bao giờ thoát ra. <b>Vuốt sang trái hoặc sang phải ở bất kỳ đâu trên bàn điều khiển</b> để đi qua lại giữa chúng; tên trang hiện ra trong chốc lát để bạn biết mình vừa tới đâu. Trong chế độ sửa, đúng cử chỉ đó lại dùng để sắp xếp lại các nút, nên hai bên không bao giờ giẫm chân nhau. Muốn chuyển một ô sang trang khác, hãy kéo nó thả lên thẻ của trang đó.",
       "figures": [
         { "src": "12-swipe.png", "frame": "none", "caption": "Một cú vuốt là chuyển từ trang này sang trang kế tiếp." }
       ]
@@ -135,18 +135,52 @@
       "id": "managepages",
       "eyebrow": "Không gian",
       "title": "Trang, số cột và nút nổi",
-      "body": "Trong chế độ sửa, thanh dưới dùng để thêm và bớt trang cũng như đặt lưới có bao nhiêu cột. Chạm lần nữa vào thẻ của một trang để đổi tên nó. Nút nổi đưa bạn tới các trang, trình chỉnh sửa và giao diện ngay cả khi các thanh đang ẩn, và bạn có thể kéo nó tới bất cứ chỗ nào thuận tay, vì đó là thứ duy nhất lúc nào cũng có mặt trên màn hình.",
+      "body": "Trong chế độ sửa, thanh dưới dùng để thêm và bớt trang cũng như đặt lưới có bao nhiêu cột. Số cột thuộc về trang bạn đang mở, nên một trang đồng hồ đo có thể bốn cột trong khi một trang phím tắt là năm. Chạm lần nữa vào thẻ của một trang để đổi tên nó. Nút nổi đưa bạn tới các trang, trình chỉnh sửa và giao diện ngay cả khi các thanh đang ẩn, và bạn có thể kéo nó tới bất cứ chỗ nào thuận tay, vì đó là thứ duy nhất lúc nào cũng có mặt trên màn hình.",
       "figures": [
         { "src": "07-menu.png", "frame": "tablet", "caption": "Menu nổi: trang, thanh công cụ, chế độ sửa, giao diện và toàn màn hình." },
         { "src": "03-editmode.png", "frame": "tablet", "caption": "Chế độ sửa, với các nút điều khiển trang và số cột chạy dọc phía dưới." }
       ]
     },
     {
+      "id": "gauges",
+      "eyebrow": "Chỉ số",
+      "title": "Đưa các chỉ số sống còn của máy lên bàn điều khiển",
+      "body": "Một ô có thể là đồng hồ đo thay vì một nút: bộ xử lý, bộ nhớ, đồ hoạ, dung lượng đĩa, hoạt động đĩa, lưu lượng mạng, nhiệt độ, thời gian chạy và đồng hồ. Đồng hồ đo nằm chung lưới với các nút, nên trang, số cột, kéo giãn cho đầy màn hình và kéo để sắp xếp lại đều dùng được ngay mà bạn không phải học thêm gì. Chúng để đọc chứ không phải để bấm, nên được vẽ như những mặt máy đo gắn chìm vào bề mặt, chứ không phải những ô tô kín màu.",
+      "figures": [
+        { "src": "20-gauges.png", "frame": "tablet", "caption": "Mặt đồng hồ, thanh ngang, một chỉ số mạng kèm lịch sử gần đây, và một nút bình thường cùng chung một trang." }
+      ],
+      "table": {
+        "head": ["Đồng hồ đo", "Cho biết điều gì"],
+        "rows": [
+          ["CPU", "Tải bộ xử lý trên toàn bộ nhân"],
+          ["Bộ nhớ", "Phần trăm đang dùng, kèm con số thật ở bên dưới"],
+          ["GPU", "Tải đồ hoạ"],
+          ["Ổ đĩa", "Ổ đã đầy tới đâu; bạn chọn ổ nào"],
+          ["Hoạt động đĩa", "Các đĩa đang bận đến mức nào"],
+          ["Mạng", "Lưu lượng lên và xuống, kèm vệt của nửa phút vừa qua"],
+          ["Nhiệt độ", "Từ cảm biến nhiệt trên bo mạch chủ"],
+          ["Thời gian chạy", "Máy đã chạy được bao lâu"],
+          ["Đồng hồ", "Giờ giấc, thứ chẳng cần đo đạc gì"]
+        ]
+      },
+      "note": "Nhiệt độ đòi máy chủ phải chạy với quyền quản trị, và một số bo mạch chủ vốn không đưa ra cảm biến nào cả. Đồng hồ đo sẽ nói rõ là trường hợp nào, vì một cái bạn sửa được còn cái kia thì không."
+    },
+    {
+      "id": "gaugeedit",
+      "eyebrow": "Chỉ số",
+      "title": "Thêm nó y như cách bạn thêm một nút",
+      "body": "Trong chế độ sửa, thêm một ô rồi đặt hành động của nó là <b>Đồng hồ đo hệ thống</b>. Chọn thứ cần đo, vẽ theo kiểu mặt đồng hồ hay thanh ngang, và màu của nó. Bản xem trước bên dưới chạy thật, cho bạn thấy chỉ số thật trước khi lưu. Bỏ trống nhãn thì đồng hồ đo tự đặt tên cho mình.",
+      "figures": [
+        { "src": "21-gauge-editor.png", "frame": "tablet", "caption": "Chọn thứ cần đo, kèm bản xem trước kết quả ngay lúc đó." }
+      ],
+      "note": "Việc đo chỉ chạy khi có một trang chứa đồng hồ đo đang mở, và dừng lại khi người xem cuối cùng rời đi, nên một bàn điều khiển không có đồng hồ đo thì chẳng tốn gì."
+    },
+    {
       "id": "themes",
       "eyebrow": "Diện mạo",
       "title": "Mười một giao diện, và các nút cũng theo",
       "body": "Phần lớn giao diện lấy từ những bảng màu quen thuộc với lập trình viên (Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine), cộng thêm hai kiểu terminal cố ý chỉ dùng hai màu, cùng một sáng và một tối trung tính. Khi đổi giao diện, màu các nút được chuyển sang bảng màu mới mà vẫn giữ sắc độ: nút xanh dương trở thành xanh dương của giao diện mới, và bố cục của bạn vẫn đọc như cũ.",
-      "note": "Nếu cả bàn điều khiển hoá ra chỉ một màu, <b>Phân bổ bảng màu giao diện</b> sẽ rải màu của giao diện ra khắp các nút; <b>Tô tất cả bằng màu nhấn</b> đưa chúng về lại một màu. Nút nào cũng có thể nhận một màu riêng bạn chọn từ bộ chọn màu, và màu nhấn mà các thanh cùng nút nổi dùng cũng do bạn quyết định. Chữ trên nút tự chuyển giữa đen và trắng, dù bạn chọn màu gì đi nữa.",
+      "note": "<b>Bảng đồng hồ</b> là trường hợp khác hẳn: thay vì một bảng màu, nó đổi luôn lối diễn đạt, biến các nút thành mặt máy đo giống như các đồng hồ đo, còn màu thì chỉ còn lại một vệt dọc theo cạnh trên. Đồng hồ đo cũng có thể được gán một giao diện riêng, nên các nút theo một giao diện trong khi các chỉ số vẫn giữ giao diện khác. Nếu cả bàn điều khiển hoá ra chỉ một màu, <b>Phân bổ bảng màu giao diện</b> sẽ rải màu của giao diện ra khắp các nút; <b>Tô tất cả bằng màu nhấn</b> đưa chúng về lại một màu. Nút nào cũng có thể nhận một màu riêng bạn chọn từ bộ chọn màu, và màu nhấn mà các thanh cùng nút nổi dùng cũng do bạn quyết định. Chữ trên nút tự chuyển giữa đen và trắng, dù bạn chọn màu gì đi nữa.",
       "figures": [
         { "src": "02-themes.png", "frame": "tablet", "caption": "Mỗi thẻ tự trưng ra nền và bảng màu của nó." },
         { "src": "08-light.png", "frame": "tablet", "caption": "Cũng bàn điều khiển đó với giao diện sáng." }

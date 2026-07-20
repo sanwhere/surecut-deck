@@ -10,7 +10,7 @@ Surecut Deck runs a small server on your Windows machine and serves its own inte
 
 <sub>The deck on a 1024×600 Android tablet, running the Nord theme in full screen.</sub>
 
-📖 Illustrated guide: [English](docs/guide-en.html) · [Türkçe](docs/guide-tr.html) · [Español](docs/guide-es.html) · [Français](docs/guide-fr.html) · [العربية](docs/guide-ar.html)
+📖 Illustrated guide: [English](docs/guide-en.html) · [Türkçe](docs/guide-tr.html) · [Español](docs/guide-es.html) · [Français](docs/guide-fr.html) · [Deutsch](docs/guide-de.html) · [Italiano](docs/guide-it.html) · [Português](docs/guide-pt.html) · [Русский](docs/guide-ru.html) · [العربية](docs/guide-ar.html)
 
 ## How it works
 
@@ -208,5 +208,5 @@ node docs/build-readme.js en             # this README
 powershell -File docs/frame-shots.ps1    # bake tablet frames into screenshots
 ```
 
-Turkish developer notes, including the traps found along the way, are in [README.tr.md](README.tr.md).
+Turkish developer notes, including the traps found along the way, are in [docs/notes.tr.md](docs/notes.tr.md).
 

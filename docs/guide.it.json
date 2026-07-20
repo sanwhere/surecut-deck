@@ -1,0 +1,161 @@
+{
+  "lang": "it",
+  "dir": "ltr",
+  "title": "Surecut Deck — Guida all'uso",
+  "eyebrow": "Server proprio · Niente store · Nulla esce dalla tua rete",
+  "heroTitle": "Trasforma un tablet inutilizzato nella console di comando del tuo PC",
+  "heroLead": "Surecut Deck avvia un piccolo server sul tuo computer Windows e serve da sé la propria interfaccia. Il tablet apre soltanto un indirizzo web: nessuna app da installare, nessun account da creare, nessun cloud in mezzo.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "La console su un tablet Android da 1024×600, tema Nord a schermo intero." },
+
+  "pillars": {
+    "title": "Come funziona",
+    "items": [
+      { "k": "Il tuo PC la ospita", "v": "Una piccola applicazione nell'area di notifica avvia il server locale e lo mantiene attivo. È l'unica cosa che installi." },
+      { "k": "Il tablet apre un indirizzo", "v": "Qualsiasi browser sulla stessa rete. Aggiungilo alla schermata home e si comporta come un'app." },
+      { "k": "I pulsanti inviano input reale", "v": "Le pressioni diventano veri eventi di tastiera e mouse di Windows, così qualsiasi programma risponde." }
+    ]
+  },
+
+  "setup": {
+    "title": "Collegarsi",
+    "lead": "Tre passi, una volta sola.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Avvia il server",
+        "body": "Esegui <code>start.cmd</code>. Nell'area di notifica compare un'icona e resta lì. Cliccala quando vuoi per vedere i dati di associazione o aprire l'editor."
+      },
+      {
+        "n": "2",
+        "title": "Apri l'indirizzo sul tablet",
+        "body": "La finestra del server elenca tutti gli indirizzi a cui il tuo PC è raggiungibile. Scrivine uno nel browser del tablet, poi inserisci il codice di associazione mostrato accanto.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Dati del server dall'icona nell'area di notifica. Codice e indirizzi sono esempi." }
+      },
+      {
+        "n": "3",
+        "title": "Fa' che sembri un'app",
+        "body": "Tocca <b>⛶</b> per lo schermo intero, oppure usa <b>Aggiungi alla schermata Home</b> del browser. A schermo intero il tablet resta anche sveglio mentre la console è aperta."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "Le basi",
+      "title": "I pulsanti fanno più che premere tasti",
+      "body": "Tocca la matita per entrare in modalità modifica, poi tocca un pulsante per modificarlo — o tienilo premuto per trascinarlo altrove. Ogni pulsante ha un'etichetta, un'icona, un colore e un'azione.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Etichetta, selettore di icone e colore." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Tipo di azione, con scorciatoie già pronte." }
+      ],
+      "table": {
+        "head": ["Azione", "Cosa fa"],
+        "rows": [
+          ["Scorciatoia da tastiera", "Qualsiasi combinazione: <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, tasti multimediali, volume"],
+          ["Scrivi testo", "Scrive un blocco di testo al posto tuo, a capo compresi"],
+          ["Apri app / file", "Un programma, un documento o una cartella"],
+          ["Apri indirizzo web", "Apre il link nel browser predefinito"],
+          ["Esegui comando", "PowerShell o CMD"],
+          ["Mouse", "Trasforma lo schermo del tablet in un touchpad"],
+          ["Sequenza", "Più passi in ordine, con pause tra l'uno e l'altro"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Icone",
+      "title": "Scegli un'emoji, o usa l'icona vera dell'applicazione",
+      "body": "L'editor ha una griglia di icone, così non devi mai digitare un'emoji a mano. Per i programmi c'è di meglio: trascina il collegamento dal desktop e l'icona vera dell'applicazione arriva con lui.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Modalità modifica. Ogni pulsante porta una matita; tienilo premuto per riordinare." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Desktop",
+      "title": "Trascina un collegamento dal desktop",
+      "body": "Apri l'editor dall'icona nell'area di notifica: compare una vera finestra desktop con la stessa interfaccia dentro. Rilascia un collegamento, un programma, una cartella o un file sulla striscia in alto: la destinazione viene risolta, l'icona dell'applicazione estratta, e il pulsante appare subito sul tablet.",
+      "note": "L'editor è una finestra nativa e non una scheda del browser per un motivo preciso. I browser non consegnano mai a una pagina web il <em>percorso</em> di un file rilasciato, e Chromium risolve inoltre un collegamento alla sua destinazione: un browser proverebbe quindi a leggere l'intero programma invece di sapere dove si trova.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "L'editor desktop. Scegli la pagina a sinistra, poi rilascia i collegamenti sulla striscia.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Pagina di destinazione" },
+            { "x": 62, "y": 13, "label": "Rilascia qui" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "Puntatore",
+      "title": "Lo schermo diventa un touchpad",
+      "body": "Assegna a un pulsante l'azione <b>Mouse</b>: premendolo, tutto il tablet diventa un trackpad. Due cursori regolano la velocità del puntatore e dello scorrimento, e la direzione dello scorrimento si può invertire secondo la tua abitudine.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Modalità touchpad, con pulsanti espliciti sotto per i clic che non vuoi tirare a indovinare." }
+      ],
+      "table": {
+        "head": ["Gesto", "Risultato"],
+        "rows": [
+          ["Trascinare", "Muovere il puntatore"],
+          ["Toccare", "Clic sinistro"],
+          ["Doppio tocco", "Doppio clic"],
+          ["Doppio tocco e trascinamento", "Tenere premuto il tasto sinistro e muovere: selezionare testo, spostare una finestra"],
+          ["Pressione lunga", "Clic destro"],
+          ["Due dita", "Scorrimento verticale e orizzontale"],
+          ["Tocco con due dita", "Clic destro"],
+          ["Pizzicare", "Zoom"],
+          ["Tre dita ↑ / ↓", "Vista attività / mostra desktop"],
+          ["Tre dita ← / →", "Cambiare desktop virtuale"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Spazio",
+      "title": "Tutte le pagine che ti servono",
+      "body": "Raggruppa i pulsanti in pagine: una per il montaggio, una per i giochi, una per quella riunione da cui non esci mai. Scorri a sinistra o a destra sulla console per passare da una all'altra. Il pulsante flottante porta alle pagine, all'editor e ai temi anche quando le barre sono nascoste, e puoi trascinarlo dove ti fa comodo.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Il menu flottante: pagine, barre, modalità modifica, tema e schermo intero." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Aspetto",
+      "title": "Undici temi, e i pulsanti si adeguano",
+      "body": "La maggior parte dei temi viene da palette note agli sviluppatori — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — più due look da terminale volutamente bicolori e un chiaro e uno scuro neutri. Cambiando tema i colori dei tuoi pulsanti vengono convertiti nella nuova palette mantenendo le tonalità: un pulsante blu diventa il blu del nuovo tema e la tua disposizione resta leggibile allo stesso modo.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Ogni scheda mostra il proprio sfondo e la propria palette." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "La stessa console con un tema chiaro." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Schermo",
+      "title": "Usa tutto lo schermo",
+      "body": "<b>Estendi a tutto lo schermo</b> fa dividere alle righe l'intera altezza: due righe di pulsanti riempiono lo schermo invece di lasciare un vuoto sotto. <b>Nascondi le barre automaticamente</b> toglie del tutto la barra superiore e quella inferiore e lascia solo i pulsanti — il pulsante flottante le richiama, oppure tieni premuta un'area vuota per tre secondi.",
+      "note": "Il tablet è impostato anche per restare sveglio: lo schermo non si spegne mentre la console è aperta."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Lingua",
+      "title": "Venti lingue, scelte automaticamente",
+      "body": "L'interfaccia è disponibile in inglese, turco, spagnolo, francese, tedesco, italiano, portoghese, russo, ucraino, polacco, arabo, persiano, urdu, cinese, giapponese, coreano, hindi, bengalese, indonesiano e vietnamita. Segue la lingua del browser finché non ne scegli una, e arabo, persiano e urdu passano il layout da destra a sinistra. La scelta è per dispositivo: tablet ed editor desktop possono differire."
+    }
+  ],
+
+  "notes": {
+    "title": "Da sapere",
+    "items": [
+      { "k": "Firewall", "v": "Windows può chiedere di consentire la connessione la prima volta. Se il tablet non raggiunge il server, consentila per le reti private." },
+      { "k": "VPN", "v": "Alcuni client VPN bloccano il traffico di rete locale. Se non si connette nulla, prova con la VPN spenta." },
+      { "k": "Finestre da amministratore", "v": "Un programma eseguito come amministratore non accetta input da un programma normale. Avvia il server come amministratore se vuoi che le scorciatoie raggiungano quelle finestre." },
+      { "k": "Codice di associazione", "v": "Chiunque sulla tua rete abbia il codice può controllare il PC, compreso eseguire comandi. Tienilo per te e non ospitare su reti di cui non ti fidi." }
+    ]
+  },
+
+  "footer": "Surecut Deck — una console di scorciatoie self-hosted per Windows."
+}

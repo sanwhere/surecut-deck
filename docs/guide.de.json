@@ -1,0 +1,161 @@
+{
+  "lang": "de",
+  "dir": "ltr",
+  "title": "Surecut Deck — Handbuch",
+  "eyebrow": "Selbst gehostet · Kein App-Store · Nichts verlässt dein Netzwerk",
+  "heroTitle": "Mach aus einem übrigen Tablet ein Bedienpult für deinen PC",
+  "heroLead": "Surecut Deck startet einen kleinen Server auf deinem Windows-Rechner und liefert seine Oberfläche selbst aus. Das Tablet öffnet nur eine Webadresse — keine App zum Installieren, kein Konto, keine Cloud dazwischen.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "Das Pult auf einem Android-Tablet mit 1024×600, Nord-Design im Vollbild." },
+
+  "pillars": {
+    "title": "So funktioniert es",
+    "items": [
+      { "k": "Dein PC hostet es", "v": "Eine kleine Anwendung im Infobereich startet den lokalen Server und hält ihn am Laufen. Sie ist das Einzige, was du installierst." },
+      { "k": "Das Tablet öffnet eine Adresse", "v": "Jeder Browser im selben Netzwerk. Zum Startbildschirm hinzugefügt verhält es sich wie eine App." },
+      { "k": "Schaltflächen senden echte Eingaben", "v": "Aus Berührungen werden echte Windows-Tastatur- und Mausereignisse, deshalb reagiert jedes Programm darauf." }
+    ]
+  },
+
+  "setup": {
+    "title": "Verbinden",
+    "lead": "Drei Schritte, einmalig.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Server starten",
+        "body": "Führe <code>start.cmd</code> aus. Im Infobereich erscheint ein Symbol und bleibt dort. Klicke es jederzeit an, um die Kopplungsdaten zu sehen oder den Editor zu öffnen."
+      },
+      {
+        "n": "2",
+        "title": "Adresse auf dem Tablet öffnen",
+        "body": "Das Serverfenster listet alle Adressen auf, unter denen dein PC erreichbar ist. Gib eine davon im Browser des Tablets ein und danach den daneben angezeigten Kopplungscode.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Serverdaten über das Symbol im Infobereich. Code und Adressen sind Beispiele." }
+      },
+      {
+        "n": "3",
+        "title": "Wie eine App wirken lassen",
+        "body": "Tippe auf <b>⛶</b> für Vollbild oder nutze <b>Zum Startbildschirm hinzufügen</b> deines Browsers. Im Vollbild bleibt das Tablet außerdem wach, solange das Pult geöffnet ist."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "Grundlagen",
+      "title": "Schaltflächen können mehr als Tasten senden",
+      "body": "Tippe auf den Stift für den Bearbeitungsmodus und dann auf eine Schaltfläche, um sie zu ändern — oder halte sie gedrückt, um sie an eine andere Stelle zu ziehen. Jede Schaltfläche hat eine Beschriftung, ein Symbol, eine Farbe und eine Aktion.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Beschriftung, Symbolauswahl und Farbe." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Aktionstyp, mit fertigen Tastenkürzeln zur Auswahl." }
+      ],
+      "table": {
+        "head": ["Aktion", "Wirkung"],
+        "rows": [
+          ["Tastenkürzel", "Jede Kombination — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, Medientasten, Lautstärke"],
+          ["Text schreiben", "Schreibt einen Textblock für dich, Zeilenumbrüche inklusive"],
+          ["App / Datei öffnen", "Ein Programm, ein Dokument oder ein Ordner"],
+          ["Webadresse öffnen", "Öffnet den Link im Standardbrowser"],
+          ["Befehl ausführen", "PowerShell oder CMD"],
+          ["Maus", "Macht den Tablet-Bildschirm zum Touchpad"],
+          ["Schrittfolge", "Mehrere Schritte nacheinander, mit Pausen dazwischen"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Symbole",
+      "title": "Emoji wählen — oder das echte App-Symbol nehmen",
+      "body": "Der Editor hat ein Symbolraster, du musst also nie ein Emoji von Hand tippen. Für Programme gibt es etwas Besseres: Zieh die Verknüpfung vom Desktop herein, dann kommt das echte Programmsymbol gleich mit.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Bearbeitungsmodus. Jede Schaltfläche trägt einen Stift; halte sie gedrückt zum Umsortieren." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Desktop",
+      "title": "Zieh eine Verknüpfung vom Desktop herein",
+      "body": "Öffne den Editor über das Symbol im Infobereich: Es erscheint ein richtiges Desktop-Fenster mit derselben Oberfläche darin. Lege eine Verknüpfung, ein Programm, einen Ordner oder eine Datei auf den Streifen oben — das Ziel wird aufgelöst, das Programmsymbol extrahiert, und die Schaltfläche erscheint sofort auf dem Tablet.",
+      "note": "Der Editor ist aus einem bestimmten Grund ein natives Fenster und kein Browser-Tab. Browser geben einer Webseite niemals den <em>Pfad</em> einer abgelegten Datei, und Chromium löst eine abgelegte Verknüpfung zusätzlich zu ihrem Ziel auf — ein Browser würde also versuchen, das ganze Programm zu lesen, statt zu erfahren, wo es liegt.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "Der Desktop-Editor. Links die Seite wählen, dann Verknüpfungen auf den Streifen ziehen.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Zielseite" },
+            { "x": 62, "y": 13, "label": "Hier ablegen" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "Zeiger",
+      "title": "Der Bildschirm wird zum Touchpad",
+      "body": "Gib einer Schaltfläche die Aktion <b>Maus</b>: Beim Drücken wird das ganze Tablet zum Trackpad. Zwei Regler stellen Zeiger- und Scrollgeschwindigkeit ein, und die Scrollrichtung lässt sich umkehren, wie du es gewohnt bist.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Touchpad-Modus, mit eindeutigen Schaltflächen darunter für die Klicks, die man nicht erraten möchte." }
+      ],
+      "table": {
+        "head": ["Geste", "Ergebnis"],
+        "rows": [
+          ["Ziehen", "Zeiger bewegen"],
+          ["Tippen", "Linksklick"],
+          ["Doppeltippen", "Doppelklick"],
+          ["Doppeltippen, dann ziehen", "Linke Taste halten und bewegen — Text markieren, Fenster ziehen"],
+          ["Langes Drücken", "Rechtsklick"],
+          ["Zwei Finger", "Scrollen, senkrecht und waagerecht"],
+          ["Zweifingertipp", "Rechtsklick"],
+          ["Zusammenziehen", "Zoomen"],
+          ["Drei Finger ↑ / ↓", "Taskansicht / Desktop anzeigen"],
+          ["Drei Finger ← / →", "Virtuellen Desktop wechseln"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Platz",
+      "title": "So viele Seiten, wie du brauchst",
+      "body": "Fasse Schaltflächen zu Seiten zusammen — eine zum Bearbeiten, eine für Spiele, eine für das Meeting, in dem du immer sitzt. Wische auf dem Pult nach links oder rechts, um zu wechseln. Die schwebende Schaltfläche führt dich auch bei ausgeblendeten Leisten zu den Seiten, zum Editor und zu den Designs, und du kannst sie hinziehen, wo sie dir passt.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Aussehen",
+      "title": "Elf Designs, und die Schaltflächen ziehen mit",
+      "body": "Die meisten Designs stammen aus bekannten Farbschemata für Entwickler — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — dazu zwei bewusst zweifarbige Terminal-Looks sowie ein neutrales Hell und Dunkel. Beim Wechsel werden deine Schaltflächenfarben unter Beibehaltung ihrer Farbtöne in die neue Palette übertragen: Aus einer blauen Schaltfläche wird das Blau des neuen Designs, und dein Aufbau liest sich weiterhin gleich.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Jede Karte zeigt ihren eigenen Hintergrund und ihre Palette." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "Dasselbe Pult in einem hellen Design." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Bildschirm",
+      "title": "Nutze den ganzen Bildschirm",
+      "body": "<b>Auf Bildschirm strecken</b> lässt die Zeilen die volle Höhe teilen: Zwei Reihen Schaltflächen füllen den Bildschirm, statt unten eine Lücke zu lassen. <b>Leisten automatisch ausblenden</b> entfernt die obere und untere Leiste ganz und lässt nur die Schaltflächen stehen — die schwebende Schaltfläche holt sie zurück, oder halte eine leere Fläche drei Sekunden gedrückt.",
+      "note": "Das Tablet ist außerdem so eingestellt, dass es wach bleibt: Der Bildschirm schaltet sich nicht ab, solange das Pult geöffnet ist."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Sprache",
+      "title": "Zwanzig Sprachen, automatisch gewählt",
+      "body": "Die Oberfläche gibt es auf Englisch, Türkisch, Spanisch, Französisch, Deutsch, Italienisch, Portugiesisch, Russisch, Ukrainisch, Polnisch, Arabisch, Persisch, Urdu, Chinesisch, Japanisch, Koreanisch, Hindi, Bengalisch, Indonesisch und Vietnamesisch. Sie folgt der Browsersprache, solange du keine wählst; Arabisch, Persisch und Urdu stellen das Layout auf rechts-nach-links um. Die Wahl gilt pro Gerät, Tablet und Desktop-Editor können sich also unterscheiden."
+    }
+  ],
+
+  "notes": {
+    "title": "Gut zu wissen",
+    "items": [
+      { "k": "Firewall", "v": "Windows fragt beim ersten Mal eventuell, ob die Verbindung erlaubt werden soll. Erreicht das Tablet den Server nicht, erlaube sie für private Netzwerke." },
+      { "k": "VPN", "v": "Manche VPN-Clients blockieren den lokalen Netzwerkverkehr. Verbindet sich nichts, probiere es mit ausgeschaltetem VPN." },
+      { "k": "Administratorfenster", "v": "Ein als Administrator laufendes Programm nimmt keine Eingaben von einem normalen Programm an. Starte den Server als Administrator, wenn deine Kürzel solche Fenster erreichen sollen." },
+      { "k": "Kopplungscode", "v": "Wer in deinem Netzwerk den Code hat, kann den PC steuern — auch Befehle ausführen. Behalte ihn für dich und hoste nicht in Netzwerken, denen du nicht traust." }
+    ]
+  },
+
+  "footer": "Surecut Deck — ein selbst gehostetes Kürzel-Pult für Windows."
+}

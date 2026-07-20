@@ -1,0 +1,357 @@
+<title>Surecut Deck — Handbuch</title>
+<style>
+/* ------------------------------------------------------------------ tokens
+   Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
+   gorseller sayfaya yapistirilmis gibi degil, sayfaya ait duruyor. */
+:root {
+  --paper:#eef1f5; --surface:#ffffff; --sunken:#e4e8ee;
+  --ink:#2e3440; --ink-2:#4c566a; --ink-3:#6b7688;
+  --line:#d3dae3; --line-soft:#e3e8ef;
+  --accent:#5e81ac; --frost:#88c0d0;
+  --warn:#b58a2b; --caution:#bf616a;
+  --shadow:24px 24px 60px rgba(46,52,64,.10);
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:#1d222a; --surface:#252b35; --sunken:#1a1f26;
+    --ink:#e5e9f0; --ink-2:#c2cad8; --ink-3:#8c97a8;
+    --line:#39424f; --line-soft:#2f3742;
+    --accent:#88c0d0; --frost:#8fbcbb;
+    --warn:#ebcb8b; --caution:#d08770;
+    --shadow:24px 24px 60px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1d222a; --surface:#252b35; --sunken:#1a1f26;
+  --ink:#e5e9f0; --ink-2:#c2cad8; --ink-3:#8c97a8;
+  --line:#39424f; --line-soft:#2f3742;
+  --accent:#88c0d0; --frost:#8fbcbb;
+  --warn:#ebcb8b; --caution:#d08770;
+  --shadow:24px 24px 60px rgba(0,0,0,.35);
+}
+:root[data-theme="light"] {
+  --paper:#eef1f5; --surface:#ffffff; --sunken:#e4e8ee;
+  --ink:#2e3440; --ink-2:#4c566a; --ink-3:#6b7688;
+  --line:#d3dae3; --line-soft:#e3e8ef;
+  --accent:#5e81ac; --frost:#88c0d0;
+  --warn:#b58a2b; --caution:#bf616a;
+  --shadow:24px 24px 60px rgba(46,52,64,.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Web fontu gomulmuyor: CSP dis fontlari engelliyor ve sayfada zaten
+   ~750KB gorsel var. Karakter agirlik, olcek ve harf araligiyla veriliyor. */
+.gd {
+  --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", "SF Mono", "JetBrains Mono", Consolas, monospace;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.gd :where(h1,h2,h3) { text-wrap: balance; margin: 0; }
+.gd p { margin: 0; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+
+/* ------------------------------------------------------------------ hero */
+.hero { padding: 84px 0 56px; border-bottom: 1px solid var(--line); }
+.eyebrow {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 18px;
+}
+.hero h1 {
+  font-size: clamp(38px, 6vw, 68px); line-height: 1.02;
+  letter-spacing: -.03em; font-weight: 800; max-width: 16ch;
+}
+.hero .lead { margin-top: 22px; max-width: 62ch; font-size: 19px; color: var(--ink-2); }
+
+/* ------------------------------------------------------------------ layout */
+.body { display: grid; grid-template-columns: 210px minmax(0,1fr); gap: 56px; padding: 56px 0 40px; }
+@media (max-width: 900px) { .body { grid-template-columns: 1fr; gap: 0; } }
+
+.index { position: sticky; top: 28px; align-self: start; }
+@media (max-width: 900px) { .index { display: none; } }
+.index p {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px;
+}
+.index ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.index a {
+  display: flex; gap: 10px; align-items: baseline;
+  padding: 6px 0; color: var(--ink-2); text-decoration: none;
+  font-size: 14px; border-bottom: 1px solid transparent;
+}
+.index a b {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+  font-variant-numeric: tabular-nums; font-weight: 500;
+}
+.index a:hover { color: var(--accent); }
+.index a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.col { display: grid; gap: 76px; min-width: 0; }
+
+section { display: grid; gap: 20px; scroll-margin-top: 24px; }
+section h2 { font-size: clamp(25px, 3.2vw, 34px); letter-spacing: -.02em; font-weight: 750; }
+section .lead { max-width: 66ch; color: var(--ink-2); }
+
+/* ------------------------------------------------------------------ pillars */
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 1px;
+  background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.pillars div { background: var(--surface); padding: 22px 20px; display: grid; gap: 7px; align-content: start; }
+.pillars b { font-size: 15.5px; letter-spacing: -.01em; }
+.pillars span { font-size: 14.5px; color: var(--ink-3); line-height: 1.55; }
+
+/* ------------------------------------------------------------------ steps */
+.steps { display: grid; gap: 34px; }
+.step { display: grid; grid-template-columns: 46px minmax(0,1fr); gap: 20px; align-items: start; }
+.step .n {
+  font-family: var(--mono); font-size: 26px; font-weight: 600; line-height: 1;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+  border-top: 2px solid var(--accent); padding-top: 10px;
+}
+.step h3 { font-size: 19px; letter-spacing: -.01em; margin-bottom: 6px; }
+.step p { color: var(--ink-2); max-width: 60ch; font-size: 16px; }
+
+/* ------------------------------------------------------------------ plates */
+.plate { margin: 6px 0 0; display: grid; gap: 12px; justify-items: start; }
+.plate figcaption {
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.5;
+  color: var(--ink-3); max-width: 60ch;
+}
+
+/* tablet govdesi: 1024x600 ekrani kusatan koyu cerceve */
+.tab {
+  background: linear-gradient(160deg,#3b424e,#242a33);
+  padding: 20px 26px; border-radius: 22px; position: relative;
+  box-shadow: var(--shadow); max-width: 100%;
+}
+.tab-cam {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #10141a; box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+}
+.tab-bar {
+  position: absolute; right: 9px; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 46px; border-radius: 3px; background: rgba(255,255,255,.12);
+}
+.tab .shot { border-radius: 5px; }
+
+/* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+.win {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
+}
+.win-bar { display: flex; gap: 7px; padding: 11px 13px; background: var(--sunken); border-bottom: 1px solid var(--line); }
+.win-bar s { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+
+.shot { position: relative; overflow: hidden; line-height: 0; }
+.shot img { display: block; width: 100%; height: auto; }
+
+.callout {
+  position: absolute; transform: translate(-50%,-50%);
+  font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+  background: var(--accent); color: #fff; padding: 4px 9px; border-radius: 999px;
+  white-space: nowrap; box-shadow: 0 3px 12px rgba(0,0,0,.3);
+  display: flex; align-items: center; gap: 7px;
+}
+.callout i { width: 5px; height: 5px; border-radius: 50%; background: #fff; opacity: .85; }
+
+/* ------------------------------------------------------------------ tables */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ink-3); font-weight: 500; background: var(--sunken);
+  border-bottom: 1px solid var(--line);
+}
+td.k { white-space: nowrap; font-weight: 600; padding-right: 26px; }
+td { color: var(--ink-2); }
+
+/* kisayol notasyonu tus kapagi gibi: konuya ait, ucuz suslemeye kacmadan */
+code {
+  font-family: var(--mono); font-size: .86em;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-bottom-width: 2px;
+  border-radius: 5px; padding: 1px 6px; white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ notes */
+.note {
+  border-left: 2px solid var(--warn); background: var(--surface);
+  padding: 15px 18px; border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 15.5px; color: var(--ink-2); max-width: 66ch;
+}
+.note em { font-style: normal; color: var(--ink); }
+
+.notes { border-top: 1px solid var(--line); padding: 46px 0 0; display: grid; gap: 22px; }
+.notes h2 { font-size: 24px; letter-spacing: -.01em; }
+.notes dl { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden; margin: 0; }
+.notes .row { background: var(--surface); padding: 16px 18px; display: grid;
+  grid-template-columns: 190px minmax(0,1fr); gap: 18px; }
+@media (max-width: 640px) { .notes .row { grid-template-columns: 1fr; gap: 5px; } }
+.notes dt { font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--caution); padding-top: 2px; }
+.notes dd { margin: 0; font-size: 15.5px; color: var(--ink-2); }
+
+footer {
+  border-top: 1px solid var(--line); margin-top: 56px; padding: 26px 0 60px;
+  font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: .04em;
+}
+
+/* ------------------------------------------------------------------ motion */
+@media (prefers-reduced-motion: no-preference) {
+  section, .step, .pillars { animation: rise .5s cubic-bezier(.2,.7,.3,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+}
+</style>
+
+<div class="gd" dir="ltr">
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Selbst gehostet · Kein App-Store · Nichts verlässt dein Netzwerk</p>
+      <h1>Mach aus einem übrigen Tablet ein Bedienpult für deinen PC</h1>
+      <p class="lead">Surecut Deck startet einen kleinen Server auf deinem Windows-Rechner und liefert seine Oberfläche selbst aus. Das Tablet öffnet nur eine Webadresse — keine App zum Installieren, kein Konto, keine Cloud dazwischen.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="body">
+      <nav class="index" aria-label="Contents">
+        <p>So funktioniert es</p>
+        <ul><li><a href="#buttons"><b>01</b>Grundlagen</a></li><li><a href="#icons"><b>02</b>Symbole</a></li><li><a href="#dragdrop"><b>03</b>Desktop</a></li><li><a href="#mouse"><b>04</b>Zeiger</a></li><li><a href="#pages"><b>05</b>Platz</a></li><li><a href="#themes"><b>06</b>Aussehen</a></li><li><a href="#screen"><b>07</b>Bildschirm</a></li><li><a href="#languages"><b>08</b>Sprache</a></li></ul>
+      </nav>
+
+      <div class="col">
+        <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/01-deck.png" alt="Das Pult auf einem Android-Tablet mit 1024×600, Nord-Design im Vollbild." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Das Pult auf einem Android-Tablet mit 1024×600, Nord-Design im Vollbild.</figcaption></figure>
+
+        <section>
+          <p class="eyebrow">So funktioniert es</p>
+          <div class="pillars">
+            <div><b>Dein PC hostet es</b><span>Eine kleine Anwendung im Infobereich startet den lokalen Server und hält ihn am Laufen. Sie ist das Einzige, was du installierst.</span></div><div><b>Das Tablet öffnet eine Adresse</b><span>Jeder Browser im selben Netzwerk. Zum Startbildschirm hinzugefügt verhält es sich wie eine App.</span></div><div><b>Schaltflächen senden echte Eingaben</b><span>Aus Berührungen werden echte Windows-Tastatur- und Mausereignisse, deshalb reagiert jedes Programm darauf.</span></div>
+          </div>
+        </section>
+
+        <section>
+          <p class="eyebrow">Drei Schritte, einmalig.</p>
+          <h2>Verbinden</h2>
+          <div class="steps">
+            
+            <div class="step">
+              <div class="n">1</div>
+              <div>
+                <h3>Server starten</h3>
+                <p>Führe <code>start.cmd</code> aus. Im Infobereich erscheint ein Symbol und bleibt dort. Klicke es jederzeit an, um die Kopplungsdaten zu sehen oder den Editor zu öffnen.</p>
+                
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <div>
+                <h3>Adresse auf dem Tablet öffnen</h3>
+                <p>Das Serverfenster listet alle Adressen auf, unter denen dein PC erreichbar ist. Gib eine davon im Browser des Tablets ein und danach den daneben angezeigten Kopplungscode.</p>
+                <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/11-info-win.png" alt="Serverdaten über das Symbol im Infobereich. Code und Adressen sind Beispiele." loading="lazy"></div></div><figcaption>Serverdaten über das Symbol im Infobereich. Code und Adressen sind Beispiele.</figcaption></figure>
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">3</div>
+              <div>
+                <h3>Wie eine App wirken lassen</h3>
+                <p>Tippe auf <b>⛶</b> für Vollbild oder nutze <b>Zum Startbildschirm hinzufügen</b> deines Browsers. Im Vollbild bleibt das Tablet außerdem wach, solange das Pult geöffnet ist.</p>
+                
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
+<section id="buttons">
+  <p class="eyebrow">Grundlagen</p>
+  <h2>Schaltflächen können mehr als Tasten senden</h2>
+  <p class="lead">Tippe auf den Stift für den Bearbeitungsmodus und dann auf eine Schaltfläche, um sie zu ändern — oder halte sie gedrückt, um sie an eine andere Stelle zu ziehen. Jede Schaltfläche hat eine Beschriftung, ein Symbol, eine Farbe und eine Aktion.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="Beschriftung, Symbolauswahl und Farbe." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Beschriftung, Symbolauswahl und Farbe.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="Aktionstyp, mit fertigen Tastenkürzeln zur Auswahl." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Aktionstyp, mit fertigen Tastenkürzeln zur Auswahl.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Aktion</th><th>Wirkung</th></tr></thead>
+  <tbody><tr><td class="k">Tastenkürzel</td><td>Jede Kombination — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, Medientasten, Lautstärke</td></tr><tr><td class="k">Text schreiben</td><td>Schreibt einen Textblock für dich, Zeilenumbrüche inklusive</td></tr><tr><td class="k">App / Datei öffnen</td><td>Ein Programm, ein Dokument oder ein Ordner</td></tr><tr><td class="k">Webadresse öffnen</td><td>Öffnet den Link im Standardbrowser</td></tr><tr><td class="k">Befehl ausführen</td><td>PowerShell oder CMD</td></tr><tr><td class="k">Maus</td><td>Macht den Tablet-Bildschirm zum Touchpad</td></tr><tr><td class="k">Schrittfolge</td><td>Mehrere Schritte nacheinander, mit Pausen dazwischen</td></tr></tbody>
+  </table></div>
+</section>
+<section id="icons">
+  <p class="eyebrow">Symbole</p>
+  <h2>Emoji wählen — oder das echte App-Symbol nehmen</h2>
+  <p class="lead">Der Editor hat ein Symbolraster, du musst also nie ein Emoji von Hand tippen. Für Programme gibt es etwas Besseres: Zieh die Verknüpfung vom Desktop herein, dann kommt das echte Programmsymbol gleich mit.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="Bearbeitungsmodus. Jede Schaltfläche trägt einen Stift; halte sie gedrückt zum Umsortieren." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Bearbeitungsmodus. Jede Schaltfläche trägt einen Stift; halte sie gedrückt zum Umsortieren.</figcaption></figure>
+  
+</section>
+<section id="dragdrop">
+  <p class="eyebrow">Desktop</p>
+  <h2>Zieh eine Verknüpfung vom Desktop herein</h2>
+  <p class="lead">Öffne den Editor über das Symbol im Infobereich: Es erscheint ein richtiges Desktop-Fenster mit derselben Oberfläche darin. Lege eine Verknüpfung, ein Programm, einen Ordner oder eine Datei auf den Streifen oben — das Ziel wird aufgelöst, das Programmsymbol extrahiert, und die Schaltfläche erscheint sofort auf dem Tablet.</p>
+  <aside class="note">Der Editor ist aus einem bestimmten Grund ein natives Fenster und kein Browser-Tab. Browser geben einer Webseite niemals den <em>Pfad</em> einer abgelegten Datei, und Chromium löst eine abgelegte Verknüpfung zusätzlich zu ihrem Ziel auf — ein Browser würde also versuchen, das ganze Programm zu lesen, statt zu erfahren, wo es liegt.</aside>
+  <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="Der Desktop-Editor. Links die Seite wählen, dann Verknüpfungen auf den Streifen ziehen." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>Zielseite</span><span class="callout" style="left:62%;top:13%"><i></i>Hier ablegen</span></div></div><figcaption>Der Desktop-Editor. Links die Seite wählen, dann Verknüpfungen auf den Streifen ziehen.</figcaption></figure>
+  
+</section>
+<section id="mouse">
+  <p class="eyebrow">Zeiger</p>
+  <h2>Der Bildschirm wird zum Touchpad</h2>
+  <p class="lead">Gib einer Schaltfläche die Aktion <b>Maus</b>: Beim Drücken wird das ganze Tablet zum Trackpad. Zwei Regler stellen Zeiger- und Scrollgeschwindigkeit ein, und die Scrollrichtung lässt sich umkehren, wie du es gewohnt bist.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="Touchpad-Modus, mit eindeutigen Schaltflächen darunter für die Klicks, die man nicht erraten möchte." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Touchpad-Modus, mit eindeutigen Schaltflächen darunter für die Klicks, die man nicht erraten möchte.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>Geste</th><th>Ergebnis</th></tr></thead>
+  <tbody><tr><td class="k">Ziehen</td><td>Zeiger bewegen</td></tr><tr><td class="k">Tippen</td><td>Linksklick</td></tr><tr><td class="k">Doppeltippen</td><td>Doppelklick</td></tr><tr><td class="k">Doppeltippen, dann ziehen</td><td>Linke Taste halten und bewegen — Text markieren, Fenster ziehen</td></tr><tr><td class="k">Langes Drücken</td><td>Rechtsklick</td></tr><tr><td class="k">Zwei Finger</td><td>Scrollen, senkrecht und waagerecht</td></tr><tr><td class="k">Zweifingertipp</td><td>Rechtsklick</td></tr><tr><td class="k">Zusammenziehen</td><td>Zoomen</td></tr><tr><td class="k">Drei Finger ↑ / ↓</td><td>Taskansicht / Desktop anzeigen</td></tr><tr><td class="k">Drei Finger ← / →</td><td>Virtuellen Desktop wechseln</td></tr></tbody>
+  </table></div>
+</section>
+<section id="pages">
+  <p class="eyebrow">Platz</p>
+  <h2>So viele Seiten, wie du brauchst</h2>
+  <p class="lead">Fasse Schaltflächen zu Seiten zusammen — eine zum Bearbeiten, eine für Spiele, eine für das Meeting, in dem du immer sitzt. Wische auf dem Pult nach links oder rechts, um zu wechseln. Die schwebende Schaltfläche führt dich auch bei ausgeblendeten Leisten zu den Seiten, zum Editor und zu den Designs, und du kannst sie hinziehen, wo sie dir passt.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Das schwebende Menü: Seiten, Leisten, Bearbeitungsmodus, Design und Vollbild.</figcaption></figure>
+  
+</section>
+<section id="themes">
+  <p class="eyebrow">Aussehen</p>
+  <h2>Elf Designs, und die Schaltflächen ziehen mit</h2>
+  <p class="lead">Die meisten Designs stammen aus bekannten Farbschemata für Entwickler — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — dazu zwei bewusst zweifarbige Terminal-Looks sowie ein neutrales Hell und Dunkel. Beim Wechsel werden deine Schaltflächenfarben unter Beibehaltung ihrer Farbtöne in die neue Palette übertragen: Aus einer blauen Schaltfläche wird das Blau des neuen Designs, und dein Aufbau liest sich weiterhin gleich.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="Jede Karte zeigt ihren eigenen Hintergrund und ihre Palette." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Jede Karte zeigt ihren eigenen Hintergrund und ihre Palette.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="Dasselbe Pult in einem hellen Design." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>Dasselbe Pult in einem hellen Design.</figcaption></figure>
+  
+</section>
+<section id="screen">
+  <p class="eyebrow">Bildschirm</p>
+  <h2>Nutze den ganzen Bildschirm</h2>
+  <p class="lead"><b>Auf Bildschirm strecken</b> lässt die Zeilen die volle Höhe teilen: Zwei Reihen Schaltflächen füllen den Bildschirm, statt unten eine Lücke zu lassen. <b>Leisten automatisch ausblenden</b> entfernt die obere und untere Leiste ganz und lässt nur die Schaltflächen stehen — die schwebende Schaltfläche holt sie zurück, oder halte eine leere Fläche drei Sekunden gedrückt.</p>
+  <aside class="note">Das Tablet ist außerdem so eingestellt, dass es wach bleibt: Der Bildschirm schaltet sich nicht ab, solange das Pult geöffnet ist.</aside>
+  
+  
+</section>
+<section id="languages">
+  <p class="eyebrow">Sprache</p>
+  <h2>Zwanzig Sprachen, automatisch gewählt</h2>
+  <p class="lead">Die Oberfläche gibt es auf Englisch, Türkisch, Spanisch, Französisch, Deutsch, Italienisch, Portugiesisch, Russisch, Ukrainisch, Polnisch, Arabisch, Persisch, Urdu, Chinesisch, Japanisch, Koreanisch, Hindi, Bengalisch, Indonesisch und Vietnamesisch. Sie folgt der Browsersprache, solange du keine wählst; Arabisch, Persisch und Urdu stellen das Layout auf rechts-nach-links um. Die Wahl gilt pro Gerät, Tablet und Desktop-Editor können sich also unterscheiden.</p>
+  
+  
+  
+</section>
+
+        <div class="notes">
+          <h2>Gut zu wissen</h2>
+          <dl>
+            <div class="row"><dt>Firewall</dt><dd>Windows fragt beim ersten Mal eventuell, ob die Verbindung erlaubt werden soll. Erreicht das Tablet den Server nicht, erlaube sie für private Netzwerke.</dd></div><div class="row"><dt>VPN</dt><dd>Manche VPN-Clients blockieren den lokalen Netzwerkverkehr. Verbindet sich nichts, probiere es mit ausgeschaltetem VPN.</dd></div><div class="row"><dt>Administratorfenster</dt><dd>Ein als Administrator laufendes Programm nimmt keine Eingaben von einem normalen Programm an. Starte den Server als Administrator, wenn deine Kürzel solche Fenster erreichen sollen.</dd></div><div class="row"><dt>Kopplungscode</dt><dd>Wer in deinem Netzwerk den Code hat, kann den PC steuern — auch Befehle ausführen. Behalte ihn für dich und hoste nicht in Netzwerken, denen du nicht traust.</dd></div>
+          </dl>
+        </div>
+
+        <footer>Surecut Deck — ein selbst gehostetes Kürzel-Pult für Windows.</footer>
+      </div>
+    </div>
+  </div>
+</div>

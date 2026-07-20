@@ -63,4 +63,4 @@ node docs/build-readme.js en             # this README
 powershell -File docs/frame-shots.ps1    # bake tablet frames into screenshots
 ```
 
-Turkish developer notes, including the traps found along the way, are in [README.tr.md](README.tr.md).
+Turkish developer notes, including the traps found along the way, are in [docs/notes.tr.md](docs/notes.tr.md).

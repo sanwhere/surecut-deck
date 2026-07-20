@@ -10,11 +10,12 @@ const WIDGETS = [
   { widget: 'cpu',    color: '#5e81ac' },
   { widget: 'ram',    color: '#a3be8c' },
   { widget: 'gpu',    color: '#b48ead' },
-  { widget: 'temp',   color: '#bf616a' },
   { widget: 'disk',   color: '#ebcb8b', drive: 'C:' },
-  { widget: 'diskio', color: '#8fbcbb' },
+  { widget: 'temp',   color: '#bf616a' },
+  { widget: 'cpu',    color: '#5e81ac', style: 'bar' },
+  { widget: 'ram',    color: '#a3be8c', style: 'bar' },
+  { widget: 'disk',   color: '#ebcb8b', drive: 'C:', style: 'bar' },
   { widget: 'net',    color: '#88c0d0' },
-  { widget: 'uptime', color: '#d08770' },
   { widget: 'clock',  color: '#81a1c1' }
 ];
 

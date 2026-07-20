@@ -219,6 +219,7 @@ node tests/colormaptest.js      # theme colour mapping preserves hues
 node tests/gesturetest.js       # two-finger scroll vs. pinch decision
 node tests/revisiontest.js      # stale clients cannot overwrite newer config
 node tests/widgettest.js        # gauge maths, formatting and unavailable states
+node tests/wiringtest.js        # every element and translation key the UI asks for exists
 node tests/smoketest.js <code>  # end-to-end; verifies key injection via NumLock
 node tests/mousetest.js         # mouse injection, don't touch the mouse while it runs
 ```

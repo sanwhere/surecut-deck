@@ -211,6 +211,11 @@
         <div id="colorRow" class="color-row"></div>
       </div>
 
+      <label id="fMoveRow" class="field hidden">
+        <span data-i18n="moveToPage"></span>
+        <select id="fMove"></select>
+      </label>
+
       <div class="field">
         <span data-i18n="actionType"></span>
         <select id="fType">
@@ -245,6 +250,14 @@
         <label id="fDriveRow" class="field hidden">
           <span data-i18n="widgetDrive"></span>
           <select id="fDrive"></select>
+        </label>
+
+        <label id="fStyleRow" class="field">
+          <span data-i18n="widgetStyle"></span>
+          <select id="fStyle">
+            <option value="arc" data-i18n="wStyleArc"></option>
+            <option value="bar" data-i18n="wStyleBar"></option>
+          </select>
         </label>
 
         <div class="hint" data-i18n="widgetHint"></div>

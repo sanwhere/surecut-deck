@@ -871,8 +871,8 @@ body.bars-hidden .grid { padding: 14px; }
   /* Etiket dibe sabit, kadran ustteki alanin ortasinda. Her sey ortalanmayi
      da denedik: kutu yuksekligi icerige gore degistigi icin yan yana duran
      gostergelerin etiketleri farkli hizalara dagiliyordu. */
-  gap: 7px;
-  padding: 10px 6px;
+  gap: 6px;
+  padding: 10px 8px 8px;
   justify-content: space-between;
 }
 .btn.widget:active { transform: none; filter: none; }
@@ -893,27 +893,46 @@ body.bars-hidden .grid { padding: 14px; }
 
 /* Kadran kutuyu doldurmasin: ekrana yay acikken kutular uzayinca yay da
    buyuyup baskin hale geliyordu. Ust sinir onu alet olcusunde tutuyor. */
-.w-gauge {
+/* Kadranin cercevesi: okuma ve ikincil satir buna gore konumlanir. */
+.w-dial {
+  position: relative;
   height: 100%;
-  max-height: min(100%, 104px);
-  width: auto;
+  max-height: min(100%, 118px);
   aspect-ratio: 1;
+}
+.w-gauge {
+  display: block;
+  width: 100%;
+  height: 100%;
   overflow: visible;
 }
 .w-track, .w-fill {
   fill: none;
-  stroke-width: 7.5;
+  stroke-width: 11;
   stroke-linecap: round;
 }
-.w-track { stroke: var(--border); }
+.w-track {
+  stroke: var(--border);
+  /* Yuzeyden biraz daha koyu bir oluk: yay bandi zemine gomulu dursun. */
+  opacity: .85;
+}
 .w-fill {
   stroke: var(--w-color, var(--accent));
   transition: stroke-dasharray .45s ease-out, stroke .3s;
 }
 
+/* Olcek cizgileri: yayin ic kenarinda, gozun doluluga bir olcek vermesi icin. */
+.w-tick {
+  stroke: var(--muted);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  opacity: .35;
+}
+.w-tick-end { opacity: .6; stroke-width: 2; }
+
 /* Okuma yayin ortasinda durur: goz once sayiyi bulsun, yay baglami versin.
-   Sayi ile birim taban cizgisinde hizalanir; birim ayri bir ogeye kacmasin diye
-   ikisi tek bir satir icinde tutuluyor. */
+   Sayi ile birim taban cizgisinde hizalanir; birim ayri bir ogeye kacmasin
+   diye ikisi tek bir satir icinde tutuluyor. */
 .w-read {
   position: absolute;
   inset: 0;
@@ -923,31 +942,67 @@ body.bars-hidden .grid { padding: 14px; }
   pointer-events: none;
 }
 .w-val {
-  font-size: clamp(17px, 3vh, 26px);
+  font-size: clamp(19px, 3.4vh, 30px);
   font-weight: 700;
   line-height: 1;
   /* Rakamlar esit genislikte olsun ki her tazelemede sayi titremesin. */
   font-variant-numeric: tabular-nums;
-  letter-spacing: -.02em;
+  letter-spacing: -.03em;
 }
 .w-unit {
-  font-size: .52em;
+  font-size: .5em;
   font-weight: 600;
   color: var(--muted);
-  margin-left: 1px;
+  margin-left: 2px;
 }
 .w-read-text { position: static; }
-.w-read-text .w-val { font-size: clamp(20px, 4vh, 34px); }
+.w-read-text .w-val { font-size: clamp(21px, 4.2vh, 36px); }
+/* Metin gostergelerde deger ve alt satir alt alta: govde satir yonundeyken
+   saatin tarihi saatin yanina yapisiyordu. */
+.w-body-text {
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* --- cubuk bicemi --- */
+
+.w-body-bar {
+  flex-direction: column;
+  justify-content: center;
+  gap: 7px;
+  padding: 0 2px;
+}
+.w-body-bar .w-read { position: static; }
+.w-body-bar .w-val { font-size: clamp(18px, 3vh, 27px); }
+
+.w-bar {
+  position: relative;
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: var(--border);
+  overflow: hidden;
+}
+.w-bar-fill {
+  height: 100%;
+  width: 0;
+  border-radius: 999px;
+  background: var(--w-color, var(--accent));
+  transition: width .45s ease-out, background .3s;
+}
+/* Ceyrek isaretleri cubugun uzerinde: dolgu gectikce altinda kaybolmasin
+   diye dolgudan sonra ve yari saydam ciziliyorlar. */
+.w-bar-tick {
+  position: absolute;
+  top: 0; bottom: 0;
+  width: 1.5px;
+  background: var(--bg);
+  opacity: .5;
+}
 
 /* --- ag --- */
 
-.w-net {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-  width: 100%;
-  padding: 0 4px;
-}
 .w-net-wrap {
   display: flex;
   flex-direction: column;
@@ -955,27 +1010,44 @@ body.bars-hidden .grid { padding: 14px; }
   width: 100%;
   height: 100%;
 }
-.w-net-row { display: flex; align-items: baseline; gap: 5px; }
-.w-net-arrow { color: var(--w-color, var(--accent)); font-size: 13px; line-height: 1; }
+.w-net {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  width: 100%;
+  padding: 0 2px;
+}
+.w-net-row { display: flex; align-items: baseline; gap: 6px; }
+.w-net-arrow {
+  color: var(--w-color, var(--accent));
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1;
+}
 .w-net-val {
-  font-size: clamp(11px, 1.9vh, 15px);
-  font-weight: 600;
+  font-size: clamp(12px, 2.1vh, 16px);
+  font-weight: 700;
   font-variant-numeric: tabular-nums;
 }
 .w-spark {
   display: block;
   width: 100%;
-  height: 20px;
-  margin-top: 4px;
+  height: 26px;
+  margin-top: 6px;
   pointer-events: none;
-  opacity: .55;
 }
 .w-spark-line {
   fill: none;
   stroke: var(--w-color, var(--accent));
-  stroke-width: 1.5;
+  stroke-width: 2;
   stroke-linejoin: round;
+  stroke-linecap: round;
   vector-effect: non-scaling-stroke;
+}
+.w-spark-area {
+  fill: var(--w-color, var(--accent));
+  opacity: .18;
+  stroke: none;
 }
 
 /* --- alt satir --- */
@@ -983,16 +1055,14 @@ body.bars-hidden .grid { padding: 14px; }
 .w-foot {
   width: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1px;
+  justify-content: center;
   min-height: 0;
 }
 .w-label {
   font-size: 10.5px;
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: .07em;
+  letter-spacing: .08em;
   color: var(--muted);
   line-height: 1.2;
   white-space: nowrap;
@@ -1009,13 +1079,25 @@ body.bars-hidden .grid { padding: 14px; }
   overflow: hidden;
   text-overflow: ellipsis;
   max-width: 100%;
+  text-align: center;
+}
+/* Yayin alttaki acikligina oturan ikincil okuma. 270 derecelik yayin altinda
+   kalan ceyrek tam buraya denk geliyor. */
+.w-sub-wedge {
+  position: absolute;
+  left: 6%;
+  right: 6%;
+  bottom: 4%;
+  font-size: 9.5px;
+  pointer-events: none;
 }
 
 /* --- durumlar --- */
 
 /* Esik asildiginda yay ve sayi birlikte kayar: rengi ayirt edemeyen biri
    icin de degisim belli olsun diye tek isaret rengi degil. */
-.btn.widget.w-warn .w-fill { stroke: var(--danger); }
+.btn.widget.w-warn .w-fill,
+.btn.widget.w-warn .w-bar-fill { stroke: var(--danger); background: var(--danger); }
 .btn.widget.w-warn .w-val { color: var(--danger); }
 .btn.widget.w-warn { border-color: var(--danger); }
 
@@ -1023,7 +1105,7 @@ body.bars-hidden .grid { padding: 14px; }
 .btn.widget.w-na .w-val { color: var(--muted); }
 
 @media (prefers-reduced-motion: reduce) {
-  .w-fill { transition: none; }
+  .w-fill, .w-bar-fill { transition: none; }
 }
 
 /* Duzenleyicideki canli gosterge onizlemesi: kaydetmeden once gercek degerle
@@ -1031,10 +1113,11 @@ body.bars-hidden .grid { padding: 14px; }
 .widget-preview {
   display: flex;
   justify-content: center;
+  gap: 10px;
   padding: 12px 0 2px;
 }
 .widget-preview .btn.widget {
   width: 132px;
-  height: 108px;
+  height: 112px;
   flex: none;
 }

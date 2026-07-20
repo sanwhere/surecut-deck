@@ -1314,7 +1314,10 @@ function openEditor(index) {
   const isWidget = !!(b && b.kind === 'widget');
   $('fType').value = isWidget ? 'widget' : (a.type || 'hotkey');
   $('fWidget').value = isWidget ? b.widget : 'cpu';
+  $('fStyle').value = (isWidget && b.style === 'bar') ? 'bar' : 'arc';
   fillDriveSelect(isWidget ? b.drive : '');
+  // Sayfaya tasima yalnizca var olan bir ogede ve birden fazla sayfa varken anlamli.
+  fillMoveSelect(b ? activePage : -1);
   $('fKeys').value = a.type === 'hotkey' ? a.keys || '' : '';
   $('fText').value = a.type === 'text' ? a.text || '' : '';
   $('fTarget').value = a.type === 'launch' ? a.target || '' : '';
@@ -1385,10 +1388,18 @@ function syncPanes() {
   document.querySelectorAll('#editor .icon-field, #editor .icon-pick').forEach((el) => {
     el.classList.toggle('hidden', isWidget);
   });
-  if (isWidget) {
-    $('fDriveRow').classList.toggle('hidden', $('fWidget').value !== 'disk');
-    renderWidgetPreview();
-  }
+  if (isWidget) syncWidgetFields();
+}
+
+// Gosterge turune gore hangi alanlarin anlamli oldugunu belirler.
+function syncWidgetFields() {
+  const kind = $('fWidget').value;
+  const def = (typeof WIDGET_TYPES !== 'undefined') ? WIDGET_TYPES[kind] : null;
+  $('fDriveRow').classList.toggle('hidden', kind !== 'disk');
+  // Bicem secimi yalnizca doluluk gosteren olculer icin: ag, calisma suresi ve
+  // saatin doldurulacak bir orani yok, onlara kadran ya da cubuk demek anlamsiz.
+  $('fStyleRow').classList.toggle('hidden', !def || def.shape !== 'gauge');
+  renderWidgetPreview();
 }
 
 // Olcum surecinden gelen surucu listesi. Henuz olcum yoksa yalnizca kayitli
@@ -1408,6 +1419,24 @@ function fillDriveSelect(current) {
   if (current) sel.value = current;
 }
 
+// Ogeyi baska bir sayfaya tasima listesi. Suruklemek yalnizca ayni sayfa
+// icinde siralama yapiyordu; sayfalar arasi tasimanin baska yolu yoktu.
+function fillMoveSelect(currentPage) {
+  const sel = $('fMove');
+  const row = $('fMoveRow');
+  if (!sel || !row) return;
+  // Yeni oge zaten acik sayfaya eklenir, tasinacak bir sey yok.
+  row.classList.toggle('hidden', currentPage < 0 || config.pages.length < 2);
+  sel.innerHTML = '';
+  config.pages.forEach((p, i) => {
+    const o = document.createElement('option');
+    o.value = String(i);
+    o.textContent = p.name || ('#' + (i + 1));
+    sel.appendChild(o);
+  });
+  if (currentPage >= 0) sel.value = String(currentPage);
+}
+
 // Duzenleyicideki canli onizleme: kullanici kaydetmeden once gostergenin
 // gercek degerle nasil durdugunu gorur.
 function renderWidgetPreview() {
@@ -1416,7 +1445,7 @@ function renderWidgetPreview() {
   box.innerHTML = '';
   const el = document.createElement('div');
   el.className = 'btn widget';
-  const w = { widget: $('fWidget').value, color: editColor };
+  const w = { widget: $('fWidget').value, color: editColor, style: $('fStyle').value };
   if (w.widget === 'disk' && $('fDrive').value) w.drive = $('fDrive').value;
   renderWidget(el, w);
   box.appendChild(el);
@@ -1575,11 +1604,9 @@ $('colsInput').onchange = (e) => {
 };
 
 $('fType').onchange = syncPanes;
-$('fWidget').onchange = () => {
-  $('fDriveRow').classList.toggle('hidden', $('fWidget').value !== 'disk');
-  renderWidgetPreview();
-};
+$('fWidget').onchange = syncWidgetFields;
 $('fDrive').onchange = renderWidgetPreview;
+$('fStyle').onchange = renderWidgetPreview;
 $('editorClose').onclick = closeEditor;
 
 $('editor').onclick = (e) => { if (e.target === $('editor')) closeEditor(); };
@@ -1597,6 +1624,7 @@ $('editorSave').onclick = () => {
     btn = { id, kind: 'widget', widget: $('fWidget').value, color: editColor };
     const label = $('fLabel').value.trim();
     if (label) btn.label = label;
+    if ($('fStyle').value === 'bar') btn.style = 'bar';
     if (btn.widget === 'disk' && $('fDrive').value) btn.drive = $('fDrive').value;
   } else {
     btn = {
@@ -1609,10 +1637,24 @@ $('editorSave').onclick = () => {
     if (editIconUrl) btn.iconUrl = editIconUrl;
   }
 
-  if (editIndex >= 0) config.pages[activePage].buttons[editIndex] = btn;
-  else config.pages[activePage].buttons.push(btn);
+  // Hedef sayfa: kullanici listeden baska bir sayfa sectiyse oge oraya tasinir.
+  const moveRow = $('fMoveRow');
+  const target = (editIndex >= 0 && moveRow && !moveRow.classList.contains('hidden'))
+    ? Number($('fMove').value) : activePage;
+  const moving = target !== activePage && config.pages[target];
 
-  saveConfig(() => toast(t('saved')));
+  if (editIndex >= 0) {
+    if (moving) {
+      config.pages[activePage].buttons.splice(editIndex, 1);
+      config.pages[target].buttons.push(btn);
+    } else {
+      config.pages[activePage].buttons[editIndex] = btn;
+    }
+  } else {
+    config.pages[activePage].buttons.push(btn);
+  }
+
+  saveConfig(() => toast(moving ? t('movedTo', { page: config.pages[target].name || '' }) : t('saved')));
   closeEditor();
   renderGrid();
 };

@@ -10,7 +10,7 @@ Surecut Deck runs a small server on your Windows machine and serves its own inte
 
 <sub>The deck on a 1024×600 Android tablet, running the Nord theme in full screen.</sub>
 
-📖 Illustrated guide: [English](docs/guide-en.html) · [Türkçe](docs/guide-tr.html) · [Español](docs/guide-es.html) · [Français](docs/guide-fr.html) · [Deutsch](docs/guide-de.html) · [Italiano](docs/guide-it.html) · [Português](docs/guide-pt.html) · [Русский](docs/guide-ru.html) · [Українська](docs/guide-uk.html) · [Polski](docs/guide-pl.html) · [العربية](docs/guide-ar.html) · [فارسی](docs/guide-fa.html) · [اردو](docs/guide-ur.html) · [中文](docs/guide-zh.html) · [日本語](docs/guide-ja.html) · [한국어](docs/guide-ko.html) · [हिन्दी](docs/guide-hi.html)
+📖 Illustrated guide: [English](docs/guide-en.html) · [Türkçe](docs/guide-tr.html) · [Español](docs/guide-es.html) · [Français](docs/guide-fr.html) · [Deutsch](docs/guide-de.html) · [Italiano](docs/guide-it.html) · [Português](docs/guide-pt.html) · [Русский](docs/guide-ru.html) · [Українська](docs/guide-uk.html) · [Polski](docs/guide-pl.html) · [العربية](docs/guide-ar.html) · [فارسی](docs/guide-fa.html) · [اردو](docs/guide-ur.html) · [中文](docs/guide-zh.html) · [日本語](docs/guide-ja.html) · [한국어](docs/guide-ko.html) · [हिन्दी](docs/guide-hi.html) · [বাংলা](docs/guide-bn.html) · [Indonesia](docs/guide-id.html) · [Tiếng Việt](docs/guide-vi.html)
 
 ## How it works
 

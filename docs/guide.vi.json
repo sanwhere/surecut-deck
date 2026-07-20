@@ -1,0 +1,161 @@
+{
+  "lang": "vi",
+  "dir": "ltr",
+  "title": "Surecut Deck — Hướng dẫn sử dụng",
+  "eyebrow": "Tự dựng máy chủ · Không cần cửa hàng ứng dụng · Không gì rời khỏi mạng của bạn",
+  "heroTitle": "Biến chiếc máy tính bảng bỏ không thành bàn điều khiển cho máy tính",
+  "heroLead": "Surecut Deck chạy một máy chủ nhỏ trên máy Windows của bạn và tự phục vụ giao diện của chính nó. Máy tính bảng chỉ mở một địa chỉ web — không có ứng dụng phải cài, không có tài khoản phải tạo, và không có đám mây ở giữa.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "Bàn điều khiển trên máy tính bảng Android 1024×600, giao diện Nord ở chế độ toàn màn hình." },
+
+  "pillars": {
+    "title": "Cách hoạt động",
+    "items": [
+      { "k": "Máy tính của bạn là máy chủ", "v": "Một ứng dụng nhỏ ở khay hệ thống khởi động máy chủ cục bộ và giữ nó chạy. Đó là thứ duy nhất bạn cài đặt." },
+      { "k": "Máy tính bảng mở một địa chỉ", "v": "Bất kỳ trình duyệt nào trong cùng mạng. Thêm vào màn hình chính là nó chạy như một ứng dụng." },
+      { "k": "Nút gửi thao tác thật", "v": "Mỗi lần nhấn trở thành sự kiện bàn phím và chuột thật của Windows, nên chương trình nào cũng đáp ứng." }
+    ]
+  },
+
+  "setup": {
+    "title": "Kết nối",
+    "lead": "Ba bước, chỉ một lần.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Khởi động máy chủ",
+        "body": "Chạy <code>start.cmd</code>. Một biểu tượng xuất hiện ở khay hệ thống và ở lại đó. Bấm vào nó bất cứ lúc nào để xem thông tin ghép nối hoặc mở trình chỉnh sửa."
+      },
+      {
+        "n": "2",
+        "title": "Mở địa chỉ trên máy tính bảng",
+        "body": "Cửa sổ máy chủ liệt kê mọi địa chỉ có thể tới được máy tính của bạn. Gõ một trong số đó vào trình duyệt của máy tính bảng, rồi nhập mã ghép nối hiển thị bên cạnh.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Thông tin máy chủ mở từ biểu tượng khay. Mã và địa chỉ ở đây chỉ là ví dụ." }
+      },
+      {
+        "n": "3",
+        "title": "Làm cho nó giống một ứng dụng",
+        "body": "Chạm <b>⛶</b> để vào toàn màn hình, hoặc dùng <b>Thêm vào màn hình chính</b> của trình duyệt. Ở chế độ toàn màn hình, máy tính bảng cũng không ngủ khi bàn điều khiển đang mở."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "Cơ bản",
+      "title": "Nút làm được nhiều hơn là bấm phím",
+      "body": "Chạm biểu tượng bút chì để vào chế độ sửa, rồi chạm vào nút bất kỳ để chỉnh — hoặc nhấn giữ để kéo nó sang chỗ khác. Mỗi nút có một nhãn, một biểu tượng, một màu và một hành động.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Nhãn, bộ chọn biểu tượng và màu." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Loại hành động, kèm các phím tắt dựng sẵn để chọn." }
+      ],
+      "table": {
+        "head": ["Hành động", "Tác dụng"],
+        "rows": [
+          ["Phím tắt", "Bất kỳ tổ hợp nào — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, phím đa phương tiện, âm lượng"],
+          ["Gõ văn bản", "Viết sẵn một đoạn văn bản thay bạn, kể cả xuống dòng"],
+          ["Mở ứng dụng / tệp", "Một chương trình, một tài liệu hoặc một thư mục"],
+          ["Mở địa chỉ web", "Mở liên kết trong trình duyệt mặc định"],
+          ["Chạy lệnh", "PowerShell hoặc CMD"],
+          ["Chuột", "Biến màn hình máy tính bảng thành bàn di chuột"],
+          ["Chuỗi bước", "Nhiều bước theo thứ tự, có thể chèn thời gian chờ"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Biểu tượng",
+      "title": "Chọn một emoji, hoặc lấy chính biểu tượng của ứng dụng",
+      "body": "Trình chỉnh sửa có sẵn lưới biểu tượng nên bạn không phải gõ emoji bằng tay. Với chương trình thì còn hay hơn: kéo lối tắt từ màn hình nền vào, biểu tượng thật của ứng dụng sẽ đi kèm.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Chế độ sửa. Mỗi nút mang dấu bút chì; nhấn giữ để sắp xếp lại." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Màn hình nền",
+      "title": "Kéo một lối tắt từ màn hình nền vào",
+      "body": "Mở trình chỉnh sửa từ biểu tượng khay: một cửa sổ desktop thật hiện ra, bên trong là cùng giao diện đó. Thả một lối tắt, chương trình, thư mục hay tệp lên dải phía trên — đích được phân giải, biểu tượng ứng dụng được trích ra, và nút xuất hiện ngay trên máy tính bảng.",
+      "note": "Trình chỉnh sửa là cửa sổ gốc chứ không phải thẻ trình duyệt, vì một lý do cụ thể. Trình duyệt không bao giờ trao cho trang web <em>đường dẫn</em> của tệp được thả vào, và Chromium còn phân giải lối tắt được thả thành đích của nó — nghĩa là trình duyệt sẽ cố đọc cả chương trình thay vì biết nó nằm ở đâu.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "Trình chỉnh sửa trên desktop. Chọn trang ở bên trái, rồi thả lối tắt lên dải.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Trang đích" },
+            { "x": 62, "y": 13, "label": "Thả vào đây" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "Con trỏ",
+      "title": "Màn hình trở thành bàn di chuột",
+      "body": "Gán cho một nút hành động <b>Chuột</b>; khi nhấn, cả máy tính bảng trở thành trackpad. Hai thanh trượt chỉnh tốc độ con trỏ và cuộn, còn chiều cuộn có thể đảo lại cho hợp thói quen của bạn.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Chế độ bàn di chuột, bên dưới là các nút rõ ràng cho những cú nhấp bạn không muốn đoán mò." }
+      ],
+      "table": {
+        "head": ["Cử chỉ", "Kết quả"],
+        "rows": [
+          ["Kéo", "Di chuyển con trỏ"],
+          ["Chạm", "Nhấp chuột trái"],
+          ["Chạm hai lần", "Nhấp đúp"],
+          ["Chạm hai lần rồi kéo", "Giữ nút trái và di chuyển — chọn văn bản, kéo cửa sổ"],
+          ["Nhấn giữ", "Nhấp chuột phải"],
+          ["Hai ngón", "Cuộn dọc và ngang"],
+          ["Chạm hai ngón", "Nhấp chuột phải"],
+          ["Chụm ngón", "Thu phóng"],
+          ["Ba ngón ↑ / ↓", "Xem tác vụ / hiện màn hình nền"],
+          ["Ba ngón ← / →", "Chuyển màn hình nền ảo"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Không gian",
+      "title": "Bao nhiêu trang tuỳ bạn",
+      "body": "Gom các nút thành từng trang — một trang để dựng phim, một trang cho trò chơi, một trang cho cuộc họp mà bạn chẳng bao giờ thoát ra. Vuốt sang trái hoặc phải trên bàn điều khiển để chuyển trang. Nút nổi đưa bạn tới các trang, trình chỉnh sửa và giao diện ngay cả khi các thanh đang ẩn, và bạn có thể kéo nó tới chỗ thuận tay.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Menu nổi: trang, thanh công cụ, chế độ sửa, giao diện và toàn màn hình." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Diện mạo",
+      "title": "Mười một giao diện, và các nút cũng theo",
+      "body": "Phần lớn giao diện lấy từ những bảng màu quen thuộc với lập trình viên — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — cộng thêm hai kiểu terminal cố ý chỉ dùng hai màu, cùng một sáng và một tối trung tính. Khi đổi giao diện, màu các nút được chuyển sang bảng màu mới mà vẫn giữ sắc độ: nút xanh dương trở thành xanh dương của giao diện mới, và bố cục của bạn vẫn đọc như cũ.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Mỗi thẻ tự trưng ra nền và bảng màu của nó." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "Cũng bàn điều khiển đó với giao diện sáng." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Màn hình",
+      "title": "Dùng hết cả màn hình",
+      "body": "<b>Kéo giãn cho đầy màn hình</b> khiến các hàng chia nhau toàn bộ chiều cao: hai hàng nút sẽ lấp kín màn hình thay vì chừa một khoảng trống bên dưới. <b>Tự động ẩn thanh</b> bỏ hẳn thanh trên và thanh dưới, chỉ để lại các nút — nút nổi sẽ gọi chúng trở lại, hoặc nhấn giữ vùng trống trong ba giây.",
+      "note": "Máy tính bảng cũng được đặt để không ngủ: màn hình sẽ không tắt khi bàn điều khiển đang mở."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Ngôn ngữ",
+      "title": "Hai mươi ngôn ngữ, tự chọn",
+      "body": "Giao diện có tiếng Anh, Thổ Nhĩ Kỳ, Tây Ban Nha, Pháp, Đức, Ý, Bồ Đào Nha, Nga, Ukraina, Ba Lan, Ả Rập, Ba Tư, Urdu, Trung, Nhật, Hàn, Hindi, Bengal, Indonesia và Việt. Nó theo ngôn ngữ của trình duyệt cho đến khi bạn tự chọn, còn tiếng Ả Rập, Ba Tư và Urdu chuyển bố cục sang phải-sang-trái. Lựa chọn này riêng cho từng thiết bị, nên máy tính bảng và trình chỉnh sửa trên máy tính có thể khác nhau."
+    }
+  ],
+
+  "notes": {
+    "title": "Nên biết",
+    "items": [
+      { "k": "Tường lửa", "v": "Windows có thể hỏi xin phép kết nối trong lần đầu. Nếu máy tính bảng không tới được máy chủ, hãy cho phép với mạng riêng tư." },
+      { "k": "VPN", "v": "Một số ứng dụng VPN chặn lưu lượng mạng nội bộ. Nếu không kết nối được gì, thử tắt VPN." },
+      { "k": "Cửa sổ quản trị", "v": "Chương trình chạy với quyền quản trị không nhận thao tác từ chương trình thường. Hãy chạy máy chủ với quyền quản trị nếu bạn cần phím tắt tác động tới những cửa sổ đó." },
+      { "k": "Mã ghép nối", "v": "Bất kỳ ai trong mạng có mã đều điều khiển được máy tính, kể cả chạy lệnh. Hãy giữ mã cho riêng mình và đừng chạy trên những mạng bạn không tin tưởng." }
+    ]
+  },
+
+  "footer": "Surecut Deck — bàn phím tắt tự dựng máy chủ cho Windows."
+}

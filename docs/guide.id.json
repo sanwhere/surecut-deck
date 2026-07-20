@@ -1,0 +1,161 @@
+{
+  "lang": "id",
+  "dir": "ltr",
+  "title": "Surecut Deck — Panduan Penggunaan",
+  "eyebrow": "Server sendiri · Tanpa toko aplikasi · Tidak ada yang keluar dari jaringanmu",
+  "heroTitle": "Ubah tablet nganggur menjadi panel kendali PC-mu",
+  "heroLead": "Surecut Deck menjalankan server kecil di komputer Windows-mu dan menyajikan antarmukanya sendiri. Tablet hanya membuka sebuah alamat web — tidak ada aplikasi yang perlu dipasang, akun yang perlu dibuat, atau awan di tengahnya.",
+  "heroFigure": { "src": "01-deck.png", "frame": "tablet", "caption": "Dek pada tablet Android 1024×600, tema Nord dalam layar penuh." },
+
+  "pillars": {
+    "title": "Cara kerjanya",
+    "items": [
+      { "k": "PC-mu yang menjadi host", "v": "Aplikasi kecil di baki sistem menyalakan server lokal dan menjaganya tetap hidup. Hanya itu yang kamu pasang." },
+      { "k": "Tablet membuka sebuah alamat", "v": "Peramban apa pun di jaringan yang sama. Tambahkan ke layar utama, lalu ia berperilaku seperti aplikasi." },
+      { "k": "Tombol mengirim masukan sungguhan", "v": "Tekanan berubah menjadi peristiwa papan ketik dan tetikus Windows yang asli, sehingga program apa pun menanggapinya." }
+    ]
+  },
+
+  "setup": {
+    "title": "Menyambung",
+    "lead": "Tiga langkah, sekali saja.",
+    "steps": [
+      {
+        "n": "1",
+        "title": "Jalankan server",
+        "body": "Jalankan <code>start.cmd</code>. Sebuah ikon muncul di baki sistem dan tetap di sana. Klik kapan saja untuk melihat data pemasangan atau membuka penyunting."
+      },
+      {
+        "n": "2",
+        "title": "Buka alamatnya di tablet",
+        "body": "Jendela server memuat semua alamat yang bisa menjangkau PC-mu. Ketik salah satunya di peramban tablet, lalu masukkan kode pemasangan yang tampil di sebelahnya.",
+        "figure": { "src": "11-info-win.png", "frame": "window", "caption": "Data server dari ikon baki sistem. Kode dan alamat di sini hanya contoh." }
+      },
+      {
+        "n": "3",
+        "title": "Buat terasa seperti aplikasi",
+        "body": "Ketuk <b>⛶</b> untuk layar penuh, atau gunakan <b>Tambahkan ke layar utama</b> di peramban. Dalam layar penuh, tablet juga tidak tertidur selama dek terbuka."
+      }
+    ]
+  },
+
+  "sections": [
+    {
+      "id": "buttons",
+      "eyebrow": "Dasar",
+      "title": "Tombol melakukan lebih dari sekadar menekan tuts",
+      "body": "Ketuk pensil untuk masuk ke mode ubah, lalu ketuk tombol mana pun untuk menyuntingnya — atau tekan agak lama untuk menyeretnya ke tempat lain. Setiap tombol punya label, ikon, warna, dan satu tindakan.",
+      "figures": [
+        { "src": "04-editor.png", "frame": "tablet", "caption": "Label, pemilih ikon, dan warna." },
+        { "src": "05-action.png", "frame": "tablet", "caption": "Jenis tindakan, dengan pintasan siap pakai untuk dipilih." }
+      ],
+      "table": {
+        "head": ["Tindakan", "Yang dilakukan"],
+        "rows": [
+          ["Pintasan papan ketik", "Kombinasi apa pun — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, tombol media, volume"],
+          ["Tulis teks", "Menuliskan sepotong teks untukmu, termasuk ganti baris"],
+          ["Buka aplikasi / berkas", "Sebuah program, dokumen, atau folder"],
+          ["Buka alamat web", "Membuka tautan di peramban bawaanmu"],
+          ["Jalankan perintah", "PowerShell atau CMD"],
+          ["Tetikus", "Mengubah layar tablet menjadi panel sentuh"],
+          ["Rangkaian langkah", "Beberapa langkah berurutan, dengan jeda di antaranya"]
+        ]
+      }
+    },
+    {
+      "id": "icons",
+      "eyebrow": "Ikon",
+      "title": "Pilih emoji, atau pakai ikon asli aplikasinya",
+      "body": "Penyunting punya kisi ikon, jadi kamu tidak perlu mengetik emoji secara manual. Untuk program ada yang lebih baik: seret pintasan dari desktop, dan ikon asli aplikasinya ikut terbawa.",
+      "figures": [
+        { "src": "03-editmode.png", "frame": "tablet", "caption": "Mode ubah. Tiap tombol bertanda pensil; tekan agak lama untuk menata ulang." }
+      ]
+    },
+    {
+      "id": "dragdrop",
+      "eyebrow": "Desktop",
+      "title": "Seret pintasan dari desktop",
+      "body": "Buka penyunting dari ikon baki sistem: muncul jendela desktop sungguhan dengan antarmuka yang sama di dalamnya. Jatuhkan pintasan, program, folder, atau berkas ke bilah di bagian atas — sasarannya diuraikan, ikon aplikasinya diambil, dan tombolnya langsung muncul di tablet.",
+      "note": "Penyunting berupa jendela asli, bukan tab peramban, karena satu alasan tertentu. Peramban tidak pernah memberikan <em>lokasi</em> berkas yang dijatuhkan kepada halaman web, dan Chromium bahkan menguraikan pintasan yang dijatuhkan menjadi sasarannya — jadi peramban akan mencoba membaca seluruh program alih-alih mengetahui di mana letaknya.",
+      "figures": [
+        {
+          "src": "10-editor-win.png",
+          "frame": "window",
+          "caption": "Penyunting desktop. Pilih halaman di sebelah kiri, lalu jatuhkan pintasan ke bilah.",
+          "callouts": [
+            { "x": 22, "y": 13, "label": "Halaman tujuan" },
+            { "x": 62, "y": 13, "label": "Jatuhkan di sini" }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "mouse",
+      "eyebrow": "Penunjuk",
+      "title": "Layar berubah menjadi panel sentuh",
+      "body": "Beri sebuah tombol tindakan <b>Tetikus</b>; begitu ditekan, seluruh tablet menjadi trackpad. Dua penggeser mengatur kecepatan penunjuk dan gulir, dan arah gulir bisa dibalik sesuai kebiasaanmu.",
+      "figures": [
+        { "src": "06-touchpad.png", "frame": "tablet", "caption": "Mode panel sentuh, dengan tombol jelas di bawah untuk klik yang tidak ingin kamu tebak." }
+      ],
+      "table": {
+        "head": ["Gerakan", "Hasil"],
+        "rows": [
+          ["Seret", "Menggerakkan penunjuk"],
+          ["Ketuk", "Klik kiri"],
+          ["Ketuk dua kali", "Klik ganda"],
+          ["Ketuk dua kali lalu seret", "Menahan tombol kiri sambil bergerak — memilih teks, menggeser jendela"],
+          ["Tekan lama", "Klik kanan"],
+          ["Dua jari", "Gulir tegak dan mendatar"],
+          ["Ketuk dua jari", "Klik kanan"],
+          ["Cubit", "Perbesar/perkecil"],
+          ["Tiga jari ↑ / ↓", "Tampilan tugas / tampilkan desktop"],
+          ["Tiga jari ← / →", "Ganti desktop virtual"]
+        ]
+      }
+    },
+    {
+      "id": "pages",
+      "eyebrow": "Ruang",
+      "title": "Sebanyak halaman yang kamu perlukan",
+      "body": "Kelompokkan tombol ke dalam halaman — satu untuk menyunting, satu untuk bermain, satu untuk rapat yang tak pernah kamu tinggalkan. Geser ke kiri atau ke kanan pada dek untuk berpindah. Tombol mengambang membawamu ke halaman, penyunting, dan tema bahkan ketika bilah tersembunyi, dan bisa kamu seret ke tempat yang nyaman.",
+      "figures": [
+        { "src": "07-menu.png", "frame": "tablet", "caption": "Menu mengambang: halaman, bilah, mode ubah, tema, dan layar penuh." }
+      ]
+    },
+    {
+      "id": "themes",
+      "eyebrow": "Tampilan",
+      "title": "Sebelas tema, dan tombolnya ikut menyesuaikan",
+      "body": "Sebagian besar tema berasal dari skema warna yang dikenal para pengembang — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — ditambah dua tampilan terminal yang sengaja hanya dua warna serta satu terang dan satu gelap yang netral. Saat tema diganti, warna tombolmu dikonversi ke palet baru dengan mempertahankan ronanya: tombol biru menjadi biru tema yang baru, dan tata letakmu tetap terbaca sama.",
+      "figures": [
+        { "src": "02-themes.png", "frame": "tablet", "caption": "Tiap kartu menampilkan latar dan paletnya sendiri." },
+        { "src": "08-light.png", "frame": "tablet", "caption": "Dek yang sama dengan tema terang." }
+      ]
+    },
+    {
+      "id": "screen",
+      "eyebrow": "Layar",
+      "title": "Manfaatkan seluruh layar",
+      "body": "<b>Regangkan memenuhi layar</b> membuat baris berbagi seluruh tinggi: dua baris tombol memenuhi layar alih-alih menyisakan ruang kosong di bawah. <b>Sembunyikan bilah otomatis</b> menghilangkan bilah atas dan bawah sepenuhnya dan menyisakan tombol saja — tombol mengambang mengembalikannya, atau tekan area kosong selama tiga detik.",
+      "note": "Tablet juga diatur agar tetap terjaga: layar tidak akan mati selama dek terbuka."
+    },
+    {
+      "id": "languages",
+      "eyebrow": "Bahasa",
+      "title": "Dua puluh bahasa, dipilih otomatis",
+      "body": "Antarmuka tersedia dalam bahasa Inggris, Turki, Spanyol, Prancis, Jerman, Italia, Portugis, Rusia, Ukraina, Polandia, Arab, Persia, Urdu, Mandarin, Jepang, Korea, Hindi, Bengali, Indonesia, dan Vietnam. Ia mengikuti bahasa peramban selama kamu belum memilih sendiri, dan bahasa Arab, Persia, serta Urdu mengubah tata letak menjadi kanan-ke-kiri. Pilihan ini per perangkat, jadi tablet dan penyunting desktop boleh berbeda."
+    }
+  ],
+
+  "notes": {
+    "title": "Perlu diketahui",
+    "items": [
+      { "k": "Firewall", "v": "Windows mungkin meminta izin koneksi pada kali pertama. Jika tablet tidak dapat menjangkau server, izinkan untuk jaringan privat." },
+      { "k": "VPN", "v": "Sebagian klien VPN memblokir lalu lintas jaringan lokal. Jika tidak ada yang tersambung, coba dengan VPN dimatikan." },
+      { "k": "Jendela administrator", "v": "Program yang berjalan sebagai administrator tidak menerima masukan dari program biasa. Jalankan server sebagai administrator jika pintasan perlu menjangkau jendela seperti itu." },
+      { "k": "Kode pemasangan", "v": "Siapa pun di jaringanmu yang memiliki kode dapat mengendalikan PC, termasuk menjalankan perintah. Simpan sendiri kodenya dan jangan jalankan di jaringan yang tidak kamu percayai." }
+    ]
+  },
+
+  "footer": "Surecut Deck — dek pintasan dengan server sendiri untuk Windows."
+}

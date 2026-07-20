@@ -157,6 +157,7 @@ let editing = false;
 let editIndex = -1;      // -1 = yeni buton
 let editColor = THEMES.dark.accent;   // openEditor gercek degeri temadan alir
 let editIconUrl = '';
+let editFg = '';           // bos = zemine gore otomatik sec
 let reqSeq = 0;
 let configRevision = null;   // sunucudan gelen yapilandirma surumu
 let lastStats = null;        // son sistem olcumu
@@ -1100,7 +1101,8 @@ function renderGrid() {
 
     const bg = b.color || accent();
     el.style.background = bg;
-    el.style.color = readableText(bg);
+    // Elle secilmis yazi rengi varsa o, yoksa zemine gore okunur olan.
+    el.style.color = b.fg || readableText(bg);
     // Windows'tan surukle-birak ile eklenen butonlarin gercek uygulama ikonu olur.
     if (b.iconUrl) {
       const img = document.createElement('img');
@@ -1374,6 +1376,7 @@ function openEditor(index) {
   $('fLabel').value = b ? b.label || '' : '';
   $('fIcon').value = b ? b.icon || '' : '';
   editColor = b ? b.color || accent() : accent();
+  editFg = (b && b.fg) || '';
 
   // Surukle-birak ile gelen uygulama simgesi varsa koru; kullanici acikca kaldirabilir.
   editIconUrl = (b && b.iconUrl) || '';
@@ -1416,33 +1419,98 @@ function renderIconImage() {
 
 $('iconImgClear').onclick = () => { editIconUrl = ''; renderIconImage(); };
 
+// Iki renk satiri da ayni cizimi kullanir: zemin rengi ile yazi/simge rengi.
+// Yazi renginde ek olarak bir "otomatik" secenegi var ve varsayilan odur:
+// zemine gore okunur olani WCAG parlakligina bakarak kendisi seciyor.
 function renderColors() {
-  const row = $('colorRow');
+  renderSwatchRow($('colorRow'), editColor, (c, live) => { editColor = c; afterPick(live); });
+  renderSwatchRow($('fgRow'), editFg, (c, live) => { editFg = c; afterPick(live); }, true);
+  renderFgPreview();
+}
+
+// live=true: kullanici renk secicinin icinde surukleniyor. Satiri yeniden
+// cizmek tam o anda kullanicinin icinde oldugu <input type=color> ogesini
+// yok ediyor ve secici sahipsiz kaliyordu. Canli sirada yalnizca onizlemeler
+// tazeleniyor, satir secici kapaninca (change) bir kez yeniden ciziliyor.
+function afterPick(live) {
+  renderFgPreview();
+  renderWidgetPreview();
+  if (!live) renderColors();
+}
+
+function renderSwatchRow(row, current, onPick, withAuto) {
+  if (!row) return;
   row.innerHTML = '';
 
-  palette().forEach((c) => {
-    const s = document.createElement('div');
-    s.className = 'swatch' + (c.toLowerCase() === editColor.toLowerCase() ? ' sel' : '');
-    s.style.background = c;
-    s.onclick = () => { editColor = c; renderColors(); renderWidgetPreview(); };
-    row.appendChild(s);
+  if (withAuto) {
+    const auto = document.createElement('div');
+    auto.className = 'swatch auto' + (current ? '' : ' sel');
+    auto.title = t('autoColor');
+    auto.textContent = 'A';
+    auto.onclick = () => onPick('', false);
+    row.appendChild(auto);
+  }
+
+  const pal = palette();
+  // Yazi rengi paletinin iki ucu da olmali: koyu zeminde beyaz, acikta siyah
+  // en sik istenen secim ve ikisi de tema paletinde bulunmayabiliyor.
+  const colors = withAuto ? ['#ffffff', '#141109'].concat(pal) : pal;
+
+  colors.forEach((c) => {
+    const sw = document.createElement('div');
+    sw.className = 'swatch' + (current && c.toLowerCase() === current.toLowerCase() ? ' sel' : '');
+    sw.style.background = c;
+    sw.onclick = () => onPick(c, false);
+    row.appendChild(sw);
   });
 
   // Hazir renklerin disinda bir renk secildiyse onu da goster.
-  const custom = !palette().some((c) => c.toLowerCase() === editColor.toLowerCase());
+  const custom = !!current && !colors.some((c) => c.toLowerCase() === current.toLowerCase());
   const picker = document.createElement('label');
   picker.className = 'swatch picker' + (custom ? ' sel' : '');
-  picker.title = 'Özel renk';
-  picker.style.background = custom ? editColor : 'transparent';
+  picker.title = t('customColor');
+  picker.style.background = custom ? current : 'transparent';
   picker.textContent = custom ? '' : '🎨';
 
   const input = document.createElement('input');
   input.type = 'color';
-  input.value = /^#[0-9a-f]{6}$/i.test(editColor) ? editColor : '#3b82f6';
-  input.oninput = () => { editColor = input.value; renderColors(); renderWidgetPreview(); };
+  input.value = /^#[0-9a-f]{6}$/i.test(current) ? current : '#3b82f6';
+  // oninput: secici acikken her kipirdamada. onchange: secici kapaninca.
+  input.oninput = () => { onPick(input.value, true); picker.style.background = input.value; };
+  input.onchange = () => onPick(input.value, false);
   picker.appendChild(input);
-
   row.appendChild(picker);
+
+  // Elle hex girisi. Isletim sisteminin renk diyalogu her ortamda acilmiyor
+  // (WebView2 icinde ve bazi tablet tarayicilarinda takiliyor); bu alan her
+  // kosulda calisan bir yol birakiyor.
+  const hex = document.createElement('input');
+  hex.type = 'text';
+  hex.className = 'hex';
+  hex.maxLength = 7;
+  hex.spellcheck = false;
+  hex.placeholder = withAuto ? t('autoColor') : '#3b82f6';
+  hex.value = current || '';
+  hex.oninput = () => {
+    let v = hex.value.trim();
+    if (v && v[0] !== '#') v = '#' + v;
+    // Yalnizca tam bir renk yazildiginda uygula: kullanici yazarken her
+    // karakterde gecersiz bir renge atlamasin.
+    if (/^#[0-9a-fA-F]{6}$/.test(v)) onPick(v, true);
+    else if (!v && withAuto) onPick('', true);
+  };
+  hex.onchange = () => onPick(current, false);
+  row.appendChild(hex);
+}
+
+// Kucuk bir ornek: secilen iki rengin birlikte nasil durdugunu gosterir.
+// Okunmayan bir bilesim kaydedilmeden once gorulsun.
+function renderFgPreview() {
+  const box = $('fgPreview');
+  if (!box) return;
+  box.style.background = editColor;
+  box.style.color = editFg || readableText(editColor);
+  box.textContent = $('fLabel').value.trim() || t('label');
 }
 
 function syncPanes() {
@@ -1515,6 +1583,7 @@ function renderWidgetPreview() {
   const el = document.createElement('div');
   el.className = 'btn widget';
   const w = { widget: $('fWidget').value, color: editColor, style: $('fStyle').value };
+  if (editFg) w.fg = editFg;
   if (w.widget === 'disk' && $('fDrive').value) w.drive = $('fDrive').value;
   renderWidget(el, w);
   box.appendChild(el);
@@ -1673,6 +1742,7 @@ $('colsInput').onchange = (e) => {
 };
 
 $('fType').onchange = syncPanes;
+$('fLabel').addEventListener('input', renderFgPreview);
 $('fWidget').onchange = syncWidgetFields;
 $('fDrive').onchange = renderWidgetPreview;
 $('fStyle').onchange = renderWidgetPreview;
@@ -1691,6 +1761,7 @@ $('editorSave').onclick = () => {
     // Gostergede etiket bos birakilabilir: o zaman olcumun kendi adini kullanir,
     // yani "CPU" yazmak icin kullaniciya is dusmez.
     btn = { id, kind: 'widget', widget: $('fWidget').value, color: editColor };
+    if (editFg) btn.fg = editFg;
     const label = $('fLabel').value.trim();
     if (label) btn.label = label;
     if ($('fStyle').value === 'bar') btn.style = 'bar';
@@ -1703,6 +1774,7 @@ $('editorSave').onclick = () => {
       color: editColor,
       action
     };
+    if (editFg) btn.fg = editFg;
     if (editIconUrl) btn.iconUrl = editIconUrl;
   }
 

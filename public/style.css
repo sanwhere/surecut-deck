@@ -866,7 +866,7 @@ body.bars-hidden .grid { padding: 14px; }
 .btn.widget {
   background: var(--surface);
   border: 1px solid var(--border);
-  color: var(--text);
+  color: var(--w-fg, var(--text));
   cursor: default;
   /* Etiket dibe sabit, kadran ustteki alanin ortasinda. Her sey ortalanmayi
      da denedik: kutu yuksekligi icerige gore degistigi icin yan yana duran
@@ -952,7 +952,8 @@ body.bars-hidden .grid { padding: 14px; }
 .w-unit {
   font-size: .5em;
   font-weight: 600;
-  color: var(--muted);
+  color: var(--w-fg, var(--muted));
+  opacity: var(--w-fg-dim, 1);
   margin-left: 2px;
 }
 .w-read-text { position: static; }
@@ -1063,7 +1064,10 @@ body.bars-hidden .grid { padding: 14px; }
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: .08em;
-  color: var(--muted);
+  /* Elle bir yazi rengi secildiyse etiket de onu izler ama biraz soluk kalir,
+     yoksa etiket degerle esit agirlikta gorunup okuma sirasini bozuyor. */
+  color: var(--w-fg, var(--muted));
+  opacity: var(--w-fg-dim, 1);
   line-height: 1.2;
   white-space: nowrap;
   overflow: hidden;
@@ -1072,7 +1076,8 @@ body.bars-hidden .grid { padding: 14px; }
 }
 .w-sub {
   font-size: 10px;
-  color: var(--muted);
+  color: var(--w-fg, var(--muted));
+  opacity: var(--w-fg-dim, 1);
   font-variant-numeric: tabular-nums;
   line-height: 1.2;
   white-space: nowrap;
@@ -1147,3 +1152,49 @@ body.dragging .fab-page.drop-target {
   color: #fff;
   transform: scale(1.06);
 }
+
+/* Yazi rengi satiri: "otomatik" secenegi ve secimin nasil durdugunu gosteren
+   kucuk bir ornek. Okunmayan bir zemin/yazi bilesimi kaydedilmeden gorulsun. */
+.swatch.auto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 700;
+}
+.fg-preview-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 10px;
+}
+.fg-preview {
+  flex: none;
+  min-width: 92px;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  border: 1px solid var(--border);
+  font-size: 14px;
+  font-weight: 600;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Elle hex girisi: isletim sistemi renk diyalogunun acilmadigi ortamlarda
+   (WebView2, bazi tablet tarayicilari) her zaman calisan yol. */
+.color-row .hex {
+  width: 88px;
+  padding: 7px 9px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  background: var(--surface-2);
+  color: var(--text);
+  font-family: ui-monospace, "Cascadia Mono", Consolas, monospace;
+  font-size: 13px;
+  text-transform: lowercase;
+}
+.color-row .hex:focus { outline: 2px solid var(--accent); outline-offset: 1px; }

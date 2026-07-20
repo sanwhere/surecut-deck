@@ -193,6 +193,18 @@ function renderWidget(el, w) {
 
   const color = w.color || accent();
   el.style.setProperty('--w-color', color);
+  // Yazi rengi elle secilebilir. Secilmediyse gostergeler temanin metin
+  // rengini kullanir: butonlardan farkli olarak zemin yuzey rengi oldugu icin
+  // burada zemine gore hesaplamaya gerek yok.
+  if (w.fg) {
+    el.style.setProperty('--w-fg', w.fg);
+    // Etiket ve ikincil satir ayni renkte ama soluk: hepsi tam guclu olunca
+    // deger one cikmiyor ve goz nereye bakacagini bilmiyor.
+    el.style.setProperty('--w-fg-dim', '.65');
+  } else {
+    el.style.removeProperty('--w-fg');
+    el.style.removeProperty('--w-fg-dim');
+  }
 
   if (!def) {
     el.classList.add('w-unknown');

@@ -24,7 +24,7 @@ function makeEl(tag) {
     attrs: {},
     classes: new Set(),
     dataset: {},
-    style: { setProperty() {} },
+    style: { _p: {}, setProperty(k, v) { this._p[k] = v; }, removeProperty(k) { delete this._p[k]; } },
     _text: '',
     set textContent(v) { this._text = String(v); this.children.length = 0; },
     get textContent() { return this._text; },
@@ -202,6 +202,21 @@ ok(netTile._hist.length === 40, 'gecmis 40 ornekle sinirli', 'uzunluk=' + netTil
 const many = netTile.querySelector('.w-spark-line').getAttribute('points').split(' ');
 eq(many.length, 40, 'cizgi gecmis kadar nokta tasir');
 ok(many.every((p) => /^-?\d+(\.\d+)?,-?\d+(\.\d+)?$/.test(p)), 'nokta bicimi gecerli', many[0]);
+
+console.log('\n--- yazi rengi ---');
+{
+  // Yazi rengi secilmediyse gosterge temanin metin rengine birakilmali:
+  // degiskeni bos bir degerle yazmak temayi ezerdi.
+  const plain = newTile();
+  ctx.renderWidget(plain, { widget: 'cpu', color: '#5e81ac' });
+  eq(plain.style._p['--w-fg'], undefined, 'secilmeyince yazi rengi degiskeni yok');
+  eq(plain.style._p['--w-color'], '#5e81ac', 'yay rengi yazilir');
+
+  const tinted = newTile();
+  ctx.renderWidget(tinted, { widget: 'cpu', color: '#5e81ac', fg: '#ffee00' });
+  eq(tinted.style._p['--w-fg'], '#ffee00', 'secilen yazi rengi yazilir');
+  ok(tinted.style._p['--w-fg-dim'], 'etiketler icin solukluk da yazilir');
+}
 
 console.log('\n--- abonelik karari ---');
 ok(ctx.pageNeedsStats({ buttons: [{ kind: 'widget', widget: 'cpu' }] }), 'cpu olcum ister');

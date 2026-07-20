@@ -5,8 +5,11 @@
 /* Temalar. Govde renkleri tema ile gelir; --accent JS tarafindan satir ici
    yazilarak uzerine biner, boylece kullanici vurgu rengini ayri secebilir. */
 
+/* Seciciler koke bagli DEGIL: [data-theme] tasiyan herhangi bir oge kendi
+   renk kumesini kurar ve altindakiler onu miras alir. Gostergelere deck'ten
+   ayri bir tema verebilmemiz buna dayaniyor. */
 :root,
-:root[data-theme="dark"] {          /* Karanlik - notr gri */
+[data-theme="dark"] {          /* Karanlik - notr gri */
   --bg: #1c1c1f;
   --surface: #2a2a2e;
   --surface-2: #35353a;
@@ -20,7 +23,7 @@
   --radius: 14px;
 }
 
-:root[data-theme="light"] {         /* Aydinlik - notr beyaz */
+[data-theme="light"] {         /* Aydinlik - notr beyaz */
   --bg: #f3f4f7;
   --surface: #ffffff;
   --surface-2: #e9ebef;
@@ -36,7 +39,7 @@
 
 /* Asagidakiler bilinen gelistirici renk semalarindan, resmi paletlerinden alindi. */
 
-:root[data-theme="nord"] {          /* Nord - soguk kutup mavisi (nordtheme.com) */
+[data-theme="nord"] {          /* Nord - soguk kutup mavisi (nordtheme.com) */
   --bg: #2e3440;                    /* nord0  */
   --surface: #3b4252;               /* nord1  */
   --surface-2: #434c5e;             /* nord2  */
@@ -50,7 +53,7 @@
   --radius: 12px;
 }
 
-:root[data-theme="gruvbox"] {       /* Gruvbox - sicak retro kahve/hardal */
+[data-theme="gruvbox"] {       /* Gruvbox - sicak retro kahve/hardal */
   --bg: #282828;                    /* dark0  */
   --surface: #3c3836;               /* dark1  */
   --surface-2: #504945;             /* dark2  */
@@ -64,7 +67,7 @@
   --radius: 8px;
 }
 
-:root[data-theme="solarized"] {     /* Solarized Dark - teal taban */
+[data-theme="solarized"] {     /* Solarized Dark - teal taban */
   --bg: #002b36;                    /* base03 */
   --surface: #073642;               /* base02 */
   --surface-2: #0e4a59;
@@ -78,7 +81,7 @@
   --radius: 8px;
 }
 
-:root[data-theme="solarizedLight"] {/* Solarized Light - krem/tan */
+[data-theme="solarizedLight"] {/* Solarized Light - krem/tan */
   --bg: #fdf6e3;                    /* base3 */
   --surface: #eee8d5;               /* base2 */
   --surface-2: #e3dcc4;
@@ -92,7 +95,7 @@
   --radius: 8px;
 }
 
-:root[data-theme="mocha"] {         /* Catppuccin Mocha - mor pastel */
+[data-theme="mocha"] {         /* Catppuccin Mocha - mor pastel */
   --bg: #181825;                    /* mantle   */
   --surface: #1e1e2e;               /* base     */
   --surface-2: #313244;             /* surface0 */
@@ -106,7 +109,7 @@
   --radius: 14px;
 }
 
-:root[data-theme="rosepine"] {      /* Rose Pine - erik ve gul */
+[data-theme="rosepine"] {      /* Rose Pine - erik ve gul */
   --bg: #191724;                    /* base    */
   --surface: #1f1d2e;               /* surface */
   --surface-2: #26233a;             /* overlay */
@@ -120,7 +123,7 @@
   --radius: 14px;
 }
 
-:root[data-theme="dawn"] {          /* Rose Pine Dawn - sicak acik */
+[data-theme="dawn"] {          /* Rose Pine Dawn - sicak acik */
   --bg: #faf4ed;
   --surface: #fffaf3;
   --surface-2: #f2e9e1;
@@ -134,7 +137,7 @@
   --radius: 14px;
 }
 
-:root[data-theme="amber"] {         /* Kehribar - iki renkli, eski terminal */
+[data-theme="amber"] {         /* Kehribar - iki renkli, eski terminal */
   --bg: #0d0b06;
   --surface: #17130a;
   --surface-2: #241d0f;
@@ -148,7 +151,7 @@
   --radius: 4px;
 }
 
-:root[data-theme="phosphor"] {      /* Fosfor - iki renkli, yesil CRT */
+[data-theme="phosphor"] {      /* Fosfor - iki renkli, yesil CRT */
   --bg: #04120a;
   --surface: #082010;
   --surface-2: #0d3018;
@@ -304,8 +307,8 @@ header {
   padding: 10px 8px;
   border-radius: var(--radius);
   border: none;
-  background: var(--accent);
-  color: #fff;
+  background: var(--btn-color, var(--accent));
+  color: var(--btn-fg, #fff);
   font-size: 14px;
   font-weight: 600;
   text-align: center;
@@ -858,6 +861,70 @@ body.bars-hidden .grid { padding: 14px; }
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
 .toast.bad { border-color: var(--danger); color: var(--danger); }
+
+/* ---------------------------------------------------------------- panel */
+/*
+ * Panel temasi. Gostergelerin gorsel dilini butonlara da tasir: kutu artik
+ * dolu bir renk degil, yuzeye gomulu bir alet. Butonun kendi rengi kaybolmuyor,
+ * ustteki serite ve simgenin altindaki halkaya cekiliyor; boylece renk duzeni
+ * okunmaya devam ediyor ama ekrani kaplamiyor.
+ *
+ * Notr ve koyu bir palet uzerine kurulu: renk yalnizca vurgu olarak kaldigi
+ * icin zeminin sessiz olmasi gerekiyor.
+ */
+[data-theme="panel"] {
+  --bg: #17181c;
+  --surface: #212328;
+  --surface-2: #2b2e35;
+  --border: #3a3e47;
+  --text: #e7e9ee;
+  --muted: #949aa6;
+  --accent: #6ea8fe;
+  --danger: #f0616d;
+  --ok: #4ade80;
+  --shadow: rgba(0,0,0,.6);
+  --radius: 12px;
+}
+
+[data-theme="panel"] .btn:not(.widget) {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding-top: 14px;
+}
+
+/* Ustteki ince serit butonun kendi rengini tasir. */
+[data-theme="panel"] .btn:not(.widget)::before {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; top: 0;
+  height: 3px;
+  background: var(--btn-color, var(--accent));
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+/* Simgenin arkasinda ayni renkten soluk bir halka: goz butonu renginden
+   tanimaya devam etsin diye serit tek basina yeterli degil. */
+[data-theme="panel"] .btn:not(.widget) .emoji {
+  position: relative;
+  z-index: 1;
+}
+[data-theme="panel"] .btn:not(.widget) .emoji::before,
+[data-theme="panel"] .btn:not(.widget) .icon-img + .label::before { content: none; }
+
+[data-theme="panel"] .btn:not(.widget) .label {
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  color: var(--muted);
+}
+
+[data-theme="panel"] .btn:not(.widget):active {
+  background: var(--surface-2);
+  transform: scale(.97);
+  filter: none;
+}
 
 /* ---------------------------------------------------------- gostergeler */
 

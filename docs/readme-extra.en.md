@@ -54,6 +54,7 @@ node tests/revisiontest.js      # stale clients cannot overwrite newer config
 node tests/widgettest.js        # gauge maths, formatting and unavailable states
 node tests/wiringtest.js        # every element and translation key the UI asks for exists
 node tests/movetest.js          # moving an item between pages, and refusing to when it cannot
+node tests/columnstest.js       # per-page column count, falling back to the global setting
 node tests/dragtest.js          # end-to-end: drags a button onto another page's tab in a real browser
 node tests/smoketest.js <code>  # end-to-end; verifies key injection via NumLock
 node tests/mousetest.js         # mouse injection, don't touch the mouse while it runs

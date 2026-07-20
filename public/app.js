@@ -12,6 +12,13 @@ const THEMES = {
     accent: '#3b82f6',
     colors: ['#3b82f6', '#22c55e', '#ef4444', '#f59e0b', '#a855f7', '#ec4899', '#14b8a6', '#64748b']
   },
+  panel: {
+    // Gostergelerin gorsel dili: dolu kutular yerine yuzeye gomulu paneller.
+    // Renk kaybolmuyor, serit ve simgeye cekiliyor.
+    nameKey: 'thPanel', hintKey: 'thPanelHint',
+    accent: '#6ea8fe',
+    colors: ['#6ea8fe', '#4ade80', '#f0616d', '#fbbf24', '#c084fc', '#f472b6', '#2dd4bf', '#94a3b8']
+  },
   nord: {
     name: 'Nord', hintKey: 'thNordHint',
     accent: '#88c0d0',
@@ -288,7 +295,7 @@ function render() {
   renderGrid();
   applyBars();
   applyFab();
-  $('colsInput').value = config.settings.columns || 4;
+  $('colsInput').value = pageColumns(config.pages[activePage]);
   $('autoHide').checked = autoHideOn();
   $('hideFab').checked = !!(config.settings && config.settings.hideFab);
   $('stretchFill').checked = !!(config.settings && config.settings.stretchFill);
@@ -913,7 +920,37 @@ function attachRevealGesture() {
 
 attachRevealGesture();
 
+// Gostergelerin temasi: bos = deck'in temasini izle.
+function renderWidgetThemeSelect() {
+  const sel = $('widgetThemeSelect');
+  if (!sel) return;
+  const cur = (config.settings && config.settings.widgetTheme) || '';
+  sel.innerHTML = '';
+
+  const follow = document.createElement('option');
+  follow.value = '';
+  follow.textContent = t('widgetThemeFollow');
+  sel.appendChild(follow);
+
+  for (const key of Object.keys(THEMES)) {
+    const o = document.createElement('option');
+    o.value = key;
+    o.textContent = THEMES[key].name || t(THEMES[key].nameKey);
+    sel.appendChild(o);
+  }
+  sel.value = cur;
+
+  sel.onchange = () => {
+    const v = sel.value;
+    if (v) config.settings.widgetTheme = v;
+    else delete config.settings.widgetTheme;
+    renderGrid();
+    saveConfig();
+  };
+}
+
 function renderThemeModal() {
+  renderWidgetThemeSelect();
   const list = $('themeList');
   list.innerHTML = '';
   const current = (config.settings && config.settings.theme) || 'dark';
@@ -1066,11 +1103,21 @@ function renderTabs() {
   });
 }
 
+// Bir sayfanin sutun sayisi. Sayfa kendi degerini tasimiyorsa genel ayar
+// gecerli: boylece tek bir sayfaya dokunmak digerlerini etkilemiyor ama
+// hicbir sey ayarlamayan icin de davranis eskisi gibi kaliyor.
+function pageColumns(page) {
+  const own = page && Number(page.columns);
+  if (Number.isFinite(own) && own >= 2 && own <= 10) return own;
+  const g = Number(config.settings && config.settings.columns);
+  return Number.isFinite(g) && g >= 2 && g <= 10 ? g : 4;
+}
+
 function renderGrid() {
   const grid = $('grid');
   const page = config.pages[activePage];
   grid.innerHTML = '';
-  grid.style.gridTemplateColumns = `repeat(${config.settings.columns || 4}, 1fr)`;
+  grid.style.gridTemplateColumns = `repeat(${pageColumns(page)}, 1fr)`;
   grid.classList.toggle('editing', editing);
   grid.classList.toggle('stretch', !!(config.settings && config.settings.stretchFill));
 
@@ -1100,9 +1147,12 @@ function renderGrid() {
     }
 
     const bg = b.color || accent();
-    el.style.background = bg;
+    // Renkler satir ici yerine ozel degiskenlere yaziliyor: satir ici bir arka
+    // plan CSS'i her zaman yener ve panel temasinin butonlari yeniden boyamasi
+    // imkansiz olurdu. Degiskenle tema son sozu soyleyebiliyor.
+    el.style.setProperty('--btn-color', bg);
     // Elle secilmis yazi rengi varsa o, yoksa zemine gore okunur olan.
-    el.style.color = b.fg || readableText(bg);
+    el.style.setProperty('--btn-fg', b.fg || readableText(bg));
     // Windows'tan surukle-birak ile eklenen butonlarin gercek uygulama ikonu olur.
     if (b.iconUrl) {
       const img = document.createElement('img');
@@ -1229,8 +1279,9 @@ function beginDrag(el, index, x, y) {
 
   const r = el.getBoundingClientRect();
   const ghost = el.cloneNode(true);
-  ghost.className = 'btn drag-ghost';
-  ghost.style.background = el.style.background;
+  // Kopya sinif listesini kaybediyor; gosterge suruklenirken de dogru gorunsun.
+  ghost.className = 'btn drag-ghost' + (el.classList.contains('widget') ? ' widget' : '');
+  // Renkler artik degiskende: kopyalanan oge zaten tasiyor, ayrica atamaya gerek yok.
   ghost.style.width = r.width + 'px';
   ghost.style.height = r.height + 'px';
   document.body.appendChild(ghost);
@@ -1735,7 +1786,11 @@ $('delPageBtn').onclick = () => {
 
 $('colsInput').onchange = (e) => {
   const n = Math.min(10, Math.max(2, Number(e.target.value) || 4));
-  config.settings.columns = n;
+  const page = config.pages[activePage];
+  // Deger acik sayfaya yazilir: sayfalarin farkli duzenleri olabilsin.
+  // Genel ayar, kendi degeri olmayan sayfalar icin taban olarak kaliyor.
+  if (page) page.columns = n;
+  else config.settings.columns = n;
   e.target.value = n;
   saveConfig();
   renderGrid();

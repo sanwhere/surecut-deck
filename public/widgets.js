@@ -191,6 +191,13 @@ function renderWidget(el, w) {
   el.classList.add('widget');
   el.dataset.widget = w.widget;
 
+  // Gostergeler deck'ten ayri bir tema kullanabilir. Tema seciciler koke bagli
+  // olmadigi icin kutunun uzerine data-theme yazmak yeterli: kutu ve icindekiler
+  // o temanin renklerini miras alir.
+  const wt = (typeof config !== 'undefined' && config.settings && config.settings.widgetTheme) || '';
+  if (wt) el.dataset.theme = wt;
+  else delete el.dataset.theme;
+
   const color = w.color || accent();
   el.style.setProperty('--w-color', color);
   // Yazi rengi elle secilebilir. Secilmediyse gostergeler temanin metin

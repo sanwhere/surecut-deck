@@ -1,0 +1,357 @@
+<title>Surecut Deck — 사용 안내서</title>
+<style>
+/* ------------------------------------------------------------------ tokens
+   Palet Nord'dan turetildi: ekran goruntulerinin kendisi Nord oldugu icin
+   gorseller sayfaya yapistirilmis gibi degil, sayfaya ait duruyor. */
+:root {
+  --paper:#eef1f5; --surface:#ffffff; --sunken:#e4e8ee;
+  --ink:#2e3440; --ink-2:#4c566a; --ink-3:#6b7688;
+  --line:#d3dae3; --line-soft:#e3e8ef;
+  --accent:#5e81ac; --frost:#88c0d0;
+  --warn:#b58a2b; --caution:#bf616a;
+  --shadow:24px 24px 60px rgba(46,52,64,.10);
+  --radius:14px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper:#1d222a; --surface:#252b35; --sunken:#1a1f26;
+    --ink:#e5e9f0; --ink-2:#c2cad8; --ink-3:#8c97a8;
+    --line:#39424f; --line-soft:#2f3742;
+    --accent:#88c0d0; --frost:#8fbcbb;
+    --warn:#ebcb8b; --caution:#d08770;
+    --shadow:24px 24px 60px rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"] {
+  --paper:#1d222a; --surface:#252b35; --sunken:#1a1f26;
+  --ink:#e5e9f0; --ink-2:#c2cad8; --ink-3:#8c97a8;
+  --line:#39424f; --line-soft:#2f3742;
+  --accent:#88c0d0; --frost:#8fbcbb;
+  --warn:#ebcb8b; --caution:#d08770;
+  --shadow:24px 24px 60px rgba(0,0,0,.35);
+}
+:root[data-theme="light"] {
+  --paper:#eef1f5; --surface:#ffffff; --sunken:#e4e8ee;
+  --ink:#2e3440; --ink-2:#4c566a; --ink-3:#6b7688;
+  --line:#d3dae3; --line-soft:#e3e8ef;
+  --accent:#5e81ac; --frost:#88c0d0;
+  --warn:#b58a2b; --caution:#bf616a;
+  --shadow:24px 24px 60px rgba(46,52,64,.10);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+/* Web fontu gomulmuyor: CSP dis fontlari engelliyor ve sayfada zaten
+   ~750KB gorsel var. Karakter agirlik, olcek ve harf araligiyla veriliyor. */
+.gd {
+  --sans: ui-sans-serif, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --mono: ui-monospace, "Cascadia Mono", "SF Mono", "JetBrains Mono", Consolas, monospace;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 17px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+.gd :where(h1,h2,h3) { text-wrap: balance; margin: 0; }
+.gd p { margin: 0; }
+
+.wrap { max-width: 1240px; margin: 0 auto; padding: 0 28px; }
+
+/* ------------------------------------------------------------------ hero */
+.hero { padding: 84px 0 56px; border-bottom: 1px solid var(--line); }
+.eyebrow {
+  font-family: var(--mono); font-size: 11.5px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-3); margin: 0 0 18px;
+}
+.hero h1 {
+  font-size: clamp(38px, 6vw, 68px); line-height: 1.02;
+  letter-spacing: -.03em; font-weight: 800; max-width: 16ch;
+}
+.hero .lead { margin-top: 22px; max-width: 62ch; font-size: 19px; color: var(--ink-2); }
+
+/* ------------------------------------------------------------------ layout */
+.body { display: grid; grid-template-columns: 210px minmax(0,1fr); gap: 56px; padding: 56px 0 40px; }
+@media (max-width: 900px) { .body { grid-template-columns: 1fr; gap: 0; } }
+
+.index { position: sticky; top: 28px; align-self: start; }
+@media (max-width: 900px) { .index { display: none; } }
+.index p {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .16em;
+  text-transform: uppercase; color: var(--ink-3); margin-bottom: 14px;
+}
+.index ul { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+.index a {
+  display: flex; gap: 10px; align-items: baseline;
+  padding: 6px 0; color: var(--ink-2); text-decoration: none;
+  font-size: 14px; border-bottom: 1px solid transparent;
+}
+.index a b {
+  font-family: var(--mono); font-size: 11px; color: var(--ink-3);
+  font-variant-numeric: tabular-nums; font-weight: 500;
+}
+.index a:hover { color: var(--accent); }
+.index a:focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; }
+
+.col { display: grid; gap: 76px; min-width: 0; }
+
+section { display: grid; gap: 20px; scroll-margin-top: 24px; }
+section h2 { font-size: clamp(25px, 3.2vw, 34px); letter-spacing: -.02em; font-weight: 750; }
+section .lead { max-width: 66ch; color: var(--ink-2); }
+
+/* ------------------------------------------------------------------ pillars */
+.pillars { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px,1fr)); gap: 1px;
+  background: var(--line); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; }
+.pillars div { background: var(--surface); padding: 22px 20px; display: grid; gap: 7px; align-content: start; }
+.pillars b { font-size: 15.5px; letter-spacing: -.01em; }
+.pillars span { font-size: 14.5px; color: var(--ink-3); line-height: 1.55; }
+
+/* ------------------------------------------------------------------ steps */
+.steps { display: grid; gap: 34px; }
+.step { display: grid; grid-template-columns: 46px minmax(0,1fr); gap: 20px; align-items: start; }
+.step .n {
+  font-family: var(--mono); font-size: 26px; font-weight: 600; line-height: 1;
+  color: var(--accent); font-variant-numeric: tabular-nums;
+  border-top: 2px solid var(--accent); padding-top: 10px;
+}
+.step h3 { font-size: 19px; letter-spacing: -.01em; margin-bottom: 6px; }
+.step p { color: var(--ink-2); max-width: 60ch; font-size: 16px; }
+
+/* ------------------------------------------------------------------ plates */
+.plate { margin: 6px 0 0; display: grid; gap: 12px; justify-items: start; }
+.plate figcaption {
+  font-family: var(--mono); font-size: 12.5px; line-height: 1.5;
+  color: var(--ink-3); max-width: 60ch;
+}
+
+/* tablet govdesi: 1024x600 ekrani kusatan koyu cerceve */
+.tab {
+  background: linear-gradient(160deg,#3b424e,#242a33);
+  padding: 20px 26px; border-radius: 22px; position: relative;
+  box-shadow: var(--shadow); max-width: 100%;
+}
+.tab-cam {
+  position: absolute; left: 12px; top: 50%; transform: translateY(-50%);
+  width: 6px; height: 6px; border-radius: 50%;
+  background: #10141a; box-shadow: inset 0 0 0 1px rgba(255,255,255,.10);
+}
+.tab-bar {
+  position: absolute; right: 9px; top: 50%; transform: translateY(-50%);
+  width: 3px; height: 46px; border-radius: 3px; background: rgba(255,255,255,.12);
+}
+.tab .shot { border-radius: 5px; }
+
+/* masaustu penceresi: tablet cerceveden bakisda ayrilsin */
+.win {
+  background: var(--surface); border: 1px solid var(--line);
+  border-radius: 11px; overflow: hidden; box-shadow: var(--shadow); max-width: 100%;
+}
+.win-bar { display: flex; gap: 7px; padding: 11px 13px; background: var(--sunken); border-bottom: 1px solid var(--line); }
+.win-bar s { width: 10px; height: 10px; border-radius: 50%; background: var(--line); }
+
+.shot { position: relative; overflow: hidden; line-height: 0; }
+.shot img { display: block; width: 100%; height: auto; }
+
+.callout {
+  position: absolute; transform: translate(-50%,-50%);
+  font-family: var(--mono); font-size: 11px; letter-spacing: .04em;
+  background: var(--accent); color: #fff; padding: 4px 9px; border-radius: 999px;
+  white-space: nowrap; box-shadow: 0 3px 12px rgba(0,0,0,.3);
+  display: flex; align-items: center; gap: 7px;
+}
+.callout i { width: 5px; height: 5px; border-radius: 50%; background: #fff; opacity: .85; }
+
+/* ------------------------------------------------------------------ tables */
+.tablewrap { overflow-x: auto; border: 1px solid var(--line); border-radius: var(--radius); background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; padding: 12px 16px; border-bottom: 1px solid var(--line-soft); vertical-align: top; }
+tr:last-child td { border-bottom: 0; }
+th {
+  font-family: var(--mono); font-size: 11px; letter-spacing: .13em; text-transform: uppercase;
+  color: var(--ink-3); font-weight: 500; background: var(--sunken);
+  border-bottom: 1px solid var(--line);
+}
+td.k { white-space: nowrap; font-weight: 600; padding-right: 26px; }
+td { color: var(--ink-2); }
+
+/* kisayol notasyonu tus kapagi gibi: konuya ait, ucuz suslemeye kacmadan */
+code {
+  font-family: var(--mono); font-size: .86em;
+  background: var(--surface); color: var(--ink);
+  border: 1px solid var(--line); border-bottom-width: 2px;
+  border-radius: 5px; padding: 1px 6px; white-space: nowrap;
+}
+
+/* ------------------------------------------------------------------ notes */
+.note {
+  border-left: 2px solid var(--warn); background: var(--surface);
+  padding: 15px 18px; border-radius: 0 var(--radius) var(--radius) 0;
+  font-size: 15.5px; color: var(--ink-2); max-width: 66ch;
+}
+.note em { font-style: normal; color: var(--ink); }
+
+.notes { border-top: 1px solid var(--line); padding: 46px 0 0; display: grid; gap: 22px; }
+.notes h2 { font-size: 24px; letter-spacing: -.01em; }
+.notes dl { display: grid; gap: 1px; background: var(--line); border: 1px solid var(--line);
+  border-radius: var(--radius); overflow: hidden; margin: 0; }
+.notes .row { background: var(--surface); padding: 16px 18px; display: grid;
+  grid-template-columns: 190px minmax(0,1fr); gap: 18px; }
+@media (max-width: 640px) { .notes .row { grid-template-columns: 1fr; gap: 5px; } }
+.notes dt { font-family: var(--mono); font-size: 12px; letter-spacing: .06em;
+  text-transform: uppercase; color: var(--caution); padding-top: 2px; }
+.notes dd { margin: 0; font-size: 15.5px; color: var(--ink-2); }
+
+footer {
+  border-top: 1px solid var(--line); margin-top: 56px; padding: 26px 0 60px;
+  font-family: var(--mono); font-size: 12px; color: var(--ink-3); letter-spacing: .04em;
+}
+
+/* ------------------------------------------------------------------ motion */
+@media (prefers-reduced-motion: no-preference) {
+  section, .step, .pillars { animation: rise .5s cubic-bezier(.2,.7,.3,1) both; }
+  @keyframes rise { from { opacity: 0; transform: translateY(10px); } }
+}
+</style>
+
+<div class="gd" dir="ltr">
+  <header class="hero">
+    <div class="wrap">
+      <p class="eyebrow">직접 호스팅 · 앱스토어 불필요 · 네트워크 밖으로 나가지 않음</p>
+      <h1>남는 태블릿을 PC 조작 패널로</h1>
+      <p class="lead">Surecut Deck은 Windows PC에서 작은 서버를 실행하고 자기 화면을 직접 제공합니다. 태블릿은 웹 주소를 열기만 하면 됩니다 — 설치할 앱도, 만들 계정도, 중간의 클라우드도 없습니다.</p>
+    </div>
+  </header>
+
+  <div class="wrap">
+    <div class="body">
+      <nav class="index" aria-label="Contents">
+        <p>작동 방식</p>
+        <ul><li><a href="#buttons"><b>01</b>기본</a></li><li><a href="#icons"><b>02</b>아이콘</a></li><li><a href="#dragdrop"><b>03</b>바탕 화면</a></li><li><a href="#mouse"><b>04</b>포인터</a></li><li><a href="#pages"><b>05</b>공간</a></li><li><a href="#themes"><b>06</b>겉모습</a></li><li><a href="#screen"><b>07</b>화면</a></li><li><a href="#languages"><b>08</b>언어</a></li></ul>
+      </nav>
+
+      <div class="col">
+        <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/01-deck.png" alt="1024×600 안드로이드 태블릿의 덱. Nord 테마, 전체 화면." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>1024×600 안드로이드 태블릿의 덱. Nord 테마, 전체 화면.</figcaption></figure>
+
+        <section>
+          <p class="eyebrow">작동 방식</p>
+          <div class="pillars">
+            <div><b>호스트는 당신의 PC</b><span>알림 영역의 작은 프로그램이 로컬 서버를 띄우고 계속 실행합니다. 설치하는 것은 이것뿐입니다.</span></div><div><b>태블릿은 주소만 엽니다</b><span>같은 네트워크의 어떤 브라우저든 됩니다. 홈 화면에 추가하면 앱처럼 동작합니다.</span></div><div><b>버튼은 진짜 입력을 보냅니다</b><span>누르면 실제 Windows 키보드·마우스 이벤트가 되므로 어떤 프로그램이든 반응합니다.</span></div>
+          </div>
+        </section>
+
+        <section>
+          <p class="eyebrow">세 단계, 한 번만.</p>
+          <h2>연결하기</h2>
+          <div class="steps">
+            
+            <div class="step">
+              <div class="n">1</div>
+              <div>
+                <h3>서버 실행</h3>
+                <p><code>start.cmd</code>를 실행하세요. 알림 영역에 아이콘이 나타나 계속 남아 있습니다. 언제든 눌러 페어링 정보를 보거나 편집기를 열 수 있습니다.</p>
+                
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">2</div>
+              <div>
+                <h3>태블릿에서 주소 열기</h3>
+                <p>서버 창에는 PC에 접근할 수 있는 모든 주소가 나옵니다. 그중 하나를 태블릿 브라우저에 입력한 뒤, 옆에 표시된 페어링 코드를 넣으세요.</p>
+                <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/11-info-win.png" alt="알림 영역 아이콘에서 연 서버 정보. 여기의 코드와 주소는 예시입니다." loading="lazy"></div></div><figcaption>알림 영역 아이콘에서 연 서버 정보. 여기의 코드와 주소는 예시입니다.</figcaption></figure>
+              </div>
+            </div>
+            <div class="step">
+              <div class="n">3</div>
+              <div>
+                <h3>앱처럼 만들기</h3>
+                <p><b>⛶</b>를 눌러 전체 화면으로 바꾸거나 브라우저의 <b>홈 화면에 추가</b>를 사용하세요. 전체 화면에서는 덱이 열려 있는 동안 태블릿도 잠들지 않습니다.</p>
+                
+              </div>
+            </div>
+          </div>
+        </section>
+
+        
+<section id="buttons">
+  <p class="eyebrow">기본</p>
+  <h2>버튼은 키를 누르는 것 이상을 합니다</h2>
+  <p class="lead">연필을 눌러 편집 모드로 들어간 다음, 버튼을 눌러 수정하세요 — 길게 누르면 다른 자리로 끌어 옮길 수 있습니다. 버튼마다 레이블, 아이콘, 색, 그리고 동작이 하나씩 있습니다.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/04-editor.png" alt="레이블, 아이콘 선택, 색." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>레이블, 아이콘 선택, 색.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/05-action.png" alt="동작 유형과 바로 고를 수 있는 단축키." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>동작 유형과 바로 고를 수 있는 단축키.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>동작</th><th>하는 일</th></tr></thead>
+  <tbody><tr><td class="k">키보드 단축키</td><td>어떤 조합이든 — <code>ctrl+c</code>, <code>win+d</code>, <code>alt+f4</code>, 미디어 키, 음량</td></tr><tr><td class="k">텍스트 입력</td><td>줄바꿈까지 포함해 정해둔 문구를 대신 씁니다</td></tr><tr><td class="k">앱 / 파일 열기</td><td>프로그램, 문서 또는 폴더</td></tr><tr><td class="k">웹 주소 열기</td><td>기본 브라우저에서 링크를 엽니다</td></tr><tr><td class="k">명령 실행</td><td>PowerShell 또는 CMD</td></tr><tr><td class="k">마우스</td><td>태블릿 화면을 터치패드로 바꿉니다</td></tr><tr><td class="k">단계 순서</td><td>여러 단계를 차례로, 사이에 지연을 두고</td></tr></tbody>
+  </table></div>
+</section>
+<section id="icons">
+  <p class="eyebrow">아이콘</p>
+  <h2>이모지를 고르거나, 앱의 진짜 아이콘을 쓰세요</h2>
+  <p class="lead">편집기에 아이콘 격자가 있어 이모지를 손으로 입력할 필요가 없습니다. 프로그램이라면 더 나은 방법이 있습니다. 바탕 화면에서 바로 가기를 끌어다 놓으면 앱의 진짜 아이콘도 함께 따라옵니다.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/03-editmode.png" alt="편집 모드. 버튼마다 연필 표시가 붙습니다. 길게 누르면 순서를 바꿉니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>편집 모드. 버튼마다 연필 표시가 붙습니다. 길게 누르면 순서를 바꿉니다.</figcaption></figure>
+  
+</section>
+<section id="dragdrop">
+  <p class="eyebrow">바탕 화면</p>
+  <h2>바탕 화면에서 바로 가기를 끌어다 놓기</h2>
+  <p class="lead">알림 영역 아이콘에서 편집기를 열면, 같은 화면을 안에 담은 진짜 데스크톱 창이 나타납니다. 위쪽 띠에 바로 가기, 프로그램, 폴더, 파일을 놓아 보세요. 대상이 해석되고 앱 아이콘이 추출되며, 버튼이 곧바로 태블릿에 나타납니다.</p>
+  <aside class="note">편집기가 브라우저 탭이 아니라 네이티브 창인 데에는 분명한 이유가 있습니다. 브라우저는 끌어다 놓은 파일의 <em>경로</em>를 웹 페이지에 절대 넘기지 않고, 게다가 Chromium은 놓인 바로 가기를 그 대상으로 해석해 버립니다 — 즉 브라우저는 위치를 아는 대신 프로그램 전체를 읽으려 들게 됩니다.</aside>
+  <figure class="plate"><div class="win"><div class="win-bar"><s></s><s></s><s></s></div><div class="shot"><img src="shots/10-editor-win.png" alt="데스크톱 편집기. 왼쪽에서 페이지를 고르고 띠에 바로 가기를 놓으세요." loading="lazy"><span class="callout" style="left:22%;top:13%"><i></i>추가할 페이지</span><span class="callout" style="left:62%;top:13%"><i></i>여기에 놓기</span></div></div><figcaption>데스크톱 편집기. 왼쪽에서 페이지를 고르고 띠에 바로 가기를 놓으세요.</figcaption></figure>
+  
+</section>
+<section id="mouse">
+  <p class="eyebrow">포인터</p>
+  <h2>화면이 터치패드가 됩니다</h2>
+  <p class="lead">버튼에 <b>마우스</b> 동작을 주면, 누르는 순간 태블릿 전체가 트랙패드가 됩니다. 두 개의 슬라이더로 포인터와 스크롤 속도를 정하고, 스크롤 방향은 익숙한 쪽으로 뒤집을 수 있습니다.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/06-touchpad.png" alt="터치패드 모드. 아래에는 헷갈리고 싶지 않은 클릭을 위한 명확한 버튼이 있습니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>터치패드 모드. 아래에는 헷갈리고 싶지 않은 클릭을 위한 명확한 버튼이 있습니다.</figcaption></figure>
+  <div class="tablewrap"><table>
+  <thead><tr><th>제스처</th><th>결과</th></tr></thead>
+  <tbody><tr><td class="k">끌기</td><td>포인터 이동</td></tr><tr><td class="k">탭</td><td>왼쪽 클릭</td></tr><tr><td class="k">두 번 탭</td><td>더블 클릭</td></tr><tr><td class="k">두 번 탭 후 끌기</td><td>왼쪽 버튼을 누른 채 이동 — 텍스트 선택, 창 옮기기</td></tr><tr><td class="k">길게 누르기</td><td>오른쪽 클릭</td></tr><tr><td class="k">두 손가락</td><td>세로·가로 스크롤</td></tr><tr><td class="k">두 손가락 탭</td><td>오른쪽 클릭</td></tr><tr><td class="k">오므리기</td><td>확대·축소</td></tr><tr><td class="k">세 손가락 ↑ / ↓</td><td>작업 보기 / 바탕 화면 표시</td></tr><tr><td class="k">세 손가락 ← / →</td><td>가상 데스크톱 전환</td></tr></tbody>
+  </table></div>
+</section>
+<section id="pages">
+  <p class="eyebrow">공간</p>
+  <h2>필요한 만큼 페이지를</h2>
+  <p class="lead">버튼을 페이지로 묶으세요 — 편집용 한 장, 게임용 한 장, 늘 들어가 있는 그 회의용 한 장. 덱에서 좌우로 밀면 페이지가 바뀝니다. 막대가 숨겨져 있어도 떠 있는 버튼으로 페이지·편집기·테마에 갈 수 있고, 편한 자리로 끌어 옮길 수 있습니다.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/07-menu.png" alt="떠 있는 메뉴: 페이지, 막대, 편집 모드, 테마, 전체 화면." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>떠 있는 메뉴: 페이지, 막대, 편집 모드, 테마, 전체 화면.</figcaption></figure>
+  
+</section>
+<section id="themes">
+  <p class="eyebrow">겉모습</p>
+  <h2>열한 가지 테마, 버튼도 따라갑니다</h2>
+  <p class="lead">대부분의 테마는 개발자에게 익숙한 색 구성에서 가져왔습니다 — Nord, Gruvbox, Solarized, Catppuccin Mocha, Rosé Pine — 여기에 일부러 두 가지 색만 쓴 터미널풍 두 가지와 중립적인 밝은·어두운 테마가 더해집니다. 테마를 바꾸면 버튼 색이 색상을 유지한 채 새 팔레트로 옮겨집니다. 파란 버튼은 새 테마의 파랑이 되고, 배치는 그대로 읽힙니다.</p>
+  
+  <figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/02-themes.png" alt="각 카드가 자기 배경과 팔레트를 보여 줍니다." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>각 카드가 자기 배경과 팔레트를 보여 줍니다.</figcaption></figure><figure class="plate"><div class="tab"><div class="tab-cam"></div><div class="shot"><img src="shots/08-light.png" alt="같은 덱을 밝은 테마로." loading="lazy"></div><div class="tab-bar"></div></div><figcaption>같은 덱을 밝은 테마로.</figcaption></figure>
+  
+</section>
+<section id="screen">
+  <p class="eyebrow">화면</p>
+  <h2>화면을 남김없이 쓰기</h2>
+  <p class="lead"><b>화면 가득 채우기</b>를 켜면 행이 전체 높이를 나눠 가져, 두 줄짜리 버튼도 아래를 비우지 않고 화면을 채웁니다. <b>막대 자동 숨기기</b>는 위아래 막대를 완전히 없애고 버튼만 남깁니다 — 떠 있는 버튼으로 되돌리거나, 빈 곳을 3초 길게 누르세요.</p>
+  <aside class="note">태블릿은 잠들지 않도록도 설정되어 있습니다. 덱이 열려 있는 동안 화면은 꺼지지 않습니다.</aside>
+  
+  
+</section>
+<section id="languages">
+  <p class="eyebrow">언어</p>
+  <h2>스무 개 언어, 자동으로 선택</h2>
+  <p class="lead">화면은 영어, 터키어, 스페인어, 프랑스어, 독일어, 이탈리아어, 포르투갈어, 러시아어, 우크라이나어, 폴란드어, 아랍어, 페르시아어, 우르두어, 중국어, 일본어, 한국어, 힌디어, 벵골어, 인도네시아어, 베트남어로 제공됩니다. 직접 고르지 않으면 브라우저 언어를 따르고, 아랍어·페르시아어·우르두어는 오른쪽에서 왼쪽 배치로 바뀝니다. 설정은 기기별이라 태블릿과 데스크톱 편집기가 서로 달라도 됩니다.</p>
+  
+  
+  
+</section>
+
+        <div class="notes">
+          <h2>알아두면 좋은 것</h2>
+          <dl>
+            <div class="row"><dt>방화벽</dt><dd>Windows가 처음에 연결 허용을 물을 수 있습니다. 태블릿이 서버에 닿지 않으면 개인 네트워크에 대해 허용하세요.</dd></div><div class="row"><dt>VPN</dt><dd>일부 VPN 클라이언트는 로컬 네트워크 트래픽을 막습니다. 아무것도 연결되지 않으면 VPN을 끄고 시도해 보세요.</dd></div><div class="row"><dt>관리자 창</dt><dd>관리자 권한으로 실행 중인 프로그램은 일반 프로그램의 입력을 받지 않습니다. 단축키가 그런 창에도 닿아야 한다면 서버를 관리자 권한으로 실행하세요.</dd></div><div class="row"><dt>페어링 코드</dt><dd>네트워크에서 코드를 가진 사람은 명령 실행을 포함해 PC를 조작할 수 있습니다. 코드는 본인만 알고 있고, 신뢰하지 않는 네트워크에서는 띄우지 마세요.</dd></div>
+          </dl>
+        </div>
+
+        <footer>Surecut Deck — Windows용 직접 호스팅 단축키 덱.</footer>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1121,3 +1121,29 @@ body.bars-hidden .grid { padding: 14px; }
   height: 112px;
   flex: none;
 }
+
+/* ------------------------------------------------ sayfalar arasi surukleme */
+
+/* Surukleme basladiginda sayfa sekmeleri birakma hedefi oldugunu belli eder.
+   Kesik cerceve "buraya birakilabilir" demenin en az gurultulu yolu. */
+body.dragging .tab,
+body.dragging .fab-page {
+  border-style: dashed;
+  border-color: var(--border);
+  transition: border-color .15s, background .15s, transform .15s;
+}
+/* Acik sayfa kendi kendine hedef olamaz. */
+body.dragging .tab.active,
+body.dragging .fab-page.active {
+  border-style: solid;
+  border-color: transparent;
+}
+
+body.dragging .tab.drop-target,
+body.dragging .fab-page.drop-target {
+  border-style: solid;
+  border-color: var(--accent);
+  background: var(--accent);
+  color: #fff;
+  transform: scale(1.06);
+}

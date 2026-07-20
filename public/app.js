@@ -790,6 +790,7 @@ function renderFabPages() {
     const b = document.createElement('button');
     b.type = 'button';
     b.className = 'fab-page' + (i === activePage ? ' active' : '');
+    b.dataset.page = String(i);
     b.textContent = p.name;
     b.onclick = () => { activePage = i; closeFabMenu(); render(); };
     box.appendChild(b);
@@ -1048,6 +1049,8 @@ function renderTabs() {
   config.pages.forEach((p, i) => {
     const el = document.createElement('div');
     el.className = 'tab' + (i === activePage ? ' active' : '');
+    // Surukleme sirasinda birakma hedefi olabilmesi icin indeksini tasiyor.
+    el.dataset.page = String(i);
     el.textContent = p.name;
     el.onclick = () => {
       if (editing && i === activePage) {
@@ -1150,6 +1153,22 @@ function renderGrid() {
 const LONG_PRESS_MS = 500;   // kasitli bir dokunus tablette 400ms'yi kolayca gecebiliyor
 const MOVE_TOLERANCE = 10;
 
+// Bir ogeyi bir sayfadan digerinin sonuna tasir. Basarisiz olursa hicbir sey
+// degistirmeden false doner. DOM'a dokunmuyor: boylece surukleme etkilesiminden
+// bagimsiz olarak test edilebiliyor.
+function moveItemToPage(pages, fromPage, index, toPage) {
+  if (!Array.isArray(pages)) return false;
+  if (toPage < 0 || fromPage === toPage) return false;
+  const src = pages[fromPage];
+  const dst = pages[toPage];
+  if (!src || !dst || !Array.isArray(src.buttons) || !Array.isArray(dst.buttons)) return false;
+  if (index < 0 || index >= src.buttons.length) return false;
+
+  const [item] = src.buttons.splice(index, 1);
+  dst.buttons.push(item);
+  return true;
+}
+
 let dragState = null;
 
 function attachEditHandlers(el, index) {
@@ -1216,8 +1235,30 @@ function beginDrag(el, index, x, y) {
 
   el.classList.add('drag-src');
   // origIndex: birakildiginda siralama gercekten degisti mi anlamak icin
-  dragState = { index, origIndex: index, el, ghost, offX: x - r.left, offY: y - r.top };
+  // dropPage: sayfa sekmesinin uzerine birakilirsa hedef sayfa
+  dragState = { index, origIndex: index, el, ghost, offX: x - r.left, offY: y - r.top, dropPage: -1 };
+  // Sekmeler surukleme boyunca birakma hedefi oldugunu belli etsin.
+  document.body.classList.add('dragging');
   updateDrag(x, y);
+}
+
+// Isaretcinin altindaki sayfa sekmesi. Hem ustteki sekme seridi hem de
+// cubuklar gizliyken kullanilan yuzen menu listesi hedef olabilir.
+function pageTabAt(x, y) {
+  const el = document.elementFromPoint(x, y);
+  const tab = el && el.closest ? el.closest('[data-page]') : null;
+  if (!tab) return -1;
+  const i = Number(tab.dataset.page);
+  return Number.isInteger(i) && config.pages[i] ? i : -1;
+}
+
+function markDropPage(index) {
+  document.querySelectorAll('[data-page].drop-target')
+    .forEach((el) => el.classList.remove('drop-target'));
+  if (index < 0) return;
+  document.querySelectorAll('[data-page]').forEach((el) => {
+    if (Number(el.dataset.page) === index) el.classList.add('drop-target');
+  });
 }
 
 function updateDrag(x, y) {
@@ -1225,6 +1266,22 @@ function updateDrag(x, y) {
 
   dragState.ghost.style.left = (x - dragState.offX) + 'px';
   dragState.ghost.style.top = (y - dragState.offY) + 'px';
+
+  // Once sayfa sekmelerine bak: bir sekmenin uzerindeysek izgarada siralama
+  // yapmiyoruz, cunku niyet baska sayfaya tasimak.
+  const page = pageTabAt(x, y);
+  if (page >= 0 && page !== activePage) {
+    if (dragState.dropPage !== page) {
+      dragState.dropPage = page;
+      markDropPage(page);
+      if (navigator.vibrate) navigator.vibrate(10);
+    }
+    return;
+  }
+  if (dragState.dropPage !== -1) {
+    dragState.dropPage = -1;
+    markDropPage(-1);
+  }
 
   const target = indexAt(x, y);
   if (target < 0 || target === dragState.index) return;
@@ -1246,13 +1303,25 @@ function indexAt(x, y) {
   return -1;
 }
 
-// Siralama gercekten degistiyse true doner; degismediyse bosuna kayit yapmaz.
+// Bir sey gercekten degistiyse true doner; degismediyse bosuna kayit yapmaz.
 function endDrag() {
   if (!dragState) return false;
-  const changed = dragState.index !== dragState.origIndex;
+
+  const { index, origIndex, dropPage } = dragState;
   dragState.ghost.remove();
   if (dragState.el) dragState.el.classList.remove('drag-src');
   dragState = null;
+  document.body.classList.remove('dragging');
+  markDropPage(-1);
+
+  // Sayfa sekmesinin uzerine birakildi: ogeyi o sayfanin sonuna tasi.
+  if (moveItemToPage(config.pages, activePage, index, dropPage)) {
+    renderGrid();
+    saveConfig(() => toast(t('movedTo', { page: config.pages[dropPage].name || '' })));
+    return true;
+  }
+
+  const changed = index !== origIndex;
   renderGrid();
   if (changed) saveConfig(() => toast(t('orderSaved')));
   return changed;
@@ -1645,8 +1714,10 @@ $('editorSave').onclick = () => {
 
   if (editIndex >= 0) {
     if (moving) {
-      config.pages[activePage].buttons.splice(editIndex, 1);
-      config.pages[target].buttons.push(btn);
+      // Once yerinde guncelle, sonra tasi: duzenlemede yapilan degisiklikler
+      // de hedefe gitsin. Ayni islem surukleyip sekmeye birakinca da calisiyor.
+      config.pages[activePage].buttons[editIndex] = btn;
+      moveItemToPage(config.pages, activePage, editIndex, target);
     } else {
       config.pages[activePage].buttons[editIndex] = btn;
     }

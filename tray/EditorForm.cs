@@ -52,7 +52,7 @@ class EditorForm : Form
         Controls.Add(dropBar);
 
         dropLabel = new Label();
-        dropLabel.Text = "Masaüstündeki kısayolu buraya sürükle bırak  —  hedefi ve simgesi otomatik alınır";
+        dropLabel.Text = "Masaüstündeki kısayolu pencerenin herhangi bir yerine bırak: hedefi ve simgesi otomatik alınır";
         dropLabel.Dock = DockStyle.Fill;
         dropLabel.TextAlign = ContentAlignment.MiddleCenter;
         dropLabel.ForeColor = Color.FromArgb(90, 96, 106);
@@ -116,9 +116,23 @@ class EditorForm : Form
         s.IsStatusBarEnabled = false;
         s.AreBrowserAcceleratorKeysEnabled = false;
 
-        // WebView2 kendi icine birakilan dosyalari yutmasin; birakma seridine dussun.
+        // WebView2 kendi icine birakilan dosyalari yutmasin: sayfaya birakilan
+        // bir kisayoru tarayici hedefine cozup icerigini okumaya calisir, oysa
+        // bize gereken dosyanin YOLU.
         try { web.AllowExternalDrop = false; }
         catch { /* eski surumlerde bu ozellik yok, serit yine calisir */ }
+
+        // Ama yutmamasi tek basina yetmiyordu: yerine kimse gecmeyince pencerenin
+        // govdesine birakilan hicbir sey kabul edilmiyor, kullanicinin tepedeki
+        // dar seride nisan almasi gerekiyordu. Denetimin kendisini de hedef
+        // yapiyoruz, boylece pencerenin herhangi bir yerine birakmak calisiyor.
+        // WebView2 sarmalayicisi AllowDrop'u salt okunur olarak golgeliyor;
+        // temel Control uzerinden atiyoruz.
+        ((Control)web).AllowDrop = true;
+        web.DragEnter += Drop_DragEnter;
+        web.DragOver += Drop_DragEnter;
+        web.DragLeave += Drop_DragLeave;
+        web.DragDrop += Drop_DragDrop;
 
         web.CoreWebView2.Navigate("http://127.0.0.1:" + settings.Port + "/");
     }
@@ -154,7 +168,7 @@ class EditorForm : Form
     void ResetBar()
     {
         dropBar.BackColor = BarIdle;
-        dropLabel.Text = "Masaüstündeki kısayolu buraya sürükle bırak  —  hedefi ve simgesi otomatik alınır";
+        dropLabel.Text = "Masaüstündeki kısayolu pencerenin herhangi bir yerine bırak: hedefi ve simgesi otomatik alınır";
     }
 
     void Drop_DragDrop(object sender, DragEventArgs e)

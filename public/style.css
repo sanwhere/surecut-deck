@@ -858,3 +858,183 @@ body.bars-hidden .grid { padding: 14px; }
 }
 .toast.show { transform: translateX(-50%) translateY(0); }
 .toast.bad { border-color: var(--danger); color: var(--danger); }
+
+/* ---------------------------------------------------------- gostergeler */
+
+/* Butonlar dolgulu ve kabarik, gostergeler ise panele gomulu bir alet gibi:
+   ayni izgarada dursalar da basilacak seyle okunacak sey karismasin. */
+.btn.widget {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  color: var(--text);
+  cursor: default;
+  /* Etiket dibe sabit, kadran ustteki alanin ortasinda. Her sey ortalanmayi
+     da denedik: kutu yuksekligi icerige gore degistigi icin yan yana duran
+     gostergelerin etiketleri farkli hizalara dagiliyordu. */
+  gap: 7px;
+  padding: 10px 6px;
+  justify-content: space-between;
+}
+.btn.widget:active { transform: none; filter: none; }
+/* Basma parlamasi gostergede anlamsiz; olcum degisimi zaten kendi geri bildirimi. */
+.btn.widget.flash::after { content: none; }
+
+.w-body {
+  position: relative;
+  flex: 1;
+  width: 100%;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* --- kadran --- */
+
+/* Kadran kutuyu doldurmasin: ekrana yay acikken kutular uzayinca yay da
+   buyuyup baskin hale geliyordu. Ust sinir onu alet olcusunde tutuyor. */
+.w-gauge {
+  height: 100%;
+  max-height: min(100%, 104px);
+  width: auto;
+  aspect-ratio: 1;
+  overflow: visible;
+}
+.w-track, .w-fill {
+  fill: none;
+  stroke-width: 7.5;
+  stroke-linecap: round;
+}
+.w-track { stroke: var(--border); }
+.w-fill {
+  stroke: var(--w-color, var(--accent));
+  transition: stroke-dasharray .45s ease-out, stroke .3s;
+}
+
+/* Okuma yayin ortasinda durur: goz once sayiyi bulsun, yay baglami versin.
+   Sayi ile birim taban cizgisinde hizalanir; birim ayri bir ogeye kacmasin diye
+   ikisi tek bir satir icinde tutuluyor. */
+.w-read {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+}
+.w-val {
+  font-size: clamp(17px, 3vh, 26px);
+  font-weight: 700;
+  line-height: 1;
+  /* Rakamlar esit genislikte olsun ki her tazelemede sayi titremesin. */
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.02em;
+}
+.w-unit {
+  font-size: .52em;
+  font-weight: 600;
+  color: var(--muted);
+  margin-left: 1px;
+}
+.w-read-text { position: static; }
+.w-read-text .w-val { font-size: clamp(20px, 4vh, 34px); }
+
+/* --- ag --- */
+
+.w-net {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  width: 100%;
+  padding: 0 4px;
+}
+.w-net-wrap {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.w-net-row { display: flex; align-items: baseline; gap: 5px; }
+.w-net-arrow { color: var(--w-color, var(--accent)); font-size: 13px; line-height: 1; }
+.w-net-val {
+  font-size: clamp(11px, 1.9vh, 15px);
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.w-spark {
+  display: block;
+  width: 100%;
+  height: 20px;
+  margin-top: 4px;
+  pointer-events: none;
+  opacity: .55;
+}
+.w-spark-line {
+  fill: none;
+  stroke: var(--w-color, var(--accent));
+  stroke-width: 1.5;
+  stroke-linejoin: round;
+  vector-effect: non-scaling-stroke;
+}
+
+/* --- alt satir --- */
+
+.w-foot {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  min-height: 0;
+}
+.w-label {
+  font-size: 10.5px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--muted);
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+.w-sub {
+  font-size: 10px;
+  color: var(--muted);
+  font-variant-numeric: tabular-nums;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+}
+
+/* --- durumlar --- */
+
+/* Esik asildiginda yay ve sayi birlikte kayar: rengi ayirt edemeyen biri
+   icin de degisim belli olsun diye tek isaret rengi degil. */
+.btn.widget.w-warn .w-fill { stroke: var(--danger); }
+.btn.widget.w-warn .w-val { color: var(--danger); }
+.btn.widget.w-warn { border-color: var(--danger); }
+
+.btn.widget.w-na { opacity: .55; }
+.btn.widget.w-na .w-val { color: var(--muted); }
+
+@media (prefers-reduced-motion: reduce) {
+  .w-fill { transition: none; }
+}
+
+/* Duzenleyicideki canli gosterge onizlemesi: kaydetmeden once gercek degerle
+   nasil durdugu gorulsun. Izgaradaki olcuye yakin bir kutuda duruyor. */
+.widget-preview {
+  display: flex;
+  justify-content: center;
+  padding: 12px 0 2px;
+}
+.widget-preview .btn.widget {
+  width: 132px;
+  height: 108px;
+  flex: none;
+}

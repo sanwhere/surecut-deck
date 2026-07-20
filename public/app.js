@@ -159,6 +159,8 @@ let editColor = THEMES.dark.accent;   // openEditor gercek degeri temadan alir
 let editIconUrl = '';
 let reqSeq = 0;
 let configRevision = null;   // sunucudan gelen yapilandirma surumu
+let lastStats = null;        // son sistem olcumu
+let statsSubbed = false;     // sunucuya olcum aboneligi bildirdik mi
 const pending = new Map();
 
 // ---------------------------------------------------------------- baglanti
@@ -200,6 +202,12 @@ function connect() {
       return;
     }
 
+    if (msg.type === 'stats') {
+      lastStats = msg.stats;
+      updateWidgets(lastStats);
+      return;
+    }
+
     if (msg.type === 'result') {
       const cb = pending.get(msg.id);
       if (cb) { pending.delete(msg.id); cb(msg); }
@@ -209,6 +217,9 @@ function connect() {
 
   ws.onclose = (ev) => {
     $('status').classList.remove('on');
+    // Baglanti koptu: sunucu aboneligi zaten dusurdu, biz de unutalim ki
+    // yeniden baglandigimizda tekrar istensin.
+    statsSubbed = false;
     // 4003 = token reddedildi; yeniden denemek anlamsiz, eslestirme ekranina don.
     if (ev.code === 4003) {
       localStorage.removeItem('sd_token');
@@ -222,6 +233,17 @@ function connect() {
   };
 
   ws.onerror = () => ws.close();
+}
+
+// Acik sayfada olcum isteyen bir gosterge varsa abone ol, yoksa birak.
+// Sunucu son abone gidince olcum surecini kapatiyor: kimse bakmiyorken
+// arka planda CPU harcanmasin diye.
+function syncStatsSub() {
+  if (!ws || ws.readyState !== WebSocket.OPEN) return;
+  const want = pageNeedsStats(config.pages[activePage]);
+  if (want === statsSubbed) return;
+  statsSubbed = want;
+  ws.send(JSON.stringify({ type: 'statsSub', on: want }));
 }
 
 // Arayuz dosyalari degistiyse sayfayi yenile. Calisan bir sayfa kendi JS'ini
@@ -1063,6 +1085,16 @@ function renderGrid() {
   page.buttons.forEach((b, i) => {
     const el = document.createElement('button');
     el.className = 'btn';
+
+    // Gostergeler ayni izgarada durur ama basilmaz: sayfa, sutun, ekrana yay ve
+    // suruklemeyle siralama boylece hicbir ek is olmadan onlar icin de calisir.
+    if (b.kind === 'widget') {
+      renderWidget(el, b);
+      if (editing) attachEditHandlers(el, i);
+      grid.appendChild(el);
+      return;
+    }
+
     const bg = b.color || accent();
     el.style.background = bg;
     el.style.color = readableText(bg);
@@ -1099,6 +1131,12 @@ function renderGrid() {
 
     grid.appendChild(el);
   });
+
+  // Gostergeler bos degerle acilmasin: elimizde son olcum varsa hemen bas,
+  // yoksa aboneligi tazele ki sunucu olcum surecini baslatsin.
+  syncStatsSub();
+  if (lastStats) updateWidgets(lastStats);
+  tickLocalWidgets();
 
   // Yeniden cizim suruklemenin ortasinda olduysa kaynak butonu yeniden isaretle.
   if (dragState) {
@@ -1273,7 +1311,10 @@ function openEditor(index) {
   renderIconImage();
 
   const a = (b && b.action) || { type: 'hotkey', keys: '' };
-  $('fType').value = a.type || 'hotkey';
+  const isWidget = !!(b && b.kind === 'widget');
+  $('fType').value = isWidget ? 'widget' : (a.type || 'hotkey');
+  $('fWidget').value = isWidget ? b.widget : 'cpu';
+  fillDriveSelect(isWidget ? b.drive : '');
   $('fKeys').value = a.type === 'hotkey' ? a.keys || '' : '';
   $('fText').value = a.type === 'text' ? a.text || '' : '';
   $('fTarget').value = a.type === 'launch' ? a.target || '' : '';
@@ -1311,7 +1352,7 @@ function renderColors() {
     const s = document.createElement('div');
     s.className = 'swatch' + (c.toLowerCase() === editColor.toLowerCase() ? ' sel' : '');
     s.style.background = c;
-    s.onclick = () => { editColor = c; renderColors(); };
+    s.onclick = () => { editColor = c; renderColors(); renderWidgetPreview(); };
     row.appendChild(s);
   });
 
@@ -1326,7 +1367,7 @@ function renderColors() {
   const input = document.createElement('input');
   input.type = 'color';
   input.value = /^#[0-9a-f]{6}$/i.test(editColor) ? editColor : '#3b82f6';
-  input.oninput = () => { editColor = input.value; renderColors(); };
+  input.oninput = () => { editColor = input.value; renderColors(); renderWidgetPreview(); };
   picker.appendChild(input);
 
   row.appendChild(picker);
@@ -1337,6 +1378,49 @@ function syncPanes() {
   document.querySelectorAll('.pane').forEach((p) => {
     p.classList.toggle('hidden', p.dataset.type !== type);
   });
+
+  // Gostergenin emoji simgesi yok: yay ve sayi zaten kendisi. Simge alanlarini
+  // gizleyip etiketin istege bagli oldugunu belirtiyoruz.
+  const isWidget = type === 'widget';
+  document.querySelectorAll('#editor .icon-field, #editor .icon-pick').forEach((el) => {
+    el.classList.toggle('hidden', isWidget);
+  });
+  if (isWidget) {
+    $('fDriveRow').classList.toggle('hidden', $('fWidget').value !== 'disk');
+    renderWidgetPreview();
+  }
+}
+
+// Olcum surecinden gelen surucu listesi. Henuz olcum yoksa yalnizca kayitli
+// deger gosterilir; kullanicinin karsisina bos bir liste cikmasin.
+function fillDriveSelect(current) {
+  const sel = $('fDrive');
+  if (!sel) return;
+  const ids = (lastStats && Array.isArray(lastStats.disks) ? lastStats.disks.map((d) => d.id) : []);
+  if (current && !ids.includes(current)) ids.unshift(current);
+  sel.innerHTML = '';
+  for (const id of ids) {
+    const o = document.createElement('option');
+    o.value = id;
+    o.textContent = id;
+    sel.appendChild(o);
+  }
+  if (current) sel.value = current;
+}
+
+// Duzenleyicideki canli onizleme: kullanici kaydetmeden once gostergenin
+// gercek degerle nasil durdugunu gorur.
+function renderWidgetPreview() {
+  const box = $('widgetPreview');
+  if (!box) return;
+  box.innerHTML = '';
+  const el = document.createElement('div');
+  el.className = 'btn widget';
+  const w = { widget: $('fWidget').value, color: editColor };
+  if (w.widget === 'disk' && $('fDrive').value) w.drive = $('fDrive').value;
+  renderWidget(el, w);
+  box.appendChild(el);
+  updateWidget(el, lastStats);
 }
 
 // Sirali adimlari duz metne / metinden nesneye cevir.
@@ -1409,8 +1493,10 @@ function buildAction() {
     }
     case 'touchpad':
       return { type: 'touchpad' };
-    case 'sequence':
-      return { type: 'sequence', steps: textToSteps($('fSequence').value) };
+    case 'widget':
+      // Gostergenin eylemi yok; kaydedilen sey turu. saveButton() bunu gorup
+      // butonu gosterge olarak isaretler.
+      return null;
     default:
       throw new Error(t('unknownType'));
   }
@@ -1489,6 +1575,11 @@ $('colsInput').onchange = (e) => {
 };
 
 $('fType').onchange = syncPanes;
+$('fWidget').onchange = () => {
+  $('fDriveRow').classList.toggle('hidden', $('fWidget').value !== 'disk');
+  renderWidgetPreview();
+};
+$('fDrive').onchange = renderWidgetPreview;
 $('editorClose').onclick = closeEditor;
 
 $('editor').onclick = (e) => { if (e.target === $('editor')) closeEditor(); };
@@ -1497,14 +1588,26 @@ $('editorSave').onclick = () => {
   let action;
   try { action = buildAction(); } catch (e) { toast(e.message, true); return; }
 
-  const btn = {
-    id: editIndex >= 0 ? config.pages[activePage].buttons[editIndex].id : 'b' + Date.now().toString(36),
-    label: $('fLabel').value.trim() || 'Buton',
-    icon: $('fIcon').value.trim() || '⚡',
-    color: editColor,
-    action
-  };
-  if (editIconUrl) btn.iconUrl = editIconUrl;
+  const id = editIndex >= 0 ? config.pages[activePage].buttons[editIndex].id : 'b' + Date.now().toString(36);
+  let btn;
+
+  if ($('fType').value === 'widget') {
+    // Gostergede etiket bos birakilabilir: o zaman olcumun kendi adini kullanir,
+    // yani "CPU" yazmak icin kullaniciya is dusmez.
+    btn = { id, kind: 'widget', widget: $('fWidget').value, color: editColor };
+    const label = $('fLabel').value.trim();
+    if (label) btn.label = label;
+    if (btn.widget === 'disk' && $('fDrive').value) btn.drive = $('fDrive').value;
+  } else {
+    btn = {
+      id,
+      label: $('fLabel').value.trim() || 'Buton',
+      icon: $('fIcon').value.trim() || '⚡',
+      color: editColor,
+      action
+    };
+    if (editIconUrl) btn.iconUrl = editIconUrl;
+  }
 
   if (editIndex >= 0) config.pages[activePage].buttons[editIndex] = btn;
   else config.pages[activePage].buttons.push(btn);
@@ -1524,6 +1627,8 @@ $('editorDelete').onclick = () => {
 };
 
 $('editorTest').onclick = () => {
+  // Gostergenin calistirilacak bir eylemi yok; onizleme zaten canli.
+  if ($('fType').value === 'widget') { toast(t('widgetLive')); return; }
   let action;
   try { action = buildAction(); } catch (e) { toast(e.message, true); return; }
   if (action.type === 'touchpad') { closeEditor(); openTouchpad(); return; }
@@ -1702,6 +1807,9 @@ fillLangSelect($('pairLang'));
 
 $('langSelect').onchange = (e) => setLang(e.target.value);
 $('pairLang').onchange = (e) => setLang(e.target.value);
+
+// Saat gostergesi olcum surecine ihtiyac duymaz; kendi basina ilerlesin.
+setInterval(tickLocalWidgets, 1000);
 
 // Ayni makineden acildiysa host kod istemez; dogrudan baglan.
 const isLocalHost = ['localhost', '127.0.0.1', '::1'].includes(location.hostname);

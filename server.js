@@ -206,6 +206,84 @@ function helperSend(line) {
   });
 }
 
+// ------------------------------------------------------------------ olcumler
+//
+// StatsHelper yalnizca ekranda gercekten bir gosterge varken calisir: widget
+// kullanmayan biri icin arka planda surekli olcum almanin bir anlami yok.
+// Istemciler abone oldukca sayac artar, son abone gidince surec kapanir.
+
+const STATS_EXE = path.join(ROOT, 'helper', 'StatsHelper.exe');
+
+let statsProc = null;
+let statsLast = null;
+let statsSubs = 0;
+
+function statsIntervalMs() {
+  const v = Number(config.settings && config.settings.statsInterval);
+  return Number.isFinite(v) ? Math.max(250, Math.min(10000, v)) : 1000;
+}
+
+function startStats() {
+  if (statsProc || !fs.existsSync(STATS_EXE)) return;
+
+  statsProc = spawn(STATS_EXE, [String(statsIntervalMs())], { stdio: ['pipe', 'pipe', 'pipe'] });
+  statsProc.stdout.setEncoding('utf8');
+
+  let buf = '';
+  statsProc.stdout.on('data', (chunk) => {
+    buf += chunk;
+    let nl;
+    while ((nl = buf.indexOf('\n')) >= 0) {
+      const line = buf.slice(0, nl).trim();
+      buf = buf.slice(nl + 1);
+      if (!line) continue;
+      try { statsLast = JSON.parse(line); } catch { continue; }
+      broadcastStats(statsLast);
+    }
+  });
+
+  statsProc.stderr.setEncoding('utf8');
+  statsProc.stderr.on('data', (d) => console.error('[stats]', d.trim()));
+
+  statsProc.on('exit', (code) => {
+    statsProc = null;
+    // Abone kalmadiysa cikis zaten bizim istegimizdi, yeniden baslatmayalim.
+    if (statsSubs > 0) {
+      console.error(`[stats] cikti (kod ${code}), 2 sn sonra yeniden baslatiliyor`);
+      setTimeout(() => { if (statsSubs > 0) startStats(); }, 2000);
+    }
+  });
+
+  console.log('[stats] baslatildi');
+}
+
+function stopStats() {
+  if (!statsProc) return;
+  const p = statsProc;
+  statsProc = null;
+  statsLast = null;
+  try { p.stdin.end(); } catch { /* zaten kapali */ }
+  // Stdin kapaninca kendi cikiyor; takilirsa diye kisa bir emniyet suresi.
+  setTimeout(() => { try { p.kill(); } catch { /* coktan oldu */ } }, 1500);
+  console.log('[stats] durduruldu');
+}
+
+function setStatsSub(ws, on) {
+  const want = !!on;
+  if (!!ws.wantsStats === want) return;
+  ws.wantsStats = want;
+  statsSubs += want ? 1 : -1;
+  if (statsSubs < 0) statsSubs = 0;
+
+  if (statsSubs > 0) {
+    startStats();
+    // Yeni abone bir sonraki olcumu beklemesin, elimizdekini hemen verelim.
+    if (want && statsLast) send(ws, { type: 'stats', stats: statsLast });
+  } else {
+    stopStats();
+  }
+}
+
 // ---------------------------------------------------------------- eylemler
 
 const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
@@ -417,6 +495,13 @@ function broadcastConfig(except) {
   });
 }
 
+function broadcastStats(stats) {
+  const payload = JSON.stringify({ type: 'stats', stats });
+  wss.clients.forEach((c) => {
+    if (c.readyState === c.OPEN && c.authed && c.wantsStats) c.send(payload);
+  });
+}
+
 // Token'i istemciye asla geri gondermeyiz.
 function publicConfig() {
   return { settings: config.settings, pages: config.pages };
@@ -526,6 +611,11 @@ wss.on('connection', (ws, req) => {
       return;
     }
 
+    if (msg.type === 'statsSub') {
+      setStatsSub(ws, msg.on);
+      return;
+    }
+
     if (msg.type === 'test') {
       try {
         const out = await runAction(msg.action);
@@ -573,7 +663,11 @@ wss.on('connection', (ws, req) => {
     }
   });
 
-  ws.on('close', () => clearTimeout(authTimer));
+  ws.on('close', () => {
+    clearTimeout(authTimer);
+    // Aboneligi dusur, yoksa sayac hic sifirlanmaz ve olcum sureci sonsuza kadar calisir.
+    setStatsSub(ws, false);
+  });
 });
 
 // ---------------------------------------------------------------- baslat
@@ -590,6 +684,16 @@ function localAddresses() {
 }
 
 startHelper();
+
+// Yardimci surecler stdin kapaninca kendiliginden cikar, ama host oldurulerek
+// kapatilirsa bu sinyal gelmez; yetim kalmasinlar diye acikca kapatiyoruz.
+for (const sig of ['SIGINT', 'SIGTERM']) {
+  process.on(sig, () => {
+    stopStats();
+    if (helper) { try { helper.kill(); } catch { /* coktan oldu */ } }
+    process.exit(0);
+  });
+}
 
 server.listen(PORT, '0.0.0.0', () => {
   console.log('\n╔══════════════════════════════════════════════╗');

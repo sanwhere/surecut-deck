@@ -187,13 +187,13 @@
           <span data-i18n="label"></span>
           <input id="fLabel" type="text">
         </label>
-        <label class="field narrow">
+        <label class="field narrow icon-field">
           <span data-i18n="icon"></span>
           <input id="fIcon" type="text" maxlength="4" placeholder="📋">
         </label>
       </div>
 
-      <div class="field">
+      <div class="field icon-pick">
         <span data-i18n="pickIcon"></span>
         <div id="emojiGrid" class="emoji-grid"></div>
       </div>
@@ -221,7 +221,34 @@
           <option value="command" data-i18n="actCommand"></option>
           <option value="touchpad" data-i18n="actTouchpad"></option>
           <option value="sequence" data-i18n="actSequence"></option>
+          <option value="widget" data-i18n="actWidget"></option>
         </select>
+      </div>
+
+      <!-- gosterge -->
+      <div class="pane hidden" data-type="widget">
+        <label class="field">
+          <span data-i18n="widgetKind"></span>
+          <select id="fWidget">
+            <option value="cpu" data-i18n="wCpu"></option>
+            <option value="ram" data-i18n="wRam"></option>
+            <option value="gpu" data-i18n="wGpu"></option>
+            <option value="disk" data-i18n="wDisk"></option>
+            <option value="diskio" data-i18n="wDiskIo"></option>
+            <option value="net" data-i18n="wNet"></option>
+            <option value="temp" data-i18n="wTemp"></option>
+            <option value="uptime" data-i18n="wUptime"></option>
+            <option value="clock" data-i18n="wClock"></option>
+          </select>
+        </label>
+
+        <label id="fDriveRow" class="field hidden">
+          <span data-i18n="widgetDrive"></span>
+          <select id="fDrive"></select>
+        </label>
+
+        <div class="hint" data-i18n="widgetHint"></div>
+        <div id="widgetPreview" class="widget-preview"></div>
       </div>
 
       <!-- hotkey -->
@@ -305,6 +332,7 @@
 </div>
 
 <script src="i18n.js"></script>
+<script src="widgets.js"></script>
 <script src="app.js"></script>
 </body>
 </html>

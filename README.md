@@ -190,6 +190,7 @@ start.cmd
 |---|---|---|
 | Host | `server.js` | HTTP + WebSocket, configuration, action execution |
 | Input | `helper/InputHelper.cs` | Win32 `SendInput`, long-lived process driven over stdin |
+| Measurement | `helper/StatsHelper.cs` | CPU, memory, disk, network, GPU and temperature, one JSON line per sample |
 | Tray & editor | `tray/TrayApp.cs`, `tray/EditorForm.cs` | Manages the host; native editor window hosting the web UI |
 | Interface | `public/` | The deck itself: buttons, editor, touchpad, themes |
 | Translations | `public/i18n.js` | 20 languages in one flat dictionary |
@@ -197,6 +198,8 @@ start.cmd
 Two decisions are worth explaining, because both are easy to get wrong:
 
 **Input goes through a compiled helper, not PowerShell.** `SendKeys` cannot send the Windows key or media keys. The helper is a long-lived process reading commands from stdin, so there is no process-spawn latency on every keystroke.
+
+**Measurement runs in its own process, and only while someone is looking.** Reading the GPU counter takes a few hundred milliseconds on a busy machine. Inside the input helper that delay would land directly on your keystrokes, so it lives in a separate process, and the GPU is sampled on a slower cycle than everything else. The process is started when a page containing a gauge is opened and stopped when the last viewer leaves, so a deck without gauges costs nothing.
 
 **The desktop editor is a native window, not a browser tab.** Browsers never hand a web page the *path* of a dropped file, and Chromium resolves a dropped shortcut to its target, so dragging a shortcut into a browser cannot work, however it is written. The editor is a WinForms window hosting the same web interface in WebView2, which lets the native shell read real file paths.
 
@@ -215,6 +218,7 @@ node tests/i18ntest.js          # all 20 languages complete and consistent
 node tests/colormaptest.js      # theme colour mapping preserves hues
 node tests/gesturetest.js       # two-finger scroll vs. pinch decision
 node tests/revisiontest.js      # stale clients cannot overwrite newer config
+node tests/widgettest.js        # gauge maths, formatting and unavailable states
 node tests/smoketest.js <code>  # end-to-end; verifies key injection via NumLock
 node tests/mousetest.js         # mouse injection, don't touch the mouse while it runs
 ```

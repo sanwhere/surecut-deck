@@ -7,11 +7,15 @@ set CSC=C:\Windows\Microsoft.NET\Framework64\v4.0.30319\csc.exe
 if not exist "%~dp0tray\Microsoft.Web.WebView2.WinForms.dll" call "%~dp0tray\fetch-webview2.cmd"
 if errorlevel 1 exit /b 1
 
-echo [1/2] InputHelper...
+echo [1/3] InputHelper...
 "%CSC%" /nologo /target:exe /platform:x64 /optimize+ /out:"%~dp0helper\InputHelper.exe" "%~dp0helper\InputHelper.cs"
 if errorlevel 1 (echo HATA & exit /b 1)
 
-echo [2/2] Tray + Editor...
+echo [2/3] StatsHelper...
+"%CSC%" /nologo /target:exe /platform:x64 /optimize+ /r:System.dll /r:System.Core.dll /r:System.Management.dll /out:"%~dp0helper\StatsHelper.exe" "%~dp0helper\StatsHelper.cs"
+if errorlevel 1 (echo HATA & exit /b 1)
+
+echo [3/3] Tray + Editor...
 "%CSC%" /nologo /target:winexe /platform:x64 /optimize+ /r:System.dll /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:System.Core.dll /r:"%~dp0tray\Microsoft.Web.WebView2.Core.dll" /r:"%~dp0tray\Microsoft.Web.WebView2.WinForms.dll" /out:"%~dp0tray\SurecutDeck.exe" "%~dp0tray\TrayApp.cs" "%~dp0tray\EditorForm.cs"
 if errorlevel 1 (echo HATA & exit /b 1)
 

@@ -225,7 +225,8 @@ start.cmd
 | Measurement | `helper/StatsHelper.cs` | CPU, memory, disk, network, GPU and temperature, one JSON line per sample |
 | Tray & editor | `tray/TrayApp.cs`, `tray/EditorForm.cs` | Manages the host; native editor window hosting the web UI |
 | Interface | `public/` | The deck itself: buttons, editor, touchpad, themes |
-| Translations | `public/i18n.js` | 20 languages in one flat dictionary |
+| Translations | `public/i18n.js` | The tablet interface, 20 languages in one flat dictionary |
+| Translations | `tray/lang/*.json` | The Windows shell, the same 20 languages, compiled into C# by `tray/gen-strings.js` |
 
 Two decisions are worth explaining, because both are easy to get wrong:
 
@@ -234,6 +235,14 @@ Two decisions are worth explaining, because both are easy to get wrong:
 **Measurement runs in its own process, and only while someone is looking.** Reading the GPU counter takes a few hundred milliseconds on a busy machine. Inside the input helper that delay would land directly on your keystrokes, so it lives in a separate process, and the GPU is sampled on a slower cycle than everything else. The process is started when a page containing a gauge is opened and stopped when the last viewer leaves, so a deck without gauges costs nothing.
 
 **The desktop editor is a native window, not a browser tab.** Browsers never hand a web page the *path* of a dropped file, and Chromium resolves a dropped shortcut to its target, so dragging a shortcut into a browser cannot work, however it is written. The editor is a WinForms window hosting the same web interface in WebView2, which lets the native shell read real file paths.
+
+## Languages
+
+Both halves speak twenty languages. The tablet interface follows the browser's language and can be
+changed per device. The tray menu and the desktop windows follow the Windows interface language
+instead, since they belong to the machine rather than the tablet, and fall back to English rather
+than to the language they were first written in. `SURECUT_LANG` overrides that if you want to see
+another one.
 
 ## Security
 
@@ -246,7 +255,7 @@ The code lives in `data/token.txt`. Delete the file and restart to roll it.
 ## Tests
 
 ```sh
-node tests/i18ntest.js          # all 20 languages complete and consistent
+node tests/i18ntest.js          # all 20 languages complete and consistent, both halves
 node tests/colormaptest.js      # theme colour mapping preserves hues
 node tests/gesturetest.js       # two-finger scroll vs. pinch decision
 node tests/revisiontest.js      # stale clients cannot overwrite newer config

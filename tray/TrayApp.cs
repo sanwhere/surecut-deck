@@ -297,11 +297,17 @@ class TrayContext : ApplicationContext
         psi.WorkingDirectory = Paths.Root;
         psi.UseShellExecute = false;
         psi.CreateNoWindow = true;
+        // Stdin de yonlendiriliyor ama yazmak icin degil: tray oldugunde bu
+        // boru kapanir ve host bunu ebeveyninin gittigi anlamina alir. Aksi
+        // halde tray zorla oldurulunce node ayakta kaliyor, port bagli kaliyor
+        // ve bir sonraki host EADDRINUSE ile dusuyor.
+        psi.RedirectStandardInput = true;
         psi.RedirectStandardOutput = true;
         psi.RedirectStandardError = true;
         psi.StandardOutputEncoding = Encoding.UTF8;
         psi.StandardErrorEncoding = Encoding.UTF8;
         psi.EnvironmentVariables["PORT"] = settings.Port.ToString();
+        psi.EnvironmentVariables["SURECUT_WATCH_STDIN"] = "1";
 
         try
         {

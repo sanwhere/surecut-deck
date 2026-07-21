@@ -687,12 +687,32 @@ startHelper();
 
 // Yardimci surecler stdin kapaninca kendiliginden cikar, ama host oldurulerek
 // kapatilirsa bu sinyal gelmez; yetim kalmasinlar diye acikca kapatiyoruz.
+// Tray, host'u cocuk surec olarak baslatirken stdin'i yonlendirir ve bu
+// bayragi kurar. Boru kapandiginda ebeveyn gitmis demektir: kendimizi
+// kapatmazsak port bagli kalir ve bir sonraki host EADDRINUSE ile duser.
+//
+// Bayrak olmadan bu davranis ACILMAZ: elle calistiran biri terminalde EOF
+// gonderdiginde sunucunun olmesini beklemez.
+if (process.env.SURECUT_WATCH_STDIN === '1') {
+  process.stdin.resume();
+  const parentGone = () => {
+    console.log('[host] ebeveyn surec kapandi, cikiliyor');
+    shutdown();
+  };
+  process.stdin.on('end', parentGone);
+  process.stdin.on('close', parentGone);
+  process.stdin.on('error', parentGone);
+}
+
+// Tek kapanis yolu: yardimci surecler her durumda birakilsin.
+function shutdown() {
+  stopStats();
+  if (helper) { try { helper.kill(); } catch { /* coktan oldu */ } }
+  process.exit(0);
+}
+
 for (const sig of ['SIGINT', 'SIGTERM']) {
-  process.on(sig, () => {
-    stopStats();
-    if (helper) { try { helper.kill(); } catch { /* coktan oldu */ } }
-    process.exit(0);
-  });
+  process.on(sig, shutdown);
 }
 
 server.listen(PORT, '0.0.0.0', () => {

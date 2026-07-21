@@ -370,6 +370,40 @@ Tray normal çıkışta çocuğunu kapatıyor, ama `Stop-Process -Force` ile
 **Henüz çözülmedi.** `server.js` stdin kapandığında kendini sonlandırabilir;
 `StatsHelper` zaten böyle yapıyor.
 
+## Kapatılan iki açık madde
+
+### Tray zorla kapatılınca node yetim kalıyordu
+
+Tray normal çıkışta çocuğunu kapatıyordu ama zorla öldürüldüğünde
+(`Stop-Process -Force`) node ayakta kalıyor, port 8791 bağlı kalıyor ve bir
+sonraki host `EADDRINUSE` ile düşüyordu.
+
+**Çözüm:** tray artık stdin'i de yönlendiriyor ve `SURECUT_WATCH_STDIN=1`
+kuruyor. Tray ölünce boru kapanıyor, host bunu ebeveyninin gittiği anlamına
+alıp kendini kapatıyor. Bayrak olmadan bu davranış açılmıyor: elle
+`node server.js` çalıştıran biri terminalde EOF gönderdiğinde sunucunun
+ölmesini beklemez.
+
+### Pencerenin gövdesine bırakma DOĞRULANMADI
+
+Şeride bırakmak çalışıyor, günlükle kanıtlandı. Gövdeye, yani WebView2'nin
+kapladığı alana bırakmanın çalıştığı **hâlâ bilinmiyor**.
+
+Sentetik bir OLE sürüklemesi üretmek denendi: görünmez bir kaynak pencere,
+`DoDragDrop`, ve ayrı bir iş parçacığından `SendInput` ile imleci hedefe
+taşıyıp bırakma. Üç denemede de `DragDropEffects.None` döndü ve hedef
+penceredeki günlükte tek bir olay görünmedi, şeride nişan alındığında bile.
+Yani sonda gerçek bir sürükleme üretemiyor ve ürün hakkında bir şey
+söylemiyor. Yanıltıcı olduğu için kaldırıldı.
+
+**Bilinen durum:** şerit çalışır, dosya seçici çalışır. Gövde bilinmiyor.
+Gövdeyi hedef yapan kod duruyor (`((Control)web).AllowDrop = true`) ve
+zararı yok, ama çalıştığı iddia edilmemeli.
+
+**Olası sebep:** WebView2'nin alt penceresi kendi bırakma hedefini kayıtlı
+tutuyorsa, OLE'nin hedef arayışı orada durur ve üst pencereye hiç ulaşmaz.
+Doğrulamanın tek yolu şu an elle denemek.
+
 ## Araç notları
 
 - **PrintWindow ve RTL:** `RightToLeftLayout = true` pencerenin aygıt bağlamını

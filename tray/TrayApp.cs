@@ -288,7 +288,11 @@ class TrayContext : ApplicationContext
         }
 
         ProcessStartInfo psi = new ProcessStartInfo();
-        psi.FileName = "node.exe";
+        // Yaninda bir calisma zamani varsa onu kullan: tasinabilir surumde
+        // kullanicinin Node kurmasi gerekmiyor. Yoksa PATH'teki node.exe,
+        // yani depodan calistiran gelistirici icin hicbir sey degismiyor.
+        string bundled = Path.Combine(Paths.Root, "runtime", "node.exe");
+        psi.FileName = File.Exists(bundled) ? bundled : "node.exe";
         psi.Arguments = "\"" + Paths.ServerJs + "\"";
         psi.WorkingDirectory = Paths.Root;
         psi.UseShellExecute = false;

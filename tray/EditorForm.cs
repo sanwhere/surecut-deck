@@ -81,7 +81,10 @@ class EditorForm : Form
         // hicbirine bagli degil, dolayisiyla her zaman calisir.
         btnBrowse = new Button();
         btnBrowse.Text = L.T("browse");
-        btnBrowse.Width = 150;
+        // Genislik metinden hesaplanir: sabit bir olcu Italyanca ve
+        // Japonca etiketleri kirpiyordu.
+        btnBrowse.Width = Math.Max(150,
+            TextRenderer.MeasureText(btnBrowse.Text, btnBrowse.Font).Width + 26);
         btnBrowse.Height = 26;
         btnBrowse.Anchor = AnchorStyles.Right | AnchorStyles.Top;
         btnBrowse.Click += delegate { BrowseForShortcut(); };

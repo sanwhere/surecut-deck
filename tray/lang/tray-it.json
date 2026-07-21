@@ -59,5 +59,8 @@
   "dropNow": "Rilascialo",
   "uiFailed": "Impossibile caricare l'interfaccia:\r\n",
   "uiFailedHint": "\r\n\r\nIl runtime WebView2 potrebbe non essere installato.\r\nPuoi continuare con \"Apri l'interfaccia nel browser\" dal menu dell'area di notifica.",
-  "buttonsAdded": " pulsanti aggiunti"
+  "buttonsAdded": " pulsanti aggiunti",
+  "browse": "Scegli un collegamento…",
+  "browseTitle": "Scegli un collegamento, un programma, una cartella o un file",
+  "browseFilter": "Collegamenti e programmi|*.lnk;*.url;*.exe|Tutti i file|*.*"
 }

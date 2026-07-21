@@ -66,7 +66,10 @@ static partial class L
             "dropNow", "أفلته",
             "uiFailed", "تعذّر تحميل الواجهة:\r\n",
             "uiFailedHint", "\r\n\r\nقد لا يكون وقت تشغيل WebView2 مثبتًا.\r\nيمكنك المتابعة عبر «فتح الواجهة في المتصفح» من قائمة منطقة الإعلام.",
-            "buttonsAdded", " زر تمت إضافته"
+            "buttonsAdded", " زر تمت إضافته",
+            "browse", "اختر اختصارًا…",
+            "browseTitle", "اختر اختصارًا أو برنامجًا أو مجلدًا أو ملفًا",
+            "browseFilter", "الاختصارات والبرامج|*.lnk;*.url;*.exe|كل الملفات|*.*"
         });
 
         Add("bn", new string[] {
@@ -130,7 +133,10 @@ static partial class L
             "dropNow", "ছেড়ে দিন",
             "uiFailed", "ইন্টারফেস লোড করা গেল না:\r\n",
             "uiFailedHint", "\r\n\r\nWebView2 রানটাইম ইনস্টল করা না থাকতে পারে।\r\nট্রে মেনু থেকে \"ইন্টারফেস ব্রাউজারে খুলুন\" দিয়ে চালিয়ে যেতে পারেন।",
-            "buttonsAdded", " বোতাম যোগ হয়েছে"
+            "buttonsAdded", " বোতাম যোগ হয়েছে",
+            "browse", "শর্টকাট বেছে নিন…",
+            "browseTitle", "শর্টকাট, প্রোগ্রাম, ফোল্ডার বা ফাইল বেছে নিন",
+            "browseFilter", "শর্টকাট ও প্রোগ্রাম|*.lnk;*.url;*.exe|সব ফাইল|*.*"
         });
 
         Add("de", new string[] {
@@ -194,7 +200,10 @@ static partial class L
             "dropNow", "Loslassen",
             "uiFailed", "Die Oberfläche konnte nicht geladen werden:\r\n",
             "uiFailedHint", "\r\n\r\nDie WebView2-Laufzeit ist möglicherweise nicht installiert.\r\nDu kannst mit „Oberfläche im Browser öffnen“ aus dem Infobereichsmenü fortfahren.",
-            "buttonsAdded", " Schaltflächen hinzugefügt"
+            "buttonsAdded", " Schaltflächen hinzugefügt",
+            "browse", "Verknüpfung wählen…",
+            "browseTitle", "Verknüpfung, Programm, Ordner oder Datei wählen",
+            "browseFilter", "Verknüpfungen und Programme|*.lnk;*.url;*.exe|Alle Dateien|*.*"
         });
 
         Add("es", new string[] {
@@ -258,7 +267,10 @@ static partial class L
             "dropNow", "Suéltalo",
             "uiFailed", "No se pudo cargar la interfaz:\r\n",
             "uiFailedHint", "\r\n\r\nPuede que el entorno de ejecución WebView2 no esté instalado.\r\nPuedes continuar con \"Abrir la interfaz en el navegador\" desde el menú de la bandeja.",
-            "buttonsAdded", " botones añadidos"
+            "buttonsAdded", " botones añadidos",
+            "browse", "Elegir acceso directo…",
+            "browseTitle", "Elegir un acceso directo, programa, carpeta o archivo",
+            "browseFilter", "Accesos directos y programas|*.lnk;*.url;*.exe|Todos los archivos|*.*"
         });
 
         Add("fa", new string[] {
@@ -322,7 +334,10 @@ static partial class L
             "dropNow", "رها کنید",
             "uiFailed", "رابط بارگذاری نشد:\r\n",
             "uiFailedHint", "\r\n\r\nممکن است زمان اجرای WebView2 نصب نباشد.\r\nمی‌توانید با «باز کردن رابط در مرورگر» از منوی سینی ادامه دهید.",
-            "buttonsAdded", " دکمه افزوده شد"
+            "buttonsAdded", " دکمه افزوده شد",
+            "browse", "انتخاب میان‌بر…",
+            "browseTitle", "میان‌بر، برنامه، پوشه یا پرونده را انتخاب کنید",
+            "browseFilter", "میان‌برها و برنامه‌ها|*.lnk;*.url;*.exe|همه پرونده‌ها|*.*"
         });
 
         Add("fr", new string[] {
@@ -386,7 +401,10 @@ static partial class L
             "dropNow", "Dépose-le",
             "uiFailed", "L'interface n'a pas pu se charger :\r\n",
             "uiFailedHint", "\r\n\r\nLe runtime WebView2 n'est peut-être pas installé.\r\nTu peux continuer avec « Ouvrir l'interface dans le navigateur » depuis le menu de la zone de notification.",
-            "buttonsAdded", " boutons ajoutés"
+            "buttonsAdded", " boutons ajoutés",
+            "browse", "Choisir un raccourci…",
+            "browseTitle", "Choisir un raccourci, un programme, un dossier ou un fichier",
+            "browseFilter", "Raccourcis et programmes|*.lnk;*.url;*.exe|Tous les fichiers|*.*"
         });
 
         Add("hi", new string[] {
@@ -450,7 +468,10 @@ static partial class L
             "dropNow", "छोड़ दें",
             "uiFailed", "इंटरफ़ेस लोड नहीं हो सका:\r\n",
             "uiFailedHint", "\r\n\r\nहो सकता है WebView2 रनटाइम इंस्टॉल न हो।\r\nआप ट्रे मेन्यू से \"इंटरफ़ेस ब्राउज़र में खोलें\" के साथ जारी रख सकते हैं।",
-            "buttonsAdded", " बटन जोड़े गए"
+            "buttonsAdded", " बटन जोड़े गए",
+            "browse", "शॉर्टकट चुनें…",
+            "browseTitle", "शॉर्टकट, प्रोग्राम, फ़ोल्डर या फ़ाइल चुनें",
+            "browseFilter", "शॉर्टकट और प्रोग्राम|*.lnk;*.url;*.exe|सभी फ़ाइलें|*.*"
         });
 
         Add("id", new string[] {
@@ -514,7 +535,10 @@ static partial class L
             "dropNow", "Lepaskan",
             "uiFailed", "Antarmuka tidak bisa dimuat:\r\n",
             "uiFailedHint", "\r\n\r\nRuntime WebView2 mungkin belum terpasang.\r\nAnda bisa lanjut dengan \"Buka Antarmuka di Peramban\" dari menu area notifikasi.",
-            "buttonsAdded", " tombol ditambahkan"
+            "buttonsAdded", " tombol ditambahkan",
+            "browse", "Pilih pintasan…",
+            "browseTitle", "Pilih pintasan, program, folder atau berkas",
+            "browseFilter", "Pintasan dan program|*.lnk;*.url;*.exe|Semua berkas|*.*"
         });
 
         Add("it", new string[] {
@@ -578,7 +602,10 @@ static partial class L
             "dropNow", "Rilascialo",
             "uiFailed", "Impossibile caricare l'interfaccia:\r\n",
             "uiFailedHint", "\r\n\r\nIl runtime WebView2 potrebbe non essere installato.\r\nPuoi continuare con \"Apri l'interfaccia nel browser\" dal menu dell'area di notifica.",
-            "buttonsAdded", " pulsanti aggiunti"
+            "buttonsAdded", " pulsanti aggiunti",
+            "browse", "Scegli un collegamento…",
+            "browseTitle", "Scegli un collegamento, un programma, una cartella o un file",
+            "browseFilter", "Collegamenti e programmi|*.lnk;*.url;*.exe|Tutti i file|*.*"
         });
 
         Add("ja", new string[] {
@@ -642,7 +669,10 @@ static partial class L
             "dropNow", "ここにドロップ",
             "uiFailed", "画面を読み込めませんでした:\r\n",
             "uiFailedHint", "\r\n\r\nWebView2 ランタイムがインストールされていない可能性があります。\r\n通知領域のメニューの「ブラウザーで画面を開く」から続行できます。",
-            "buttonsAdded", " 個のボタンを追加しました"
+            "buttonsAdded", " 個のボタンを追加しました",
+            "browse", "ショートカットを選択…",
+            "browseTitle", "ショートカット、プログラム、フォルダー、ファイルを選択",
+            "browseFilter", "ショートカットとプログラム|*.lnk;*.url;*.exe|すべてのファイル|*.*"
         });
 
         Add("ko", new string[] {
@@ -706,7 +736,10 @@ static partial class L
             "dropNow", "여기에 놓으세요",
             "uiFailed", "화면을 불러올 수 없습니다:\r\n",
             "uiFailedHint", "\r\n\r\nWebView2 런타임이 설치되어 있지 않을 수 있습니다.\r\n알림 영역 메뉴의 \"브라우저에서 화면 열기\"로 계속할 수 있습니다.",
-            "buttonsAdded", " 개의 버튼을 추가했습니다"
+            "buttonsAdded", " 개의 버튼을 추가했습니다",
+            "browse", "바로 가기 선택…",
+            "browseTitle", "바로 가기, 프로그램, 폴더 또는 파일 선택",
+            "browseFilter", "바로 가기 및 프로그램|*.lnk;*.url;*.exe|모든 파일|*.*"
         });
 
         Add("pl", new string[] {
@@ -770,7 +803,10 @@ static partial class L
             "dropNow", "Upuść",
             "uiFailed", "Nie udało się załadować interfejsu:\r\n",
             "uiFailedHint", "\r\n\r\nŚrodowisko WebView2 może nie być zainstalowane.\r\nMożesz kontynuować, wybierając „Otwórz interfejs w przeglądarce” z menu zasobnika.",
-            "buttonsAdded", " przycisków dodano"
+            "buttonsAdded", " przycisków dodano",
+            "browse", "Wybierz skrót…",
+            "browseTitle", "Wybierz skrót, program, folder lub plik",
+            "browseFilter", "Skróty i programy|*.lnk;*.url;*.exe|Wszystkie pliki|*.*"
         });
 
         Add("pt", new string[] {
@@ -834,7 +870,10 @@ static partial class L
             "dropNow", "Largue aqui",
             "uiFailed", "Não foi possível carregar a interface:\r\n",
             "uiFailedHint", "\r\n\r\nO runtime WebView2 pode não estar instalado.\r\nPode continuar com \"Abrir a interface no navegador\" a partir do menu da área de notificação.",
-            "buttonsAdded", " botões adicionados"
+            "buttonsAdded", " botões adicionados",
+            "browse", "Escolher atalho…",
+            "browseTitle", "Escolher um atalho, programa, pasta ou ficheiro",
+            "browseFilter", "Atalhos e programas|*.lnk;*.url;*.exe|Todos os ficheiros|*.*"
         });
 
         Add("ru", new string[] {
@@ -898,7 +937,10 @@ static partial class L
             "dropNow", "Отпустите",
             "uiFailed", "Не удалось загрузить интерфейс:\r\n",
             "uiFailedHint", "\r\n\r\nВозможно, не установлена среда выполнения WebView2.\r\nМожно продолжить через «Открыть интерфейс в браузере» в меню области уведомлений.",
-            "buttonsAdded", " кнопок добавлено"
+            "buttonsAdded", " кнопок добавлено",
+            "browse", "Выбрать ярлык…",
+            "browseTitle", "Выберите ярлык, программу, папку или файл",
+            "browseFilter", "Ярлыки и программы|*.lnk;*.url;*.exe|Все файлы|*.*"
         });
 
         Add("uk", new string[] {
@@ -962,7 +1004,10 @@ static partial class L
             "dropNow", "Відпустіть",
             "uiFailed", "Не вдалося завантажити інтерфейс:\r\n",
             "uiFailedHint", "\r\n\r\nМожливо, не встановлено середовище виконання WebView2.\r\nМожна продовжити через «Відкрити інтерфейс у браузері» в меню області сповіщень.",
-            "buttonsAdded", " кнопок додано"
+            "buttonsAdded", " кнопок додано",
+            "browse", "Вибрати ярлик…",
+            "browseTitle", "Виберіть ярлик, програму, теку або файл",
+            "browseFilter", "Ярлики та програми|*.lnk;*.url;*.exe|Усі файли|*.*"
         });
 
         Add("ur", new string[] {
@@ -1026,7 +1071,10 @@ static partial class L
             "dropNow", "چھوڑ دیں",
             "uiFailed", "انٹرفیس لوڈ نہیں ہو سکا:\r\n",
             "uiFailedHint", "\r\n\r\nممکن ہے WebView2 رن ٹائم نصب نہ ہو۔\r\nآپ ٹرے مینو سے «انٹرفیس براؤزر میں کھولیں» کے ذریعے جاری رکھ سکتے ہیں۔",
-            "buttonsAdded", " بٹن شامل ہوئے"
+            "buttonsAdded", " بٹن شامل ہوئے",
+            "browse", "شارٹ کٹ منتخب کریں…",
+            "browseTitle", "شارٹ کٹ، پروگرام، فولڈر یا فائل منتخب کریں",
+            "browseFilter", "شارٹ کٹ اور پروگرام|*.lnk;*.url;*.exe|تمام فائلیں|*.*"
         });
 
         Add("vi", new string[] {
@@ -1090,7 +1138,10 @@ static partial class L
             "dropNow", "Thả vào đây",
             "uiFailed", "Không tải được giao diện:\r\n",
             "uiFailedHint", "\r\n\r\nCó thể runtime WebView2 chưa được cài đặt.\r\nBạn có thể tiếp tục bằng \"Mở giao diện trong trình duyệt\" trong menu khay hệ thống.",
-            "buttonsAdded", " nút đã được thêm"
+            "buttonsAdded", " nút đã được thêm",
+            "browse", "Chọn lối tắt…",
+            "browseTitle", "Chọn lối tắt, chương trình, thư mục hoặc tệp",
+            "browseFilter", "Lối tắt và chương trình|*.lnk;*.url;*.exe|Tất cả tệp|*.*"
         });
 
         Add("zh", new string[] {
@@ -1154,7 +1205,10 @@ static partial class L
             "dropNow", "放到这里",
             "uiFailed", "界面加载失败：\r\n",
             "uiFailedHint", "\r\n\r\n可能未安装 WebView2 运行时。\r\n可以用通知区域菜单中的“在浏览器中打开界面”继续。",
-            "buttonsAdded", " 个按钮已添加"
+            "buttonsAdded", " 个按钮已添加",
+            "browse", "选择快捷方式…",
+            "browseTitle", "选择快捷方式、程序、文件夹或文件",
+            "browseFilter", "快捷方式和程序|*.lnk;*.url;*.exe|所有文件|*.*"
         });
     }
 }

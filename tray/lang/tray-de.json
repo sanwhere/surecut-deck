@@ -59,5 +59,8 @@
   "dropNow": "Loslassen",
   "uiFailed": "Die Oberfläche konnte nicht geladen werden:\r\n",
   "uiFailedHint": "\r\n\r\nDie WebView2-Laufzeit ist möglicherweise nicht installiert.\r\nDu kannst mit „Oberfläche im Browser öffnen“ aus dem Infobereichsmenü fortfahren.",
-  "buttonsAdded": " Schaltflächen hinzugefügt"
+  "buttonsAdded": " Schaltflächen hinzugefügt",
+  "browse": "Verknüpfung wählen…",
+  "browseTitle": "Verknüpfung, Programm, Ordner oder Datei wählen",
+  "browseFilter": "Verknüpfungen und Programme|*.lnk;*.url;*.exe|Alle Dateien|*.*"
 }

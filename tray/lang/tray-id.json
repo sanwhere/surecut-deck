@@ -59,5 +59,8 @@
   "dropNow": "Lepaskan",
   "uiFailed": "Antarmuka tidak bisa dimuat:\r\n",
   "uiFailedHint": "\r\n\r\nRuntime WebView2 mungkin belum terpasang.\r\nAnda bisa lanjut dengan \"Buka Antarmuka di Peramban\" dari menu area notifikasi.",
-  "buttonsAdded": " tombol ditambahkan"
+  "buttonsAdded": " tombol ditambahkan",
+  "browse": "Pilih pintasan…",
+  "browseTitle": "Pilih pintasan, program, folder atau berkas",
+  "browseFilter": "Pintasan dan program|*.lnk;*.url;*.exe|Semua berkas|*.*"
 }

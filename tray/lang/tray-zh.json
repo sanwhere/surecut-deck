@@ -59,5 +59,8 @@
   "dropNow": "放到这里",
   "uiFailed": "界面加载失败：\r\n",
   "uiFailedHint": "\r\n\r\n可能未安装 WebView2 运行时。\r\n可以用通知区域菜单中的“在浏览器中打开界面”继续。",
-  "buttonsAdded": " 个按钮已添加"
+  "buttonsAdded": " 个按钮已添加",
+  "browse": "选择快捷方式…",
+  "browseTitle": "选择快捷方式、程序、文件夹或文件",
+  "browseFilter": "快捷方式和程序|*.lnk;*.url;*.exe|所有文件|*.*"
 }

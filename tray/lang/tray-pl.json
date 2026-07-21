@@ -59,5 +59,8 @@
   "dropNow": "Upuść",
   "uiFailed": "Nie udało się załadować interfejsu:\r\n",
   "uiFailedHint": "\r\n\r\nŚrodowisko WebView2 może nie być zainstalowane.\r\nMożesz kontynuować, wybierając „Otwórz interfejs w przeglądarce” z menu zasobnika.",
-  "buttonsAdded": " przycisków dodano"
+  "buttonsAdded": " przycisków dodano",
+  "browse": "Wybierz skrót…",
+  "browseTitle": "Wybierz skrót, program, folder lub plik",
+  "browseFilter": "Skróty i programy|*.lnk;*.url;*.exe|Wszystkie pliki|*.*"
 }

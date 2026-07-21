@@ -59,5 +59,8 @@
   "dropNow": "Thả vào đây",
   "uiFailed": "Không tải được giao diện:\r\n",
   "uiFailedHint": "\r\n\r\nCó thể runtime WebView2 chưa được cài đặt.\r\nBạn có thể tiếp tục bằng \"Mở giao diện trong trình duyệt\" trong menu khay hệ thống.",
-  "buttonsAdded": " nút đã được thêm"
+  "buttonsAdded": " nút đã được thêm",
+  "browse": "Chọn lối tắt…",
+  "browseTitle": "Chọn lối tắt, chương trình, thư mục hoặc tệp",
+  "browseFilter": "Lối tắt và chương trình|*.lnk;*.url;*.exe|Tất cả tệp|*.*"
 }

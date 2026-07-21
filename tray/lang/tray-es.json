@@ -59,5 +59,8 @@
   "dropNow": "Suéltalo",
   "uiFailed": "No se pudo cargar la interfaz:\r\n",
   "uiFailedHint": "\r\n\r\nPuede que el entorno de ejecución WebView2 no esté instalado.\r\nPuedes continuar con \"Abrir la interfaz en el navegador\" desde el menú de la bandeja.",
-  "buttonsAdded": " botones añadidos"
+  "buttonsAdded": " botones añadidos",
+  "browse": "Elegir acceso directo…",
+  "browseTitle": "Elegir un acceso directo, programa, carpeta o archivo",
+  "browseFilter": "Accesos directos y programas|*.lnk;*.url;*.exe|Todos los archivos|*.*"
 }

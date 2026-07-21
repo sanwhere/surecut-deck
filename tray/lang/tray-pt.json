@@ -59,5 +59,8 @@
   "dropNow": "Largue aqui",
   "uiFailed": "Não foi possível carregar a interface:\r\n",
   "uiFailedHint": "\r\n\r\nO runtime WebView2 pode não estar instalado.\r\nPode continuar com \"Abrir a interface no navegador\" a partir do menu da área de notificação.",
-  "buttonsAdded": " botões adicionados"
+  "buttonsAdded": " botões adicionados",
+  "browse": "Escolher atalho…",
+  "browseTitle": "Escolher um atalho, programa, pasta ou ficheiro",
+  "browseFilter": "Atalhos e programas|*.lnk;*.url;*.exe|Todos os ficheiros|*.*"
 }

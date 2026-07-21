@@ -59,5 +59,8 @@
   "dropNow": "Dépose-le",
   "uiFailed": "L'interface n'a pas pu se charger :\r\n",
   "uiFailedHint": "\r\n\r\nLe runtime WebView2 n'est peut-être pas installé.\r\nTu peux continuer avec « Ouvrir l'interface dans le navigateur » depuis le menu de la zone de notification.",
-  "buttonsAdded": " boutons ajoutés"
+  "buttonsAdded": " boutons ajoutés",
+  "browse": "Choisir un raccourci…",
+  "browseTitle": "Choisir un raccourci, un programme, un dossier ou un fichier",
+  "browseFilter": "Raccourcis et programmes|*.lnk;*.url;*.exe|Tous les fichiers|*.*"
 }

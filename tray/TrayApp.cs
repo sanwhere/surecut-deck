@@ -52,7 +52,7 @@ static class Program
         {
             if (!isNew)
             {
-                MessageBox.Show("surecut-deck zaten çalışıyor.", "surecut-deck",
+                MessageBox.Show(L.T("alreadyRunning"), "surecut-deck",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
                 return;
             }
@@ -177,8 +177,8 @@ class TrayContext : ApplicationContext
         bool running = IsRunning();
 
         ToolStripMenuItem header = new ToolStripMenuItem(running
-            ? "● Çalışıyor  ·  port " + settings.Port
-            : "● Durdu");
+            ? L.T("running") + settings.Port
+            : L.T("stopped"));
         header.Enabled = false;
         m.Items.Add(header);
 
@@ -189,41 +189,41 @@ class TrayContext : ApplicationContext
             addr.Enabled = false;
             m.Items.Add(addr);
 
-            ToolStripMenuItem code = new ToolStripMenuItem("Eşleştirme kodu:  " + ReadToken());
+            ToolStripMenuItem code = new ToolStripMenuItem(L.T("pairCode") + ReadToken());
             code.Enabled = false;
             m.Items.Add(code);
         }
 
         m.Items.Add(new ToolStripSeparator());
-        ToolStripMenuItem editor = new ToolStripMenuItem("Düzenleyiciyi Aç", null, delegate { OpenEditorWindow(); });
+        ToolStripMenuItem editor = new ToolStripMenuItem(L.T("openEditor"), null, delegate { OpenEditorWindow(); });
         editor.Font = new Font(m.Font, FontStyle.Bold);
         editor.Enabled = running;
         m.Items.Add(editor);
 
-        ToolStripMenuItem drop = new ToolStripMenuItem("Kısayol Sürükle Bırak…", null, delegate { ShowDrop(); });
+        ToolStripMenuItem drop = new ToolStripMenuItem(L.T("dragDrop"), null, delegate { ShowDrop(); });
         drop.Enabled = running;
         m.Items.Add(drop);
 
-        m.Items.Add("Sunucu Bilgisi…", null, delegate { ShowInfo(); });
-        m.Items.Add("Arayüzü Tarayıcıda Aç", null, delegate { OpenUi(); });
-        m.Items.Add("Bağlantı Adresini Kopyala", null, delegate { CopyUrl(); });
+        m.Items.Add(L.T("serverInfo"), null, delegate { ShowInfo(); });
+        m.Items.Add(L.T("openInBrowser"), null, delegate { OpenUi(); });
+        m.Items.Add(L.T("copyAddress"), null, delegate { CopyUrl(); });
         m.Items.Add(new ToolStripSeparator());
-        m.Items.Add("Ayarlar…", null, delegate { ShowSettings(); });
-        m.Items.Add("Günlük…", null, delegate { ShowLog(); });
+        m.Items.Add(L.T("settings"), null, delegate { ShowSettings(); });
+        m.Items.Add(L.T("log"), null, delegate { ShowLog(); });
         m.Items.Add(new ToolStripSeparator());
 
         if (running)
         {
-            m.Items.Add("Yeniden Başlat", null, delegate { RestartNode(); });
-            m.Items.Add("Durdur", null, delegate { StopNode(); UpdateIcon(); });
+            m.Items.Add(L.T("restart"), null, delegate { RestartNode(); });
+            m.Items.Add(L.T("stop"), null, delegate { StopNode(); UpdateIcon(); });
         }
         else
         {
-            m.Items.Add("Başlat", null, delegate { StartNode(); });
+            m.Items.Add(L.T("start"), null, delegate { StartNode(); });
         }
 
         m.Items.Add(new ToolStripSeparator());
-        m.Items.Add("Çıkış", null, delegate { ExitApp(); });
+        m.Items.Add(L.T("quit"), null, delegate { ExitApp(); });
     }
 
     // ------------------------------------------------------------ tepsi tiklamasi
@@ -321,8 +321,8 @@ class TrayContext : ApplicationContext
             node = null;
             AddLog("HATA: node baslatilamadi: " + ex.Message);
             MessageBox.Show(
-                "Node.js başlatılamadı:\n\n" + ex.Message +
-                "\n\nNode.js kurulu ve PATH'te olmalı.",
+                L.T("nodeFailed") + ex.Message +
+                L.T("nodeFailedHint"),
                 "surecut-deck", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -363,8 +363,8 @@ class TrayContext : ApplicationContext
         bool r = IsRunning();
         tray.Icon = MakeIcon(r);
         tray.Text = r
-            ? "surecut-deck — çalışıyor (port " + settings.Port + ")"
-            : "surecut-deck — durdu";
+            ? L.T("trayRunning") + settings.Port + ")"
+            : L.T("trayStopped");
     }
 
     // ------------------------------------------------------------ gunluk
@@ -401,7 +401,7 @@ class TrayContext : ApplicationContext
     public static string ReadToken()
     {
         try { return File.ReadAllText(Paths.Data("token.txt")).Trim(); }
-        catch { return "(henüz üretilmedi)"; }
+        catch { return L.T("notGenerated"); }
     }
 
     public static void RegenerateToken()
@@ -482,7 +482,7 @@ class TrayContext : ApplicationContext
             {
                 editorFallbackWarned = true;
                 tray.ShowBalloonTip(4000, "surecut-deck",
-                    "Düzenleyici penceresi açılamadı, tarayıcıda açılıyor. Ayrıntı: Günlük",
+                    L.T("editorFellBack"),
                     ToolTipIcon.Warning);
             }
             OpenEditorInBrowser();
@@ -559,7 +559,7 @@ class TrayContext : ApplicationContext
         try
         {
             Clipboard.SetText(url);
-            tray.ShowBalloonTip(2000, "surecut-deck", "Kopyalandı: " + url, ToolTipIcon.Info);
+            tray.ShowBalloonTip(2000, "surecut-deck", L.T("copied") + url, ToolTipIcon.Info);
         }
         catch { }
     }
@@ -614,8 +614,8 @@ class TrayContext : ApplicationContext
             {
                 RegenerateToken();
                 MessageBox.Show(
-                    "Yeni eşleştirme kodu: " + ReadToken() +
-                    "\n\nTabletteki bağlantı kesilecek, yeni kodu girmen gerekecek.",
+                    L.T("newCode") + ReadToken() +
+                    L.T("newCodeHint"),
                     "surecut-deck", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
@@ -653,7 +653,7 @@ class TrayContext : ApplicationContext
         }
         catch (Exception ex)
         {
-            MessageBox.Show("Otomatik başlatma ayarlanamadı: " + ex.Message, "surecut-deck");
+            MessageBox.Show(L.T("autoStartFailed") + ex.Message, "surecut-deck");
         }
     }
 
@@ -831,7 +831,8 @@ class DropForm : Form
     {
         settings = s;
 
-        Text = "surecut-deck — Sürükle Bırak";
+        Text = L.T("dropTitle");
+        L.ApplyRtl(this);
         Size = new Size(440, 460);
         StartPosition = FormStartPosition.CenterScreen;
         MaximizeBox = false;
@@ -840,7 +841,7 @@ class DropForm : Form
         TopMost = true;
 
         Label l1 = new Label();
-        l1.Text = "Hangi sayfaya eklensin";
+        l1.Text = L.T("whichPage");
         l1.Location = new Point(16, 14);
         l1.Size = new Size(250, 18);
         l1.ForeColor = Color.Gray;
@@ -856,7 +857,7 @@ class DropForm : Form
         Controls.Add(cboPage);
 
         Button bReload = new Button();
-        bReload.Text = "Yenile";
+        bReload.Text = L.T("refresh");
         bReload.Location = new Point(304, 33);
         bReload.Size = new Size(100, 26);
         bReload.Click += delegate { LoadPages(); };
@@ -874,7 +875,7 @@ class DropForm : Form
         Controls.Add(zone);
 
         zoneText = new Label();
-        zoneText.Text = "Masaüstündeki kısayolu\r\nburaya sürükle bırak\r\n\r\n(program, klasör veya dosya da olur)";
+        zoneText.Text = L.T("dropZone");
         zoneText.Dock = DockStyle.Fill;
         zoneText.TextAlign = ContentAlignment.MiddleCenter;
         zoneText.ForeColor = Color.FromArgb(110, 115, 125);
@@ -887,7 +888,7 @@ class DropForm : Form
         zone.Controls.Add(zoneText);
 
         Label l2 = new Label();
-        l2.Text = "Eklenenler";
+        l2.Text = L.T("added");
         l2.Location = new Point(16, 256);
         l2.Size = new Size(250, 18);
         l2.ForeColor = Color.Gray;
@@ -899,7 +900,7 @@ class DropForm : Form
         Controls.Add(added);
 
         CheckBox chkTop = new CheckBox();
-        chkTop.Text = "Her zaman üstte";
+        chkTop.Text = L.T("alwaysOnTop");
         chkTop.Location = new Point(16, 386);
         chkTop.Size = new Size(160, 24);
         chkTop.Checked = true;
@@ -907,7 +908,7 @@ class DropForm : Form
         Controls.Add(chkTop);
 
         Button bClose = new Button();
-        bClose.Text = "Kapat";
+        bClose.Text = L.T("close");
         bClose.Location = new Point(304, 384);
         bClose.Size = new Size(100, 30);
         bClose.Click += delegate { Hide(); };
@@ -984,7 +985,7 @@ class DropForm : Form
 
         string resp = PostJson("http://127.0.0.1:" + settings.Port + "/api/button", json);
         return resp.Contains("\"ok\":true")
-            ? "✓  " + inf.Label + (iconUrl != null ? "  (simge ✓)" : "  (simge yok)")
+            ? "✓  " + inf.Label + (iconUrl != null ? L.T("iconYes") : L.T("iconNo"))
             : "HATA  " + inf.Label + ": " + resp;
     }
 
@@ -1063,7 +1064,7 @@ class DropForm : Form
         string json = GetJson("http://127.0.0.1:" + settings.Port + "/api/pages");
         if (json == null)
         {
-            cboPage.Items.Add(new PageItem { Id = "", Name = "(host çalışmıyor)" });
+            cboPage.Items.Add(new PageItem { Id = "", Name = L.T("hostNotRunning") });
             cboPage.SelectedIndex = 0;
             return;
         }
@@ -1111,7 +1112,8 @@ class InfoForm : Form
     {
         ctx = c; settings = s;
 
-        Text = "surecut-deck — Sunucu Bilgisi";
+        Text = L.T("infoTitle");
+        L.ApplyRtl(this);
         Size = new Size(520, 420);
         StartPosition = FormStartPosition.CenterScreen;
         MinimizeBox = false;
@@ -1126,7 +1128,7 @@ class InfoForm : Form
         Controls.Add(lblStatus);
 
         Label l1 = new Label();
-        l1.Text = "Eşleştirme kodu";
+        l1.Text = L.T("pairCodeLabel");
         l1.Location = new Point(16, 48);
         l1.Size = new Size(200, 18);
         l1.ForeColor = Color.Gray;
@@ -1139,7 +1141,7 @@ class InfoForm : Form
         Controls.Add(lblCode);
 
         Button bCopyCode = new Button();
-        bCopyCode.Text = "Kodu Kopyala";
+        bCopyCode.Text = L.T("copyCode");
         bCopyCode.Location = new Point(330, 68);
         bCopyCode.Size = new Size(150, 30);
         bCopyCode.Click += delegate
@@ -1149,7 +1151,7 @@ class InfoForm : Form
         Controls.Add(bCopyCode);
 
         Label l2 = new Label();
-        l2.Text = "Tabletten bu adreslerden birini aç (çift tıkla → kopyala)";
+        l2.Text = L.T("addressHint");
         l2.Location = new Point(16, 112);
         l2.Size = new Size(470, 18);
         l2.ForeColor = Color.Gray;
@@ -1161,8 +1163,8 @@ class InfoForm : Form
         lvAddr.View = View.Details;
         lvAddr.FullRowSelect = true;
         lvAddr.MultiSelect = false;
-        lvAddr.Columns.Add("Adres", 250);
-        lvAddr.Columns.Add("Ağ arayüzü", 200);
+        lvAddr.Columns.Add(L.T("colAddress"), 250);
+        lvAddr.Columns.Add(L.T("colInterface"), 200);
         lvAddr.DoubleClick += delegate
         {
             if (lvAddr.SelectedItems.Count == 0) return;
@@ -1171,14 +1173,14 @@ class InfoForm : Form
         Controls.Add(lvAddr);
 
         Button bRefresh = new Button();
-        bRefresh.Text = "Yenile";
+        bRefresh.Text = L.T("refresh");
         bRefresh.Location = new Point(16, 326);
         bRefresh.Size = new Size(110, 32);
         bRefresh.Click += delegate { Refresh2(); };
         Controls.Add(bRefresh);
 
         Button bClose = new Button();
-        bClose.Text = "Kapat";
+        bClose.Text = L.T("close");
         bClose.Location = new Point(374, 326);
         bClose.Size = new Size(110, 32);
         bClose.Click += delegate { Hide(); };
@@ -1188,7 +1190,7 @@ class InfoForm : Form
     public void Refresh2()
     {
         lblCode.Text = TrayContext.ReadToken();
-        lblStatus.Text = "Port " + settings.Port;
+        lblStatus.Text = L.T("port") + " " + settings.Port;
 
         lvAddr.Items.Clear();
         foreach (string[] a in TrayContext.LocalAddresses())
@@ -1219,7 +1221,8 @@ class SettingsForm : Form
 
     public SettingsForm(HostSettings s, bool autoStart)
     {
-        Text = "surecut-deck — Ayarlar";
+        Text = L.T("settingsTitle");
+        L.ApplyRtl(this);
         Size = new Size(460, 340);
         StartPosition = FormStartPosition.CenterScreen;
         MinimizeBox = false;
@@ -1228,7 +1231,7 @@ class SettingsForm : Form
         Font = new Font("Segoe UI", 9f);
 
         Label lPort = new Label();
-        lPort.Text = "Port";
+        lPort.Text = L.T("port");
         lPort.Location = new Point(18, 20);
         lPort.Size = new Size(120, 20);
         Controls.Add(lPort);
@@ -1242,49 +1245,49 @@ class SettingsForm : Form
         Controls.Add(numPort);
 
         Label lHint = new Label();
-        lHint.Text = "Değiştirirsen host yeniden başlar ve tabletteki adres değişir.";
+        lHint.Text = L.T("portHint");
         lHint.Location = new Point(150, 46);
         lHint.Size = new Size(280, 34);
         lHint.ForeColor = Color.Gray;
         Controls.Add(lHint);
 
         chkAutoStart = new CheckBox();
-        chkAutoStart.Text = "Windows açılışında başlat";
+        chkAutoStart.Text = L.T("startWithWindows");
         chkAutoStart.Location = new Point(18, 88);
         chkAutoStart.Size = new Size(400, 24);
         chkAutoStart.Checked = autoStart;
         Controls.Add(chkAutoStart);
 
         chkMinimized = new CheckBox();
-        chkMinimized.Text = "Başlarken pencere açma (sadece tepside dursun)";
+        chkMinimized.Text = L.T("startMinimized");
         chkMinimized.Location = new Point(18, 116);
         chkMinimized.Size = new Size(400, 24);
         chkMinimized.Checked = s.StartMinimized;
         Controls.Add(chkMinimized);
 
         chkRegen = new CheckBox();
-        chkRegen.Text = "Eşleştirme kodunu yenile";
+        chkRegen.Text = L.T("regenCode");
         chkRegen.Location = new Point(18, 152);
         chkRegen.Size = new Size(400, 24);
         chkRegen.ForeColor = Color.FromArgb(180, 60, 60);
         Controls.Add(chkRegen);
 
         Label lRegen = new Label();
-        lRegen.Text = "Bağlı tabletlerin bağlantısı kesilir, yeni kodu girmeleri gerekir.";
+        lRegen.Text = L.T("regenHint");
         lRegen.Location = new Point(38, 176);
         lRegen.Size = new Size(390, 20);
         lRegen.ForeColor = Color.Gray;
         Controls.Add(lRegen);
 
         Button bFw = new Button();
-        bFw.Text = "Güvenlik duvarı kuralı ekle (yönetici ister)";
+        bFw.Text = L.T("addFirewall");
         bFw.Location = new Point(18, 206);
         bFw.Size = new Size(410, 32);
         bFw.Click += delegate { AddFirewallRule((int)numPort.Value); };
         Controls.Add(bFw);
 
         Button bOk = new Button();
-        bOk.Text = "Kaydet";
+        bOk.Text = L.T("save");
         bOk.Location = new Point(228, 254);
         bOk.Size = new Size(95, 32);
         bOk.Click += delegate
@@ -1300,7 +1303,7 @@ class SettingsForm : Form
         AcceptButton = bOk;
 
         Button bCancel = new Button();
-        bCancel.Text = "İptal";
+        bCancel.Text = L.T("cancel");
         bCancel.Location = new Point(333, 254);
         bCancel.Size = new Size(95, 32);
         bCancel.Click += delegate { DialogResult = DialogResult.Cancel; Close(); };
@@ -1325,14 +1328,14 @@ class SettingsForm : Form
             Process p = Process.Start(psi);
             p.WaitForExit(15000);
             MessageBox.Show(p.ExitCode == 0
-                ? "Güvenlik duvarı kuralı eklendi (port " + port + ", Private profil)."
-                : "Kural eklenemedi. Yönetici onayı verildi mi?",
+                ? L.T("firewallAdded") + port + L.T("firewallAddedTail")
+                : L.T("firewallFailed"),
                 "surecut-deck");
         }
         catch (Exception ex)
         {
             // Kullanici UAC'yi reddederse buraya duser.
-            MessageBox.Show("Kural eklenemedi: " + ex.Message, "surecut-deck");
+            MessageBox.Show(L.T("firewallError") + ex.Message, "surecut-deck");
         }
     }
 }
@@ -1345,7 +1348,8 @@ class LogForm : Form
 
     public LogForm()
     {
-        Text = "surecut-deck — Günlük";
+        Text = L.T("logTitle");
+        L.ApplyRtl(this);
         Size = new Size(760, 460);
         StartPosition = FormStartPosition.CenterScreen;
         Font = new Font("Segoe UI", 9f);

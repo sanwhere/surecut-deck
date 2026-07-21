@@ -39,6 +39,7 @@ class EditorForm : Form
         Font = new Font("Segoe UI", 9f);
         AllowDrop = true;
         MinimumSize = new Size(720, 480);
+        L.ApplyRtl(this);
 
         // --- ustte birakma seridi ---
         dropBar = new Panel();
@@ -52,7 +53,7 @@ class EditorForm : Form
         Controls.Add(dropBar);
 
         dropLabel = new Label();
-        dropLabel.Text = "Masaüstündeki kısayolu pencerenin herhangi bir yerine bırak: hedefi ve simgesi otomatik alınır";
+        dropLabel.Text = L.T("dropHere");
         dropLabel.Dock = DockStyle.Fill;
         dropLabel.TextAlign = ContentAlignment.MiddleCenter;
         dropLabel.ForeColor = Color.FromArgb(90, 96, 106);
@@ -142,9 +143,9 @@ class EditorForm : Form
         Label err = new Label();
         err.Dock = DockStyle.Fill;
         err.TextAlign = ContentAlignment.MiddleCenter;
-        err.Text = "Arayüz yüklenemedi:\r\n" + msg +
-                   "\r\n\r\nWebView2 çalışma zamanı kurulu olmayabilir.\r\n" +
-                   "Tepsi menüsünden \"Arayüzü Tarayıcıda Aç\" ile devam edebilirsin.";
+        err.Text = L.T("uiFailed") + msg +
+                   
+                   L.T("uiFailedHint");
         err.Font = new Font("Segoe UI", 10f);
         Controls.Add(err);
         err.BringToFront();
@@ -158,7 +159,7 @@ class EditorForm : Form
         {
             e.Effect = DragDropEffects.Copy;
             dropBar.BackColor = BarHover;
-            dropLabel.Text = "Bırak";
+            dropLabel.Text = L.T("dropNow");
         }
         else e.Effect = DragDropEffects.None;
     }
@@ -168,7 +169,7 @@ class EditorForm : Form
     void ResetBar()
     {
         dropBar.BackColor = BarIdle;
-        dropLabel.Text = "Masaüstündeki kısayolu pencerenin herhangi bir yerine bırak: hedefi ve simgesi otomatik alınır";
+        dropLabel.Text = L.T("dropHere");
     }
 
     void Drop_DragDrop(object sender, DragEventArgs e)
@@ -193,7 +194,7 @@ class EditorForm : Form
             catch (Exception ex) { last = "HATA: " + ex.Message; }
         }
 
-        dropLabel.Text = files.Length == 1 ? last : (ok + "/" + files.Length + " buton eklendi");
+        dropLabel.Text = files.Length == 1 ? last : (ok + "/" + files.Length + L.T("buttonsAdded"));
         // Birkac saniye sonra normal metne don.
         Timer t = new Timer();
         t.Interval = 2500;

@@ -103,6 +103,14 @@ class EditorForm : Form
         Load += delegate { StartWeb(); LoadPages(); };
     }
 
+    // Tutamak olusur olusmaz UIPI filtresini ac: yonetici olarak
+    // calisirken masaustunden surukle birak aksi halde hic ulasmiyor.
+    protected override void OnHandleCreated(EventArgs e)
+    {
+        base.OnHandleCreated(e);
+        Uipi.AllowDrops(Handle);
+    }
+
     void StartWeb()
     {
         try

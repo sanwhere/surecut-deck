@@ -16,7 +16,7 @@ echo [2/3] StatsHelper...
 if errorlevel 1 (echo HATA & exit /b 1)
 
 echo [3/3] Tray + Editor...
-"%CSC%" /nologo /target:winexe /platform:x64 /optimize+ /r:System.dll /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:System.Core.dll /r:"%~dp0tray\Microsoft.Web.WebView2.Core.dll" /r:"%~dp0tray\Microsoft.Web.WebView2.WinForms.dll" /out:"%~dp0tray\SurecutDeck.exe" "%~dp0tray\TrayApp.cs" "%~dp0tray\EditorForm.cs" "%~dp0tray\Strings.cs" "%~dp0tray\Strings.Generated.cs" "%~dp0tray\Diag.cs"
+"%CSC%" /nologo /target:winexe /platform:x64 /optimize+ /r:System.dll /r:System.Drawing.dll /r:System.Windows.Forms.dll /r:System.Core.dll /r:"%~dp0tray\Microsoft.Web.WebView2.Core.dll" /r:"%~dp0tray\Microsoft.Web.WebView2.WinForms.dll" /out:"%~dp0tray\SurecutDeck.exe" "%~dp0tray\TrayApp.cs" "%~dp0tray\EditorForm.cs" "%~dp0tray\Strings.cs" "%~dp0tray\Strings.Generated.cs" "%~dp0tray\Diag.cs" "%~dp0tray\Uipi.cs"
 if errorlevel 1 (echo HATA & exit /b 1)
 
 echo Tamam.

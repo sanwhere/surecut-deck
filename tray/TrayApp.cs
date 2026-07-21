@@ -833,6 +833,8 @@ class DropForm : Form
 
         Text = L.T("dropTitle");
         L.ApplyRtl(this);
+        // Yonetici olarak calisirken surukle birak icin, bkz. Uipi.cs
+        HandleCreated += delegate { Uipi.AllowDrops(Handle); };
         Size = new Size(440, 460);
         StartPosition = FormStartPosition.CenterScreen;
         MaximizeBox = false;

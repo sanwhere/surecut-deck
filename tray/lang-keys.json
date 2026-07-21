@@ -59,5 +59,8 @@
   "dropNow",
   "uiFailed",
   "uiFailedHint",
-  "buttonsAdded"
+  "buttonsAdded",
+  "browse",
+  "browseTitle",
+  "browseFilter"
 ]

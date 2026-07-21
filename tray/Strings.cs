@@ -146,7 +146,10 @@ static partial class L
             "dropNow", "Drop it",
             "uiFailed", "The interface could not load:\r\n",
             "uiFailedHint", "\r\n\r\nThe WebView2 runtime may not be installed.\r\nYou can continue with \"Open Interface in Browser\" from the tray menu.",
-            "buttonsAdded", " buttons added"
+            "buttonsAdded", " buttons added",
+            "browse", "Choose a shortcut…",
+            "browseTitle", "Choose a shortcut, program, folder or file",
+            "browseFilter", "Shortcuts and programs|*.lnk;*.url;*.exe|All files|*.*"
         });
 
         Add("tr", new string[] {
@@ -210,7 +213,10 @@ static partial class L
             "dropNow", "Bırak",
             "uiFailed", "Arayüz yüklenemedi:\r\n",
             "uiFailedHint", "\r\n\r\nWebView2 çalışma zamanı kurulu olmayabilir.\r\nTepsi menüsünden \"Arayüzü Tarayıcıda Aç\" ile devam edebilirsin.",
-            "buttonsAdded", " buton eklendi"
+            "buttonsAdded", " buton eklendi",
+            "browse", "Kısayol seç…",
+            "browseTitle", "Kısayol, program, klasör veya dosya seç",
+            "browseFilter", "Kısayol ve programlar|*.lnk;*.url;*.exe|Tüm dosyalar|*.*"
         });
 
         BuildRest();

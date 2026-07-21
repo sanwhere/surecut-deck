@@ -23,6 +23,7 @@ class EditorForm : Form
     Panel dropBar;
     Label dropLabel;
     ComboBox cboPage;
+    Button btnBrowse;
     bool webReady;
 
     static readonly Color BarIdle = Color.FromArgb(244, 246, 249);
@@ -75,6 +76,20 @@ class EditorForm : Form
         dropBar.Controls.Add(cboPage);
         cboPage.BringToFront();
 
+        // Dosya secici: surukle birak isletim sistemi ve WebView2 arasindaki
+        // OLE anlasmasina bagli ve her kurulumda ayni davranmiyor. Bu dugme
+        // hicbirine bagli degil, dolayisiyla her zaman calisir.
+        btnBrowse = new Button();
+        btnBrowse.Text = L.T("browse");
+        btnBrowse.Width = 150;
+        btnBrowse.Height = 26;
+        btnBrowse.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+        btnBrowse.Click += delegate { BrowseForShortcut(); };
+        dropBar.Controls.Add(btnBrowse);
+        btnBrowse.BringToFront();
+        dropBar.Resize += delegate { PlaceBrowse(); };
+        PlaceBrowse();
+
         // --- web arayuzu ---
         web = new WebView2();
         web.Dock = DockStyle.Fill;
@@ -120,8 +135,17 @@ class EditorForm : Form
         // WebView2 kendi icine birakilan dosyalari yutmasin: sayfaya birakilan
         // bir kisayoru tarayici hedefine cozup icerigini okumaya calisir, oysa
         // bize gereken dosyanin YOLU.
-        try { web.AllowExternalDrop = false; }
-        catch { /* eski surumlerde bu ozellik yok, serit yine calisir */ }
+        try
+        {
+            web.AllowExternalDrop = false;
+            Diag.Log("[drop] AllowExternalDrop=false ayarlandi");
+        }
+        catch (Exception ex)
+        {
+            // Bu basarisiz olursa WebView2 birakilan dosyayi kendisi yutar ve
+            // hicbir sey olmaz; sessizce gecmek yanlis teshise yol aciyordu.
+            Diag.Log("[drop] AllowExternalDrop AYARLANAMADI: " + ex.Message);
+        }
 
         // Ama yutmamasi tek basina yetmiyordu: yerine kimse gecmeyince pencerenin
         // govdesine birakilan hicbir sey kabul edilmiyor, kullanicinin tepedeki
@@ -151,10 +175,31 @@ class EditorForm : Form
         err.BringToFront();
     }
 
+    void PlaceBrowse()
+    {
+        if (btnBrowse == null) return;
+        btnBrowse.Location = new Point(Math.Max(12, dropBar.Width - btnBrowse.Width - 14), 18);
+    }
+
+    void BrowseForShortcut()
+    {
+        OpenFileDialog dlg = new OpenFileDialog();
+        dlg.Title = L.T("browseTitle");
+        dlg.Multiselect = true;
+        dlg.Filter = L.T("browseFilter");
+        // Masaustunde acilsin: kisayollarin buyuk cogunlugu orada.
+        try { dlg.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory); }
+        catch { }
+        if (dlg.ShowDialog(this) != DialogResult.OK) return;
+        AddFiles(dlg.FileNames);
+    }
+
     // ------------------------------------------------------------ surukle birak
 
     void Drop_DragEnter(object sender, DragEventArgs e)
     {
+        Diag.Log("[drop] DragEnter (" + sender.GetType().Name + ") dosya=" +
+                 e.Data.GetDataPresent(DataFormats.FileDrop));
         if (e.Data.GetDataPresent(DataFormats.FileDrop))
         {
             e.Effect = DragDropEffects.Copy;
@@ -174,10 +219,15 @@ class EditorForm : Form
 
     void Drop_DragDrop(object sender, DragEventArgs e)
     {
+        Diag.Log("[drop] DragDrop geldi (" + sender.GetType().Name + ")");
         string[] files = e.Data.GetData(DataFormats.FileDrop) as string[];
         ResetBar();
-        if (files == null || files.Length == 0) return;
+        if (files == null || files.Length == 0) { Diag.Log("[drop] dosya listesi bos"); return; }
+        AddFiles(files);
+    }
 
+    void AddFiles(string[] files)
+    {
         PageItem p = cboPage.SelectedItem as PageItem;
         string pageId = p != null ? p.Id : "";
 
@@ -188,10 +238,11 @@ class EditorForm : Form
             try
             {
                 string r = dropHelper.AddOne(f, pageId);
+                Diag.Log("[drop] " + f + " -> " + r);
                 last = r;
                 if (r.StartsWith("✓")) ok++;
             }
-            catch (Exception ex) { last = "HATA: " + ex.Message; }
+            catch (Exception ex) { last = "HATA: " + ex.Message; Diag.Log("[drop] ISTISNA: " + ex.Message); }
         }
 
         dropLabel.Text = files.Length == 1 ? last : (ok + "/" + files.Length + L.T("buttonsAdded"));
